@@ -34,10 +34,41 @@ Using generics with collections makes your code safer and clearer, as it explici
 ### 3. Operations with Collections in Java
 #### Fundamental Operations: Adding, Removing, and Accessing Elements
 Collections in Java provide a rich set of methods to perform various operations. Here are the common operations:
-- **Adding Elements:** Collections often offer `add` or `addAll` methods. For example, `list.add(element)` or `set.add(element)`.
+- **Adding Elements:** Collections often offer `add` or `addAll` methods. For example, `list.add(element)`,  `set.add(element)` or `collection.addAll(anotherCollection)`.
+    - *Using add:* This method is used to add a single element to a collection.
+    ```java
+    collection.add(element);
+  
+    List<String> list = new ArrayList<>();
+    list.add("Element1");
+    list.add("Element2");
+    Set<String> set = new HashSet<>();
+    set.add("Element1");
+    set.add("Element2");
+    ```
+  
+  *Using addAll:* This method is useful for merging two collections or adding multiple elements to a collection at once.
+    ```java
+    collection.addAll(anotherCollection);
+  
+    List<String> list1 = new ArrayList<>(Arrays.asList("E", "N", "D"));
+    List<String> list2 = new ArrayList<>(Arrays.asList("A", "V", "A"));
+    list1.addAll(list2); // list1 now contains [E, N, D, A, V, A]
+    Set<Integer> set1 = new HashSet<>(Arrays.asList(1, 2, 3));
+    Set<Integer> set2 = new HashSet<>(Arrays.asList(4, 5, 6));  
+    set1.addAll(set2); // set1 now contains [1, 2, 3, 4, 5, 6]
 - **Removing Elements:** Similar to adding, collections provide `remove` or `removeAll` methods, e.g., `list.remove(element)` or `set.remove(element)`.
+- **Checking Size:** The `size` method returns the number of elements in a collection.
+    ```java
+    int size = collection.size();
+  
+    List<String> list = new ArrayList<>(Arrays.asList("E", "N", "D"));
+    int size = list.size(); // size is 3
+    Set<Integer> set = new HashSet<>(Arrays.asList(1, 2, 3));
+    int size = set.size(); // size is 3
+    ```
 - **Accessing Elements:** Lists allow accessing elements by their index using the `get` method, e.g., `list.get(index)`. Sets don't support indexed access due to their nature.
-
+  
 #### Working with Iterators for Collection Traversal
 Iterators are used to traverse collections in Java. Each collection provides an iterator that can be used to iterate through the collection's elements:
 ```java
@@ -47,6 +78,23 @@ while(iterator.hasNext()){
     // process the element
 }
 ```
+- *Using forEach:* This method provides a streamlined approach to iterate over collections, making code cleaner and more readable. It is especially useful with lambda expressions.
+ ```java
+  collection.forEach(element -> {
+        // Process each element
+        });
+
+List<String> names = Arrays.asList("Helga", "Elena", "Natalia");
+  names.forEach(name -> System.out.println(name)); // Prints each name in the list
+Set<Integer> numbers = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+  numbers.forEach(number -> System.out.println(number)); // Prints each number in the set
+
+Map<String, Integer> map = new HashMap<>();
+  map.put("Ion", 25);
+  map.put("Petru", 30);
+  map.put("Ana", 23);
+  map.forEach((key, value) -> System.out.println(key + " is " + value + " years old."));
+ ```
 
 #### Code Examples for Operations with Different Collection Types
 For Lists:
@@ -138,22 +186,22 @@ List<String> filteredNames = names.stream() // create a stream
 - **Filter:**
   ```java
   List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
-  List<Integer> evenNumbers = numbers.stream()
-      .filter(n -> n % 2 == 0)
-      .collect(Collectors.toList());
+  List<Integer> evenNumbers = numbers.stream() // create a stream
+      .filter(n -> n % 2 == 0) // apply filter if n is even
+      .collect(Collectors.toList()); // collect results into a list
   ```
 
 - **Map:**
   ```java
-  List<Integer> doubled = numbers.stream()
-      .map(n -> n * 2)
-      .collect(Collectors.toList());
+  List<Integer> doubled = numbers.stream() // create a stream
+      .map(n -> n * 2) // apply mapping if n is even
+      .collect(Collectors.toList()); // collect results into a list
   ```
 
 - **Reduce:**
   ```java
   int sum = numbers.stream()
-      .reduce(0, (a, b) -> a + b);
+      .reduce(0, (a, b) -> a + b); // sum all elements of the stream starting from 0 
   ```
 
 ### 6. Best Practices for Working with Collections in Java
@@ -197,6 +245,6 @@ Throughout this guide, we've explored the fundamental aspects of the Java Collec
 - **List** – when we want elements inside the collection to be ordered
 - **Tree** – when we want elements inside the collection to be sorted
 - **Map** – when we want to keep in the data structure an object and an associated key
-- **Queue* – when we want elements inside the collection to be arranged in the order to be processed
+- **Queue** – when we want elements inside the collection to be arranged in the order to be processed
 - **Stack** – when we want elements inside the collection to be arranged in the order to be processed (LIFO)
 - **Deque** – when we want elements inside the collection to be arranged in the order to be processed (FIFO)

@@ -7,8 +7,8 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>JT</module>
+<!--        <module>JT</module>-->
         <module>ST/34_programming_with_collections_operations</module>
-        <module>TL</module>
+<!--        <module>TL</module>-->
     </modules>
 </project>
