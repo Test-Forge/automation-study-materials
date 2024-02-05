@@ -1,0 +1,95 @@
+= Java clean code and naming convention principles:
+
+- Author Name : Tudor Mateevici;
+
+- email: tudor.mateeevici@endava.com
+
+== Java Clean Code Principles:
+
+**C**lean code is a concept in software development that emphasizes writing code that is:
+
+- _understandable_
+- _maintainable_
+- _scalable_
+
+=== Here are some key principles:
+
+[%hardbreaks]
+*Readability*: Code should be easy to read and understand.
+This includes using meaningful variable names and comments,
+and following standard coding conventions.
+
+[%hardbreaks]
+*Maintainability*: Clean code should be easy to maintain over time.
+This means it should be easy to add new features, fix bugs, and refactor the code without breaking existing functionality.
+
+[%hardbreaks]
+*Focused*: Each piece of code should solve a specific problem.
+This applies to all levels of abstraction in the codebase like method, class,package, or module.
+
+[%hardbreaks]
+*Consistency*: Consistency in coding style makes the code easier to read and understand. This includes consistent use of indentation, spacing, and capitalization.
+
+*_Example 1._*
+
+Java without following clean code principles:
+
+link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/not_so_clean_java_code.java[not so clean java code]
+
+- The class and variable names are not meaningful.
+- The method name does not describe its purpose.
+- The variables `p` and `q` are not initialized through a constructor or setter methods, which can lead to state inconsistency.
+- The method `m()` is doing multiple things - initializing variables, calculating area, and printing the result.
+
+*_Example 2._*
+
+Java code with clean code principles:
+
+link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/pretty_clean_java_code.java[pretty clean java code]
+
+- The class, method, and variable names are meaningful and follow Java naming conventions.
+- The Rectangle class has a constructor to initialize its properties.
+- The calculateArea() method does one thing - it calculates the area.
+- The printArea() method does one thing - it prints the area.
+- The class and its methods are more focused, maintainable, and readable.
+- They follow the Single Responsibility Principle (SRP), one of the key principles of clean code.
+
+== Java Naming Conventions:
+
+[%hardbreaks]
+**J**ava has a set of standard naming conventions that developers are encouraged to follow to make their code easier to read and understand.
+
+=== Here are some key conventions:
+
+*_Classes_* and *_Interfaces_*:
+Should start with an uppercase letter and be a noun. For example, `Employee`, `Button`, `Thread`.
+
+*_Methods_*:
+Should start with a lowercase letter and be a verb. For example, `run()`, `print()`, `println()`.
+
+*_Variables_*:
+Should start with a lowercase letter. For example, `id`, `name`. Avoid starting variable names with special characters like & (ampersand), $ (dollar), _ (underscore).
+
+*_Packages_*:
+Should be in lowercase letters. For example, `java`, `lang`.
+If the name contains multiple words, it should be separated by dots (.).
+
+*_Constants_*:
+Should be in uppercase letters with words separated by underscores (“_”). For example, `TOP_PRIORITY`.
+
+*_Example 3:_*
+
+Java code w/o proper naming conventions:
+
+link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/not_so_proper_java_naming_conventions.java[not so proper java naming conventions]
+
+*_Example 4:_*
+
+Java code with proper naming convention:
+
+link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/pretty_proper_java_naming_convention.java[pretty proper java naming convention]
+
+
+== Conclusion:
+[%hardbreaks]
+Writing clean and maintainable Java code with proper naming conventions is crucial for readability, collaboration, and bug prevention. Descriptive class, method, and variable names enhance understanding, reduce errors, and make code reviews smoother. Consistent conventions ensure professionalism and facilitate future refactoring.
