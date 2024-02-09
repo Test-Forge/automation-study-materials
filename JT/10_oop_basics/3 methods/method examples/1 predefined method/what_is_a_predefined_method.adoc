@@ -1,0 +1,17 @@
+= Predefined Method
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+In Java, predefined methods are the method that is already defined in the Java class libraries is known as *predefined methods*.
+
+TIP: It is also known as the *standard library method* or *built-in method*.
+
+We can directly use these methods just by calling them in the program at any point.
+
+Some pre-defined methods are *length(), equals(), compareTo(), sqrt()*, etc.
+
+When we call any of the predefined methods in our program, a series of codes related to the corresponding method runs in the background that is already stored in the library.
+
+Each and every predefined method is defined inside a class. Such as *print()* method is defined in the _java.io.PrintStream class_.
+
+It prints the statement that we write inside the method. For example, *print("Java")*, it prints Java on the console.

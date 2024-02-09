@@ -1,0 +1,38 @@
+= Java class
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Java class is a class that has all its methods implemented.*
+For any class to be classified as Java, it cannot have any unimplemented methods.
+
+* Java classes can extend _abstract class in Java_ or implement interfaces, but they must implement all the methods of the abstract class or interface they inherit.
+* We can create an object of Java class using the _new_ keyword.
+* A Java class is an abstract class if it has even one abstract method, i.e. an unimplemented method because it doesn't meet the condition of being a Java class.
+* Java classes implement all methods and, in most cases, they inherit an abstract class or implement an interface.
+Java's final class is a class that cannot be inherited, so it's possible to declare Java classes as final classes.
+* As a Java class inherits or implements all the methods from an abstract class or an interface, it can also be called a _100% implemented class_ in Java.
+Java methods from classes are inherited or completely implemented from abstract classes or interfaces, which helps achieve 100% abstraction.
+
+=== Java Abstraction vs. Java Classes
+.Differences between Abstract and Java classes
+|===
+|Abstract class in Java |Java class in Java
+
+|Abstract class can have unimplemented methods
+|Java class cannot have unimplemented methods
+
+|Abstract class cannot be instantiated i.e. we cannot create an object of an abstract class
+|Java class can be instantiated i.e. we can create an object of an abstract class using the _new_ keyword
+
+|We can declare an abstract class using the _abstract_ keyword
+|Declaration of a Java class is the same as of any normal class using the _class_ keyword
+
+|It is impossible to create an abstract class without incomplete methods as an abstract class without any abstract method will be a normal java class
+|On the other hand, Java class should not have a single incomplete method
+
+|Abstract class cannot be declared as a final class. The reason is final class cannot be inherited and abstract classes are meant to be inherited and then used
+|Java class can be declared as a final class as they have implementation for all the methods and need not be inherited
+
+|Abstract class should have abstract methods
+|A Java class implements all the abstract(unimplemented) methods of its parent abstract class
+|===
