@@ -7,16 +7,16 @@
 
 ## Contents
 
-1. [Introduction to XPath:Navigating the Web Landscape](#introduction-to-xpath)
-2. [Tools for XPath Identification and Testing](#tools-for-xpath)
-3. [Common XPath Patterns: A Cheat Sheet for Element Identification](#common-xpath-patterns)
-4. [XPath Challenges and Solutions: Troubleshooting in Automation](#xpath-chanllenges)
-5. [Future Trends: Evolving Role of XPath in Automation Technologies](#future-trends)
+1. [Introduction to XPath: Navigating the Web Landscape](#introduction-to-xpath-navigating-the-web-landscape)
+2. [Tools for XPath Identification and Testing](#tools-for-xpath-identification-and-testing)
+3. [Common XPath Patterns: A Cheat Sheet for Element Identification](#common-xpath-patterns-a-cheat-sheet-for-element-identification)
+4. [XPath Challenges and Solutions: Troubleshooting in Automation](#xpath-challenges-and-solutions-troubleshooting-in-automation)
+5. [Future Trends: Evolving Role of XPath in Automation Technologies](#future-trends-evolving-role-of-xpath-in-automation-technologies)
 6. [Resources](#resources)
 
 ***
 
-### Introduction to XPath:Navigating the Web Landscape
+### Introduction to XPath: Navigating the Web Landscape
 
 <mark style="background-color:DarkSeaGreen">XPath (XML Path Language)</mark> is a query language used for navigating XML
 documents. Is a crucial component in automating interactions with web pages through tools like Selenium WebDriver. It's
@@ -86,7 +86,7 @@ Use axes like following, preceding, parent, etc., to navigate to different parts
 
 ***
 
-### XPath Generation Tools
+### Tools for XPath Identification and Testing
 
 <details>
 <summary>🌐Browser Developer Tools</summary>
@@ -510,6 +510,29 @@ public class Librarius {
 }
 
 ```
+<p style="font-size: 15px;color:Wheat"> How to use @FindBy annotation? </p>
+
+For example let`s locate the 'Email' field.
+
+<img width="70%" src=images/findby-annotation.png>
+
+In the screen for the Email field we can use the ID locator - 'email' as a selector to locate the field. So, to use it in the code with @FindBy annotation, we can write it as follows:
+
+```java
+@FindBy(id="email")
+private WebElement emailField;
+```
+Similarly, we can use other locator strategies like name, CSS, XPath, etc. 
+
+Once we have defined the WebElement, we can directly use it in the methods to act on the element. The following lines of code show how to interact with the WebElement defined using @FindBy annotation:
+
+```java
+public void enterEmail() {
+    this.emailField.sendKeys("your-email");
+        }
+```
+
+Fore more information: https://www.lambdatest.com/blog/findby-annotation-selenium-java/
 
 <strong>Considerations:</strong>
 
@@ -518,12 +541,12 @@ public class Librarius {
 
 ***
 
-### 🚧 XPath Challenges and Solutions: Troubleshooting in Automation
+### XPath Challenges and Solutions: Troubleshooting in Automation
 
 XPath is a powerful tool for locating elements on web pages, but like any technology, it comes with its set of
 challenges. Troubleshooting XPath expressions is a common aspect of web automation, and understanding the challenges and
 their solutions is crucial for effective and maintainable automation scripts.
-> 🧗‍♂ **Challenges:**
+> 🧗‍♂ 🚧 **Challenges:**
 
 1. Brittleness of XPath:
 
@@ -624,3 +647,6 @@ public class LoginPage {
 
 - https://www.w3schools.com/xml/xpath_intro.asp
 - https://www.w3schools.com/xml/xpath_examples.asp
+
+
+Copyright © 2024 by Liurca Andreea 
