@@ -715,20 +715,21 @@ rootLogger.appenderRef.file.ref = FileAppender
 
 #### Explanation of Configuration Elements
 * `status = error`: Sets the log level for internal Log4j 2 status logging. It's helpful for debugging Log4j 2 issues.
-\
+
 * `name = PropertiesConfig`: An arbitrary name for your configuration.
 
 Appenders section:
 
-* `appender.console.type` = Console: Defines a console appender.
-* `appender.console.name` = ConsoleAppender: Sets a name for the console appender.
-* `appender.console.layout.type` = PatternLayout: Specifies that this appender will use a pattern layout.
-* `appender.console.layout.pattern` = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n: Defines the pattern for log messages. This pattern includes the timestamp, log level, logger name, line number, and the log message.
-* `appender.file.type` = File: Defines a file appender.
-* `appender.file.name` = FileAppender: Sets a name for the file appender.
-* `appender.file.fileName` = logs/app.log: Specifies the log file's name and path.
-* `appender.file.layout.type` = PatternLayout and appender.file.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n: Similar to the console appender, defines the layout and pattern for file logging.
-* `appender.file.append` = true: Indicates that log messages should be appended to the file if it already exists.
+* `appender.console.type = Console`: Defines a console appender.
+* `appender.console.name = ConsoleAppender`: Sets a name for the console appender.
+* `appender.console.layout.type = PatternLayout`: Specifies that this appender will use a pattern layout.
+* `appender.console.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n`: Defines the pattern for log messages. This pattern includes the timestamp, log level, logger name, line number, and the log message.
+* `appender.file.type = File`: Defines a file appender.
+* `appender.file.name = FileAppender`: Sets a name for the file appender.
+* `appender.file.fileName = logs/app.log`: Specifies the log file's name and path.
+* `appender.file.layout.type = PatternLayout`: defines the layout for file logging
+* `appender.file.layout.pattern = %d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n`: Similar to the console appender, defines the pattern for file logging.
+* `appender.file.append = true`: Indicates that log messages should be appended to the file if it already exists.
 
 Logger section:
 
