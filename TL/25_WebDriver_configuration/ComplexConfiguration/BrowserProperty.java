@@ -14,7 +14,7 @@ public class BrowserProperty {
     private static String browser = PropertiesManager.getBrowser();
 
 
-    public static WebDriver getBrowserProperty(){
+    public static WebDriver getBrowserProperty() {
         switch (browser) {
             case "chrome" -> {
                 webDriver = new ChromeDriver();

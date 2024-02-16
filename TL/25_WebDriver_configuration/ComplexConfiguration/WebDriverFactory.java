@@ -19,20 +19,21 @@ public class WebDriverFactory {
         }
     }
 
-    public static WebDriver getWebDriver(){
-        if (webDriver == null){
+    public static WebDriver getWebDriver() {
+        if (webDriver == null) {
             new WebDriverFactory();
             logger.info("new WebDriver");
         }
         return webDriver;
     }
 
-    public static void closeBrowser(){
+    public static void closeBrowser() {
         webDriver.close();
         logger.info("Browser closed");
     }
-    public static void tearDown(){
-        if (webDriver != null){
+
+    public static void tearDown() {
+        if (webDriver != null) {
             webDriver.quit();
             webDriver = null;
             logger.info("Driver quit");

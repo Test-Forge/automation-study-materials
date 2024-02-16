@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class NavigationTest {
 
     @Test
-    public void navigationTest(){
+    public void navigationTest() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.selenium.dev/documentation/webdriver/");
