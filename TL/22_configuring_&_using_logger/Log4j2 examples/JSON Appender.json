@@ -1,0 +1,34 @@
+{
+        "configuration": {
+                "status": "WARN",
+                "appenders": {
+                        "console": {
+                                "name": "ConsoleAppender",
+                                "target": "SYSTEM_OUT",
+                                "PatternLayout": {
+                                        "pattern": "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"
+                                }
+                        },
+                        "File": {
+                                "name": "FileAppender",
+                                "fileName": "logs/app.log",
+                                "PatternLayout": {
+                                        "pattern": "%d{yyyy-MM-dd HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"
+                                }
+                        }
+                },
+                "loggers": {
+                        "root": {
+                                "level": "info",
+                                "appender-ref": [
+                                        {
+                                                "ref": "ConsoleAppender"
+                                        },
+                                        {
+                                                "ref": "FileAppender"
+                                        }
+                                ]
+                        }
+                }
+        }
+}
