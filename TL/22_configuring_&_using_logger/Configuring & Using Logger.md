@@ -29,6 +29,7 @@ messages, customize log outputs, and harness the power of logging frameworks lik
    - [Configuration Using a Properties File](#configuration-using-a-properties-file)
    - [Lazy Logging With Lambda Expressions](#lazy-logging-with-lambda-expressions)
       - [Benefits of Using Lambda Expressions with Log4j 2](#benefits-of-using-lambda-expressions-with-log4j-2)
+- [Resources](#resources)
 
 ## What is Logging?
 
@@ -685,5 +686,11 @@ logger.trace("Name is {} and age is {}", () -> getName(), () -> getRandomNumber(
 * **Functional Programming Style**: They allow for a more functional programming style in Java, making your logging statements part of functional pipelines if needed.
 
 >🎉In conclusion, the integration of lambda expressions into Log4j 2 provides significant benefits, particularly in terms of performance optimization and code readability, making it a powerful feature for developers logging in Java applications.
+
+# Resources
+* https://logging.apache.org/log4j/2.x/index.html
+* https://www.baeldung.com/log4j2-appenders-layouts-filters
+* https://www.baeldung.com/java-log4j2-file-and-console
+* http://www.baeldung.com/log4j-2-lazy-logging
 
 [Back to top](#table-of-contents)
