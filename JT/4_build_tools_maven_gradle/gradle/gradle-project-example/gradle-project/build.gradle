@@ -1,0 +1,82 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        // Configure main source directories
+        java {
+            srcDirs 'src/main/java'
+        }
+        resources {
+            srcDirs 'src/main/resources'
+        }
+    }
+    test {
+        java {
+            // Configure test source directories
+            srcDirs 'src/test/java'
+        }
+        resources {
+            srcDirs 'src/test/resources'
+        }
+    }
+}
+
+// Define the package prefix
+String basePackage = 'org.example.gradleproject'
+
+// Append the package prefix to the source directories
+sourceSets.main.java.srcDirs = [basePackage + '/gradle-subproject/src/main/java']
+
+
+// Apply the configurations defined in dependency.gradle
+apply from: rootProject.file('buildsystem/dependencies.gradle')
+
+dependencies {
+
+    implementation testDependencies.testSlf4j
+    implementation testDependencies.testSpringCore
+    implementation testDependencies.testGoogleGuava
+    implementation testDependencies.testCommonsLang
+    implementation testDependencies.testMysqlConnector
+
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    // Specify the main class for your application
+    mainClassName = 'org.example.gradleproject/main'
+}
+
+run {
+    def env = project.hasProperty('env') ? project.getProperty('env') : 'dev'
+
+    if (env == 'dev') {
+        args = ['--config=dev']
+        systemProperty 'env', 'dev'
+        // Other configurations for the 'dev' environment
+    } else if (env == 'prod') {
+        args = ['--config=prod']
+        systemProperty 'env', 'prod'
+        // Other configurations for the 'prod' environment
+    } else {
+        throw new IllegalArgumentException("Unsupported environment: $env")
+    }
+
+    // Specify test JVM arguments
+    jvmArgs '-Xmx512m'
+}
