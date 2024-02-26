@@ -1,0 +1,52 @@
+= Constructor in Java
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+A *constructor* is a block of codes similar to the method. It is called when an instance of the class is created.
+
+At the time of calling constructor, memory for the object is allocated in the memory.
+
+TIP: Every time an object is created using the *new()* keyword, at least one constructor is called.
+
+It calls a default constructor if there is no constructor available in the class. In such case, Java compiler provides a default constructor by default.
+
+
+=== Rules for creating constructor
+
+There are two rules defined for the constructor:
+
+* Constructor name must be the same as its class name.
+* A constructor must have no explicit return type.
+* A constructor cannot be abstract, static, final and synchronized.
+
+=== Types of constructors
+
+In Java, constructors can be divided into three types:
+
+Default constructor::
+
+A constructor that has no parameters is known as '_default constructor_'.
+* A default constructor is invisible.
+* And if we write a constructor with no arguments, the compiler does not create a default constructor.
+
+TIP: If there is no constructor in a class, compiler automatically creates a default constructor.
+
+image::../resource/DefaultConstructor.png[]
+
+====
+The default constructor is used to provide the default values to the object like 0, null, etc., depending on the type.
+====
+
+No-args constructor::
+If a constructor does not accept any parameters(arguments), it is known as a '_no-argument constructor_'.
+
+Parameterized constructor::
+A constructor which has a specific number of parameters is called a '_parameterized constructor_'.
+* *Overloading constructor*
+
+*** Constructor overloading in Java is a technique of having more than one constructor with different parameter lists.
+*** They are arranged in a way that each constructor performs a different task.
+*** They are differentiated by the compiler by the number of parameters in the list and their types.
+
+TIP: The parameterized constructor is used to provide different values to distinct objects.

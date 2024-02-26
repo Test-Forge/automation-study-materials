@@ -1,0 +1,85 @@
+= Class in Java
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*A class* (in the context of Java) is a template to create objects and to define object data types and methods.
+
+----
+Classes are categories, and objects are items within each category.
+----
+----
+Class is a set of objects which shares common characteristics/behavior and common properties/attributes.
+----
+----
+Class is a group of variables of different data types and group of methods.
+----
+
+Java provides a keyword named class by which we can declare a class. Inside the class, we define _class members_ and _functions_. It is not possible to create Java programs without class.
+
+We can also refer a class as a user-defined data type because an object-oriented paradigm allows us to model real-world objects.
+
+
+=== Types of classes
+
+There are seven types of classes in Java:
+
+* Static class
+* Final class
+* Abstract class
+* Concrete class
+* Singleton class
+* POJO class
+* Inner class
+
+=== Parts of classes
+
+A class declaration is made up of the following parts:
+
+* Modifiers
+* Class name
+* Superclass (the name of a class' parent, if available)
+* Implemented Inheritances (if any)
+* Appropriate keywords depending on whether the class extends from a _Superclass_ and/or implements one or more interface
+* Class body curly brackets *{}*
+
+=== Class content
+
+A class in Java can contain:
+
+* Fields
+* Methods
+* Constructors
+* Blocks
+* Nested class and interface
+
+=== Constructor in classes
+
+Constructors are used to create and initialized new objects in class.
+
+=== Method in classes
+
+A method is like a function which is used to expose the behaviour of an object.
+
+
+=== Constructor vs Method
+.There are many differences between constructors and methods.
+
+|===
+|Java Constructor |Java Method
+
+|A constructor is used to initialize the state of an object
+|A method is used to expose the behavior of an object
+
+|A constructor must not have a return type
+|A method must have a return type
+
+|The constructor is invoked implicitly
+|The method is invoked explicitly
+
+|The Java compiler provides a default constructor if you don't have any constructor in a class
+|The method is not provided by the compiler in any case
+
+|The constructor name must be same as the class name
+|The method name may or may not be same as the class name
+|===

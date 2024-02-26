@@ -1,0 +1,24 @@
+= OOP Basics
+Firstname Lastname <author@asciidoctor.org>
+3.0, July 29, 2022: AsciiDoc article template
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+OOP stands for *Object-Oriented Programming*.
+
+=== What is a OOP
+
+OOP is a programming paradigm that focuses on the use of *objects* to represent and manipulate data.
+
+In OOP, data is encapsulated within _objects_, and objects are defined by their _properties_ (attributes) and _behaviors_ (methods).
+
+
+=== Advantages of OOP
+
+Object-oriented programming has several advantages over procedural programming:
+
+* OOP is faster and easier to execute
+* OOP provides a clear structure for the programs
+* OOP helps to keep the Java code DRY "_Don’t Repeat Yourself_" (DRY), and makes the code easier to maintain, modify and debug
+* OOP makes it possible to create full reusable applications with less code and shorter development time
