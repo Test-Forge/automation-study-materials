@@ -253,7 +253,7 @@ public class PropertiesManager {
         }
     }
 
-    public static String getBrowser() {
+    public static String getBrowserType() {
         if (browser == null) {
             new PropertiesManager();
             logger.info("browser retrieved");
@@ -261,7 +261,7 @@ public class PropertiesManager {
         return browser;
     }
 
-    public static void setBrowser(String browser) {
+    public static void setBrowserType(String browser) {
         PropertiesManager.browser = browser;
     }
 
