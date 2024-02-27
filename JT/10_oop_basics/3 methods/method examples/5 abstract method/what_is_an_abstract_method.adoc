@@ -1,0 +1,15 @@
+= Abstract method
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+The method that does not have method body is known as *abstract method*.
+
+In other words, without an implementation is known as abstract method.
+It always declares in the abstract class.
+It means the class itself must be abstract if it has abstract method.
+
+TIP: To create an abstract method, we use the keyword abstract.
+
+=== Syntax
+
+image::../../../resource/abstractMethod.png[]

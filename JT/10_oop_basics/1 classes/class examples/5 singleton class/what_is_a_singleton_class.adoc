@@ -1,0 +1,18 @@
+= Singleton class
+
+A *singleton class* in Java is a special class that allows only one instance (or object) of itself to be created (exists).
+
+=== How to create a singleton class
+
+To create a singleton class, a class must implement the following properties:
+
+* Create a *private* constructor of the class to restrict object creation outside the class.
+* Create a *private* attribute of the class type that refers to the single object.
+* Create a *public static* method that allows us to create and access the object we created.
+Inside the method, we will create a condition that restricts us from creating more than one object.
+
+====
+Singleton is a design pattern rather than a feature specific to Java.
+
+A design pattern is like our code library that includes various coding techniques shared by programmers around the world.
+====
