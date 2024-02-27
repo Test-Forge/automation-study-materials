@@ -152,3 +152,4 @@ If an argument includes double quotes (as part of the argument), escape the doub
 - [Create and edit run/debug configurations](https://developer.android.com/studio/run/rundebugconfig)
 - [Creating a run/debug configuration for the test](https://subscription.packtpub.com/book/programming/9781784396930/7/ch07lvl1sec41/creating-a-run-debug-configuration-for-the-test)
 - [Run/Debug configurations dialog](https://w3schoolsua.github.io/hyperskill/intellij-idea-run-configurations_en.html#gsc.tab=0)
+- [Tutorial: Remote debug](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html)

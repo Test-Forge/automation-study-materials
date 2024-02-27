@@ -19,7 +19,7 @@
 ## Overview
 ***
 
-Debugger makes application debugging much easier. Using debugger, we can **stop** the execution of program at a certain point, **inspect variables**, **evaluate** and some other things. IntelliJ provides inbuilt Java debugger.
+Debugger makes application debugging much easier. Using debugger, we can **pause** the execution of program at a certain point, **inspect variables**, **evaluate expression**, **modify data in run** and some other things. IntelliJ provides inbuilt Java debugger.
 The debugger is a powerful tool, which lets you find bugs a lot faster by providing an insight into the internal operations of a program. This is possible by pausing the execution and analyzing the state of the program by thorough examination of variables and how they are changed line by line.
 
 There are different kinds of errors, which you are going to deal with. Some of them are easy to catch, like syntax errors, because they are taken care of by the compiler. Another easy case is when the error can be quickly identified by looking at the stack trace, which helps you figure out where the error occurred.
@@ -64,6 +64,8 @@ To examine how the program operates at runtime, we need to suspend its execution
 Breakpoint allows stopping program execution at certain point. Breakpoints can be set by hovering the mouse over the Editor’s gutter area and clicking on it.
 
 Click the gutter at the line where the **findAverage** method is called.
+
+
 ![breakpoint.png](images%2Fbreakpoint.png)
 
 ## Run the program in debug mode
@@ -84,6 +86,7 @@ Since we are going to pass arguments for running and debugging the program, make
 1. Click the Run icon in the gutter, then select Modify Run Configuration.
 ![run_config.png](images%2Frun_config.png)
 2. Enter arguments in the Program arguments field.
+
 ![setup_arguments.png](images%2Fsetup_arguments.png)
 3. Click the Run button near the main method. From the menu, select Debug.
 ![debug_mod.png](images%2Fdebug_mod.png)
@@ -99,7 +102,51 @@ As the findAverage method has not been called yet, all its local variables like 
 ![debug_tutorial_analyzing.png](images%2Fdebug_tutorial_analyzing.png)
 
 You can also get information about all variables that are currently in scope in the Variables panel.
+
+
 ![debug_config_arguments.png](images%2Fdebug_config_arguments.png)
+
+## Evaluate Expression
+***
+
+**Alt + F8** is the shortcut key to evaluate expression/variable in the IntelliJ IDEA. You can only evaluate a expression/variable if the code/program is running in the Debug mode.
+
+1. Run your program in the Debug mode and add a breakpoint from where you want to evaluate the expression/variable of the program.
+2. Select the variable that you want to evaluate and press Alt + F8 together from the keyboard.
+
+![evaluate1.png](images%2Fevaluate1.png)
+![evaluate2.png](images%2Fevaluate2.png)
+
+3. Click on the Evaluate button to see what’s inside of your variable.
+
+![evaluate3.png](images%2Fevaluate3.png)
+
+Alternatively, you can also evaluate the expression by Selecting the variable, make a Right Click on it and click on the Evaluate Expression…
+
+![evaluate4.png](images%2Fevaluate4.png)
+![evaluate5.png](images%2Fevaluate5.png)
+
+## Modify data while running the program in debug mode
+***
+
+1. **Access the Variables Panel**: While debugging, you can access the Variables panel in IntelliJ IDEA to inspect the current values of variables. You can typically find this panel in the Debug tool window, which opens automatically when you start debugging your program or use right click and select Evaluate Expression.
+
+![data1.png](images%2Fdata1.png)
+2. **Locate the Variable to Modify**: In the Variables panel, locate the variable that you want to modify. You should see a list of variables currently in scope at the point where the debugger has paused execution, including local variables, instance variables, and static variables.
+
+![data2.png](images%2Fdata2.png)
+3. **Double-click on the Variable's Value**: To modify the value of a variable, double-click on its current value in the Variables panel. This action should turn the value into an editable field, allowing you to enter a new value.
+
+![data3.png](images%2Fdata3.png)
+4. **Enter the New Value**: Once the value is editable, type in the new value that you want to assign to the variable and press Enter to confirm your changes or Set. The variable's value should update immediately in the Variables panel.
+
+![data4.png](images%2Fdata4.png)
+5. **Observe the Effects**: After modifying the variable, you can observe how the change affects the behavior of your program as you continue debugging. Keep in mind that modifying variables during debugging can help you test different scenarios and troubleshoot issues more effectively.
+
+![data5.png](images%2Fdata5.png)
+6. **Evaluate with new value**
+
+![data6.png](images%2Fdata6.png)
 
 ## Step through the program
 ***
@@ -112,9 +159,11 @@ Another line gets highlighted in the editor because we advanced the execution po
 2. Continue stepping with Step Over **F8**.
 Notice how it is different from Step Into. While it also advances the execution one step forward, it doesn't visit other methods like Integer.parseInt() along the way.
 Let's keep stepping and see how the local variable result is declared and how it is changed with each iteration of the loop.
+
 ![debug_tutorial_step_over.png](images%2Fdebug_tutorial_step_over.png)
    Right now the variable s contains the value "3". It is going to be converted to int and be added to result, which currently has the value of 3.0. No errors so far. The sum is calculated correctly.
 3. Two more steps take us to the return statement, and we see where the omission was. We are returning result, which has the value of 6.0, without dividing it by the number of inputs. This was the cause of incorrect program output.
+
 ![debug_tutorial_result.png](images%2Fdebug_tutorial_result.png)
 
 5. Let's correct the error:
@@ -142,3 +191,5 @@ You can resume program execution by clicking on Resume Program or by using the s
 - [Intellij Idea - Debugging](https://www.tutorialspoint.com/intellij_idea/intellij_idea_debugging.htm)
 - [Debugger Basics in IntelliJ IDEA](https://blog.jetbrains.com/idea/2020/05/debugger-basics-in-intellij-idea/)
 - [How to debug Java with IntelliJ: breakpoints, evaluate expression, watches and variable view](https://www.eviltester.com/2016/07/how-to-debug-java-with-intellij.html)
+- [Debugger Upskill: Variables, Evaluate Expression, and Watches](https://blog.jetbrains.com/idea/2023/04/debugger-upskill-variables-evaluate-expression-watches/)
+- [Tutorial: Set value](https://www.jetbrains.com/help/idea/tutorial-set-value.html) 
