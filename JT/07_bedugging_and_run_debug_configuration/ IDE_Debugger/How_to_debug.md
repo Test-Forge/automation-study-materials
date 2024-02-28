@@ -10,9 +10,10 @@
   * [Set breakpoints](#set-breakpoints)
   * [Run the program in debug mode](#run-the-program-in-debug-mode)
   * [Analyze the program state](#analyze-the-program-state)
+  * [Evaluate Expression](#evaluate-expression)
+  * [Modify data while running the program in debug mode](#modify-data-while-running-the-program-in-debug-mode)
   * [Step through the program](#step-through-the-program)
   * [Stop the debugger session and rerun the program](#stop-the-debugger-session-and-rerun-the-program)
-  * [Action shortcuts](#action-shortcuts)
   * [Resources](#resources)
 <!-- TOC -->
 
@@ -26,6 +27,10 @@ There are different kinds of errors, which you are going to deal with. Some of t
 
 However, there are errors that can be very tricky and take really long to find and fix.
 This is where the debugger is useful. While debugging, you are in full control of the things. In this manual we are covering a basic debugging scenario to get you started.
+
+![meme01.jpg](images%2Fmeme01.jpg)
+
+In case you are not Chuck Norris, follow the next example:
 
 ## Examine the code
 ***
@@ -57,6 +62,8 @@ It compiles and runs without issues; however, the result is not what one would e
 First of all, you need to think about where the suspected error might be coming from. We can assume the problem is not in the print statements. Most likely, unexpected results are coming from our findAverage method. In order to find the cause, let's examine its behavior in the runtime.
 
 ## Set breakpoints
+
+![meme07.jpeg](images%2Fmeme07.jpeg)
 ***
 
 To examine how the program operates at runtime, we need to suspend its execution before the suspected piece of code. This is done by setting breakpoints. Breakpoints indicate the lines of code where the program will be suspended for you to examine its state.
@@ -69,8 +76,12 @@ Click the gutter at the line where the **findAverage** method is called.
 ![breakpoint.png](images%2Fbreakpoint.png)
 
 ## Run the program in debug mode
-***
 
+Don't do this: 
+
+![meme03.jpg](images%2Fmeme03.jpg)
+
+***
 Now let's start the program in debug mode.
 When the test is running in debug and has stopped at a breakpoint, I can:
 
@@ -113,7 +124,7 @@ You can also get information about all variables that are currently in scope in 
 
 1. Run your program in the Debug mode and add a breakpoint from where you want to evaluate the expression/variable of the program.
 2. Select the variable that you want to evaluate and press Alt + F8 together from the keyboard.
-
+![MicrosoftTeams-video.gif](images%2FMicrosoftTeams-video.gif)
 ![evaluate1.png](images%2Fevaluate1.png)
 ![evaluate2.png](images%2Fevaluate2.png)
 
@@ -164,13 +175,15 @@ Let's keep stepping and see how the local variable result is declared and how it
    Right now the variable s contains the value "3". It is going to be converted to int and be added to result, which currently has the value of 3.0. No errors so far. The sum is calculated correctly.
 3. Two more steps take us to the return statement, and we see where the omission was. We are returning result, which has the value of 6.0, without dividing it by the number of inputs. This was the cause of incorrect program output.
 
+![meme06.png](images%2Fmeme06.png)
+
 ![debug_tutorial_result.png](images%2Fdebug_tutorial_result.png)
 
 5. Let's correct the error:
 ```java
 return result / input.length;
 ```
-
+![meme04.png](images%2Fmeme04.png)
 ## Stop the debugger session and rerun the program
 ***
 
@@ -184,6 +197,8 @@ You can resume program execution by clicking on Resume Program or by using the s
 
 ![debug_tutorial_verify.png](images%2Fdebug_tutorial_verify.png)
 
+![meme02.jpg](images%2Fmeme02.jpg)
+
 ## Resources
 ***
 
@@ -192,4 +207,6 @@ You can resume program execution by clicking on Resume Program or by using the s
 - [Debugger Basics in IntelliJ IDEA](https://blog.jetbrains.com/idea/2020/05/debugger-basics-in-intellij-idea/)
 - [How to debug Java with IntelliJ: breakpoints, evaluate expression, watches and variable view](https://www.eviltester.com/2016/07/how-to-debug-java-with-intellij.html)
 - [Debugger Upskill: Variables, Evaluate Expression, and Watches](https://blog.jetbrains.com/idea/2023/04/debugger-upskill-variables-evaluate-expression-watches/)
-- [Tutorial: Set value](https://www.jetbrains.com/help/idea/tutorial-set-value.html) 
+- [Tutorial: Set value](https://www.jetbrains.com/help/idea/tutorial-set-value.html)
+
+**Author: Arnaut Olga**
