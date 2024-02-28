@@ -1,5 +1,7 @@
 # Configuring a project. Property files
 
+by Igor Chele
+2024
 ---
 
 ## Contents
