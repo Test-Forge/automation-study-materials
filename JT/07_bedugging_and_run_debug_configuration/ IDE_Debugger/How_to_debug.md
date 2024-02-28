@@ -192,4 +192,6 @@ You can resume program execution by clicking on Resume Program or by using the s
 - [Debugger Basics in IntelliJ IDEA](https://blog.jetbrains.com/idea/2020/05/debugger-basics-in-intellij-idea/)
 - [How to debug Java with IntelliJ: breakpoints, evaluate expression, watches and variable view](https://www.eviltester.com/2016/07/how-to-debug-java-with-intellij.html)
 - [Debugger Upskill: Variables, Evaluate Expression, and Watches](https://blog.jetbrains.com/idea/2023/04/debugger-upskill-variables-evaluate-expression-watches/)
-- [Tutorial: Set value](https://www.jetbrains.com/help/idea/tutorial-set-value.html) 
+- [Tutorial: Set value](https://www.jetbrains.com/help/idea/tutorial-set-value.html)
+
+**Author: Arnaut Olga**
