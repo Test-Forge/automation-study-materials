@@ -1,5 +1,8 @@
 # Selenium WebDriver
 
+by Igor Chele
+2024
+***
 
 ## Contents
 
@@ -14,7 +17,8 @@
 
 ## What is Selenium WebDriver
 
-Selenium WebDriver is a powerful tool for automating web browsers. It provides a programming interface (API) for interacting with web browsers and automating
+Selenium WebDriver is a powerful tool for automating web browsers. It provides a programming interface (API) for
+interacting with web browsers and automating
 web application testing. WebDriver allows you to write code in various programming
 languages (such as **Java**, Python, C#, etc.) to control web browsers programmatically
 and perform actions like clicking buttons, filling forms, navigating through pages,
@@ -37,15 +41,17 @@ test execution time. This is a more complex solution which is used with WebDrive
 
 ## Dependencies
 
-In order to run it , first we need to install Selenium library (add dependency to pom.xml file) from [here](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java) , otherwise, see an example below.
+In order to run it , first we need to install Selenium library (add dependency to pom.xml file)
+from [here](https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java) , otherwise, see an example below.
 
 ```xml
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.13.0</version>
-            <scope>test</scope>
-        </dependency>
+
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-java</artifactId>
+    <version>4.13.0</version>
+    <scope>test</scope>
+</dependency>
 
 ```
 
@@ -78,7 +84,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BasicTest {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         WebDriver driver = new ChromeDriver();
 
         driver.get("https://selenium.dev/documentation/");
@@ -87,13 +93,15 @@ public class BasicTest {
     }
 }
 ```
-See attached a simple example "BasicConfiguration"(separately in JUnit and Cucumber) of a test with some additional commands specific for WebDriver.
+
+See attached a simple example "BasicConfiguration"(separately in JUnit and Cucumber) of a test with some additional
+commands specific for WebDriver.
 
 ***
 
 ### WebDriver basic commands
 
-#### Here are some examples you might use 
+#### Here are some examples you might use
 
 - **driver.get(string arg0)** - this method _load_ a new web page in current browser window.
 - **driver.navigate().to(string arg0)** - same operation as previous
@@ -111,13 +119,15 @@ See attached a simple example "BasicConfiguration"(separately in JUnit and Cucum
 - **driver.switchTo().newWindow(WindowType.WINDOW)** - opens a new browser window and switches to it
 
 #### Some outdated commands
+
 - **driver.wait()** - better use awaitility for wait operations
 - **driver.findElement()** - POM (Page Object Model) recommended, but might have a special case to be used
+
 ```java
 public class NavigationTest {
 
     @Test
-    public void navigationTest(){
+    public void navigationTest() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.selenium.dev/documentation/webdriver/");
@@ -133,12 +143,14 @@ public class NavigationTest {
     }
 }
 ```
+
 ___
 
 ## Conclusions
 
 WebDriver can have a much more complex configuration to cover the needs of ATF tests execution.
-There are various methods of configurations, but most recommended are to use Singleton pattern for browser initiation and
+There are various methods of configurations, but most recommended are to use Singleton pattern for browser initiation
+and
 to ensure that unused browser sessions to be closed.
 
 See also attached an example of WebDriver configuration via WebDriverFactory with browser selection.(:It wasn't me!:)
