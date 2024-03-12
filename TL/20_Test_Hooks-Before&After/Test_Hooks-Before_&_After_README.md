@@ -8,8 +8,9 @@ by Igor Chele
 ## Contents
 
 1. [HOOKS - General info](#hooks)
-2. [Examples](#examples)
-3. [Conclusions](#conclusions)
+2. [Attributes used with Hooks](#attributes-used-with-hooks)
+3. [Examples](#examples)
+4. [Conclusions](#conclusions)
 
 ## HOOKS
 
@@ -25,14 +26,11 @@ Cucumber Java supports several types of hooks, including:
    test environment or perform preconditions necessary for the scenario to execute.
    For example, you might use a before hook to open a web browser, initialize test data,
    or authenticate users. Tags can be used to separate conditions required for special tests.
-   Also, several @Before can be present with different methods - in this case an order number is used
-   and hooks are executed according that order number in *ascending* order >> order 1, order 2,order 3...
 
 
 2. After Hooks: These hooks run after each scenario and are used to clean up the test environment
    or perform post-execution tasks. After hooks are commonly used to close resources, log results,
-   or capture screenshots after the scenario has completed. In case of multiple @After with specified order number
-   the execution is according order number in *descending* order >> ... order 3, order 2, order 1.
+   or capture screenshots after the scenario has completed.
 
 
 3. BeforeStep and AfterStep Hooks: These hooks run before and after each step within a scenario,
@@ -50,6 +48,29 @@ Cucumber Java supports several types of hooks, including:
 5. BeforeAll and AfterAll hooks are used for same purposes as Before and After in case there is a separation of
    preconditions required for specific tests divided by some tags (as : UI, API, Regression, Production,
    Sanity and others), still some general preconditions are required in order to start any test pack.
+
+***
+
+### Attributes used with Hooks
+
+- **Tags** - Tags are applied especially for Cucumber scenarios and features, hence the need to prepare specific
+  preconditions or execute specific actions at the end of tests related to those. Most common are the ones that  
+  represents test suites as : "@smoke", "@regression", "@sanity"; separate test types : "@UI", "@ui_tests", "@API",
+  "@api_tests"; different environments as : "@Dev", "@Test", "@Integration", "@Pre_Prod"
+
+
+- **order** - several @Before can be present with different methods - in this case an order number is used
+  and hooks are executed according that order number in *ascending* order >> order 1, order 2,order 3...
+  In case of multiple @After with specified order number the execution is according order number in *descending*
+  order >> ... order 3, order 2, order 1.
+
+
+- **timeout** - takes a value representing the maximum time (in milliseconds) that the hook method is allowed
+  to execute before it is considered timed out. If it takes longer Cucumber will abort the execution and mark it as
+  failed. This prevents test scenarios from hanging indefinitely due to unexpected issues in setup or teardown
+  operations.
+
+***
 
 ### Examples
 
@@ -144,7 +165,32 @@ public class Hooks {
     public static void launchBrowser(Scenario scenario) {
         logger.info(System.lineSeparator() + "Starting UI test: " + scenario.getName());
         WebDriverFactory.getWebDriver();
+    }
+
+    @Before(order = 1, value = "@UI_Desktop")
+    public static void getDesktopSize() {
+        DeviceManager.getDesktopResolution();
+        logger.info("Desktop resolution is retrieved");
+    }
+
+    @Before(order = 2, value = "@UI_Desktop")
+    public static void maximizeBrowser() {
         WebDriverFactory.openNewBrowser();
+        WebDriverFactory.maximizeBrowserWindow();
+        logger.info("Browser maximized to desktop size");
+    }
+
+    @Before(order = 1, value = "@UI_Phone")
+    public static void getPhoneSize() {
+        DeviceManager.getPhoneResolution();
+        logger.info("Phone resolution is retrieved");
+    }
+
+    @Before(order = 2, value = "@UI_Phone")
+    public static void minimizeBrowser() {
+        WebDriverFactory.openNewBrowser();
+        WebDriverFactory.minimizeBrowserWindow();
+        logger.info("Browser minimized to phone size");
     }
 
     @After("@UI")
@@ -154,13 +200,13 @@ public class Hooks {
         logger.info("Scenario " + scenario.getName() + " finished");
     }
 
-    @AfterStep("@UI")
+    @AfterStep("@UI_Detailed")
     public static void detailedTestEvidence(Scenario scenario) {
         WebDriverFactory.takeScreenshot(scenario);
         logger.info("Test evidence saved as screenshot");
     }
 
-    @AfterAll
+    @AfterAll(timeout = 5000)
     public static void closeTests() {
         WebDriverFactory.tearDown();
         ScenarioContext.getScenarioInstance().clearContext();
@@ -178,7 +224,8 @@ EXPLANATION:
   method which opens a new browser tab/window
 - @After("@UI") has 2 methods : one to take and save a screenshot of test evidence and other to close the browser window
 - @AfterStep - makes a screenshot of every-step
-- @AfterAll - includes a method which close all browser windows(webDriver also) and other that clears all temporary
+- @AfterAll - with timeout implemented - includes a method which close all browser windows(webDriver also) and other
+  that clears all temporary
   saved data in Scenario Context
 
 ***

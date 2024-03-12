@@ -1,7 +1,7 @@
 /*
  Initializing an object means storing data into the object.
  */
-class referenceObject {
+class Student {
     int id;
     String name;
 }

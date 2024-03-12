@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class userDefinedMethodExample {
+public class UserDefinedMethodExample {
     public static void main(String args[]) {
         // Creating Scanner class object
         Scanner scan = new Scanner(System.in);
