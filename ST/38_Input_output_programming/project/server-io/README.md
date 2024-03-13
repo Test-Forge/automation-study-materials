@@ -108,7 +108,7 @@ The chart illustrates the time required for IO and NIO file transfers for a 1 GB
 ├── chart_1048576.png
 ├── chart_1073741824.png
 ├── pom.xml
-└── README.md
+└── README_WSL.md
 ```
 
 
