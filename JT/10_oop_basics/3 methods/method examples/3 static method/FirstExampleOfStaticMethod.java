@@ -9,7 +9,7 @@
 
 import java.io.*;
 
-public class firstExampleOfStaticMethod {
+public class FirstExampleOfStaticMethod {
     // Static variable
     static int a = 40;
 
@@ -28,7 +28,7 @@ public class firstExampleOfStaticMethod {
 
     // Main method
     public static void main(String[] args) {
-        GFG obj = new GFG();
+        FirstExampleOfStaticMethod obj = new FirstExampleOfStaticMethod();
         obj.simpleDisplay();
 
         // Calling static method.

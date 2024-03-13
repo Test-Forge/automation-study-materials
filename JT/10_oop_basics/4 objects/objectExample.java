@@ -1,4 +1,4 @@
-class objectExample {
+class Lamp {
 
     /*
      Stores the value for light:

@@ -4,14 +4,14 @@ The class 'JavaClassImplementsInterfaceExample' implements the methods inherited
  */
 
 // This is an interface
-interface DemoInterface {
+interface Interface {
     int product(int a, int b);
 
     int sum(int a, int b);
 }
 
 // This is an abstract class that implements interface
-abstract class DemoAbstract implements DemoInterface {
+abstract class AbstractClass implements Interface {
 
     // This method calculates product of two numbers
     public int product(int a, int b) {
@@ -20,7 +20,7 @@ abstract class DemoAbstract implements DemoInterface {
 }
 
 // This is a concrete class that extends abstract class
-class JavaClassImplementsInterfaceExample extends DemoAbstract {
+class JavaClass extends AbstractClass {
 
     // This method calculates sum of two numbers
     public int sum(int a, int b) {
@@ -29,7 +29,7 @@ class JavaClassImplementsInterfaceExample extends DemoAbstract {
 
     // Main method
     public static void main(String args[]) {
-        DemoJava obj = new DemoJava();
+        JavaClass obj = new JavaClass();
         int p = obj.product(19, 16);
         int s = obj.sum(1155, 190);
 

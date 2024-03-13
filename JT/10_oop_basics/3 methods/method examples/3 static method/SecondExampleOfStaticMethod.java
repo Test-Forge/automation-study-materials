@@ -4,7 +4,7 @@
 
 import java.io.*;
 
-public class secondExampleOfStaticMethod {
+public class SecondExampleOfStaticMethod {
 
     static int num = 100;
     static String str = "GeeksForGeeks";
@@ -23,7 +23,7 @@ public class secondExampleOfStaticMethod {
 
     // Main method
     public static void main(String args[]) {
-        StaticExample obj = new StaticExample();
+        SecondExampleOfStaticMethod obj = new SecondExampleOfStaticMethod();
 
         // This is object to call non static function
         obj.nonstatic();

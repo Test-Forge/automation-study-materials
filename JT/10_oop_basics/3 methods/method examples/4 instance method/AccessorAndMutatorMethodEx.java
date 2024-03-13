@@ -1,4 +1,4 @@
-public class accessorAndMutatorMethodEx {
+public class AccessorAndMutatorMethodEx {
     private int roll;
     private String name;
 

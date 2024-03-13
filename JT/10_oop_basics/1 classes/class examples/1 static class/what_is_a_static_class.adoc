@@ -23,5 +23,5 @@ We can use the static keyword with variables, methods, blocks, and classes.
 
 Using the static class is a way of grouping classes together. It is also used to access the primitive member of the enclosing class through the object reference.
 
-The static classes are loaded by the classloader at the time of the first usage only not when is enclosing class gets loaded.
+The static classes are loaded by the classloader at the time of the first usage only, not when its enclosing class gets loaded.
 ====

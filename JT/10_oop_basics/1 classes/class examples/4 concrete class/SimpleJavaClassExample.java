@@ -6,7 +6,7 @@
     All four methods add, subtract, multiply, divide are implemented and return the result.
     As all the methods of the class have been implemented JavaCalculator is a Java class.
  */
-class SimpleJavaClassExample {
+class Calculator {
     static int add(int a, int b) {
         // This method calculates the sum of two numbers
         return a + b;

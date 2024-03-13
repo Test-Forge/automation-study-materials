@@ -2,7 +2,7 @@
  Creating the two objects of Student class and initializing the value to these objects by invoking the insertRecord method.
  Here, we are displaying the state (data) of the objects by invoking the displayInformation() method.
  */
-class methodObject {
+class Student {
     int rollno;
     String name;
 

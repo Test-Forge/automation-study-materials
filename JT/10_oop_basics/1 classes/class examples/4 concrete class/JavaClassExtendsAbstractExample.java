@@ -5,7 +5,7 @@
  Classes Circle, Triangle, and Square inherit the abstract class shape and implement both abstract methods.
  As the classes Circle, Triangle and Square have all the methods implemented they are Java Classes.
  */
-abstract class JavaClassExtendsAbstractExample {
+abstract class Shape {
     abstract double area();   // Unimplemented method area
 
     abstract double perimeter();  // Unimplemented method perimeter
