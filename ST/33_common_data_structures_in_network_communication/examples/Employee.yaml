@@ -1,0 +1,33 @@
+- id: 1
+  name: John
+  surName: Doe
+  age: 30
+  gender: M
+  email: john@example.com
+  department: Engineering
+  skills:
+    - Java
+    - Python
+  managerId: 3
+- id: 2
+  name: Jane
+  surName: Smith
+  age: 28
+  gender: F
+  email: jane@example.com
+  department: Marketing
+  skills:
+    - Marketing Strategy
+    - Social Media
+  managerId: 3
+- id: 3
+  name: Bob
+  surName: Johnson
+  age: 35
+  gender: M
+  email: bob@example.com
+  department: Finance
+  skills:
+    - Accounting
+    - Financial Analysis
+  managerId: 0
