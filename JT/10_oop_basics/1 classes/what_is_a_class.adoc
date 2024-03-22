@@ -1,3 +1,4 @@
+[#_class_in_java]
 = Class in Java
 :toc:
 :icons: font

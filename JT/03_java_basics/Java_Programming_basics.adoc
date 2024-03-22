@@ -1,0 +1,79 @@
+= Introduction to Java
+Liudmila Topal <liudmila.topal@endava.com>
+3.0, July 29, 2022: AsciiDoc article template
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+====
+*Java* is a high-level, class-based, object-oriented programming language.
+====
+
+_James Gosling_ at Sun Microsystems (now part of Oracle Corporation) designed it, and it was released in 1995.
+The language was developed with the "*Write Once, Run Anywhere*" (_WORA_) philosophy.
+This principle underscores Java's key feature - *platform independence*, allowing the same Java program to run on multiple platforms without modifications.
+
+*However, to become proficient in any programming language, one Firstly needs to understand the basics of that language.*
+
+Therefore, below are the basics of Java in the format in which it will help you the most to get the heads tart:
+
+Java Environment:::
+The programming *environment* of Java consists of three components mainly:
+.. JDK
+.. JRE
+.. JVM
+
+TIP: More info about Java Environment you can find https://www.geeksforgeeks.org/setting-environment-java/[here].
+
+Comments in Java:::
+In a program, *comments* take part in making the program become more human-readable by placing the detail of code involved
+and proper use of comments makes maintenance easier and finding bugs easily.
+----
+Comments are ignored by the compiler while compiling the code.
+----
+TIP: More info about Comments you can find https://www.geeksforgeeks.org/comments-in-java/[here].
+
+Basic literals:::
+Regardless of its complexity, a program always performs operations on _numbers_, _strings_, and other values.
+These values are called *literals*.
+
+TIP: More info about Literals you can find link:basic_literals/Basic_Literals.adoc[here].
+
+Data Types in Java:::
+Each variable in Java has an associated** data type**.
+Each data type requires different amounts of memory and has some specific operations which can be performed over it.
+
+TIP: More info about Data Types you can find link:data_types/Data_Types.adoc[here].
+
+Variables in Java:::
+A *variable* is the name given to a memory location.
+It is the basic unit of storage in a program.
+
+TIP: More info about Variables you can find link:java_variables/Java_variables.adoc[here].
+
+Keywords in Java:::
+*Keywords* or Reserved words are the words in a language that are used for some internal process or represent some predefined actions.
+
+TIP: More info about Keywords you can find https://www.geeksforgeeks.org/list-of-all-java-keywords/[here].
+
+Operators in Java:::
+*Operators* are the foundation of any programming language.
+We can define operators as symbols that help us to perform specific mathematical and logical computations on operands.
+
+TIP: More info about Operators you can find link:java_operators/Operators.adoc[here].
+
+Control Statements in Java:::
+*Control Statements* in programming is similar to decision-making process in real life.
+In programming also we face some situations where we want a certain block of code to be executed when some condition is fulfilled.
+
+TIP: More info about Control Statements you can find link:control_statements/Control_Statements.adoc[here].
+
+Loops in Java:::
+*Looping* in programming languages is a feature which facilitates the execution of a set of instructions/functions
+repeatedly while some condition evaluates to true.
+
+TIP: More info about Loops you can find link:loops/Loops.adoc[here].
+
+====
+You can take Java course on the official https://hyperskill.org/categories/2[JetBrains Academy] site.
+====
