@@ -1,0 +1,728 @@
+= WebElements in Page Objects
+:doctype: book
+:icons: font
+:toc: left
+:sectnums:
+
+by mailto:stanislav.scurtu@gmail.com[Stanislav Scurtu] +
+March 2024
+
+= Overview
+
+This guide will show how to utilize WebElements within Page Objects to enhance the maintainability and reusability of test automation code.
+We'll discover the significance of encapsulating web elements within page objects, methods for locating web elements using XPath functions, and techniques for interacting with them through various actions.
+
+== WebElements and Page Objects
+
+=== WebElements
+
+WebElements are one of the fundamental building blocks of web automation.
+They represent the different elements present on a web page, such as buttons, input fields, checkboxes, dropdowns, etc.
+These elements can be interacted with to perform actions or retrieve information from a web page.
+
+In the context of web automation, the ability to locate and interact with WebElements is crucial.
+By identifying and manipulating these elements, we can simulate user actions on a web page, validate expected behavior, and retrieve data for further processing.
+
+Some common operations that can be performed on WebElements include:
+
+- *Clicking*: Simulating a user clicking on a button or a link to trigger an action.
+- *Entering text*: Inputting values into text fields or text areas.
+- *Selecting options*: Choosing options from dropdown menus or selecting checkboxes/radio buttons.
+- *Retrieving information*: Getting the text or attribute values of elements to verify their content or perform validations.
+
+For instance, in a login page scenario, we might have WebElements defined in a Page Object class like this:
+
+[source,java]
+----
+public class LoginPage {
+    private WebDriver driver;
+
+    @FindBy(id = "username")
+    private WebElement usernameInput;
+
+    @FindBy(id = "password")
+    private WebElement passwordInput;
+
+    @FindBy(id = "loginButton")
+    private WebElement loginButton;
+
+    @FindBy(id = "checkBox")
+    private WebElement checkboxElement;
+
+    @FindBy(id = "someButton")
+    private WebElement someButton;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void enterUsername(String username) {
+        usernameInput.sendKeys(username); // Entering a username into a text field
+    }
+
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);  // Entering a password into a text field
+    }
+
+    public void clickCheckBox(String password) {
+        checkboxElement.click(); // Selecting a checkbox
+    }
+
+    public void clickLoginButton() {
+        loginButton.click(); // Clicking on a login button
+    }
+
+    public void getElementText() {
+        String buttonText = someButton.getText(); // Getting the text of a specific element
+    }
+}
+----
+
+[NOTE]
+In this example, the *WebElements* `usernameInput`, `passwordInput`, `loginButton`, `checkboxElement` and `someButton` are defined in the `LoginPage` Page Object class, making it easier to interact with these elements in test scripts.
+
+=== Locating WebElements
+
+In order to interact with a *WebElement*, we need to locate it on the web page.
+To achieve this, we use locators, which are mechanisms for identifying elements.
+Here are the primary methods used to locate *WebElements*, with examples in the context of *Selenium WebDriver*, which is a popular tool for automating web application testing.
+
+- *ID*: Using the unique identifier assigned to an element.
+- *Class Name*: Selecting elements by their CSS class name.
+- *Tag Name*: Targeting elements based on their HTML tag.
+- *XPath*: Using XPath expressions to navigate the tree-like structure of an HTML document.
+- *CSS Selector*: Specifying elements based on their CSS attributes.
+- *Link Text* and *Partial Link Text*: Specifically for locating anchor elements (links) based on their visible text.
+
+Example of Locating WebElements:
+
+[source,java]
+----
+// Using ID to locate an element
+WebElement usernameInput = driver.findElement(By.id("username"));
+
+// Using XPath to locate a button element
+WebElement loginButton = driver.findElement(By.xpath("//button[@id='loginButton']"));
+
+// Using CSS Selector to locate a form element
+WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
+
+// Locating an element by its class name
+WebElement loginButton = driver.findElement(By.className("login-button"));
+
+// Locating all elements with a specific tag name
+List<WebElement> inputFields = driver.findElements(By.tagName("input"));
+
+// Locating a link element by its visible text
+WebElement privacyPolicyLink = driver.findElement(By.linkText("Privacy Policy"));
+
+// Locating a link element by a partial match of its visible text
+WebElement termsOfServiceLink = driver.findElement(By.partialLinkText("Terms of"));
+----
+
+Each of these methods has its own use case depending on the uniqueness of the element's attributes and the complexity of the webpage's *Document Object Model* (DOM).
+When using class names, tag names, CSS selectors, or XPath, remember that if there are multiple elements matching the criteria, the first one found in the DOM order is returned.
+For selecting multiple elements (like all links within a container), `Selenium` provides the `findElements` method, which returns a list of all matching elements.
+
+[IMPORTANT]
+It's important to choose appropriate locators that are both reliable and efficient.
+While some locators may seem easier to use, they might also be more prone to changes in the web page structure, leading to maintenance issues.
+
+=== Page Objects
+
+Page Objects is a design pattern commonly used in web automation to organize and manage WebElements and their interactions.
+It provides a structured and scalable approach to represent web pages as classes and encapsulate the related logic within those classes.
+
+The main goals of using Page Objects are:
+
+- *Modularity*: Breaking down complex web pages into smaller, manageable units.
+Each page of the application is represented by its own class, breaking down the site into manageable units.
+This modularity allows for focused testing on specific areas of the site without worrying about the full site's complexity at once.
+- *Reusability*: Common interactions, such as navigation between pages, are encapsulated within methods and reused across multiple tests.
+For example, multiple tests might involve adding products to the cart, which can be easily accomplished using the `addProductToCart` method in the `ProductPage` class.
+- *Maintainability*: Providing a clear separation between the test code and the page-specific code, making it easier to update and maintain.
+When the UI of the site changes, such as an `id` of a button, the update needs to be made only in one place within the respective Page Object.
+This separation between test code and page-specific code simplifies maintenance, as updates to the website's UI require minimal changes to the test suite.
+
+A Page Object typically represents a single web page and contains methods that interact with the WebElements present on that page.
+The focus is on the sequence of actions (like navigating to the product page and adding an item to the cart) rather than the details of how those actions are performed.
+
+Here is an example of a simple page object model for a login page using `Selenium WebDriver`:
+
+[source,java]
+----
+public class LoginPage {
+
+    private WebDriver driver;
+    private By usernameField = By.id("username");
+    private By passwordField = By.id("password");
+    private By loginButton = By.id("login-button");
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void enterUsername(String username) {
+        driver.findElement(usernameField).sendKeys(username);
+    }
+
+    public void enterPassword(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+
+    public void clickLoginButton() {
+        driver.findElement(loginButton).click();
+    }
+}
+----
+
+And here is an example of how the page object can be used in a test script:
+
+[source,java]
+----
+public class LoginTest {
+
+    private WebDriver driver;
+
+    @Before
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        driver.get("https://www.example.com/login");
+    }
+
+    @Test
+    public void testValidLogin() {
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsername("username");
+        loginPage.enterPassword("password");
+        loginPage.clickLoginButton();
+        // Assertions and further actions
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+}
+----
+
+In this example, the LoginPage class represents the login page of the application, and it encapsulates all the elements and functionality related to the login page.
+The LoginTest class then uses the page object to interact with the login page, making the test script more readable and maintainable.
+
+[NOTE]
+Furthermore, Page Objects can help improve the readability and understandability of test scripts by abstracting away the implementation details and providing higher-level methods that represent the desired actions or behaviors on the page.
+
+=== Best Practices
+
+When working with WebElements in Page Objects, it is important to follow best practices to ensure the maintainability, readability, and reusability of our code.
+
+Here are some best practices to consider:
+
+*1. Use Descriptive Naming*
+
+When defining WebElements in our Page Objects, use descriptive and meaningful names.
+This makes our code more readable and helps other team members understand the purpose of each element.
+For example:
+
+[source,java]
+----
+@FindBy(id = "username") private WebElement usernameInput;
+----
+
+*2. Encapsulate Interactions*
+
+Encapsulate interactions with WebElements within methods in our Page Objects.
+This makes it easier to modify the implementation details of the interactions without affecting the tests that use the Page Objects.
+For example:
+
+[source,java]
+----
+public void enterUsername(String username) {
+    usernameInput.sendKeys(username);
+}
+----
+
+*3. Avoid Using `Thread.sleep()`*
+
+Avoid using `Thread.sleep()` to wait for a WebElement to be visible or interactable.
+Instead, use explicit waits provided by Selenium to wait for the desired condition to be met.
+For example:
+
+[source,java]
+----
+WebDriverWait wait = new WebDriverWait(driver, 10);
+wait.until(ExpectedConditions.visibilityOf(usernameInput));
+----
+
+*4. Reuse Page Objects*
+
+Reuse Page Objects to avoid duplicating code.
+If a WebElement is used across multiple tests or pages, consider creating a base Page Object that other Page Objects can extend.
+For example:
+
+[source,java]
+----
+public class BasePage {
+    // common WebElements and methods
+}
+----
+
+*5. Separate Page Object Initialization*
+
+Separate Page Object initialization from test logic to make tests more maintainable.
+Consider using a separate class or method to create and initialize Page Objects that can be reused across multiple tests.
+For example:
+
+[source,java]
+----
+LoginPage loginPage = new LoginPage(driver);
+----
+
+By following these best practices, we can create Page Objects that are easier to maintain, understand, and reuse in our test automation framework.
+
+=== Handling Dynamic Elements
+
+In web automation, it is common to encounter dynamic elements on a page.
+These elements may appear or disappear based on user interactions, time delays, or other factors.
+Handling dynamic elements in page objects is crucial for ensuring the reliability and stability of automated tests.
+
+Here are some strategies to handle dynamic elements in POM with examples in Java:
+
+*1. Explicit Waits*
+
+One approach to handling dynamic elements is to use explicit waits.
+By using explicit waits, the test script can wait for the presence, visibility, or specific state of an element before interacting with it.
+This can be achieved using `Selenium's WebDriverWait` class in combination with `ExpectedConditions`. +
+
+For example, to wait for an element to be visible, the following code can be used in a page object:
+
+[source,java]
+----
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class DynamicPage {
+    WebDriver driver;
+    WebDriverWait wait;
+
+    public DynamicPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, 10); // 10 seconds timeout
+    }
+
+    public WebElement waitForElementToAppear(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+}
+
+----
+
+*2. Handling AJAX or JavaScript Heavy Sites*
+
+For AJAX or heavily JavaScript-based sites, elements might not only be invisible initially but might also get loaded or changed based on the user's actions.
+Using `ExpectedConditions` like `elementToBeClickable` or custom conditions might be necessary.
+
+Example:
+
+[source,java]
+----
+public WebElement waitForElementToBeClickable(By locator) {
+    return wait.until(ExpectedConditions.elementToBeClickable(locator));
+}
+----
+
+*3. Dealing with Elements in iFrames*
+
+Elements inside iFrames are not directly accessible.
+we first need to switch to the iFrame before interacting with its elements.
+
+[source,java]
+----
+public void switchToIFrame(WebElement iFrameElement) {
+    driver.switchTo().frame(iFrameElement);
+}
+
+public void switchBackFromIFrame() {
+    driver.switchTo().defaultContent();
+}
+----
+
+*4. Dynamic Selectors*
+
+Sometimes, elements can be identified by dynamic attributes that change.
+In such cases, using XPath or CSS selectors with patterns can help.
+
+For a button that has an ID that changes like submit_123, where 123 is dynamic:
+
+[source,java]
+----
+public WebElement getDynamicElement(String dynamicPart) {
+    return driver.findElement(By.xpath("//button[contains(@id, 'submit_" + dynamicPart + "')]"));
+}
+----
+
+*5. JavaScript Executor*
+
+For elements that are particularly difficult to interact with due to their dynamic nature, executing JavaScript directly can be an effective workaround.
+This can be used to directly change an element's state, click an element, or even scroll to an element.
+
+[source,java]
+----
+public void clickElementWithJS(WebElement element) {
+    ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
+}
+----
+
+*6. Re-trying Failed Actions*
+
+In some cases, especially in highly dynamic applications, even explicit waits might not be enough.
+Implementing a retry logic for certain actions like clicks or text inputs can increase the reliability of our tests.
+
+[source,java]
+----
+public void clickWithRetry(WebElement element, int retries) {
+    for (int i = 0; i < retries; i++) {
+        try {
+            element.click();
+            break; // Break out of loop if click is successful
+        } catch (Exception e) {
+            if (i == retries - 1) {
+                throw e; // Rethrow exception on last attempt
+            }
+        }
+    }
+}
+----
+
+By implementing these strategies, we can create more robust, reliable Selenium tests that can handle the dynamic nature of modern web applications.
+
+== XPath Basics for Element Selection
+
+XPath, which stands for XML Path Language, is a powerful query language used to navigate and select elements in XML or HTML documents.
+In the context of web development, XPath is particularly useful for locating specific elements within the Document Object Model (DOM) of a web page.
+
+=== XPath Syntax
+
+XPath's expressions are written using a combination of element names, attributes, and conditions.
+The basic syntax for writing an XPath expression is as follows:
+
+`//element[@attribute='value']`
+
+- `//` selects nodes from the current node that matches the selection, regardless of their position.
+- `element` refers to the name of the desired element.
+- `[@attribute='value']` specifies the attribute and its value for filtering the element selection.
+
+Here's a practical example using an HTML snippet:
+
+[source,html]
+----
+<html>
+  <body>
+    <div id="main" class="container">
+      <a href="https://example.com" title="Example">Visit Example</a>
+      <a href="https://example.com/about" title="About">Visit About</a>
+      <span class="highlight">Important</span>
+      <a href="https://another-example.com" title="Another Example">Another Example</a>
+    </div>
+  </body>
+</html>
+----
+
+Suppose we want to select all `<a>` elements with a title attribute equal to 'Example'.
+The XPath would be:
+
+----
+//a[@title='Example']
+----
+
+This XPath expression targets the `<a>` element that links to "https://example.com" with the title "Example".
+
+=== Absolute and Relative XPath
+
+XPath's expressions can be classified as either absolute or relative.
+
+- *Absolute XPath* begins with a single forward slash `/`, starting the evaluation from the root of the document.
+For example: `/html/body/div[2]/form/input[1]`.
+Absolute XPath expressions have the disadvantage of being brittle and prone to break if any structural changes occur in the HTML structure.
+
+- *Relative XPath* does not start with a slash.
+It begins with a node that serves as a starting point.
+This approach is preferable, as relative XPath expressions are more flexible and less likely to be impacted by changes in the overall structure of the web page.
+For example: `//form[@id='loginForm']/input[1]`.
+
+Consider an HTML page structured like this:
+
+[source,html]
+----
+<html>
+  <head>
+    <title>Example Page</title>
+  </head>
+  <body>
+    <div>
+      <p>First Paragraph</p>
+    </div>
+    <div class="content">
+      <form id="loginForm">
+        <input type="text" name="username" />
+        <input type="password" name="password" />
+        <input type="submit" value="Login" />
+      </form>
+    </div>
+  </body>
+</html>
+----
+
+To select the first input element (username field) in the form using *Absolute XPath*, we would specify:
+
+----
+
+/html/body/div[2]/form/input[1]
+
+----
+
+This path starts from the root `<html>` element, goes through `<body>`, selects the second <div> element (because the first `<div>` doesn't have a form), then selects the `<form>` and finally the first `<input>` element within that form.
+
+Using the same HTML structure as above, if we want to select the first input element in the form but with a *Relative XPath*, we could use:
+
+----
+//form[@id='loginForm']/input[1]
+----
+
+This XPath does not specify the complete path from the root.
+Instead, it starts with looking for any `<form>` element with an id of "loginForm" throughout the document.
+Once found, it selects the first `<input>` element within that form.
+
+=== XPath Axes
+
+Axes in XPath provide a way to traverse elements relative to the current node.
+There are several axes available for element navigation, including:
+
+- *ancestor*: Selects all ancestors (parent, grandparent, etc.) of the current node.
+- *descendant*: Selects all descendants (children, grandchildren, etc.) of the current node.
+- *following*: Selects all nodes that come after the current node.
+- *preceding*: Selects all nodes that come before the current node.
+- *following-sibling*: Selects all siblings that come after the current node.
+- *preceding-sibling*: Selects all siblings that come before the current node.
+
+Example XPath expressions using different axes:
+
+[source,html]
+----
+<html>
+  <head>
+    <title>Sample Page</title>
+  </head>
+  <body>
+    <div class="content">
+      <span>Introduction</span>
+      <p>Paragraph 1</p>
+      <table>
+        <tr>
+          <td>Data 1</td>
+        </tr>
+      </table>
+      <p>Paragraph 2</p>
+      <span>Conclusion</span>
+    </div>
+  </body>
+</html>
+----
+
+`//table/ancestor::div:` This selects all `<div>` elements that are ancestors of a `<table>` element.
+In our example, it would select the `<div class="content">` element.
+
+`//div/descendant::span:` This selects all `<span>` elements that are descendants of a `<div>` element.
+In our example, it selects both the "Introduction" and "Conclusion" span elements within `<div class="content">`.
+
+`//div/following::p:` This selects all `<p>` elements in the document that come after a `<div>` element.
+Assuming multiple `<div>` elements existed and were appropriately placed, it would select all `<p>` elements following each `<div>`.
+
+`//p/preceding::div:` This selects all `<div>` elements that come before a `<p>` element in the document.
+In the structure of our example, if we target the "Paragraph 2" `<p>` element, it would select the `<div class="content">` as it precedes the `<p>` elements.
+
+`//span/following-sibling::p:` This selects all `<p>` elements that are siblings and come after a `<span>` element.
+In our example, it selects "Paragraph 1" as it directly follows the "Introduction" span element within the same `<div>` parent.
+
+`//p/preceding-sibling::span:` This selects all `<span>` elements that are siblings and come before a `<p>` element.
+Using our example, if we target "Paragraph 1", it would select the "Introduction" span element as it precedes the `<p>` element.
+
+=== XPath Functions
+
+When dealing with web applications, XPath functions are frequently used to locate elements dynamically, validate content, and handle elements based on their state or attributes.
+Here are some often-used XPath functions in testing contexts, along with examples to illustrate their practical applications:
+
+- `contains()`
+
+*Use Case:* Finding elements that include a specific text value.
+This is useful when the exact text of an element is dynamic or partially known.
+
+*Example:* Locating a button that includes the text "Submit" which might be dynamically appended with the current date or time.
+
+----
+//button[contains(text(),'Submit')]
+----
+
+- `starts-with()`
+
+*Use Case*: Selecting elements whose attribute values start with a certain string.
+This is handy when the attribute value changes dynamically but starts with a predictable pattern.
+
+*Example*: Finding input elements whose id attribute starts with "input-" but has a dynamic suffix.
+
+----
+//input[starts-with(@id,'input-')]
+----
+
+- `ends-with()`
+
+*Use Case*: Similar to starts-with(), but for matching the end of a string.
+
+----
+//input[ends-with(@id,'-username')]
+----
+
+- `not()`
+
+*Use Case*: Selecting elements that do not match a certain condition.
+This is useful for excluding elements from our selection.
+
+*Example*: Finding elements that do not have a specific class.
+
+----
+//*[not(contains(@class,'hidden'))]
+----
+
+- `position()`
+
+*Use Case*: Locating elements based on their position within a set of selected nodes.
+Useful for selecting the first, last, or an element at a specific index.
+
+*Example*: Selecting the first item in a list.
+
+----
+
+(//ul/li)[position()=1]
+
+----
+
+- `last()`
+
+*Use Case*: Selecting the last element in a sequence of elements.
+Useful when we want to interact with the last element of a list that dynamically changes in size.
+
+*Example*: Finding the last <div> element within a container.
+
+----
+//div[last()]
+----
+
+- `count()`
+
+*Use Case*: Counting elements that match a specific criterion.
+This is particularly useful in assertions to validate the number of elements present.
+
+*Example*: Verifying the number of checked checkboxes.
+
+----
+
+count(//input[@type='checkbox' and @checked='checked'])
+
+----
+
+[TIP]
+These examples highlight the versatility of XPath functions, allowing for precise element selection and dynamic content handling, which are crucial in the ever-changing landscape of web application interfaces.
+
+=== XPath Predicates
+
+XPath's predicates are used to further refine element selection based on specific conditions.
+Predicates are enclosed within square brackets `[]` and allow filtering based on element attributes or position.
+
+Examples of using predicates in XPath expressions:
+
+- `//a[@class='link']:` This expression selects all `<a>` (anchor) elements that have a class attribute with the value link.
+It's useful for targeting specific links that are styled or grouped by class name.
+
+*Example Use Case:*
+
+[source,html]
+----
+<a href="https://example.com" class="link">Example</a>
+<a href="https://another.com" class="non-link">Another Example</a>
+<a href="https://yetanother.com" class="link">Yet Another Example</a>
+----
+
+The XPath expression would select the first and the third `<a>` elements because their class attribute matches "link".
+
+- `//input[@type='text'][@name='username']:` This selects all `<input>` elements that have a type attribute set to text and a name attribute set to username.
+It's particularly useful for forms where we need to identify specific input fields by their type and name.
+
+*Example Use Case:*
+
+[source,html]
+----
+<form>
+  <input type="text" name="username" />
+  <input type="password" name="password" />
+  <input type="text" name="search" />
+</form>
+----
+
+In this form, only the first `<input>` element would be selected because it is the only one that matches both the type='text' and name='username' conditions.
+
+- `(//table)[2]:` This selects the second `<table>` element in the document.
+The use of parentheses is crucial here, as they ensure that the indexing applies to the selection of tables, not to a child of the table.
+
+*Example Use Case:*
+
+[source,html]
+----
+<div>
+  <table>
+    <tr>
+      <td>First Table</td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td>Second Table</td>
+    </tr>
+  </table>
+</div>
+----
+
+The second `<table>` element, which contains "Second Table", would be selected by this XPath expression.
+
+- `(//div)[last()]:` This selects the last `<div>` element in the document.
+The last() function finds the last node in the context of the selected nodes.
+
+*Example Use Case:*
+
+[source,html]
+----
+<body>
+  <div>First Div</div>
+  <div>Second Div</div>
+  <div>Third Div</div>
+</body>
+----
+
+In this case, the "Third Div" `<div>` element would be selected, as it is the last `<div>` element in the document.
+
+=== Conclusion
+
+In conclusion, Xpath is really useful in the Page Object Model (POM) because it helps us find and work with elements on web pages easily.
+It lets us pick out exactly what we need from web pages, like specific pieces of information, by looking through the page's structure.
+This is super handy in web automation because it makes our code better organized, easier to read, and easier to reuse.
+
+By learning how to use Xpath with POM, we can make automation frameworks that are not just strong but also flexible enough to handle changes on websites without a lot of hassle.
+This means we can keep our automation projects up-to-date more smoothly and make sure our work stays high-quality.
+
+So, Xpath is really important for anyone doing web automation with POM.
+It helps us deal with web pages more effectively, making our projects better and our lives a bit easier.
+It's all about getting the hang of Xpath to make the most of it in our projects, keeping up with new things, and always looking for ways to improve.
