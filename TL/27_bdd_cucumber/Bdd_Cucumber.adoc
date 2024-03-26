@@ -1,0 +1,186 @@
+= BDD (Behavior Driven Development)
+:toc:
+:toc-title: Table of Adventures
+
+== Breaking Down Barriers: Understanding BDD
+
+image::resources/tree.png[]
+
+Probably everyone has seen this picture.
+It clearly shows how important it is, during the development of a product, to speak one language that everyone understands.
+
+This is how this Behavior Driven Development (BDD) emerged.
+
+The main idea of BDD is to use “ordinary” human language that is understandable to all project participants, be it developers, testers or customers.
+
+We create "scenarios" or "stories" about how the program should behave in different settings.
+This helps everyone understand what exactly we expect from the program and how it can be tested.
+
+== Navigating the BDD Jungle: Advantages and Pitfalls
+
+[cols="1,1"]
+|===
+|Advantages ✔ |Disadvantages ✘
+
+|Easy to understand
+|Maintainability
+
+|Promotes reusability
+|Implementation quality can fluctuate
+
+|Promotes flexibility and parametrization
+|Technical limitations
+
+|Tags enable targeted testing
+|
+
+|Lots of helper libraries and integrations
+|
+|===
+
+image::resources/cucumber.jpg[align="center"]
+
+Here you can see more information about https://andreidobra.com/blog/cucumber-advantages-disadvantages#advantages-[Advantages and Pitfalls] of Cucucmber BDD.
+
+== Cracking the Cucumber BDD Code: Demystifying the Process
+
+image::resources/dark_bdd.png[width=710, align="center"]
+Let's look at an example of how we can describe the behavior of a program.
+
+[example]
+*User navigates to www.example.com +
+User enters a valid value in the "username" field +
+User enters a valid value in the "password" field +
+User clicks on the "login" button +
+User is taken to the main page*
+
+The behavior is understandable, but a couple of questions arise.
+
+. Who am I?
+* If I am a guest (not registered in the system), then I will not be able to access the site, even if I enter valid values.
+* If I am a user, I will go to the main page of the site.
+* If I am a moderator or admin, perhaps I will not get to the main page, but to my personal account, where I can manage the site
+
+. We have only five steps and the example is easy. +
+What if there are many more steps? +
+Can the steps be made more clear?
+So that you can immediately see where the action is and where the result of this action is? And there is an answer to all these questions - the Gerkin language in Given-When-Then format.
+
+image::resources/given_when_then_2.webp[align="center"]
+Let's write our scenario using the Gerkin language.
+
+[example]
+**Feature:** login +
+As a user +
+I want to be able to log in to the application +
+*Scenario:* Successful login +
+*Given* user navigates to www.example.com +
+*When* user enters a valid value in the "username" field +
+*And**user enters a valid value in the "password" field +
+*And* user clicks on the "login" button +
+*Then* user is taken to the main page +
+
+So.. +
+We have a ready-made scenario and to automate it we can use *Cucumber*.
+
+=== Cucumber
+
+Cucumber is a test automation tool based on Behavior-Driven Development (BDD) principles and associates Gherkin steps with a step definition. +
+A step definition is a method marked with one of the step keywords: ( `Given`, `When`, `Then`, or `But`). +
+It contains either a Regular Expression or a Cucumber Expression that associates a method with Gherkin steps. Let's look at an example. We wrote the steps in a file with the extension `.feature`
+
+image::resources/feature.png[width=577]
+
+And implemented these steps in the ".java" file
+
+image::resources/java.png[width=523]
+
+*How can we improve our code?* +
+If you look at our steps, you will see that some steps will be repeated on other pages: “entering values into fields”, “clicking buttons” and so on. +
+Therefore, we will move these steps into a separate file CommonSteps.java +
+Also let's make our steps more functional.
+
+We made one implementation for two steps and passed a String to the method.
+
+image::resources/commonSteps.png[]
+image::resources/commonStepsImpl.png[]
+
+:icons: font
+[NOTE]
+.Cucumber Expressions support basic parameter types such as:
+====
+
+- int
+- float
+- string
+- word
+- biginteger
+- bigdecimal
+- byte
+- short
+- long
+- double
+====
+
+We can also pass a list to the method
+
+image::resources/listInStep.png[]
+image::resources/listInStepImpl.png[width=725]
+Let's look at a couple more cases +
+For example, we have two steps that differ in state. (false&true, are&are not, and so on)
+
+image::resources/stepsOr.png[]
+
+image::resources/stepsOrImpl.png[width=837]
+
+We can also combine multiple descriptions for one method
+
+image::resources/2steps.png[]
+image::resources/2steps_impl.png[]
+
+We can pass tables to the method
+
+image::resources/table.png[]
+image::resources/table_impl.png[]
+
+In Cucumber, you can also pass objects to method as steps parameters.
+
+. Define an object:
++
+image::resources/define_an_object.png[width=662]
+
+. Define the transformation:
++
+image::resources/Define_the_transformation.png[width=656]
+
+. Use the object in a scenario step:
++
+image::resources/Use_the_object_in_a_scenario_step.png[width=652]
+
+. Define the scenario steps:
++
+image::resources/Define-the_scenario_steps.png[width=577]
+
+
+Taking into account everything we talked about above, we did the following test.
+
+image::resources/test1.png[]
+
+The test is written. +
+But for a specific user with a specific login and specific password. What if we want to check the second user?
+Is it really necessary to write another test? +
+No. +
+We will use *scenario outline*. +
+The scenario outline allows us to add examples and run the test a couple of times with different data.
+
+image::resources/test2.png[width=692]
+
+== Source of Enlightenment: Useful Resources for BDD and Cucumber
+* https://mobilelive.medium.com/tdd-vs-bdd-vs-ddd-which-one-should-you-choose-e562e313f955[Everything you want to know about Driven Development]
+* Create, execute and refactor tests following https://support.smartbear.com/cucumberstudio/docs/tests/best-practices.html#scenario-content-reuse-step-definitions,-when-pos[advice]
+* https://cucumber.io/docs/guides/10-minute-tutorial/?lang=java[First Cucumber test in 10 minutes] +
+
+[.text-center]
+*And just remember*
+
+image::resources/test_reminder.png[align="center"]
