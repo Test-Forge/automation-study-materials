@@ -65,7 +65,7 @@ public class LoginPage {
         passwordInput.sendKeys(password);  // Entering a password into a text field
     }
 
-    public void clickCheckBox(String password) {
+    public void clickCheckBox() {
         checkboxElement.click(); // Selecting a checkbox
     }
 
