@@ -1,0 +1,4 @@
+id,name,surName,age,gender,email,department,skills,managerId
+1,John,Doe,30,M,john@example.com,Engineering,"Java, Python",3
+2,Jane,Smith,28,F,jane@example.com,Marketing,"Marketing Strategy, Social Media",3
+3,Bob,Johnson,35,M,bob@example.com,Finance,"Accounting, Financial Analysis",0

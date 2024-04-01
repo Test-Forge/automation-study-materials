@@ -1,0 +1,44 @@
+<List>
+    <Employee>
+        <id>1</id>
+        <name>John</name>
+        <surName>Doe</surName>
+        <age>30</age>
+        <gender>M</gender>
+        <email>john@example.com</email>
+        <department>Engineering</department>
+        <skills>
+            <string>Java</string>
+            <string>Python</string>
+        </skills>
+        <managerId>3</managerId>
+    </Employee>
+    <Employee>
+        <id>2</id>
+        <name>Jane</name>
+        <surName>Smith</surName>
+        <age>28</age>
+        <gender>F</gender>
+        <email>jane@example.com</email>
+        <department>Marketing</department>
+        <skills>
+            <string>Marketing Strategy</string>
+            <string>Social Media</string>
+        </skills>
+        <managerId>3</managerId>
+    </Employee>
+    <Employee>
+        <id>3</id>
+        <name>Bob</name>
+        <surName>Johnson</surName>
+        <age>35</age>
+        <gender>M</gender>
+        <email>bob@example.com</email>
+        <department>Finance</department>
+        <skills>
+            <string>Accounting</string>
+            <string>Financial Analysis</string>
+        </skills>
+        <managerId>0</managerId>
+    </Employee>
+</List>
