@@ -34,7 +34,7 @@ This applies to all levels of abstraction in the codebase like method, class,pac
 
 Java without following clean code principles:
 
-link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/not_so_clean_java_code.java[not so clean java code]
+link:example/not_so_clean_java_code.java[not so clean java code]
 
 - The class and variable names are not meaningful.
 - The method name does not describe its purpose.
@@ -45,7 +45,7 @@ link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_cod
 
 Java code with clean code principles:
 
-link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/pretty_clean_java_code.java[pretty clean java code]
+link:example/pretty_clean_java_code.java[pretty clean java code]
 
 - The class, method, and variable names are meaningful and follow Java naming conventions.
 - The Rectangle class has a constructor to initialize its properties.
@@ -81,13 +81,13 @@ Should be in uppercase letters with words separated by underscores (“_”). Fo
 
 Java code w/o proper naming conventions:
 
-link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/not_so_proper_java_naming_conventions.java[not so proper java naming conventions]
+link:example/not_so_proper_java_naming_conventions.java[not so proper java naming conventions]
 
 *_Example 4:_*
 
 Java code with proper naming convention:
 
-link:C:/Users/tmateevici/IdeaProjects/automation-study-materials/JT/06_clean_code_naming_convention/example/pretty_proper_java_naming_convention.java[pretty proper java naming convention]
+link:example/pretty_proper_java_naming_convention.java[pretty proper java naming convention]
 
 
 == Conclusion:
