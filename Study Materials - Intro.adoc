@@ -1,29 +1,42 @@
 == Study Materials Intro
 
-Welcome, Buddy. The purpose of this project is to have in a single place a collection of materials that can be used in career path growth. This project covers technical aspect of first 3 grades (JT,ST,TL). Under every grade, you can find numerated subjects that will include generic overview, practical code examples, valuable links for deeper exploration, exercises for hands-on learning, and carefully selected memes.
+Welcome, Buddy.
+The purpose of this project is to have in a single place a collection of materials that can be used in career path growth.
+This project covers technical aspect of first 3 grades (JT,ST,TL).
+Under every grade, you can find numerated subjects that will include generic overview, practical code examples, valuable links for deeper exploration, exercises for hands-on learning, and carefully selected memes.
 
 == How can I use these materials?
-* On *upskill/reskill* journey: These materials are perfectly suited to start learning from the scratch. The biggest advantage is that the project can serve as entry point in Automation.
+
+* On *upskill/reskill* journey: These materials are perfectly suited to start learning from the scratch.
+The biggest advantage is that the project can serve as entry point in Automation.
 * *Self assessment*: The study materials and exercises can be used for refreshing own knowledge base.
-* *Personal growth*: These resources enable you to ensure that you possess all the required technical knowledge to progress to the next grade. Moreover, on reviewing the materials, there is possible to identify the gaps and area with low practice or expertise, allowing you to dive directly into them.
+* *Personal growth*: These resources enable you to ensure that you possess all the required technical knowledge to progress to the next grade.
+Moreover, on reviewing the materials, there is possible to identify the gaps and area with low practice or expertise, allowing you to dive directly into them.
+
 --
-Keep in mind that this project is designed by awesome enthusiasts from Endava for other awesome enthusiast from Endava. If you find that you also can contribute on this project by link:https://forms.office.com/e/h1qj4QUduT[giving your personal opinion] on entry project or a specific topic by submitting this form. Additionally, feel free to contribute directly by submitting a pull request with your suggested changes.
+Keep in mind that this project is designed by awesome enthusiasts from Endava for other awesome enthusiast from Endava.
+If you find that you also can contribute on this project by link:https://forms.office.com/e/h1qj4QUduT[giving your personal opinion] on entry project or a specific topic by submitting this form.
+Additionally, feel free to contribute directly by submitting a pull request with your suggested changes.
 --
+
 *NOTE:* there is still work on all topics, especially topics with *WIP* in title.
+
 --
 .Junior Technician - JT
 [%collapsible]
 ====
 . link:JT/01_environment_setup/README.adoc[Environment Setup]
-. *WIP* _Postman. Networking basics_
+. *WIP* _Postman.
+Networking basics_
 . link:JT/03_java_basics/Java_Programming_basics.adoc[Java Basics]
 . link:JT/4_build_tools_maven_gradle/Build_Tools_Maven_Gradle_README.md[Build Tools - Maven, Gradle]
 . *WIP* _Maven & Dependency management_
 . link:JT/06_clean_code_naming_convention/Java%20clean%20code%20and%20naming%20convention%20principles.adoc[Clean code. Naming conventions]
 . link:JT/07_bedugging_and_run_debug_configuration/IDE_Debugger/How_to_debug.md[How to debug? IDE Debugger & Run configurations]
-. *WIP* _Demystifying logs. How to interpret logs & stack traces_
-. link:JT/10_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
-. link:JT/11_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
+. *WIP* _Demystifying logs.
+How to interpret logs & stack traces_
+. link:JT/09_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
+. link:JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
 . link:JT/12_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading]
 . *WIP* _Data Structures_
 . *WIP* _Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)_
@@ -31,6 +44,7 @@ Keep in mind that this project is designed by awesome enthusiasts from Endava fo
 . link:JT/15_how_to_identify_xpaths/How_To_Identify_XPaths_README.md[How to identify XPaths. Tools for XPaths. Cheat sheet]
 ====
 --
+
 .Technician - TL
 [%collapsible]
 ====
@@ -49,6 +63,7 @@ Keep in mind that this project is designed by awesome enthusiasts from Endava fo
 . link:TL/27_bdd_cucumber/Bdd_Cucumber.adoc[BDD. Cucumber.]
 . link:TL/28_utility_libraries_data_faker_awaitility/Utility_Libraries_README.adoc[Utility libraries - Data faker, awaitility]
 ====
+
 .Senior Technician - SL
 [%collapsible]
 ====
