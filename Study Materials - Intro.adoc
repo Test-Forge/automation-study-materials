@@ -49,7 +49,7 @@ Keep in mind that this project is designed by awesome enthusiasts from Endava fo
 . link:TL/27_bdd_cucumber/Bdd_Cucumber.adoc[BDD. Cucumber.]
 . link:TL/28_utility_libraries_data_faker_awaitility/Utility_Libraries_README.adoc[Utility libraries - Data faker, awaitility]
 ====
-.Senior Technician - SL
+.Senior Technician - ST
 [%collapsible]
 ====
 [start=29]
