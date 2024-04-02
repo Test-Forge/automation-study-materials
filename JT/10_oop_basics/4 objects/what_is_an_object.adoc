@@ -1,3 +1,4 @@
+[#_object_in_java]
 = Object in Java
 :toc:
 :icons: font
