@@ -1,0 +1,10 @@
+<project>
+    ...
+    <repositories>
+        <repository>
+            <id>example-repo</id>
+            <url>http://example.com/maven2</url>
+        </repository>
+    </repositories>
+    ...
+</project>

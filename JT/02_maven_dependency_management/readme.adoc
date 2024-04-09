@@ -1,0 +1,508 @@
+= What is Maven?
+Scurtu Stanislav
+<stanislav.scurtu@gmail.com>
+:revnumber: 1.0
+:revdate: 2024-04-03
+:toc: left
+:icons: font
+
+== Overview
+
+Maven is a powerful build automation tool used primarily for Java projects.
+It provides a comprehensive infrastructure for managing project dependencies, building, and deploying applications.
+
+Maven follows a convention-over-configuration approach, allowing developers to focus on the development process rather than dealing with the tedious configuration details.
+
+video::Xatr8AZLOsE[youtube,width=640,height=360]
+
+Suppose you are working on a Java project that requires the Apache Commons Lang library.
+You can specify this dependency in the project's `pom.xml` file like this:
+
+[source,xml]
+----
+include::code_samples/dependency.xml[]
+----
+
+In this example, we specify the group ID, artifact ID, and version of the dependency we need.
+When Maven builds the project, it will automatically download the required library from the configured repository and include it in the project's classpath.
+
+Overall, dependency management with Maven is essential for ensuring that a project has access to the required external components and libraries.
+It simplifies the process of managing dependencies and allows for more efficient and reliable software development.
+
+== Maven vs Gradle
+
+Maven and Gradle are both popular build tools in the Java community, and each has its own strengths and weaknesses.
+In this chapter, we will compare Maven and Gradle in terms of their features, performance, and flexibility.
+
+*Features* +
+Maven is known for its convention over configuration approach, where it provides a set of standard project structures and build lifecycles.
+It uses XML for configuration and relies on plugins for extending functionality.
+
+On the other hand, Gradle offers a more flexible and customizable approach to building and automation.
+It uses a Groovy-based DSL, allowing for more expressive and concise build scripts.
+Gradle also provides a rich set of APIs and plugins, enabling easy integration with third-party tools and libraries.
+
+*Performance* +
+In terms of performance, Gradle is often praised for its faster build times compared to Maven.
+This is due to its incremental build feature, which only recompiles and rebuilds the parts of the project that have changed.
+Maven, on the other hand, has been criticized for its slower build times, especially for large projects.
+
+*Flexibility* +
+Gradle's flexibility allows for more advanced and complex build scenarios, making it suitable for larger and more diverse projects.
+Its rich APIs and plugin ecosystem make it easier to customize the build process to specific project requirements.
+
+Maven, while more opinionated and less flexible, can be advantageous for standard projects that follow its conventions without needing extensive customization.
+It provides a more structured and predictable build process, which can be beneficial for maintaining uniformity across different projects.
+
+To illustrate the difference between Maven and Gradle, let's consider a simple scenario of building a Java project.
+
+[NOTE]
+In Maven, the `pom.xml` file contains the project configuration, including dependencies, plugins, and build instructions.
+The build process is based on predefined lifecycles, such as clean, compile, test, package, etc.
+
+[source,xml]
+----
+include::code_samples/pom.xml[]
+----
+
+In Gradle, the build script `build.gradle` is written in Groovy and allows for greater flexibility and customization.
+Dependencies, tasks, and build logic can be defined using a more expressive and concise syntax.
+
+[source,groovy]
+----
+include::code_samples/gradle.gradle[]
+----
+
+In this example, Gradle's build script is shorter and more readable, showcasing its flexibility and expressiveness compared to Maven's XML configuration.
+
+[TIP]
+Both Maven and Gradle have their own merits, and the choice between the two depends on the specific needs and preferences of the project and team.
+
+== Maven Environment Setup
+
+Before we dive into using Maven for dependency management, let's first understand how to set up a project to leverage Maven's capabilities.
+
+[IMPORTANT]
+Maven is a Java tool, so you need to have Java installed on your system before installing Maven.
+
+=== Windows
+
+* *Download Maven* +
+Go to the https://maven.apache.org/download.cgi[Apache Maven website] and download the latest version of Maven.
+Choose the bin.zip file suitable for Windows.
+
+* *Extract Files* +
+Extract the contents of the zip file to a directory on your computer, for example, `C:\apache-maven`.
+
+* *Set Environment Variables* +
+** JAVA_HOME: Ensure that the `JAVA_HOME` environment variable is set to the folder where your JDK is installed, e.g., `C:\Program Files\Java\jdk1.8.0_251`. +
+** MAVEN_HOME: Set the `MAVEN_HOME` environment variable to the Maven installation directory, e.g., `C:\apache-maven`. +
+** Path: Add Maven's bin directory to the Path environment variable, e.g., `C:\apache-maven\bin`. +
+* *Verify Installation:* +
+Open a command prompt and run `mvn -v` to verify that Maven is correctly installed and configured.
+You should see details about Maven and Java version.
+
+=== macOS/Linux
+
+* *Download Maven* +
+Visit the https://maven.apache.org/download.cgi[Apache Maven website] and download the latest version of Maven.
+Choose the bin.tar.gz file suitable for Unix-based systems.
+
+* *Extract Files* +
+Extract the archive to a directory of your choice, for example, `/usr/local/apache-maven`.
+
+* *Configure Environment* +
+Add the bin directory of the created directory to the PATH environment variable.
+Add `JAVA_HOME` variable pointing to your JDK installation.
+You can add these to your `.bashrc`, `.zshrc`, or `.profile` file from terminal as follows:
+
+[source,bash]
+----
+export JAVA_HOME=/path/to/your/jdk
+export M2_HOME=/usr/local/apache-maven
+export PATH=$PATH:$M2_HOME/bin
+----
+
+After editing your shell profile and adding the necessary environment variables, apply the changes:
+
+[source,bash]
+----
+source ~/.bashrc
+----
+
+(or source ~/.zshrc for zsh users), then verify your installation with: `mvn -v`
+
+== Lifecycle and Phases
+
+The Maven Lifecycle is a fundamental concept within Maven, a popular tool used for project management and comprehension in Java projects.
+Maven uses a declarative approach, specifying the desired state of a project in terms of its dependencies, resources, and goals without detailing the task-by-task procedure to achieve this state.
+The Maven Lifecycle is a part of this approach, providing a framework for the build process.
+
+*Core Lifecycles* +
+Maven has three built-in lifecycles:
+
+1. *Default Lifecycle*: Handles project deployment. +
+2. *Clean Lifecycle*: Manages project cleaning. +
+3. *Site Lifecycle*: Manages the creation of the project's site documentation.
+
+*Phases of the Default Lifecycle* +
+The Default Lifecycle, which is the most commonly used, consists of several phases.
+These phases are executed sequentially to ensure the build process's integrity.
+Key phases include:
+
+* *validate*: Verifies if all necessary information is available.
+* *compile*: Compiles the project's source code.
+* *test*: Runs tests using a suitable unit testing framework.
+These tests should not require the code be packaged or deployed.
+* *package*: Packages the compiled code in its distributable format, such as a JAR.
+* *verify*: Runs any checks to validate the package is valid and meets quality criteria.
+* *install*: Installs the package into the local repository, making it available for other projects on the same machine.
+* *deploy*: Copies the final package to the remote repository for sharing with other developers and projects.
+
+*Clean and Site Lifecycles*
+
+* The *Clean Lifecycle* is straightforward, mainly involving the clean phase, which cleans up the project's directory by removing all files generated by the previous build.
+* The *Site Lifecycle* includes phases like site to generate the project's site documentation and deploy to deploy the site to a web server.
+
+== POM File
+
+The Project Object Model (POM) file is the fundamental unit of the Maven project.
+It contains all the necessary information about the project and configuration details to build the project such as dependencies, plugins, goals, build profiles, and so on.
+The POM file is named `pom.xml` and is located in the root directory of the project.
+
+The POM file follows the XML format and consists of various elements. +
+Below are the key elements commonly found in a POM file:
+
+* `<modelVersion>`: Specifies the model version of the POM.
+For Maven version 2.0.0 and above, this should be set to `4.0.0`.
+
+* `<groupId>`: Defines the group or organization that the project belongs to.
+This is often used to structure the package names.
+
+* `<artifactId>`: The name of the project artifact.
+This is the name of the JAR, WAR, or any other project output.
+
+* `<version>`: The version of the project.
+Maven supports different versioning schemes but commonly follows the Major.Minor.Patch format.
+
+* `<packaging>`: Defines how the project should be packaged.
+Common types include `jar`, `war`, and `pom`.
+
+* `<dependencies>`: This section lists all the project dependencies, including libraries and frameworks the project uses.
+
+* `<build>`: Contains components and configurations used during the build process, such as plugins and tasks.
+
+* `<properties>`: Allows setting project-specific properties that can be referenced within the POM.
+
+Here is a simple example of a POM file:
+
+[source,xml]
+----
+include::code_samples/pom.xml[]
+----
+
+In this example:
+
+* The project is identified by its group `com.example`, artifact `hello-world`, and version `1.0-SNAPSHOT`.
+* It will be packaged as a JAR file `<packaging>jar</packaging>`.
+* It has a dependency on JUnit version 5.10.2, which is used for running tests `<scope>test</scope>`.
+* The build configuration specifies using the Maven Compiler Plugin to compile the project using Java 8.
+
+[NOTE]
+This POM file provides Maven with all the necessary information to build the project, resolve dependencies, and manage the project's lifecycle.
+
+== Dependency Management
+
+Maven dependencies are external Java libraries or modules that your project relies on to function.
+These could be third-party libraries, such as the Apache Commons, Spring Framework, or JUnit, or they could be other modules within a larger project that you're working on.
+Managing these dependencies is one of Maven's core features, simplifying the process of including external libraries into your project without manually downloading and adding them to your project's build path.
+
+*How Maven Manages Dependencies* +
+Maven uses a central repository where it stores a vast number of libraries and their versions.
+When you specify a dependency in your project's pom.xml file, Maven automatically downloads the library from the repository and makes it available in your project's classpath.
+It also resolves any transitive dependencies that your specified dependencies might have, meaning if the library you included depends on another library, Maven will download that one too.
+
+=== Specifying Dependencies
+
+Dependencies in Maven are specified in the `pom.xml` file of your project within the `<dependencies>` section.
+Each dependency you add requires specifying at least its `groupId`, `artifactId`, and `version`.
+
+* `groupId`: Specifies the group or organization that the library belongs to.
+This is often used as a way to namespace the artifact. +
+* `artifactId`: The name of the library or project. +
+* `version`: The specific version of the library you want to include in your project.
+
+Here is an example of adding a dependency on the JUnit library:
+
+[source,xml]
+----
+include::code_samples/dependency.xml[]
+----
+
+=== Dependency Scope
+
+Maven allows you to specify the scope of a dependency, which determines how the dependency is used and included in different phases of the Maven build lifecycle.
+The main scopes are:
+
+* `compile`: The default scope.
+Dependencies with this scope are available on the classpath of your project during compilation and are also included in the runtime classpath.
+* `provided`: Used for dependencies that are provided by the runtime environment.
+These are required for compiling but should not be included in the project's packaging.
+* `runtime`: Dependencies that are not required for compilation but are needed at runtime.
+* `test`: Dependencies that are only used for testing purposes.
+They are available on the classpath during the test compilation and execution phases but are not included in the final packaged version.
+* `system`: Similar to `provided`, but you need to provide the JAR explicitly.
+Maven does not fetch it from the repository.
+* `import`: This is only used in a `<dependencyManagement>` section to include dependency configurations from other projects.
+
+=== Dependency Conflict Resolution
+
+When multiple versions of the same dependency are encountered (directly or transitively), Maven uses a "nearest definition" strategy to resolve the conflict.
+When Maven builds the project's dependency tree, it processes the `pom.xml` files of all dependencies in a breadth-first manner.
+If Maven encounters the same dependency (same `groupId` and `artifactId`) at different points in the dependency tree with different versions, it applies the following rules:
+
+1. *Nearest Wins*: The version used will be the one that is closest to the project in the tree of dependencies.
+"Closer" means that the dependency is fewer levels deep in the dependency tree.
+2. *First Declaration Wins*: If two dependencies are at the same depth in the dependency tree, Maven picks the version that was declared first.
+
+Let's consider the following dependency tree:
+
+[source,xml]
+----
+<project>
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>library-a</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
+</project>
+
+<library-b>
+    <dependencies>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>library-a</artifactId>
+            <version>2.0</version>
+        </dependency>
+    </dependencies>
+</library-b>
+----
+
+In this case, Maven would use Library A (version 1.0) because it is directly declared in the project, and it takes precedence over the transitive dependency from Library B.
+
+[NOTE]
+This strategy means that the version of a dependency directly declared in your project's `pom.xml` file will always take precedence over any versions found in dependencies of those dependencies (transitive dependencies).
+
+== Repository Management
+
+Maven repositories are a key part of the Maven build system, acting as the primary source for Maven to manage project dependencies (libraries, frameworks, and other project-specific artifacts).
+These repositories are categorized into local, central, and remote repositories, each serving a distinct role in the development and deployment cycle.
+
+*Local Repository* +
+The local repository refers to a developer's machine.
+It caches downloaded artifacts (dependencies) so they don't need to be fetched from the network the next time they're required.
+This repository significantly speeds up build times and reduces unnecessary traffic to remote repositories.
+By default, the local repository is located in the `.m2` directory within the user's home directory (`~/.m2/repository`).
+
+*Central Repository* +
+The central repository is a public Maven repository hosted by the Apache Software Foundation.
+It contains a vast collection of commonly used libraries and project artifacts.
+When Maven needs a dependency that is not present in the local repository, it automatically fetches it from the central repository.
+This repository is pre-configured in Maven's settings and does not require any special configuration to use.
+
+*Remote Repository* +
+Remote repositories refer to any repositories other than the central repository that are accessed over a network.
+They can be third-party repositories hosted on the internet or private repositories hosted within an organization's intranet.
+Remote repositories are useful for sharing artifacts within an organization or for accessing artifacts that are not available in the central repository.
+
+*Configuring Repositories in Maven* +
+To configure a repository in Maven, you need to modify the `pom.xml` file for your project or the `settings.xml` file in your Maven `.m2` directory.
+Here's how you can specify repositories:
+
+Adding a Remote Repository To add a remote repository, you need to include a `<repositories>` section in your `pom.xml` file.
+Here's an example:
+
+[source,xml]
+----
+include::code_samples/repository.xml[]
+----
+
+*Configuring a Repository in `settings.xml`* +
+For repositories that you use frequently across projects, you can configure them globally in the `settings.xml` file located in the Maven `.m2` directory.
+This approach is particularly useful for configuring access to private repositories or mirror configurations.
+
+[source,xml]
+----
+include::code_samples/settings.xml[]
+----
+
+Overall, repository management is a crucial aspect of dependency management in Maven, ensuring that projects have access to the necessary libraries and plugins from local, central and remote sources.
+Proper configuration of repositories in the POM file and `settings.xml` file is essential for efficient and reliable dependency resolution in Maven projects.
+
+== Plugin Management
+
+Maven plugins are components that extend Maven's functionality, allowing for the execution of various tasks that are part of the build lifecycle, from compilation, testing, and packaging to deployment.
+Each plugin can execute one or more goals, with a goal representing a specific task within the build process.
+
+Maven operates on a plugin-based architecture, meaning most of its functionality comes from plugins.
+When you run a Maven command, you're typically instructing a plugin to execute one of its goals.
+For example, `mvn compile` invokes the compile goal of the Maven Compiler Plugin, compiling the project's source code.
+
+=== Plugin Configuration
+
+*Commonly Used Maven Plugins* +
+Here are some commonly used Maven plugins, each vital for different stages of the development lifecycle:
+
+1. *Maven Compiler Plugin* - Compiles the source code of the project.
+It's one of the core plugins in Maven, ensuring the project's code is compiled according to the specified Java version.
+
+2. *Maven Surefire Plugin* - Used for running unit tests.
+It scans for test cases in the project, executes them, and generates reports about the tests.
+
+3. *Maven Failsafe Plugin* - Similar to Surefire but is designed for integration tests.
+It follows the convention of naming integration tests differently to distinguish them from unit tests.
+
+4. *Maven Clean Plugin* - Cleans up the project's directory by removing the build directory (`target/`).
+This is typically run before a fresh build to ensure there are no artifacts from previous builds.
+
+5. *Maven Install Plugin* - Installs the project's artifact into the local Maven repository, making it available as a dependency for other projects on the same machine.
+
+6. *Maven Deploy Plugin* - Used to deploy the artifact to a remote repository or server, making it available for other developers and projects.
+
+7. *Maven Javadoc Plugin* - Generates JavaDoc for the project, which is crucial for documentation purposes.
+
+Using Maven plugins is straightforward and involves adding them to your project's `pom.xml` file. +
+Here's an example of how to configure the Maven Compiler Plugin:
+
+[source,xml]
+----
+include::code_samples/plugin.xml[]
+----
+
+This configuration snippet ensures that the project is compiled with Java 1.8 compatibility.
+You can change the `source` and `target` versions to match the Java version you're using.
+
+=== Plugin Execution
+
+Plugin execution refers to how and when a Maven plugin's goals are run during the build process.
+Each plugin can have multiple goals, and these goals can be bound to different phases of the Maven build lifecycle (e.g., compile, test, package, install, deploy).
+When Maven runs a build, it follows this lifecycle and executes the goals of any plugins bound to each phase.
+
+You can explicitly specify plugin execution in your project's `pom.xml` file.
+This includes the phase during which the goal should run, any configuration parameters for the plugin, and the goals to execute. +
+Here's an example of configuring the execution of a plugin:
+
+[source,xml]
+----
+include::code_samples/build.xml[]
+----
+
+In this example, the `maven-surefire-plugin` is configured to execute during the `test` phase of the build lifecycle, and its `test` goal will be invoked.
+
+=== Plugin Management
+
+Plugin management is a feature of Maven that allows you to centralize the configuration of plugins used by multiple projects within a project inheritance hierarchy.
+This is particularly useful in a multi-module project setup where you want to ensure consistent usage of plugin versions and configurations across all modules.
+
+The `pluginManagement` section goes inside the build element of your project's pom.xml file and provides a way to specify plugin versions and default configurations without actually invoking those plugins.
+Plugins defined in the `pluginManagement` section will only be executed if they are also specified in the `plugins` section of a `pom.xml` file, either in the same project or in one of its modules.
+
+Here's an example of how to use `pluginManagement`:
+
+[source,xml]
+----
+include::code_samples/pluginManagement.xml[]
+----
+
+In this example, the `pluginManagement` section is used to specify that the `maven-compiler-plugin` should use version `3.8.1` and compile the project's source code with Java 1.8. This configuration applies to all modules within the project that also specify this plugin in their `plugins` section.
+
+[NOTE]
+By separating plugin execution from management, Maven offers a flexible way to define, customize, and manage the build process across individual projects and larger multi-module projects.
+This ensures that builds are repeatable and maintain consistency in terms of plugin versions and configurations used.
+
+== Advanced Maven Concepts
+
+=== Multi-module Projects
+
+Maven supports the creation of multi-module projects, where a parent project can manage multiple sub-projects.
+This can be useful for breaking down a large project into more manageable chunks and enforcing code reuse.
+To define a multi-module project, you need to create a parent POM file that lists the modules it contains.
+
+[source,xml]
+----
+<modules>
+    <module>module1</module>
+    <module>module2</module>
+    <module>module3</module>
+</modules>
+----
+
+=== Profiles
+
+Maven profiles allow you to customize build configurations for different environments or purposes.
+For example, you may have a "development" profile with certain dependencies and plugins, and a "production" profile with additional optimizations.
+Profiles are defined in the POM file and can be activated based on various conditions such as environment variables or command-line parameters.
+
+[source,xml]
+----
+include::code_samples/profiles.xml[]
+----
+
+=== Custom Plugins
+
+Maven allows you to create custom plugins to extend its functionality.
+These plugins can be written in Java and packaged as JAR files, then referenced in the POM file.
+Custom plugins can automate repetitive tasks, enforce specific project conventions, or integrate with external tools.
+
+[source,xml]
+----
+include::code_samples/customPlugin.xml[]
+----
+
+=== Dependency Exclusions
+
+Sometimes, a transitive dependency pulled in by a direct dependency may cause conflicts or compatibility issues.
+Maven allows you to exclude specific transitive dependencies to resolve such issues.
+By adding an exclusion in the POM file, you can exclude a particular dependency from being pulled in transitively.
+
+[source,xml]
+----
+include::code_samples/dependencyExclusion.xml[]
+----
+
+[NOTE]
+These advanced Maven concepts provide powerful tools for managing complex projects and customizing build configurations.
+
+== Maven Best Practices
+
+When working with Maven and dependency management, there are several best practices that can help ensure the smooth functioning of your project and improve its maintainability.
+Here are some key best practices to keep in mind:
+
+*Standard Directory Layout* +
+It is recommended to follow the standard directory layout for Maven projects.
+This includes placing your main source code in the `src/main/java` directory, test code in `src/test/java`, and resources in `src/main/resources` and `src/test/resources`.
+Following this standard layout makes it easier for other developers to understand your project structure.
+
+*Define and Manage Dependencies Properly* +
+Always define your project dependencies in the `pom.xml` file using the `<dependencies>` section.
+It's important to specify the correct version numbers and to use the appropriate scope for each dependency (e.g., `compile`, `test`, `provided`).
+Additionally, you should regularly review and update your dependencies to ensure that your project is using the latest and most secure versions of external libraries.
+
+*Use Maven Plugins Judiciously* +
+Maven provides a wide range of plugins to help with various aspects of the development lifecycle.
+However, it's important to use these plugins judiciously and avoid adding unnecessary complexity to your build process.
+Only include plugins that are essential to your project and make sure to configure them properly to avoid any unexpected issues.
+
+*Keep the pom.xml File Clean and Organized* +
+The `pom.xml` file should be kept clean and organized to make it easier to understand and maintain.
+Avoid duplicating configuration settings, use inheritance and property management to reduce redundancy, and keep the dependencies section well-organized.
+
+*Profile Your Build* +
+Define environment-specific parameters such as database URLs and credentials within the `<profiles>` section of your POM.
+Maven profiles provide a streamlined way to manage distinct configurations for various environments within a single build process, reducing complexity and maintaining project clarity.
+
+[NOTE]
+Incorporating these practices into your Maven project management and build processes can lead to more efficient, maintainable, and faster builds.
+Always stay updated with the latest Maven documentation and community best practices, as tools and techniques evolve over time.

@@ -1,0 +1,17 @@
+// build.gradle
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:33.1.0-jre'
+    testImplementation 'junit:junit:5.10.2'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}

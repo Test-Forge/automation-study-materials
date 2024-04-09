@@ -1,0 +1,19 @@
+<settings>
+    ...
+    <profiles>
+        <profile>
+            <id>myProfile</id>
+            <repositories>
+                <repository>
+                    <id>company-repo</id>
+                    <url>http://repo.company.com/maven2</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <activeProfiles>
+        <activeProfile>myProfile</activeProfile>
+    </activeProfiles>
+    ...
+</settings>
