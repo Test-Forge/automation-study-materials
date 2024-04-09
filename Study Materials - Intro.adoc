@@ -24,7 +24,7 @@ Keep in mind that this project is designed by awesome enthusiasts from Endava fo
 . *WIP* _Demystifying logs. How to interpret logs & stack traces_
 . link:JT/10_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
 . link:JT/11_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
-. link:JT/12_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading]
+. link:JT/12_overloading_overriding/overloading_vs_overriding.adoc[Overriding vs. Overloading]
 . *WIP* _Data Structures_
 . *WIP* _Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)_
 . *WIP* _Version Control_
