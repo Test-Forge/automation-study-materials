@@ -1,0 +1,9 @@
+<build>
+    <plugins>
+        <plugin>
+            <groupId>com.example</groupId>
+            <artifactId>custom-maven-plugin</artifactId>
+            <version>1.0.0</version>
+        </plugin>
+    </plugins>
+</build>

@@ -30,7 +30,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 Networking basics_
 . link:JT/03_java_basics/Java_Programming_basics.adoc[Java Basics]
 . link:JT/04_build_tools_maven_gradle/Build_Tools_Maven_Gradle_README.md[Build Tools - Maven, Gradle]
-. *WIP* _Maven & Dependency management_
+. link:JT/02_maven_dependency_management/readme.adoc[Maven & Dependency management]
 . link:JT/06_clean_code_naming_convention/Java%20clean%20code%20and%20naming%20convention%20principles.adoc[Clean code. Naming conventions]
 . link:JT/07_debugging_and_run_debug_configuration/IDE_Debugger/How_to_debug.md[How to debug? IDE Debugger & Run configurations]
 . *WIP* _Demystifying logs.
@@ -63,8 +63,7 @@ How to interpret logs & stack traces_
 . link:TL/27_bdd_cucumber/Bdd_Cucumber.adoc[BDD. Cucumber.]
 . link:TL/28_utility_libraries_data_faker_awaitility/Utility_Libraries_README.adoc[Utility libraries - Data faker, awaitility]
 ====
-
-.Senior Technician - SL
+.Senior Technician - ST
 [%collapsible]
 ====
 [start=29]
