@@ -53,8 +53,15 @@ public class Person {
 See a full example attached in the link:Examples/Encapsulation/[Encapsulation] package.
 ****
 
-Also , strongly recomended to watch these bedtime stories :)
-https://www.youtube.com/watch?v=Mb1TJprZb1c[Encapsulation] and https://www.youtube.com/watch?v=WZEPT77pB0g[Encapsulation aplication], useful not only for encapsulation.
+Also , strongly recomended to watch these bedtime stories useful not only for encapsulation.
+
+https://www.youtube.com/watch?v=Mb1TJprZb1c[Encapsulation]
+
+video::Mb1TJprZb1c[youtube]
+
+and https://www.youtube.com/watch?v=WZEPT77pB0g[Encapsulation aplication]
+
+video::WZEPT77pB0g[youtube]
 
 Conclusions:
 
@@ -96,7 +103,15 @@ See the full example attached in the link:Examples/Inheritance/[Inheritance] pac
 
 Also, this topic is detailed in a separate chapter, see link:..JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
 
-If you have some tea and cookies : https://www.youtube.com/watch?v=GgxMRbWzleI[Inheritance] and https://www.youtube.com/watch?v=WlQacYskOu4[Constructors in Inheritance]
+If you have some tea and cookies :
+
+https://www.youtube.com/watch?v=GgxMRbWzleI[Inheritance]
+
+video::GgxMRbWzleI[youtube]
+
+and https://www.youtube.com/watch?v=WlQacYskOu4[Constructors in Inheritance]
+
+video::WlQacYskOu4[youtube]
 
 ---
 
@@ -134,6 +149,8 @@ Check also link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overri
 
 And watch this with morning coffee: https://www.youtube.com/watch?v=o6HEb-DBtAc&t=3s[Polymorphism]
 
+video::o6HEb-DBtAc&t=3s[youtube]
+
 ----
 Exercise: Create a class called Fruit.
 This class should contain a field called calories and a method called makeJuice(), which prints a statement — something like “juice is made” - just something generic.
@@ -165,6 +182,8 @@ Other example is when we have multiple classes that implements inherited abstrac
 
 Bedtime story for this topic: https://www.youtube.com/watch?v=7Yz_m2XjVCg[Abstraction]
 
+video::7Yz_m2XjVCg[youtube]
+
 ****
 See an example attached in the link:Examples/Abstraction/viaClass/[Abstraction/viaClass] package.
 ****
@@ -173,6 +192,8 @@ Abstraction can be also implemented through Interfaces.
 The main difference is that while Java does not support "multiple inheritance" (a class can inherit only from one Superclass) a class can *implement* multiple interfaces.
 
 Bedtime story: https://www.youtube.com/watch?v=gweKCKVkfp0&t=1s[Interfaces]
+
+video::gweKCKVkfp0&t=1s[youtube]
 
 ****
 See an example attached in the link:Examples/Abstraction/viaInterface[Abstraction/viaInterface] package.
