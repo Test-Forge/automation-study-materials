@@ -38,7 +38,7 @@ How to interpret logs & stack traces_
 . link:JT/09_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
 . link:JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
 . link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading]
-. *WIP* _Data Structures_
+. link:JT/12_data_structures/data_structure.adoc[Data Structure]
 . *WIP* _Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)_
 . link:JT/14_version_control/Version_Control_README.adoc[Version Control]
 . link:JT/15_how_to_identify_xpaths/How_To_Identify_XPaths_README.md[How to identify XPaths. Tools for XPaths. Cheat sheet]
