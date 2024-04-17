@@ -1,9 +1,6 @@
-= OOP Basics
-Firstname Lastname <author@asciidoctor.org>
-3.0, July 29, 2022: AsciiDoc article template
-:toc:
-:icons: font
-:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+`= OOP Basics`
+Firstname Lastname <author@asciidoctor.org> 3.0, July 29, 2022: AsciiDoc article template :toc:
+:icons: font :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
 OOP stands for *Object-Oriented Programming*.
 
@@ -12,7 +9,6 @@ OOP stands for *Object-Oriented Programming*.
 OOP is a programming paradigm that focuses on the use of *objects* to represent and manipulate data.
 
 In OOP, data is encapsulated within _objects_, and objects are defined by their _properties_ (attributes) and _behaviors_ (methods).
-
 
 === Advantages of OOP
 

@@ -1,95 +1,237 @@
-= Java clean code and naming convention principles:
+= Clean code. Java naming convention principles
+Tudor Mateevici, Scurtu Stanislav
+<tudor.mateeevici@endava.com>, <stanislav.scurtu@gmail.com>
+:revnumber: 2.0
+:revdate: 2024-04-16
+:toc: left
+:icons: font
 
-- Author Name : Tudor Mateevici;
+Writing clean code in Java is crucial for maintaining readability, reusability, and overall code quality.
+Here are some key principles specifically related to clean code practices and naming conventions in Java:
 
-- email: tudor.mateeevici@endava.com
+=== Meaningful Names
 
-== Java Clean Code Principles:
+* *Intention-Revealing Names:* Names of variables, methods, and classes should reveal why they exist, what they do, and how they are used.
+For example, `createUserAccount` is more descriptive than just `create`.
+* *Avoid Disinformation:* Do not use names which mislead the reader about the nature of the entity.
+For instance, avoid using `list` as a name for a variable that is not actually a `java.util.List`.
+* *Make Distinctions Meaningful:* Different names should mean different things.
+Avoid using names that vary in small ways like `Product` and `ProductInfo`.
+* *Use Pronounceable and Searchable Names:* Names should be easy to pronounce and search.
+Avoid acronyms and abbreviations that are not standard.
 
-**C**lean code is a concept in software development that emphasizes writing code that is:
+Bad Example:
 
-- _understandable_
-- _maintainable_
-- _scalable_
+[source,java]
+----
+int d; // elapsed time in days
+----
 
-=== Here are some key principles:
+Good Example:
 
-[%hardbreaks]
-*Readability*: Code should be easy to read and understand.
-This includes using meaningful variable names and comments,
-and following standard coding conventions.
+[source,java]
+----
+int elapsedTimeInDays;
+----
 
-[%hardbreaks]
-*Maintainability*: Clean code should be easy to maintain over time.
-This means it should be easy to add new features, fix bugs, and refactor the code without breaking existing functionality.
+The good example uses a name that clearly states what the variable represents without needing additional comments.
 
-[%hardbreaks]
-*Focused*: Each piece of code should solve a specific problem.
-This applies to all levels of abstraction in the codebase like method, class,package, or module.
+=== Functions
 
-[%hardbreaks]
-*Consistency*: Consistency in coding style makes the code easier to read and understand. This includes consistent use of indentation, spacing, and capitalization.
+* *Small and Focused:* Functions should be short and limited to a single task.
+Each function should ideally be no more than 20 lines long.
+* *Do One Thing:* Functions should do one thing only and do it well.
+If a function is doing multiple tasks, consider breaking it into smaller functions.
+* *Descriptive Names:* Function names should clearly state what they do; if you find yourself needing to add comments to explain what a function does, consider renaming the function.
 
-*_Example 1._*
+Bad Example:
 
-Java without following clean code principles:
+[source,java]
+----
+public void email(String address) {
+    // Check if email is valid
+    if (address.contains("@")) {
+        // Send email
+    }
+}
+----
 
-link:example/not_so_clean_java_code.java[not so clean java code]
+Good Example:
 
-- The class and variable names are not meaningful.
-- The method name does not describe its purpose.
-- The variables `p` and `q` are not initialized through a constructor or setter methods, which can lead to state inconsistency.
-- The method `m()` is doing multiple things - initializing variables, calculating area, and printing the result.
+[source,java]
+----
+public void sendEmailToAddress(String emailAddress) {
+    if (isValidEmail(emailAddress)) {
+        // code to send email
+    }
+}
 
-*_Example 2._*
+private boolean isValidEmail(String emailAddress) {
+    return emailAddress.contains("@");
+}
+----
 
-Java code with clean code principles:
+The good example shows functions doing one thing: `isValidEmail` checks for email validity, and `sendEmailToAddress` handles the sending process.
+This makes the functions easier to understand and reuse.
 
-link:example/pretty_clean_java_code.java[pretty clean java code]
+=== Comments
 
-- The class, method, and variable names are meaningful and follow Java naming conventions.
-- The Rectangle class has a constructor to initialize its properties.
-- The calculateArea() method does one thing - it calculates the area.
-- The printArea() method does one thing - it prints the area.
-- The class and its methods are more focused, maintainable, and readable.
-- They follow the Single Responsibility Principle (SRP), one of the key principles of clean code.
+* *Use Comments Wisely:* Comments should be used to explain "why" something is done, not "what" is done; the code itself should be clear enough to show what is happening.
+* *Avoid Redundant Comments:* Do not use comments that are redundant with what can be clearly seen in the code; for example, avoid comments like `i++; // increment i by 1`.
 
-== Java Naming Conventions:
+Bad Example:
 
-[%hardbreaks]
-**J**ava has a set of standard naming conventions that developers are encouraged to follow to make their code easier to read and understand.
+[source,java]
+----
+// Increment x
+x++;
+----
 
-=== Here are some key conventions:
+Good Example:
 
-*_Classes_* and *_Interfaces_*:
-Should start with an uppercase letter and be a noun. For example, `Employee`, `Button`, `Thread`.
+[source,java]
+----
+// Compensate for boundary offset
+x++;
+----
 
-*_Methods_*:
-Should start with a lowercase letter and be a verb. For example, `run()`, `print()`, `println()`.
+The good example provides a reason why the operation is necessary, which is not evident from the code alone.
 
-*_Variables_*:
-Should start with a lowercase letter. For example, `id`, `name`. Avoid starting variable names with special characters like & (ampersand), $ (dollar), _ (underscore).
+=== Formatting
 
-*_Packages_*:
-Should be in lowercase letters. For example, `java`, `lang`.
-If the name contains multiple words, it should be separated by dots (.).
+* *Consistency*: Stick to a consistent coding style regarding indentation, braces, whitespace, etc.
+This can often be enforced using tools like linters or formatters (e.g., Google Java Style Guide or Checkstyle).
+* *Logical Organization:* Order methods and class variables logically.
+For example, place public methods before private ones, group similar functions together, and follow a consistent order for getters and setters.
 
-*_Constants_*:
-Should be in uppercase letters with words separated by underscores (“_”). For example, `TOP_PRIORITY`.
+Example of Consistent Formatting:
 
-*_Example 3:_*
+[source,java]
+----
+public class Car {
+    private String make;
+    private String model;
 
-Java code w/o proper naming conventions:
+    public Car(String make, String model) {
+        this.make = make;
+        this.model = model;
+    }
 
-link:example/not_so_proper_java_naming_conventions.java[not so proper java naming conventions]
+    public void startEngine() {
+        // code to start the engine
+    }
 
-*_Example 4:_*
+    // Private methods are placed after public methods
+    private void stopEngine() {
+        // code to stop the engine
+    }
+}
+----
 
-Java code with proper naming convention:
+This example is well-formatted with clear and consistent indentations and method organization.
 
-link:example/pretty_proper_java_naming_convention.java[pretty proper java naming convention]
+=== Error Handling
 
+* *Use Exceptions Rather Than Return Codes:* Using exceptions for error handling can make the code cleaner and more readable, as it separates the error handling from the main logic.
+* *Don't Ignore Exceptions:* Catch only those exceptions that you can actually handle meaningfully.
 
-== Conclusion:
-[%hardbreaks]
-Writing clean and maintainable Java code with proper naming conventions is crucial for readability, collaboration, and bug prevention. Descriptive class, method, and variable names enhance understanding, reduce errors, and make code reviews smoother. Consistent conventions ensure professionalism and facilitate future refactoring.
+Bad Example:
+
+[source,java]
+----
+try {
+    // code that might throw exception
+} catch (Exception e) {
+    // do nothing
+}
+----
+
+Good Example:
+
+[source,java]
+----
+try {
+    // code that might throw exception
+} catch (SpecificException e) {
+    log.error("Handling exception with specific recovery.", e);
+}
+----
+
+The good example catches only a specific exception and includes meaningful error handling, like logging the error.
+
+=== Classes
+
+* *Small and Focused:* Like functions, classes should also be small and focused on a single responsibility.
+The Single Responsibility Principle (SRP) states that a class should have only one reason to change.
+* *Encapsulation:* Hide internal details and expose operations that allow others to manipulate the internal state through methods.
+
+Example of a Well-Designed Class:
+
+[source,java]
+----
+public class UserManager {
+    private List<User> users = new ArrayList<>();
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public User findUser(String username) {
+        for (User user : users) {
+            if (user.getUsername().equals(username)) {
+                return user;
+            }
+        }
+        return null;
+    }
+}
+
+public class AuthenticationService {
+    private UserManager userManager;
+
+    public AuthenticationService(UserManager userManager) {
+        this.userManager = userManager;
+    }
+
+    public boolean authenticate(String username, String password) {
+        User user = userManager.findUser(username);
+        return user != null && user.getPassword().equals(password);
+    }
+}
+
+----
+
+In the example above each class has one reason to change.
+If the process of user management changes, it affects only `UserManager`.
+If authentication logic changes, only `AuthenticationService` needs to be updated. +
+
+`UserManager` controls how user data is accessed and manipulated, hiding the details of the user list from other classes.
+`AuthenticationService` manages how authentication is performed, using `UserManager` through a well-defined interface.
+
+=== Naming Conventions
+
+* *Class Names:* Should be nouns (e.g., `Customer`, `Account`), and use CamelCase with the first letter of each internal word capitalized.
+* *Method Names:* Should be verbs (e.g., `deletePage`, `save`) and use lowerCamelCase.
+* *Constant Names:* Should be in all uppercase letters with underscores between words (e.g., `MAX_HEIGHT`).
+* *Variable Names:* Use lowerCamelCase and choose names that reflect their purpose.
+
+Example of Naming Conventions:
+
+[source,java]
+----
+public class Bicycle {
+    private static final int MAX_SPEED = 20; // constant
+    private int currentSpeed;
+
+    public void increaseSpeed() {
+        if (currentSpeed < MAX_SPEED) {
+            currentSpeed++;
+        }
+    }
+}
+----
+
+Here, class names, variable names, method names, and constants all follow Java's naming conventions.
+
+[NOTE]
+Following these principles helps to maintain and understand Java code more effectively, making it easier for developers to work individually and as a team.
