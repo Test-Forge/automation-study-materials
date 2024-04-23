@@ -41,7 +41,7 @@ How to interpret logs & stack traces_
 . link:JT/12_data_structures/data_structure.adoc[Data Structure]
 . *WIP* _Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)_
 . link:JT/14_version_control/Version_Control_README.adoc[Version Control]
-. link:JT/15_how_to_identify_xpaths/How_To_Identify_XPaths_README.md[How to identify XPaths. Tools for XPaths. Cheat sheet]
+. link:JT/15_how_to_identify_xpaths/How_To_Identify_XPaths_README.adoc[How to identify XPaths. Tools for XPaths. Cheat sheet]
 ====
 --
 
