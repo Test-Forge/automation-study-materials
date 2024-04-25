@@ -33,13 +33,12 @@ Networking basics_
 . link:JT/02_maven_dependency_management/readme.adoc[Maven & Dependency management]
 . link:JT/06_clean_code_naming_convention/Java%20clean%20code%20and%20naming%20convention%20principles.adoc[Clean code. Naming conventions]
 . link:JT/07_debugging_and_run_debug_configuration/IDE_Debugger/How_to_debug.md[How to debug? IDE Debugger & Run configurations]
-. *WIP* _Demystifying logs.
-How to interpret logs & stack traces_
+. link:JT/08_demystifying_logs/Demystifying_logs.How_to_interpret_logs&stack_traces.adoc[Demystifying logs. How to interpret logs & stack traces.]
 . link:JT/09_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
 . link:JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
 . link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading]
 . link:JT/12_data_structures/data_structure.adoc[Data Structure]
-. *WIP* _Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)_
+. link:JT/13_Applied_OOP/Applied_OOP.adoc[Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)]
 . link:JT/14_version_control/Version_Control_README.adoc[Version Control]
 . link:JT/15_how_to_identify_xpaths/How_To_Identify_XPaths_README.md[How to identify XPaths. Tools for XPaths. Cheat sheet]
 ====
@@ -63,6 +62,7 @@ How to interpret logs & stack traces_
 . link:TL/27_bdd_cucumber/Bdd_Cucumber.adoc[BDD. Cucumber.]
 . link:TL/28_utility_libraries_data_faker_awaitility/Utility_Libraries_README.adoc[Utility libraries - Data faker, awaitility]
 ====
+
 .Senior Technician - ST
 [%collapsible]
 ====
