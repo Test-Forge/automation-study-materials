@@ -36,7 +36,7 @@ Networking basics_
 . link:JT/08_demystifying_logs/Demystifying_logs.How_to_interpret_logs&stack_traces.adoc[Demystifying logs. How to interpret logs & stack traces.]
 . link:JT/09_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
 . link:JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
-. link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading]
+. link:JT/11_overloading_overriding/overloading_vs_overriding.adoc[Overriding vs. Overloading]
 . link:JT/12_data_structures/data_structure.adoc[Data Structure]
 . link:JT/13_Applied_OOP/Applied_OOP.adoc[Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)]
 . link:JT/14_version_control/Version_Control_README.adoc[Version Control]
