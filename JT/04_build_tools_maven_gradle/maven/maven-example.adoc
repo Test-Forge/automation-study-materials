@@ -1,0 +1,230 @@
+[.text:align=center]
+= Exploring Build Tool: Maven
+
+[.text-center]
+image::"/../../images/maven-logo.png"[width=20%]
+
+== Creating a Maven Project
+
+* Let's create a new Maven project. From the Welcome Screen select New Project, or if you already have an IntelliJ IDEA project open, select *File -&gt; New -&gt; Project…*
+
+[.text-left]
+image::maven-project-images/create-new-project.png[width=40%]
+
+We can optionally choose a maven archetype to use to create the project. If you're creating a simple project, you don't need to select an archetype. Press *Next.*
+
+* You need to give the project a name, and you can optionally set the location. If you click on *Artifact Coordinates* you'll see more Maven settings.
+
+
+[.text-left]
+image::maven-project-images/added-name-for-project.png[width=40%]
+
+Press *Finish*, and IntelliJ IDEA will generate the Maven *pom.xml* for you.
+
+[.text-left]
+image::maven-project-images/generated-pom.png[width=40%]
+
+== Understanding dependencies
+
+In *pom.xml* we can add manually new dependencies or generate this (clicking on *Generate* option from the Code menu).
+
+[.text-left]
+image::maven-project-images/generate-dependency.png[width=40%]
+
+You can see all your declared dependencies in the *Maven* window. Nested under those we've declared, you can see the dependencies they themselves rely on.
+
+[.text-left]
+image::maven-project-images/declared-dependecies.png[width=40%]
+
+To add new profiles in Maven, you can define them within the *'profiles'* section of your pom.xml file
+
+[source,xml]
+----
+ <profiles>
+    <!-- Development Profile -->
+    <profile>
+        <id>development</id>
+        <properties>
+            <environment>development</environment>
+            <database.url>jdbc:mysql://localhost:3306/dev_db</database.url>
+        </properties>
+    </profile>
+
+    <!-- Production Profile -->
+    <profile>
+        <id>production</id>
+        <properties>
+            <environment>production</environment>
+            <database.url>jdbc:mysql://prod.example.com:3306/prod_db</database.url>
+        </properties>
+    </profile>
+</profiles>   
+----
+
+In this example, we have two profiles:
+
+- development
+
+- production. 
+
+Each profile sets different properties, such as the database URL, based on the environment.
+
+*Activate profiles: Profiles can be activated in several ways:*
+
+* *Explicit Activation:* You can explicitly activate a profile using the -P command-line option followed by the profile ID. For example, to activate the development profile, you can run Maven with -Pdevelopment.
+
+* *Automatic Activation:* Profiles can also be automatically activated based on certain conditions such as the presence or absence of a file, a JDK version, an operating system, or an environment variable. You can use the <activation> element within a profile to specify these conditions.
+
+[.text-left]
+image::maven-project-images/added-profiles-tab-maven.png[width=40%]
+
+== Add a new module
+
+[source,xml]
+----
+  <modules>
+        <module>maven-submodule-example</module>
+    </modules>
+----
+
+In Maven tab it looks like:
+
+[.text-left]
+image::maven-project-images/submodule.png[width=40%]
+
+== Examples of adding specific plugins to a pom.xml:
+
+Maven Compiler Plugin - This plugin is used to compile the source code of your project.
+
+[source,xml]
+----
+
+<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+        </configuration>
+    </plugin>
+</plugins>
+----
+
+Maven Failsafe Plugin - This plugin is used to run integration tests of your project.
+
+[source,xml]
+----
+<plugins>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-dependency-plugin</artifactId>
+    <version>3.2.0</version>
+   </plugin>
+</plugins>
+----
+
+Maven Release Plugin - This plugin is used to automate releases of your project.
+
+[source,xml]
+----
+  <plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M1</version>
+    </plugin>
+</plugins>
+----
+
+[.text-left]
+image::maven-project-images/added plugins in maven tab.png[width=40%]
+
+Let's consider an example where you want to include the spring-core dependency but exclude its transitive dependency on commons-logging. Here's how you would declare this dependency with exclusion in your pom.xml:
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-core</artifactId>
+    <version>5.3.15</version>
+    <exclusions>
+        <exclusion>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+----
+
+Maven allows you to manage versions of dependencies using various version control mechanisms. For example, you can specify a version range or use the latest.version placeholder to automatically use the latest available version. Here's an example of using version ranges:
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>[3.0,)</version>
+</dependency>
+----
+
+This declaration ensures that Maven will use any version of Apache Commons Lang 3.x, where x is equal to or greater than 3.0.
+
+== Maven Commands:
+
+[.text-left]
+image::maven-project-images/mvn-commands.png[width=40%]
+
+* *mvn clean:*
+
+This command cleans the build directories, removing all built files and directories.
+
+* *mvn compile:*
+
+This command compiles the source code of the project.
+
+* *mvn test:*
+
+This command runs the tests for the project. It compiles the test classes and executes them.
+
+* *mvn package:*
+
+This command packages the compiled code and resources into a distributable format, such as a JAR, WAR, or EAR file.
+
+* *mvn install:*
+
+This command installs the packaged artifact into the local Maven repository, making it available for other projects on the same machine.
+
+* *mvn deploy:*
+
+This command deploys the packaged artifact to a remote Maven repository, making it available for other developers or projects.
+
+* *mvn clean install:*
+
+This command cleans the project, compiles the source code, runs tests, packages the artifact, and installs it into the local Maven repository.
+
+* *mvn dependency:tree:*
+
+This command generates a dependency tree for the project, showing all dependencies and their transitive dependencies.
+
+* *mvn help:effective-pom:*
+
+This command generates the effective POM (Project Object Model) for the project, showing the final configuration after inheritance and interpolation.
+
+* *mvn archetype:generate:*
+
+This command generates a new Maven project from an archetype (a project template).
+
+* *mvn site:*
+
+This command generates project documentation and reports, such as project reports, test coverage reports, and Javadoc.
+
+* *mvn release:prepare:*
+
+This command prepares for a release by creating a release branch, updating version numbers, and running tests.
+
+Resources: 
+
+. https://www.jetbrains.com/guide/java/tutorials/working-with-maven/creating-a-project/
+. https://maven.apache.org/guides/getting-started/index.html#how-do-i-setup-maven
