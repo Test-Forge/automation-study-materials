@@ -1,0 +1,156 @@
+
+== Blocks
+
+....
+This text will be treated without any attributes and format.
+....
+
+.Asciidoc code for no format block
+----
+....
+This text will be treated without any attributes and format.
+....
+----
+
+=== Linewise Delimiter
+
+
+[,asciidoc]
+----
+====
+This is an example of an example block.
+That's so meta.
+====
+----
+
+=== Block Combination
+
+====
+One Block
+----
+In Other
+----
+====
+
+[source,asciidoc]
+----
+====
+One Block
+-----
+In Other
+-----
+====
+----
+
+=== Block with Asterisk
+
+[source,asciidoc]
+****
+This is content in a sidebar block.
+
+This is more content in the sidebar block.
+****
+----
+****
+This is content in a sidebar block.
+
+This is more content in the sidebar block.
+****
+----
+
+
+=== Block Title
+.Title for Equal Block
+====
+Equals block
+====
+
+[source,asciidoc]
+----
+.Title for Equal Block
+====
+Equals block
+====
+----
+
+.Raw text
+-----
+Raw block of code
+-----
+
+[source,asciidoc]
+----
+.Raw text
+-----
+Raw block of code
+-----
+----
+
+.Simple title
+****
+Asterisk block
+****
+
+[source,asciidoc]
+----
+.Simple title
+****
+Asterisk block
+****
+----
+
+.Specify GitLab CI stages
+[source,yaml]
+----
+image: node:16-buster
+stages: [ init, verify, deploy ]
+----
+
+[source,asciidoc]
+----
+.Specify GitLab CI stages
+[source,yaml]
+-----
+image: node:16-buster
+stages: [ init, verify, deploy ]
+-----
+----
+
+=== Example Caption Change
+:example-caption: Ex
+:example-number: A
+
+[example]
+.Other example
+====
+This is an example block.
+====
+
+[source,asciidoc]
+----
+:example-caption: Ex
+:example-number: A
+
+[example]
+.Other example
+====
+This is an example block.
+====
+----
+
+=== Block ID
+[quote#roads,Dr. Emmett Brown,Back to the Future]
+Roads? Where we're going, we don't need roads.
+
+for more details <<roads>>
+
+[source%linenums,asciidoc]
+----
+[quote#roads ,Dr. Emmett Brown,Back to the Future] <1>
+Roads? Where we're going, we don't need roads.
+for more details <<roads>> <2>
+----
+[%step,auto-animate,auto-animate-unmatched=false]
+<1> by using `#<id>` you can define id of the block
+<2> to make reference to the block use `<<block_name>>`
+

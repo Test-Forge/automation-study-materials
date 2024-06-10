@@ -1,0 +1,11 @@
+:sourcedir:src/main/java
+The value of the attribute is {sourcedir}.
+
+{set:sourcedir:src/test/java}
+The value of the attribute is {sourcedir}.
+
+{set:sourcedir!}
+The value of the attribute is {sourcedir}.
+
+:sourcedir!:
+:!sourcedir:

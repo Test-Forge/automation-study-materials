@@ -1,0 +1,1012 @@
+== Document Header
+
+[source,asciidoc]
+----
+= Document Title <1>
+Name Surname <name-surname@endava.com>; John Doe <john.doe@mail.com>  <2>
+:description: The document's description. <3>
+:sectanchors: <4>
+:url-repo: https://my-git-repo.com <5>
+<6>
+The document body starts here.
+----
+
+<1> Document title
+<2> Author line
+<3> Attribute entry assigning metadata to a built-in document attribute
+<4> Attribute entry setting a built-in document attribute
+<5> Attribute entry assigning a value to a user-defined document attribute
+<6> The document body is separated from the document header by an empty line
+
+image::doc-header.png[]
+
+
+
+[source,asciidoc]
+----
+= The Intrepid Chronicles
+
+{doctitle} begin on a frigid morning.
+----
+image::doctitle.png[]
+
+=== Author details
+[source,asciidoc]
+....
+:author_1: John Doe
+:email_1: john.doe@example.com
+:author_2: Jane Smith
+:email_2: jane.smith@example.com
+:author_3: Alex Johnson
+:email_3: alex.johnson@example.com
+:role_1: Lead Writer
+:role_2: Editor
+:role_3: Contributor
+
+:affiliation: Acme Corporation
+:position: Senior Developer
+....
+
+
+[source,asciidoc]
+....
+= The Intrepid Chronicles
+:author_1: Name Surname
+:email_1: name-surname@endava.com
+:author_2: John  F. Doe
+:email_2: john.doe@endava.com
+
+== About {author_1}
+
+You can contact {firstname_1} at {email_1}.
+
+P.S. Don't ask what the {middlename_2} stands for; it's a secret.
+{authorinitials_2}
+....
+
+=== Versioning maintenance of Document
+
+[source,asciidoc]
+----
+:revnumber: 1.0
+:revdate: 2024-05-27
+:revremark: Initial release
+----
+
+All Document Atributes https://docs.asciidoctor.org/asciidoc/latest/document/header-ref/[here].
+
+== Sections
+:doctype: book
+
+[source, asciidoc]
+----
+= Document Title (Level 0)
+
+== Level 1 Section Title
+
+=== Level 2 Section Title
+
+==== Level 3 Section Title
+
+===== Level 4 Section Title
+
+====== Level 5 Section Title
+
+== Another Level 1 Section Title
+----
+
+image::title-level.png[]
+
+=== Section Styles for a book
+
+====
+* [abstract] (becomes a chapter)
+
+* [colophon]
+
+* [dedication]
+
+* [acknowledgments]
+
+* [preface]
+
+* [partintro] (must be first child of part)
+
+* [appendix]
+
+* [glossary]
+
+* [bibliography]
+
+* [index]
+====
+
+
+Mor Section Attributes and Style Reference https://docs.asciidoctor.org/asciidoc/latest/sections/section-ref/[here].
+
+
+=== Section Numbering
+
+[source, asciidoc]
+----
+= Title
+:sectnums: all
+
+== Section
+
+== Next Section
+
+=== Sub section
+=== One More subsection
+----
+image::numberinc-sections.png[]
+
+=== Paragraph
+A normal paragraph.
+
+ Other Paragraph but in a specific block
+(by new line and space before text)
+
+Code:
+[source,asciidoc]
+----
+A normal paragraph.
+
+ Other Paragraph but in a specific block
+(by new line and space before text)
+----
+
+New line with plus symbol or whit option:
+
+Rubies are red, +
+Topazes are blue.
+
+[%hardbreaks]
+Ruby is red.
+Java is black.
+
+[source%linenums,asciidoc]
+----
+Rubies are red, +
+Topazes are blue.
+
+[%hardbreaks]
+Ruby is red.
+Java is black.
+----
+
+Sectioning the text:
+
+[.text-left]
+This text is on left, using `[.text-left]`.
+[.text-center]
+This text is on center, using `[.text-center]`.
+[.text-right]
+This text is on right, using `[.text-right]`.
+
+Break syntax can be used with next symbols:
+[source, asciidoc]
+----
+---
+- - -
+'''
+***
+* * *
+----
+Line inserted with `'''`
+
+'''
+
+=== Text Formatting
+
+As in all formatters, you can put your text in *bolt*, _italic_, `code`, `*_in combination_*`, [.blue]#color# or [.underline]#underline#
+
+....
+As in all formatters, you can put your text in *bolt*, _italic_,
+`code`, `*_in combination_*`, [.blue]#color# or [.underline]#underline#
+....
+
+
+"`Well the H~2~O formula written on their whiteboard could be part
+of a shopping list, but I don't think the local bodega sells
+E=mc^2^,`" Lazarus replied.
+....
+H~2~O and E=mc^2^
+....
+
+=== Lists
+.Asterisk list `*`
+* Edgar Allan Poe
+* Sheri S. Tepper
+* Bill Bryson
+
+
+.Possible DefOps manual locations
+* West wood maze `*`
+** Maze heart  `**`
+*** Reflection pool  `* * *`
+** Secret exit `**`
+* Untracked file in git repository `*`
+
+[circle]
+* one
+* two
+* three
+
+[.column]
+. Protons
+. Electrons
+. Neutrons
+
+[.column]
+[start=18]
+. Step four
+. Step five
+. Step six
+
+[%reversed]
+. Protons
+. Electrons
+. Neutrons
+
+[source,asciidoc]
+----
+. Protons
+. Electrons
+. Neutrons
+----
+
+[source,asciidoc]
+----
+[start=18]
+. Step four
+. Step five
+. Step six
+----
+
+[source,asciidoc]
+----
+[%reversed]
+. Protons
+. Electrons
+. Neutrons
+----
+
+
+=== Ordered List
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+
+
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+
+[lowerroman,start=5]
+. Five
+. Six
+[loweralpha]
+.. a
+.. b
+.. c
+. Seven
+
+[source,asciidoc]
+----
+. Step 1
+. Step 2
+.. Step 2a
+.. Step 2b
+. Step 3
+----
+
+[source,asciidoc]
+----
+. Linux
+* Fedora
+* Ubuntu
+* Slackware
+. BSD
+* FreeBSD
+* NetBSD
+----
+
+[source,asciidoc]
+----
+[lowerroman,start=5]
+. Five
+. Six
+[loweralpha]
+.. a
+.. b
+.. c
+. Seven
+----
+
+=== Checklists
+
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+
+[source, asciidoc]
+....
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+....
+
+=== Interactive Checklists
+
+[%interactive]
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+
+[source, asciidoc]
+....
+[%interactive]
+* [*] checked
+* [x] also checked
+* [ ] not checked
+* normal list item
+....
+
+=== Description Lists
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+[source, asciidoc]
+....
+CPU:: The brain of the computer.
+....
+
+=== Mixing lists
+
+Dairy::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+
+[source, asciidoc]
+....
+Dairy::
+* Milk
+* Eggs
+Bakery::
+* Bread
+Produce::
+* Bananas
+....
+
+=== Horizontal lists
+
+[horizontal]
+CPU:: The brain of the computer.
+Hard drive:: Permanent storage for operating system and/or user files.
+RAM:: Temporarily stores information the CPU uses during operation.
+
+[source, asciidoc]
+....
+[horizontal]
+CPU:: The brain of the computer.
+....
+
+=== Links
+
+You'll often see <https://example.org> used in examples
+
+https://asciidoctor.org[here is an awesome link]
+
+Colored link https://chat.asciidoc.org[*project chat*^,role=green].
+
+[source, asciidoc]
+----
+You'll often see <https://example.org> used in examples
+
+https://asciidoctor.org[here is an awesome link]
+
+Colored link https://chat.asciidoc.org[*project chat*^,role=green].
+----
+
+
+link:../JT/02_maven_dependency_management/readme.adoc[Maven & Dependency management]
+
+[source, asciidoc]
+----
+link:../JT/02_maven_dependency_management/readme.adoc[Maven & Dependency management]
+----
+NOTE: the section.adoc is used as link in adoc_presentation.adoc. The link is set up do be possible to access document from adoc_presentation.adoc. To access from current adoc, there is needed to put explicitly to move back from 2 more folders `../../`
+
+=== Footnotes
+
+The hail-and-rainbow protocol can be initiated at five levels:
+
+. doublefootnote:[The double hail-and-rainbow level makes my toes tingle.]
+. tertiary
+. supernumerary
+
+A bold statement!footnote:disclaimer[Opinions are my own.]
+
+Another outrageous statement.footnote:disclaimer[]
+
+
+[source,asciidoc]
+....
+The hail-and-rainbow protocol can be initiated at five levels:
+
+. doublefootnote:[The double hail-and-rainbow level makes my toes tingle.]
+. tertiary
+. supernumerary
+
+A bold statement!footnote:disclaimer[Opinions are my own.]
+
+Another outrageous statement.footnote:disclaimer[]
+....
+
+image::footnotes.png[]
+
+
+=== Images
+
+[source, asciidoc]
+----
+Content in document.
+
+image::sunset.jpg[] <1> <2>
+
+Content in document
+----
+
+<1> To insert a block image, type the image macro name directly followed by two colons (`::`).
+<2> After the colons, enter the image file target. Type a pair of square brackets (`[]`) directly after the target to complete the macro.
+
+
+.A mountain sunset
+image::https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcRCCmoea4cozesPkjXuFdOi7uT9qmavnWUnUZ8kqREklhYtJcn7-mCnJwX7BZuS5UP6[Sunset,200,100]
+
+[source, asciidoc]
+----
+.A mountain sunset
+image::https://t1.gstatic.com/licensed-image?q=tbn:...[Sunset,200,100]
+----
+
+
+
+image::logo.png[SecretImage,200,200,float="right",align="center"]
+
+
+image::logo.png[SecretImage2,width=150,height=150,align="center"]
+
+''''
+
+[source,asciidoc]
+....
+:imagesdir: images/
+image::logo.png[SecretImage,200,200,float="right",align="center"]
+
+image::logo.png[SecretImage2,width=150,height=150,align="center"]
+
+....
+
+More Image macros https://docs.asciidoctor.org/asciidoc/latest/macros/image-ref/[here].
+
+=== Audio and video
+
+video::kZH9JtPBq7k[youtube,start=34,width=500px,height=300px]
+
+[soruce, asciidoc]
+----
+video::kZH9JtPBq7k[youtube,start=34,width=500px,height=300px]
+----
+
+Additional video/audio macros https://docs.asciidoctor.org/asciidoc/latest/macros/audio-and-video/[here]
+
+
+=== Icons
+:icons: font
+
+NOTE: Remember the milk!
+
+icon:heart[2x,role=red]
+
+icon:tags[] ruby, asciidoctor
+
+
+[source, asciidoc]
+----
+= Document Title
+:icons: font
+
+NOTE: Remember the milk!
+
+icon:heart[2x,role=red]
+
+icon:tags[] ruby, asciidoctor
+----
+
+More icons https://www.flaticon.com/[here].
+
+
+=== Admonitions
+NOTE: An admonition paragraph draws the reader's attention to
+auxiliary information.
+
+Here are the other built-in admonition types:
+
+TIP: Pro tip...
+
+
+Here are the other built-in admonition types:
+
+IMPORTANT: Don't forget...
+
+Here are the other built-in admonition types:
+
+WARNING: Watch out for...
+
+Here are the other built-in admonition types:
+
+CAUTION: Ensure that...
+
+[source,asciidoc]
+....
+NOTE: text
+TIP: Pro tip...
+IMPORTANT: Don't forget...
+WARNING: Watch out for...
+CAUTION: Ensure that...
+....
+
+[sidebar]
+Sidebars are used to visually separate auxiliary bits of content
+that supplement the main text.
+
+
+=== Quotes
+[quote, Dr. Emmett Brown, Back to the Future]
+Roads? Where we're going, we don't need roads.
+
+
+[source%linenums,asciidoc]
+----
+[quote,Dr. Emmett Brown,Back to the Future]
+Roads? Where we're going, we don't need roads.
+
+----
+
+=== Source Code Blocks
+There is required to add next options:
+----
+:source-highlighter: highlightjs
+:highlightjs-languages: asciidoc, java
+----
+
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+"Hello World!"
+end
+----
+
+....
+[source,ruby]
+----
+require 'sinatra'
+
+get '/hi' do
+  "Hello World!"
+end
+----
+....
+
+....
+[,ruby]
+----
+-include::app.rb[]
+----
+....
+
+
+[%linenums,ruby]
+----
+puts 1
+puts 2
+puts 3
+----
+
+
+....
+[%linenums,ruby]
+----
+puts 1
+puts 2
+puts 3
+----
+....
+
+[source,ruby]
+----
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"
+end
+----
+<1> Library import
+<2> URL mapping
+<3> Response block
+
+[source, asciidoc]
+....
+
+require 'sinatra' <1>
+
+get '/hi' do <2> <3>
+  "Hello World!"{set:sourcedir:src/main/java}
+end
+
+<1> Library import
+<2> URL mapping
+<3> Response block
+....
+
+
+=== Tables
+
+.A table with a title
+[cols="1,1"]
+[%autowidth]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+
+|Cell in column 1, row 3
+|Cell in column 2, row 3
+|===
+
+....
+.A table with a title
+[cols="1,1"]
+[%autowidth]
+|===
+|Cell in column 1, row 1
+|Cell in column 2, row 1
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+
+|Cell in column 1, row 3
+|Cell in column 2, row 3
+|===
+....
+
+[cols="2,1,3"]
+|===
+|Column 1 |Column 2 |Column 3
+
+|This column has a proportional width of 2
+|This column has a proportional width of 1
+|This column has a proportional width of 3
+|===
+....
+[cols="2,1,3"]
+[cols="6,1,3"]
+[cols="15%,30%,55%"]
+....
+
+[cols="^4,1"]
+|===
+|This content is horizontally centered.
+|There isn't a horizontal alignment operator on this column's specifier.
+|===
+....
+[cols="^4,1"]
+[cols=".^2,1"]
+....
+
+[cols="h,m,s,e"]
+|===
+|Column 1 |Column 2 |Column 3 |Column 4
+
+|content and borders are rendered using (`h`) styles.
+| is rendered using a monospace font (m).
+|This column's content is bold (`s`).
+|This column's content is italicized (`e`).
+
+|content and borders are rendered using (`h`) styles.
+|rendered using a monospace font (m).
+|This column's content is bold (`s`).
+|This column's content is italicized (`e`).
+|===
+....
+[cols="h,m,s,e"]
+....
+
+[frame=ends]
+[grid=rows]
+|===
+|Column 1, header row |Column 2, header row |Column 3, header row
+
+|Cell in column 1, row 2
+|Cell in column 2, row 2
+|Cell in column 3, row 2
+
+|Cell in column 1, row 3
+|Cell in column 2, row 3
+|Cell in column 3, row 3
+|===
+....
+[frame=ends]
+[frame=sides]
+[frame=none]
+[grid=rows]
+[grid=cols]
+[grid=none]
+....
+
+[cols="1,2a"]
+|===
+| Col 1 | Col 2
+
+| Cell 1.1
+| Cell 1.2
+
+| Cell 2.1
+| Cell 2.2
+
+[cols="2,1"]
+!===
+! Col1 ! Col2
+
+! C11
+! C12
+!===
+|===
+
+[source,asciidoc]
+....
+[cols="1,2a"]
+|===
+| Col 1 | Col 2
+| Cell 1.1
+| Cell 1.2
+
+| Cell 2.1
+| Cell 2.2
+
+[cols="2,1"]
+!===
+! Col1 ! Col2
+
+! C11
+! C12
+!===
+|===
+....
+
+[source, asciidoc]
+....
+[%header,format=csv]
+|===
+-include::tracks.csv[]
+|===
+....
+
+=== Equations and formulas
+
+:stem: latexmath
+[stem,data-algebra-concept=square-root]
+++++
+\sqrt{37} = \sqrt{\frac{73^2-1}{12^2}} \approx \frac{73}{12} (1 - \frac{1}{2\cdot73^2})
+++++
+
+[source,asciidoc]
+....
+:stem: latexmath
+[stem,data-algebra-concept=square-root]
+++++
+\sqrt{37} = \sqrt{\frac{73^2-1}{12^2}} \approx \frac{73}{12} (1 - \frac{1}{2\cdot73^2})
+++++
+....
+
+:stem: latexmath
+
+.An e-xciting limit with LaTeX!
+[stem]
+++++
+\lim_{n \to \infty}\frac{n}{\sqrt[n]{n!}} = {\large e}
+++++
+
+.A basic matrix AsciiMath
+[asciimath]
+++++
+[[[a,b\],[c,d\]\]((n),(k))]
+++++
+
+.Greek Alphabet
+latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon]
+
+
+
+[soruce, asciidoc]
+----
+:stem: latexmath
+
+.An e-xciting limit with LaTeX!
+[stem]
+++++
+\lim_{n \to \infty}\frac{n}{\sqrt[n]{n!}} = {\large e}
+++++
+
+.A basic matrix AsciiMath
+[asciimath]
+++++
+[[[a,b\],[c,d\]\]((n),(k))]
+++++
+
+.Greek Alphabet
+latexmath:[C = \alpha + \beta Y^{\gamma} + \epsilon]
+----
+
+=== Keyboards
+:experimental:
+[%autowidth]
+|===
+|Shortcut |Purpose
+
+|kbd:[F11]
+|Toggle fullscreen
+
+|kbd:[Ctrl+T]
+|Open a new tab
+
+|kbd:[Ctrl+Shift+N]
+|New incognito window
+|===
+
+[source, asciidoc]
+----
+:experimental:
+kbd:[Ctrl+Shift+N]
+----
+
+=== Collapsable
+
+.Red Pill
+[%collapsible]
+======
+Escape into the real world.
+======
+
+.Blue Pill
+[%collapsible]
+======
+Live within the simulated reality without want or fear.
+======
+
+
+[source,asciidoc]
+----
+Here are your options:
+
+.Red Pill
+[%collapsible] <1>
+====== <2>
+Escape into the real world.
+======
+
+.Blue Pill
+[%collapsible] <1>
+====== <2>
+Live within the simulated reality without want or fear.
+======
+----
+<1> defines that next text is a `collapsable` block
+<2> defines start/end of the `collapsable` block
+
+
+=== Includes
+
+[source,asciidoc]
+----
+-include::sections/adoc_presentation/overview.adoc[]
+
+-include::sections/adoc_presentation/blocks.adoc[]
+
+-include::sections/block-attributes.adoc[]
+
+-include::sections/adoc_presentation/element-attibutes.adoc[]
+
+-include::sections/adoc_presentation/sections.adoc[]
+----
+
+=== Conditionals
+
+ifdef::env-github[]
+This content is for GitHub only.
+endif::[]
+
+[source,asciidoc]
+----
+-ifdef::env-github[]
+This content is for GitHub only.
+-endif::[]
+----
+
+ifeval::[2 > 1]
+To view ifeval, please check raw text
+endif::[]
+
+ifeval::["{backend}" == "html5"]
+...
+endif::[]
+
+ifeval::[{sectnumlevels} == 3]
+...
+endif::[]
+
+// the value of outfilesuffix includes a leading period (e.g., .html)
+ifeval::["{docname}{outfilesuffix}" == "main.html"]
+...
+endif::[]
+
+
+=== Add Asciidoc Plugin
+[source, xml]
+----
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>convert-to-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/html</outputDirectory>
+                            <attributes>
+                                <source-highlighter>coderay</source-highlighter>
+                                <imagesdir>./images</imagesdir>
+                                <toc>left</toc>
+                                <icons>font</icons>
+                            </attributes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+----
+
+=== Add From Intellij Plugins
+
+image::add-plugin.png[600,600]
+
+=== Intellij Features
+
+image::intellij-features.png[900,900]
+
+=== Autoconvert
+
+image::autoconvert.png[800,800]
