@@ -1,0 +1,193 @@
+== Element Attributes
+
+Element attributes are commonly used for the following purposes:
+
+
+* Declare the ID of an element
+* Turn on or turn off an individual element’s built-in features
+* Configure the built-in features of an individual element
+* Apply user-defined information, such as citation metadata, fallback text, link text, and target content, to an individual element
+* Apply user-defined roles and behaviors to an individual element
+
+
+=== ID
+
+====
+. provides an internal link or cross reference anchor for an element
+
+. can be used for adding additional styling to specific elements (e.g., via a CSS ID selector)
+====
+
+You can assign an ID to blocks using the shorthand hash ( # ) syntax, longhand (`id=`) syntax, or the legacy anchor (`[[]]`) syntax. You can assign an ID to inline elements using the shorthand hash ( # ) syntax or by adding an anchor adjacent to the inline element using the anchor (`[[]]`) syntax.
+
+
+[source,asciidoc]
+....
+[#goals]
+* Goal 1
+* Goal 2
+....
+
+[source,asciidoc]
+....
+[id=goals]
+* Goal 1
+* Goal 2
+....
+
+[source,asciidoc]
+....
+[[goals]]
+* Goal 1
+* Goal 2
+....
+
+
+[.rows%auto-animate]
+=== . - role
+
+====
+. adds additional semantics to an element
+. can be used to apply additional styling to a group of elements (e.g., via a CSS class selector)
+. may activate additional behavior if recognized by the converter
+====
+
+
+
+[source, asciidoc]
+....
+[.rolename]
+****
+This is a sidebar with a role assigned to it, rolename.
+****
+
+[.role1.role2]
+****
+This is a sidebar with two roles assigned to it, role1 and role2.
+****
+....
+
+[.rows%auto-animate]
+=== % - option
+====
+The `options` attribute (often abbreviated as opts) is a versatile named attribute that can be assigned one or more values. It can be defined globally as document attribute as well as a block attribute on an individual block.
+
+There is no strict schema for options. Any options which are not recognized are ignored.
+====
+
+[source, asciidoc]
+....
+[%option]
+****
+This is a sidebar with an option assigned to it, named option.
+****
+
+[%option1%option2]
+****
+This is a sidebar with two options assigned to it, named option1 and option2.
+****
+....
+
+[source,asciidoc]
+....
+[%header%footer%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+
+[source,asciidoc]
+....
+[%header%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+[source,asciidoc]
+....
+[%header%footer]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+[%header%footer%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+
+[source,asciidoc]
+....
+[%header%footer%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+[%header%footer]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+
+[source,asciido]
+....
+[%header%footer]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+[%header%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+[source,asciidoc]
+....
+[%header%autowidth]
+|===
+|Cell A1 |Cell B1
+
+|Cell A2 |Cell B2
+
+|Cell A3 |Cell B3
+|===
+....
+
+
+
+
+

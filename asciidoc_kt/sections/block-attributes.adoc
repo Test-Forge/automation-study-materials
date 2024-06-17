@@ -1,0 +1,130 @@
+== Document Attributes
+:iconsdir: ./images/icons
+:arrow-icon: image:icons/arrow_right.png[40,40,role=icon]
+
+{arrow-icon} Attributes are a set configuration options, and control the behavior and appearance of the document. They can be defined globally at the top of the document, within specific sections, or inline within the text. Attributes can include built-in options provided by AsciiDoc or custom attributes defined by the user.
+
+----
+: name-of-attribute : attribute value
+----
+
+=== Reference Attribute
+:name: John
+:surname: Doe
+:full-name: {name} {surname}
+
+====
+My name is {full-name}
+====
+
+[source,asciidoc]
+....
+:name: John
+:surname: Doe
+:full-name: {name} {surname}
+
+My name is {full-name}
+....
+
+:description: If you have a very long line of text \
+that you need to substitute regularly in a document, \
+you may find it easier to split the value neatly in the header \
+so it remains readable to folks looking at the AsciiDoc source.
+
+====
+Very long text: {description}
+====
+
+[source,asciidoc]
+----
+:description: If you have a very long line of text ,,,
+...
+
+====
+Very long text: {description}
+====
+----
+
+[source,asciidoc,highlight="10..11",data-id=flask]
+----
+include::../code_examples/example.adoc[1..11]
+----
+
+=== Titles
+
+[source,asciidoc]
+....
+= Title
+:sectnums:
+
+== Section Title
+
+:!sectnums:
+== Section Title
+
+=== Section Title
+
+:sectnums:
+== Section Title
+....
+
+Title an paragraphs can be used like this:
+
+image::add-remove-attribute.png[]
+
+=== Custom Attributes
+====
+----
+:toc: - Table of Contents
+:doctype: book
+:imagesdir: ./images
+:iconsdir: ./icons
+:stylesdir: ./styles
+:scriptsdir: ./js
+:sectanchors:
+----
+====
+
+=== Handle Missing Attribute
+image::Handle_missing_attributes.png[800,850]
+
+[source,asciidoc]
+....
+== Skip (Default)
+:attribute-missing: skip
+This line references a missing attribute: {missing-attr-skip}.
+
+== Drop
+:attribute-missing: drop
+This line references a missing attribute: {missing-attr-drop}.
+
+== Warn
+:attribute-missing: warn
+This line references a missing attribute: {missing-attr-warn}.
+
+== Drop-Line
+:attribute-missing: drop-line
+This line references a missing attribute: {missing-attr-drop-line}.
+This line is not affected by the missing attribute.
+
+== Block
+:attribute-missing: block
+This paragraph will be removed because it contains a missing attribute: {missing-attr-block}.
+....
+
+=== Sequences
+image::sequence-block.png[]
+
+
+[source,asciidoc]
+....
+:seq1: {counter:seq1}
+== Section {seq1}
+
+The sequence in this section is {seq1}.
+
+:seq1: {counter:seq1}
+== Section {seq1}
+
+The sequence in this section is {seq1}.
+....

@@ -1,0 +1,38 @@
+== AsciiDoc Overview
+
+image:icons/ascidoc.png[100,100,data-id=ec2]
+
+is a lightweight markup language designed for writing technical documentation, books, articles, and more. It allows authors to create content in plain text while enabling rich formatting capabilities similar to HTML, Markdown, or LaTeX.
+
+.Key Features
+* Simple Syntax
+* Rich Formatting
+* Extensibility
+* Versatile Output
+* Tooling and Integration
+* Community and Support
+
+=== Simple Syntax
+* AsciiDoc uses plain text formatting conventions that are easy to learn and use.
+* Its syntax is intuitive and concise, making it accessible for both beginners and experienced writers.
+
+=== Rich Formatting
+* AsciiDoc supports a wide range of formatting options, including headings, lists, tables, links, images, code blocks, and more.
+* It can handle complex document structures like footnotes, cross-references, and bibliographies.
+
+=== Extensibility
+* Users can extend AsciiDoc with custom macros and extensions to fit specific documentation needs.
+* It integrates well with version control systems, making it ideal for collaborative writing and documentation projects.
+
+=== Versatile Output
+* Documents written in AsciiDoc can be converted to various formats, including HTML, PDF, EPUB, DocBook, and more.
+* This flexibility ensures that the same source document can be published in multiple formats with consistent styling.
+
+=== Tooling and Integration
+* AsciiDoc is supported by numerous tools and editors, enhancing productivity and streamlining the writing process.
+* It is compatible with continuous integration pipelines, enabling automated documentation generation and deployment.
+
+=== Community and Support
+* A vibrant community contributes to AsciiDoc’s development, providing plugins, themes, and support through forums and online resources.
+* Comprehensive documentation and tutorials are available to help new users get started quickly.
+
