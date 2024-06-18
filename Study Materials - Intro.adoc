@@ -25,7 +25,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 .Junior Technician - JT
 [%collapsible]
 ====
-. link:JT/01_environment_setup/README.adoc[Environment Setup]
+. link:JT/01_environment_setup/Introduction.adoc[Environment Setup]
 . *WIP* _Postman.
 Networking basics_
 . link:JT/03_java_basics/Java_Programming_basics.adoc[Java Basics]

@@ -1,0 +1,69 @@
+= Environment Setup for QA
+Firstname Lastname <author@asciidoctor.org>
+3.0, July 29, 2022: AsciiDoc article template
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+If you’re reading this, you’re likely setting up your environment and preparing your laptop for work on a project at Endava.
+
+TIP: *First and foremost, it is necessary to inquire with the team lead* whether there is a document regulating
+the set of software for working on the project.
+
+If such a document does not exist, it is necessary to find out *if there are recommendations* for using specific versions of the software.
+
+This document is [.underline]#not focused on specific versions of the software# used and will assume that you are installing the *latest versions* of Long-Term Support (LTS) software.
+
+Due to the impossibility of creating a universal document that covers all areas of testing and accordingly preparing the environment for any scenario, this document describes the installation of a typical set of programs that a tester works with.
+
+TIP: The document is divided into two parts: a description of the software used for testing and a set of guides for installing the software (windows and mac).
+
+=== Preparation and Planning
+
+[NOTE]
+=====
+Before starting work, it is [.underline]#important to understand# what exactly we will be testing: UI, API, or both directions of software.
+=====
+
+This determines the set of tools necessary for testing and which specific frameworks will be used in the work of the testing team.
+
+You should also be provided with information on how we connect to remote equipment for testing and given the credentials for connection.
+
+=== Tools for Testing (General Description)
+==== Build Tools
+Maven/ Gradle::
+Use Maven or Gradle if you need to build and manage your project.
+These tools _automate the build process_, _manage_ dependencies, and _provide a standardized project_ structure.
+
+==== Version Control
+Git::
+Use Git if you need to work with version control and collaborate on code.
+It’s a distributed version control system that _helps track changes_ in source code during software development.
+
+==== Programming Languages SDK
+Java SDK/ Kotlin SDK::
+If you need to develop and test applications written in Java or Kotlin, use the Java SDK or Kotlin SDK, respectively.
+These Software Development Kits _provide the necessary tools, libraries_, and _documentation_ for developing applications in these languages.
+
+==== Frontend Frameworks
+Node.js/ React/ Angular/ Vue.js::
+If you need to work with frontend development for web applications, use Node.js, React, Angular, or Vue.js.
+These tools and frameworks _help in building scalable_ and _efficient web applications_ with JavaScript.
+
+==== API Testing Tools
+Postman/ Insomnia/ SoapUI/ JMeter::
+If you need to test APIs, use Postman, Insomnia, SoapUI, or JMeter.
+These tools _provide a user-friendly interface_ for sending requests, managing environments, and automating API tests.
+
+=== Links for downloading
+
+* https://adoptium.net/[Java SE Development Kit] and https://maven.apache.org/download.cgi[Maven]
+* https://docs.oracle.com/en/java/javase/21/install/installation-jdk-microsoft-windows-platforms.html#GUID-A7E27B90-A28D-4237-9383-A58B416071CA[Full sets of instructions for Java] and https://maven.apache.org/install.html[Maven] installation
+* https://git-scm.com/download/win[Git]
+* https://www.jetbrains.com/idea/download/[IntelliJ IDEA]
+* https://go.pstmn.io/dl-win64-v9-latest[Postman]
+* https://winscp.net/eng/download.php[WinSCP]
+* https://www.oracle.com/database/sqldeveloper/technologies/download/[Oracle SQL Developer]
+* https://www.putty.org/[PuTTY]
+
+Copyright © 2024 by Iurii Rusakov, Liudmila Topal
