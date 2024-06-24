@@ -1,0 +1,92 @@
+= Access Modifiers
+
+== Contents
+
+* <<basic-idea,Basic idea>>
+* <<private-access-modifiers,Private access modifiers>>
+* <<default-access-modifiers,Default access modifiers>>
+* <<protected-access-modifiers,Protected access modifiers>>
+* <<public-access-modifiers,Public access modifiers>>
+* <<resources,Resources>>
+
+[[basic-idea]]
+== Basic idea
+
+****
+The *_access modifiers_* in Java specify the accessibility or scope of a field, method, constructor or class. We can change the access level of fields, constructors, methods, and class by
+applying an access modifier on it.
+There are *_four types_* of Java access modifiers:
+
+ - *_Private_*
+ - *_Default_*
+ - *_Protected_*
+ - *_Public_*
+
+[%header]
+|===
+|Access Modifier |Within class | Within package | Outside package by sublclass only | Outside package
+
+|Private   |Y |N |N |N
+|Default   |Y |Y |N |N
+|Protected |Y |Y |Y |N
+|Public    |Y |Y |Y |Y
+|===
+****
+
+[[private-access-modifiers]]
+== Private access modifiers
+
+****
+The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+
+*_Sample Code:_*
+
+*link:Private_Access_Modifier.java[]* is an example demonstrating the role of private access modifiers for data member, method and constructor.
+****
+
+[[default-access-modifiers]]
+== Default access modifiers
+
+****
+If you don't use any modifier, it is treated as default by default. The default modifier is accessible only within package. It cannot be accessed from outside the package. It provides more
+accessibility than private. But, it is more restrictive than protected and public.
+
+*_Sample Code:_*
+
+*link:Default_Access_Modifier.java[]* is an example demonstrating the role of default access modifiers for class and method.
+****
+
+[[protected-access-modifiers]]
+== Protected access modifiers
+
+****
+The protected access modifier is accessible within package and outside the package but through inheritance only.
+
+The protected access modifier can be applied on the data member, method and constructor. It can't be applied on the class.
+
+It provides more accessibility than the default modifer.
+
+*_Sample Code:_*
+
+*link:Protected_Access_Modifier.java[]* is an example demonstrating the role of protected access modifiers for class and method.
+****
+
+[[public-access-modifiers]]
+== Public access modifiers
+
+****
+The public access modifier is accessible everywhere. It has the widest scope among all other modifiers.
+
+*_Sample Code:_*
+
+*link:Public_Access_Modifier.java[]* is an example demonstrating the role of public access modifiers for class and method.
+****
+
+[[resources]]
+== Resources
+
+****
+- https://www.javatpoint.com/access-modifiers[Access Modifiers in Java]
+- https://www.youtube.com/watch?v=T632kAJ_9VA[Access Modifiers in Java - YT video]
+****
