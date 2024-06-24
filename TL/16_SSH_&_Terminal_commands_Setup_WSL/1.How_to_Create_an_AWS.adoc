@@ -1,0 +1,180 @@
+= *How to Create an AWS*
+:doctype: book
+:toc: left
+:sectnums:
+
+'''
+
+[[how-to-create-account]]
+== How to Create a Free AWS Account
+
+You can practice with real Linux servers by creating a free AWS account and launching an EC2 instance.
+This will allow you to use a remote host for educational purposes, and gain hands-on experience with AWS services.
+Amazon Web Services (AWS) offers a Free Tier for new customers, which allows you to explore and try out AWS services for free, up to certain usage limits.
+Here are the steps to create a free AWS account:
+
+[[step-1-1]]
+=== Step 1: Sign Up for an AWS Account
+
+. Go to the AWS Free Tier page: https://aws.amazon.com/free/[AWS Free Tier]
+. Click on the *Create a Free Account* button.
+. Fill in your email address, password, and account name in the sign-up form.
+. Click *Continue* to proceed to the next step.
+image:resources%2FAWS-01.jpg[AWS-01.jpg]
+
+[[step-1-2]]
+=== Step 2: Contact Information
+
+. Choose *Personal* or *Professional* account type.
+For personal use, select *Personal*.
+
+. Fill in your personal information, including your full name, phone number, and address.
+. Read and accept the AWS Customer Agreement.
+. Click *Create Account and Continue*.
+image:resources%2FAWS-02.jpg[AWS-02.jpg]
+
+[[step-1-3]]
+=== Step 3: Payment Information
+
+. Enter your credit card information.
+Although AWS Free Tier is free, a credit card is required to cover any charges if you exceed the free tier limits.
+
+. Click *Secure Submit*.
+
+[[step-1-4]]
+=== Step 4: Identity Verification
+
+. AWS will verify your identity by sending a code via a phone call or SMS.
+. Enter the code you received to complete the verification process.
+
+[[step-1-5]]
+=== Step 5: Choose a Support Plan
+
+. Select the *Basic Plan* for the free tier of support.
+. Click *Complete Sign Up*.
+
+[[step-1-6]]
+=== Step 6: Access the AWS Management Console
+
+. Once your account is activated, you can sign in to the AWS Management Console.
+. Explore the available services and start using AWS within the Free Tier limits.
+
+[[important-notes-1]]
+=== Important Notes
+
+* The AWS Free Tier is available for 12 months after account creation.
+* Different services have different limits under the Free Tier.
+Make sure to check the specific limits for each service you use.
+* Keep an eye on your usage to avoid any unexpected charges.
+
+For more detailed information, visit the https://aws.amazon.com/free/[AWS Free Tier] page.
+
+[[how-to-create-remote-host]]
+== Creating a Free AWS Remote Host
+
+Amazon Web Services (AWS) offers a Free Tier that allows you to create and use a remote host (virtual machine) for free, within certain usage limits.
+This can be particularly useful for educational purposes.
+Follow these steps to set up a free AWS remote host:
+
+[[step-2-1]]
+=== Step 1: Sign Up for an AWS Account
+
+If you haven't already, sign up for an AWS account by following the instructions in <<how-to-create-account,How to Create a Free AWS Account>>.
+image:resources%2FAWS-03.jpg[AWS-03.jpg]
+
+[[step-2-2]]
+=== Step 2: Launch an EC2 Instance
+
+. Sign in to the AWS Management Console.
+. Navigate to the EC2 dashboard.
+. Click on *Launch Instance* to create a new virtual machine.
+. Choose an *Amazon Machine Image (AMI)*.
+For free tier usage, select an AMI that is eligible for the free tier, such as Amazon Linux 2 or Ubuntu Server.
+. Choose an *Instance Type*.
+Select the `t2.micro` instance type, which is eligible for the free tier.
+. Click *Next: Configure Instance Details* and set up the instance as needed.
+. Click *Next: Add Storage*.
+The default storage options are usually sufficient for educational purposes.
+. Click *Next: Add Tags* if you want to add tags to your instance; otherwise, proceed to the next step.
+. Click *Next: Configure Security Group*.
+Create a new security group or select an existing one.
+Ensure that you allow SSH access (port 22) so that you can connect to the instance remotely.
+. Click *Review and Launch*.
+. Review your instance configuration and click *Launch*.
+. When prompted, select an existing key pair or create a new key pair.
+This key pair will be used to securely connect to your instance via SSH.
+Download the key pair and keep it safe.
+
+[[step-2-3]]
+=== Step 3: Connect to Your Instance
+
+. Once your instance is running, select it in the EC2 dashboard and click *Connect*.
+image:resources%2FAWS-04.jpg[AWS-04.jpg]
+. Follow the instructions provided to connect to your instance using SSH.
+You will need the key pair you downloaded earlier.
+
+[[step-2-4]]
+=== Step 4: Use Your Instance
+
+Your AWS remote host is now set up and ready to use for educational purposes.
+You can install software, run applications, and perform other tasks on your instance.
+image:resources%2FAWS-05.jpg[AWS-05.jpg]
+
+[[important-notes-2]]
+=== Important Notes
+
+* The `t2.micro` instance type is covered under the AWS Free Tier for the first 12 months after account creation, with some usage limits.
+* Be sure to monitor your usage to avoid any charges if you exceed the Free Tier limits.
+* Remember to stop or terminate your instance when you're not using it to avoid unnecessary charges.
+
+For more detailed information, visit the https://docs.aws.amazon.com/ec2/index.html[AWS EC2 Documentation].
+
+[[how-to-connect-aws-ec2-putty]]
+== How to connect to your AWS EC2 instance using PuTTY
+
+You'll need to convert your private key file (.pem file) to a PuTTY-compatible format (.ppk file) and then configure PuTTY with the appropriate settings.
+Here's how to do it:
+
+[[step-3-1]]
+=== Step 1: Convert Your Private Key
+
+* *Download PuTTYgen:* If you haven't already, download and install PuTTYgen from the PuTTY download page.
+* *Open PuTTYgen:* Launch PuTTYgen to convert your private key.
+* *Load Your Private Key:*
+. Click the *Load* button.
+. Navigate to the location of your .pem file.
+. By default, PuTTYgen only shows files with a .ppk extension.
+To see your .pem file, select "All Files (*.*)" from the dropdown menu.
+. Select your .pem file and click *Open*.
+* *Save Your Private Key:*
+. Click the *Save private key* button.
+. Choose a location and filename for your .ppk file (e.g., mykey.ppk).
+. Click *Save*.
+
+[[step-3-2]]
+=== Step 2: Configure PuTTY
+
+* *Open PuTTY:* Launch the PuTTY SSH client.
+* *Enter Hostname or IP Address:*
+** In the *Host Name (or IP address)* field, enter the public IP address of your EC2 instance.
+You can find this in the AWS Management Console under the EC2 dashboard.
+* *Configure the Connection:*
+image:resources%2FAWS-06.jpg[AWS-06.jpg]
+. In the Category pane on the left, navigate to *Connection &gt; SSH &gt; Auth*.
+. Click the *Browse* button next to *Private key file for authentication*.
+. Select the .ppk file you created earlier and click *Open*.
+image:resources%2FAWS-07.jpg[AWS-07.jpg]
+* *(Optional) Save Your Session:*
+. In the Category pane, return to the *Session* category.
+. Enter a name for the session in the *Saved Sessions* field.
+. Click the *Save* button to save the session settings for future use.
+* *Connect:*
+. Click the *Open* button to initiate the connection.
+. If prompted, accept the server's host key by clicking *Yes*.
+. When prompted for a username, enter `ubuntu`.
+
+You should now be connected to your AWS EC2 instance via PuTTY.
+image:resources%2FAWS-08.jpg[AWS-08.jpg]
+
+Copyright © 2024 by Iurii Rusakov, Igor Gorea
+
