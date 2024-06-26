@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TestAssertions {
 
     Book book1 = new Book("Nineteen Eighty-Four", " George Orwell", "English", 465, 2002, 120.55);
-    Book book2 = new Book("Animal Farm" , " George Orwell", "English", 210, 2005, 89.90);
+    Book book2 = new Book("Animal Farm", " George Orwell", "English", 210, 2005, 89.90);
     Book book3 = new Book("451 Fahrenheit", "Ray Bradbury", "Romanian", 560, 2010, 120.50);
     Book book4 = new Book();
     Book book5 = book1;
@@ -32,37 +32,37 @@ public class TestAssertions {
     // junit assert validations
     @Test
     @DisplayName("JUnit assert true validation")
-    public void junitAssertTrueTest(){
+    public void junitAssertTrueTest() {
         assertTrue(book1.getNumberOfPages() < book3.getNumberOfPages(), String.format("Book with title %s has no less number of pages than book with title %s", book1.getTitle(), book3.getTitle()));
     }
 
     @Test
     @DisplayName("JUnit assert null validation")
-    public void junitAssertNullTest(){
+    public void junitAssertNullTest() {
         assertNull(book4.getTitle(), "Book have a title");
     }
 
     @Test
     @DisplayName("JUnit assert same validation")
-    public void junitAssertSameTest(){
+    public void junitAssertSameTest() {
         assertSame(book5, book1, "Variables does not refer to the same object");
     }
 
     @Test
     @DisplayName("JUnit assert equals validation")
-    public void junitAssertEqualTest(){
+    public void junitAssertEqualTest() {
         assertEquals(book1.getAuthor(), book2.getAuthor(), () -> "Books have different authors");
     }
 
     @Test
     @DisplayName("JUnit floating point assert equals validation")
-    public void junitAssertEqualFloatingPointTest(){
+    public void junitAssertEqualFloatingPointTest() {
         assertEquals(book1.getPrice(), book3.getPrice(), 0.1, () -> "Books have about the same price with delta of 10 bani");
     }
 
     @Test
     @DisplayName("JUnit assert array equals validation")
-    public void junitAssertArrayEqualsTest(){
+    public void junitAssertArrayEqualsTest() {
         int[] expectedNumberOfPages = {465, 210, 560};
         int[] actualNumberOfPages = books.stream()
                 .map(Book::getNumberOfPages).mapToInt(x -> x).toArray();
@@ -103,13 +103,13 @@ public class TestAssertions {
 
     @Test
     @DisplayName("Hamcrest allOff validation")
-    public void hamcrestAllofTest() {
+    public void hamcrestAllOfTest() {
         assertThat(book1.getTitle(), allOf(startsWith("Nineteen"), containsString("-"), endsWith("Four")));
     }
 
     @Test
     @DisplayName("Hamcrest anyOf validation")
-    public void hamcrestAnyOf () {
+    public void hamcrestAnyOf() {
         assertThat(book2.getAuthor(), anyOf(startsWith(" George"), containsString("Unknown")));
     }
 
@@ -122,31 +122,31 @@ public class TestAssertions {
     @Test
     @DisplayName("Hamcrest equalTo validation")
     public void hamcrestEqualToTest() {
-        assertThat(book1.getAuthor(),  equalTo(book2.getAuthor()));
+        assertThat(book1.getAuthor(), equalTo(book2.getAuthor()));
     }
 
     @Test
     @DisplayName("Hamcrest has ToString validation")
     public void hamcrestHasToStringTest() {
-        assertThat(book3.getLanguage(),  describedAs("books.Book should be written in romanian", hasToString("Romanian")));
+        assertThat(book3.getLanguage(), describedAs("books.Book should be written in romanian", hasToString("Romanian")));
     }
 
     @Test
     @DisplayName("Hamcrest instanceOf validation")
     public void hamcrestInstanceOfTest() {
-        assertThat(book1,  describedAs("book1 should be instance of books.Book class", instanceOf(Book.class)));
+        assertThat(book1, describedAs("book1 should be instance of books.Book class", instanceOf(Book.class)));
     }
 
     @Test
     @DisplayName("Hamcrest nullValue validation")
     public void hamcrestNullValueTest() {
-        assertThat(book4.getTitle(),  describedAs("book4 has a title, but it should not", nullValue()));
+        assertThat(book4.getTitle(), describedAs("book4 has a title, but it should not", nullValue()));
     }
 
     @Test
     @DisplayName("Hamcrest sameInstance validation")
     public void hamcrestSameInstanceTest() {
-        assertThat(book1,  describedAs("compared books does not point to the same object", sameInstance(book5)));
+        assertThat(book1, describedAs("compared books does not point to the same object", sameInstance(book5)));
     }
 
     @Test
@@ -211,7 +211,7 @@ public class TestAssertions {
     //assertj validations
     @Test
     @DisplayName("Assertj soft assert validation")
-    public void assertjSoftAssertTest () {
+    public void assertjSoftAssertTest() {
         SoftAssertions softly = new SoftAssertions();
 
         softly.assertThat(book1.getPrice()).as("The price for book number one should be 110.0").isEqualTo(110.0);
@@ -223,7 +223,7 @@ public class TestAssertions {
 
     @Test
     @DisplayName("Assertj multiple hard asser validation")
-    public void assertjMultipleHardAssertTest () {
+    public void assertjMultipleHardAssertTest() {
         assertThat(book1.getPrice()).as("The price for book number one should be 110.0").isEqualTo(110.0);
         assertThat(book2.getPrice()).as("The cost of second book should be 10.0").isEqualTo(10.0);
         assertThat(book3.getLanguage()).as("The book number 3 is published in russian language").isEqualTo("Russian");
@@ -241,7 +241,7 @@ public class TestAssertions {
 
     @Test
     @DisplayName("Assertj soft assert with chained assertions")
-    public void assertjSoftAssertWIthChainedAssertion () {
+    public void assertjSoftAssertWithChainedAssertion() {
         SoftAssertions.assertSoftly(softly -> {
             softly.assertThat(book1.getTitle())
                     .startsWith("Nineteer")
@@ -255,7 +255,7 @@ public class TestAssertions {
 
     @Test
     @DisplayName("Assertj run custom assert")
-    public void assertjTestIfBookIsAntiquarian () {
+    public void assertjTestIfBookIsAntiquarian() {
         BookAssert.assertThat(book6).isAntiquarian();
     }
 }

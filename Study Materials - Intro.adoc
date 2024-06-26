@@ -53,7 +53,7 @@ Networking basics_
 . link:TL/18_Configuring_a_project._Property_files/Configuring_a_project.Property_files_README.md[Configuring a project. Property files.]
 . link:TL/19_junit_running_junit_tests/JUnit5%20overview%20and%20running%20JUnit%20tests.adoc[JUnit. Running JUnit tests]
 . link:TL/20_Test_Hooks-Before&After/Test_Hooks_Before_&_After_README.adoc[Test hooks - Before & After]
-. link:TL/21_assertions_matchers_custom_assertions/Assertions_Matchers_CustomAssertions_README.md[Assertions. Matchers. Custom assertions]
+. link:TL/21_assertions_matchers_custom_assertions/Assertions_Matchers_CustomAssertions_README.adoc[Assertions. Matchers. Custom assertions]
 . link:TL/22_configuring_&_using_logger/Configuring_&_Using_Logger.adoc[Configure & use logger]
 . link:TL/23_simple_design_patterns_singleton_page_object/Design_Patterns_README.md[Simple Design Patterns. Singleton. Page Object]
 . link:TL/24_scenario_context/Scenario_Context_README.md[Scenario Context]

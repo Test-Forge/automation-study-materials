@@ -1,6 +1,7 @@
 package assertions_example;
 
 import org.assertj.core.api.AbstractAssert;
+
 import java.util.ArrayList;
 
 public class BookAssert extends AbstractAssert<BookAssert, Book> {
@@ -14,7 +15,7 @@ public class BookAssert extends AbstractAssert<BookAssert, Book> {
     }
 
     public BookAssert isAntiquarian() {
-        if (actual.getYear()>1900)
+        if (actual.getYear() > 1900)
             failWithMessage("Book with title %s published in %d is not antiquarian", actual.getTitle(), actual.getYear());
         return this;
     }
