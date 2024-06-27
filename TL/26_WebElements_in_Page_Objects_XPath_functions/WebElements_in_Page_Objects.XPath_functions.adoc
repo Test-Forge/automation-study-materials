@@ -102,17 +102,17 @@ Example of Locating WebElements:
 // Using ID to locate an element
 WebElement usernameInput = driver.findElement(By.id("username"));
 
-// Using XPath to locate a button element
-WebElement loginButton = driver.findElement(By.xpath("//button[@id='loginButton']"));
-
-// Using CSS Selector to locate a form element
-WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
-
 // Locating an element by its class name
 WebElement loginButton = driver.findElement(By.className("login-button"));
 
 // Locating all elements with a specific tag name
 List<WebElement> inputFields = driver.findElements(By.tagName("input"));
+
+// Using XPath to locate a button element
+WebElement loginButton = driver.findElement(By.xpath("//button[@id='loginButton']"));
+
+// Using CSS Selector to locate a form element
+WebElement emailInput = driver.findElement(By.cssSelector("input[name='email']"));
 
 // Locating a link element by its visible text
 WebElement privacyPolicyLink = driver.findElement(By.linkText("Privacy Policy"));
@@ -374,7 +374,7 @@ This can be used to directly change an element's state, click an element, or eve
 [source,java]
 ----
 public void clickElementWithJS(WebElement element) {
-    ((JavascriptExecutor)driver).executeScript("arguments[0].click();", element);
+    ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 }
 ----
 
