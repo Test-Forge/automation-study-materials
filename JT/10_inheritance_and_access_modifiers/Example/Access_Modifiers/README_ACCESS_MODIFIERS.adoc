@@ -1,15 +1,6 @@
 = Access Modifiers
+:toc:
 
-== Contents
-
-* <<basic-idea,Basic idea>>
-* <<private-access-modifiers,Private access modifiers>>
-* <<default-access-modifiers,Default access modifiers>>
-* <<protected-access-modifiers,Protected access modifiers>>
-* <<public-access-modifiers,Public access modifiers>>
-* <<resources,Resources>>
-
-[[basic-idea]]
 == Basic idea
 
 ****
@@ -33,7 +24,6 @@ There are *_four types_* of Java access modifiers:
 |===
 ****
 
-[[private-access-modifiers]]
 == Private access modifiers
 
 ****
@@ -45,7 +35,6 @@ The access level of a private modifier is only within the class. It cannot be ac
 *link:Private_Access_Modifier.java[]* is an example demonstrating the role of private access modifiers for data member, method and constructor.
 ****
 
-[[default-access-modifiers]]
 == Default access modifiers
 
 ****
@@ -57,7 +46,6 @@ accessibility than private. But, it is more restrictive than protected and publi
 *link:Default_Access_Modifier.java[]* is an example demonstrating the role of default access modifiers for class and method.
 ****
 
-[[protected-access-modifiers]]
 == Protected access modifiers
 
 ****
@@ -72,7 +60,6 @@ It provides more accessibility than the default modifer.
 *link:Protected_Access_Modifier.java[]* is an example demonstrating the role of protected access modifiers for class and method.
 ****
 
-[[public-access-modifiers]]
 == Public access modifiers
 
 ****
@@ -83,7 +70,6 @@ The public access modifier is accessible everywhere. It has the widest scope amo
 *link:Public_Access_Modifier.java[]* is an example demonstrating the role of public access modifiers for class and method.
 ****
 
-[[resources]]
 == Resources
 
 ****

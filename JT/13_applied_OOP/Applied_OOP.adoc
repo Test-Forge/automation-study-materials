@@ -1,8 +1,10 @@
-== Applied OOP
+= Applied OOP
+:toc:
+:sectnums:
 
 Author Name: Igor Chele 28.03.2024
 
-=== - Encapsulation
+=== Encapsulation
 
 Encapsulation is (one of) the fundamental principle of object-oriented programming (OOP).
 
@@ -15,7 +17,7 @@ To achieve this, you must:
 * declare class variables/attributes as *private*
 * provide public *get* and *set* methods to access and update the value of a private variable
 
-[source,java]
+[source%linenums,java]
 ----
 public class Person {
     private String name;
@@ -46,6 +48,7 @@ public class Person {
     public void setGender(String gender) {
         this.gender = gender;
     }
+}
 
 ----
 
@@ -74,7 +77,7 @@ Conclusions:
 
 ---
 
-=== - Inheritance
+=== Inheritance
 
 Inheritance is a key feature of OOP, where classes can inherit attributes and methods from other classes.
 
@@ -101,7 +104,7 @@ See the full example attached in the link:Examples/Inheritance/[Inheritance] pac
 
 ****
 
-Also, this topic is detailed in a separate chapter, see link:..JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.md[Inheritance & Access modifiers]
+Also, this topic is detailed in a separate chapter, see link:../10_inheritance_and_access_modifiers/Example/Access_Modifiers/README_ACCESS_MODIFIERS.adoc[Inheritance & Access modifiers]
 
 If you have some tea and cookies :
 
@@ -115,7 +118,7 @@ video::WlQacYskOu4[youtube]
 
 ---
 
-=== - Polymorphism
+=== Polymorphism
 
 Polymorphism allows objects of different classes to be treated as objects of a common superclass.
 This enables a single interface to represent different types of objects and allows for code reuse and flexibility in software design.
@@ -145,7 +148,7 @@ This allows for more flexibility and loose coupling in the design. (present in l
 See an example attached in the link:Examples/Polymorphism/[Polymorphism] package.
 ****
 
-Check also link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading].
+Check also link:../11_overloading_overriding/overloading_vs_overriding.adoc[Overriding vs. Overloading].
 
 And watch this with morning coffee: https://www.youtube.com/watch?v=o6HEb-DBtAc&t=3s[Polymorphism]
 
@@ -168,7 +171,7 @@ Override the makeJuice() method to print the specific type of juice that's going
 
 ---
 
-=== - Abstraction
+=== Abstraction
 
 Abstraction involves hiding the complex implementation details and showing only the necessary features of an object.
 Applied OOP utilizes abstraction to create clear and understandable interfaces for interacting with objects, without exposing the underlying complexities.
@@ -178,7 +181,7 @@ This reduces code duplication and makes it easier to maintain and extend the cod
 
 As example, we can have an abstract class with many methods and other classes that extends the abstract class will implement only the ones that are needed (In this case the class will also be an abstract one)
 
-Other example is when we have multiple classes that implements inherited abstract methods by overriding them (See more details about this in link:JT/11_overloading_overriding/overloading_vs_overriding.md[Overriding vs. Overloading])
+Other example is when we have multiple classes that implements inherited abstract methods by overriding them (See more details about this in link:../11_overloading_overriding/overloading_vs_overriding.adoc[Overriding vs. Overloading])
 
 Bedtime story for this topic: https://www.youtube.com/watch?v=7Yz_m2XjVCg[Abstraction]
 

@@ -1,45 +1,8 @@
 # Java Method Overloading and Overriding
+:toc:
+:sectnums:
 
-'''
-
-== [[table-of-content]]Table of content:
-
-* link:#method-overload-description[Method overloading description]
-
-* link:#method-overloading-example[Method overloading example]
-
-* link:#best-practices-for-applying-method-overloading[Method overloading, best practices]
-
-* link:#pros-of-method-overloading[Method overloading pros]
-
-* link:#cons-of-method-overloading[Method overloading cons]
-
-* link:#conclusion[Method Overloading Rules]
-
-* link:#method-overload-practice-exercises[Method overloading practice exercises]
-
-* link:#method-overriding-description[Method overriding description]
-
-* link:#example-1[Method overriding example]
-
-* link:#best-practices-for-using-method-overriding[Method overriding best practices]
-
-* link:#pros-of-method-overriding[Method overriding pros]
-
-* link:#cons-of-method-overriding[Method overriding cons]
-
-* link:#conclusion-1[Method Overriding Rules]
-
-* link:#method-overriding-practice-exercises[Method overriding practice exercises]
-
-* link:#difference-between-overloading-overriding[Difference Between Method Overloading and Method Overriding]
-
-* link:#polimorphism-in-jvm[Polymorphism in JVM]
-
-* link:#useful-resources[Useful Resources]
-
-'''
-== [[method-overload-description]]Method overloading description:
+== Method overloading description:
 
 **Method overloading** in Java is a feature that allows different methods to have the same name, but different parameters/signatures.
 The signature/parameters of a method can differ by the number of input parameters, type of input parameters, or both.
@@ -66,9 +29,7 @@ Method Overloading: is a compile-time polymorphism where you have multiple metho
 It can occur within the same class.
 Method overloading is limited to the scope of a single class because it’s based on having different method signatures in the same class.
 
-link:#table-of-content[Back to top]
-
-== [[method-overloading-example]]Example:
+=== Method overloading example
 
 Consider a `Button` class with a `create` method that is overloaded to handle different scenarios:
 
@@ -90,9 +51,9 @@ class Button {
     }
 }
 ```
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-== [[best-practices-for-applying-method-overloading]]Best practices for applying method overloading
+=== Best practices for applying method overloading
 
 * **Consistent Naming:**
 Use the same method name for similar actions.
@@ -117,9 +78,9 @@ Method overloading provides flexibility in the input a method can accept, making
 * **Code Re-usability:**
 It helps in reusing the same method name with different parameters, thus making the code more readable and reducing redundancy.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[pros-of-method-overloading]]Pros of method overloading:
+=== Pros of method overloading:
 
 * **Readability:**
 Method overloading improves the readability of the program. It allows different methods to have the same name but different signatures, which can make the code easier to understand
@@ -140,9 +101,9 @@ Overloaded methods give programmers the flexibility to call a similar method for
 * **Efficiency:**
 Method overloading can make the program more efficient by allowing the appropriate method to be called based on the specific type and number of arguments.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[cons-of-method-overloading]]Cons of method overloading:
+=== Cons of method overloading:
 
 * **Confusing Behavior:**
 If overloaded methods perform vastly different operations, it can lead to confusing and unpredictable behavior. Overloaded methods should ideally perform the same operation with different inputs.
@@ -167,9 +128,9 @@ Java uses type promotion for matching arguments, and this can lead to unexpected
 * **Testing Difficulty:**
 Overloaded methods can make writing unit tests more difficult, as you need to ensure that all versions of the method are correctly tested.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[conclusion]]Method Overloading Rules:
+=== Method Overloading Rules:
 
 There are some rules which we need to follow to overload a method and some of them are mandatory while some are optional.
 
@@ -189,18 +150,18 @@ And if both methods follow above mandatory rules then they may or may not
 
 Usually, method overloading happens inside a single class but a method can also be treated as overloaded in the subclass of that class because subclass inherits one version of the method from the parent class and then can have another overloaded version in its class definition.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
 
-## [[method-overload-practice-exercises]]Method overloading practice exercises:
+=== Method overloading practice exercises:
 
-### Exercise 1:
+*Exercise 1:*
 Create a class with a method that prints “ONE” when no arguments are passed, and “TWO” when one integer argument is passed.
 
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 public class MainClass {
     static void overloadedMethod() {
@@ -220,13 +181,13 @@ public class MainClass {
 ====
 
 
-### Exercise 2:
+*Exercise 2:*
 In the below class, is ‘method’ overloaded or duplicated?
 
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 public class MainClass {
     void method(int... a) {
@@ -240,13 +201,13 @@ public class MainClass {
 ----
 ====
 
-### Exercise 3:
+*Exercise 3:*
 In the below Class X, is ‘method’ properly overloaded?
 
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class X {
     int method(int i, int d) {
@@ -268,13 +229,13 @@ class X {
 ----
 ====
 
-### Exercise 4:
+*Exercise 4:*
 Create a class with overloaded methods that accept different number of arguments or data types.
 
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class MethodOverloading {
     private static void display(int a) {
@@ -293,13 +254,13 @@ class MethodOverloading {
 ----
 ====
 
-### Exercise 5:
+*Exercise 5:*
 Overload a method by changing the data type of parameters.
 
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class MethodOverloading {
     // this method accepts int
@@ -320,18 +281,18 @@ class MethodOverloading {
 ----
 ====
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[method-overriding-description]]Method overriding description:
+## Method overriding description:
 
 **Method overriding** a Java feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its super-classes or parent classes.
 This is one of the ways Java achieves runtime polymorphism.
 When a method in a subclass has the same name, same parameters or signature, and the same return type (or subtype) as a method in its super-class, the method in the subclass is said to override the method in the super-class.
 The version of a method that is executed will be determined by the object that is used to invoke it.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[example-1]]Method overriding example:
+*Method overriding example:*
 
 In this example, the `run` method in the `Bike` class overrides the `run` method in the `Vehicle` class.
 When the `run` method is called using an object of the `Bike` class, “Bike is running safely” is printed instead of "Vehicle is running"
@@ -359,9 +320,9 @@ System.out.println("Bike is running safely");
     }
 }
 ```
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[best-practices-for-using-method-overriding]]Best practices for using method overriding:
+=== Best practices for using method overriding:
 
 * **Correct Method Signature:** The overriding method in the subclass must have the same signature as the method in the superclass.
 The method signature includes the method name, return type, and parameter list.
@@ -396,9 +357,9 @@ Overriding methods indiscriminately can make the code difficult to understand an
 * **Be Careful with Overriding Methods Called from Constructors:** If you call an overridden method from a constructor, it will execute in a context where some of the fields it wants to use aren’t initialized.
 Therefore, you should avoid doing that if possible.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[pros-of-method-overriding]]Pros of method overriding:
+=== Pros of method overriding:
 
 * **Runtime Polymorphism:**
 Method overriding is used to achieve runtime polymorphism.
@@ -425,9 +386,9 @@ The same method name is used in the superclass and subclasses, increasing the re
 * **Abstract Methods:**
 In the case of abstract methods (methods without a body), method overriding is necessary for the subclass to provide the implementation.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[cons-of-method-overriding]]Cons of method overriding:
+=== Cons of method overriding
 
 * **Inheritance Requirement:**
 Method overriding can only be done if the classes are in an inheritance relationship.
@@ -457,9 +418,9 @@ It can also lead to confusion if not properly documented.
 Errors can occur in method overriding if the method signatures are not exactly the same.
 This includes the method name, return type, and parameters.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[conclusion-1]]Method Overriding Rules
+=== Method Overriding Rules
 Similar to method overloading we also have some mandatory and some optional rules which we need to follow to override a method.
 
 With respect to the method it overrides, the overriding method must follow below mandatory rule.
@@ -492,9 +453,9 @@ Apart from above rules, there are also some facts
 
 - A subclass can use super.overridden_method() to call the superclass version of an overridden method.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[method-overriding-practice-exercises]]Method overriding practice exercises:
+=== Method overriding practice exercises:
 
 ### Exercise 1:
 Create a basic Method Overriding
@@ -502,7 +463,7 @@ Create a basic Method Overriding
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class Animal {
   public void displayInfo() {
@@ -531,7 +492,7 @@ public class Main {
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class Animal {
     public void displayInfo() {
@@ -560,7 +521,7 @@ public class Main {
 [%collapsible]
 .Solution
 ====
-[source,java]
+[source%linenums,java]
 ----
 class X {
     void method(int a) {
@@ -587,7 +548,7 @@ public class MainClass {
 ----
 ====
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
 ## [[difference-between-overloading-overriding]]Difference Between Method Overloading and Method Overriding
 
@@ -614,9 +575,9 @@ link:#table-of-content[Back to top]
 | Must not throw new or broader checked exceptions but may throw narrower checked exceptions, or any unchecked exception
 |===
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
-## [[polimorphism-in-jvm]]Polymorphism in JVM
+## Polymorphism in JVM
 
 Polymorphism in the Java Virtual Machine (JVM) is primarily implemented through the mechanisms of late binding or dynamic binding. This means that the decision about which specific method should be called is made at runtime, rather than at compile time.
 
@@ -630,7 +591,7 @@ When you call an overridden method on an object, the JVM uses the following proc
 
 This process allows objects of different classes to handle the same message (method call) differently, which is the essence of polymorphism. Thus, polymorphism in the JVM provides flexibility and extensibility in object-oriented applications.
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]
 
 ## [[useful-resources]]Useful Resources
 
@@ -638,4 +599,4 @@ link:#table-of-content[Back to top]
 * link:https://www.programmingmitra.com/2017/05/everything-about-method-overloading-vs-method-overriding.html[Everything About Method Overloading Vs Method Overriding]
 * link:https://www.programmingmitra.com/2017/05/how-does-jvm-handle-method-overriding-internally.html[How Does JVM Handle Polymorphism (Method Overloading and Method Overriding) Internally]
 
-link:#table-of-content[Back to top]
+link:#_method_overloading_description[Back to top]

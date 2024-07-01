@@ -1,6 +1,6 @@
 package Examples.Abstraction.viaInterface;
 
-public class Book implements Product {
+public class Book implements Product, Bestseller {
 
     private double price;
     private String name;
@@ -8,6 +8,7 @@ public class Book implements Product {
     private String author;
     private int pages;
     private String isbn;
+    private boolean isBestseller;
 
     @Override
     public double getPrice() {
@@ -61,5 +62,14 @@ public class Book implements Product {
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
+    }
+
+    public void setBestseller(boolean bestseller) {
+        isBestseller = bestseller;
+    }
+
+    @Override
+    public void isBestseller() {
+        System.out.println(String.format("Book %s is bestseller %b", name, isBestseller));
     }
 }
