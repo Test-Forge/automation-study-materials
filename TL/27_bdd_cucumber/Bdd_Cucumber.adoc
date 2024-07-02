@@ -1,6 +1,7 @@
 = BDD (Behavior Driven Development)
 :toc:
 :toc-title: Table of Adventures
+:sectnums:
 
 == Breaking Down Barriers: Understanding BDD
 
@@ -20,22 +21,22 @@ This helps everyone understand what exactly we expect from the program and how i
 
 [cols="1,1"]
 |===
-|Advantages ✔ |Disadvantages ✘
+^|Advantages ✔ ^|Disadvantages ✘
 
-|Easy to understand
-|Maintainability
+^|Easy to understand
+^|Maintainability
 
-|Promotes reusability
-|Implementation quality can fluctuate
+^|Promotes reusability
+^|Implementation quality can fluctuate
 
-|Promotes flexibility and parametrization
-|Technical limitations
+^|Promotes flexibility and parametrization
+^|Technical limitations
 
-|Tags enable targeted testing
-|
+^|Tags enable targeted testing
+^|
 
-|Lots of helper libraries and integrations
-|
+^|Lots of helper libraries and integrations
+^|
 |===
 
 image::resources/cucumber.jpg[align="center"]
@@ -70,13 +71,13 @@ image::resources/given_when_then_2.webp[align="center"]
 Let's write our scenario using the Gerkin language.
 
 [example]
-**Feature:** login +
+**Feature:** Login +
 As a user +
 I want to be able to log in to the application +
 *Scenario:* Successful login +
 *Given* user navigates to www.example.com +
 *When* user enters a valid value in the "username" field +
-*And**user enters a valid value in the "password" field +
+*And* user enters a valid value in the "password" field +
 *And* user clicks on the "login" button +
 *Then* user is taken to the main page +
 
@@ -86,14 +87,43 @@ We have a ready-made scenario and to automate it we can use *Cucumber*.
 === Cucumber
 
 Cucumber is a test automation tool based on Behavior-Driven Development (BDD) principles and associates Gherkin steps with a step definition. +
-A step definition is a method marked with one of the step keywords: ( `Given`, `When`, `Then`, or `But`). +
+A step definition is a method marked with one of the step keywords: ( `Given`, `When`, `Then`, `But` or `And`). +
 It contains either a Regular Expression or a Cucumber Expression that associates a method with Gherkin steps. Let's look at an example. We wrote the steps in a file with the extension `.feature`
 
 image::resources/feature.png[width=577]
 
 And implemented these steps in the ".java" file
 
-image::resources/java.png[width=523]
+[source,java]
+----
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
+public class LoginSteps {
+
+    @Given("user navigates to www.example.com")
+    public void navigateToMainPage() {
+        //implementation
+    }
+
+    @When("user enters a valid value in the \"username\" field")
+    public void userEnterUsernameValue() {
+        //implementation
+    }
+    @When("user enters a valid value in the \"password\" field")
+    public void userEnterPasswordValue() {
+        //implementation
+    }
+    @When("user clicks on the \"login\" button")
+    public void userClickOnLoginButton() {
+        //implementation
+    }
+    @Then("user is taken to the main page")
+    public void userIsTakenToTheMainPage() {
+        //implementation
+    }
+----
 
 *How can we improve our code?* +
 If you look at our steps, you will see that some steps will be repeated on other pages: “entering values into fields”, “clicking buttons” and so on. +
@@ -103,7 +133,13 @@ Also let's make our steps more functional.
 We made one implementation for two steps and passed a String to the method.
 
 image::resources/commonSteps.png[]
-image::resources/commonStepsImpl.png[]
+[source,java]
+----
+@When("user enters a {string} in the {string} filed")
+public void enterValueInInputField(String value, String fieldName){
+    //implementation
+}
+----
 
 :icons: font
 [NOTE]
@@ -125,23 +161,48 @@ image::resources/commonStepsImpl.png[]
 We can also pass a list to the method
 
 image::resources/listInStep.png[]
-image::resources/listInStepImpl.png[width=725]
-Let's look at a couple more cases +
+
+[source,java]
+----
+@Then("the following elements are displayed")
+public void theFollowingElementsAreDisplayed(List<String> listOfElements){
+    //implementation
+}
+----
+Let's look at a couple more cases. +
 For example, we have two steps that differ in state. (false&true, are&are not, and so on)
 
 image::resources/stepsOr.png[]
-
-image::resources/stepsOrImpl.png[width=837]
+[source,java]
+----
+@Then("^the select button is (enabled|disabled)$")
+public void theSelectButtonIsEnabled(String elementState){
+    //implementation
+}
+----
 
 We can also combine multiple descriptions for one method
 
 image::resources/2steps.png[]
-image::resources/2steps_impl.png[]
+[source,java]
+----
+@When("I search for {string}")
+@When("I perform a simple search on {string}")
+public void iPerformASimpleSearchOn(String searchTerm){
+    //implementation
+}
+----
 
 We can pass tables to the method
 
 image::resources/table.png[]
-image::resources/table_impl.png[]
+[source,java]
+----
+@Given("the following books")
+public void theFollowingBooks(DataTable table){
+    //implementation
+}
+----
 
 In Cucumber, you can also pass objects to method as steps parameters.
 
@@ -160,7 +221,6 @@ image::resources/Use_the_object_in_a_scenario_step.png[width=652]
 . Define the scenario steps:
 +
 image::resources/Define-the_scenario_steps.png[width=577]
-
 
 Taking into account everything we talked about above, we did the following test.
 
