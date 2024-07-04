@@ -1,2 +1,11 @@
 :stylesdir: {asciidoctorconfigdir}\.asciidoctor\
 :stylesheet: asciidoctor.css
+
+:pdf-themesdir: {asciidoctorconfigdir}\.asciidoctor\
+:pdf-theme: asciidoctor.yml
+:pdf-fontsdir: {asciidoctorconfigdir}/.asciidoctor/fonts/
+
+//icon customization to use it change :icons: font to :icons: image, if you want to add new custom icons please check documentation: https://docs.asciidoctor.org/asciidoc/latest/macros/icons/
+:icons: font
+:iconsdir: {asciidoctorconfigdir}/.asciidoctor/icons/
+:icontype: svg

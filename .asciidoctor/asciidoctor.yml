@@ -1,0 +1,12 @@
+extends: default
+
+font:
+  catalog:
+    merge: true
+    Dava Sans:
+      normal: DavaSans-Regular.ttf
+      italic: DavaSans-Italic.ttf
+      bold: DavaSans-Bold.ttf
+      bold_italic: DavaSans-BoldItalic.ttf
+
+base_font_family: Dava Sans
