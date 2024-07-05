@@ -1,11 +1,11 @@
 :doctype: book
-:revdate: April 2024
+:revdate: July 2024
 :toc: left
 :toc-title: Table of Contents
 :sectnums:
 :icons: font
 
-= Configuring & Using Logger
+= Logger Configuration & Usage
 
 by mailto:stanislav.scurtu@gmail.com[Stanislav Scurtu] +
 Apr 2024
@@ -13,7 +13,7 @@ Apr 2024
 == Overview
 
 Logging is an essential aspect of software development and testing as it allows developers and testers to track and debug the application's behavior.
-In this material, we will learn how to configure different log levels, format log messages, customize log outputs, and harness the power of logging frameworks like Log4j 2 and SLF4J.
+In this material, we will learn how to configure different log levels, format log messages, customize log outputs, and harness the power of logging frameworks like Log4j2 and SLF4J.
 
 === What is Logging?
 
@@ -51,21 +51,27 @@ These logs provide general information about the progression of the test executi
 They typically include details such as test start and end timestamps, test case identifiers, and any other relevant contextual information.
 Info logs are useful for maintaining a high-level overview of the test process.
 
+image::resources/log_info_example.jpg[]
+
 . *Warning Logs* +
 When unexpected events or conditions are encountered during test execution, warning logs are utilized.
 These logs highlight irregularities or potential issues that might affect the test results.
 Examples of warning logs include validation failures, invalid test data, or external dependencies not being available.
+
+image::resources/log_warn_example.jpg[]
 
 . *Error Logs* +
 Error logs are generated when the test encounters a critical failure or exception.
 These logs help identify the root cause of the failure and provide detailed information about the error, including stack traces and error messages.
 Error logs are crucial for debugging and identifying issues that need to be addressed.
 
+image::resources/log_error_example.jpg[]
+
 === Logging Frameworks in Java
 
 Java provides several logging frameworks that can be used in testing, including:
 
-. *Log4j* and *Log4j 2* +
+. *Log4j*(deprecated) and *Log4j2* +
 Log4j is one of the most popular logging frameworks in Java.
 It offers a flexible configuration, allowing developers to control log levels, appenders (output targets), and formatting.
 Log4j supports logging at different levels (e.g., INFO, WARN, ERROR) and enables the separation of log statements based on specific categories or packages.
@@ -161,13 +167,13 @@ This ensures that you can access the Log4j2 classes and functionalities in your 
 [source,xml]
 ----
 <dependencies>
-    <!-- Log4j 2 API -->
+    <!-- Log4j2 API -->
     <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-api</artifactId>
         <version>2.22.1</version>
     </dependency>
-    <!-- Log4j 2 Core -->
+    <!-- Log4j2 Core -->
     <dependency>
         <groupId>org.apache.logging.log4j</groupId>
         <artifactId>log4j-core</artifactId>
@@ -176,16 +182,14 @@ This ensures that you can access the Log4j2 classes and functionalities in your 
 </dependencies>
 ----
 
-IMPORTANT: Ensure you're using the latest version of Log4j 2 by checking the https://logging.apache.org/log4j/2.x/maven-artifacts.html#using-log4j-in-your-apache-maven-build[official Log4j 2 website].
+IMPORTANT: _Ensure you're using the latest version of Log4j2 by checking the https://logging.apache.org/log4j/2.x/maven-artifacts.html#using-log4j-in-your-apache-maven-build[official Log4j2 website]._
 
-==== Configuring Log4j2:
+==== Configuring Log4j2
 
 The configuration file can be in XML, JSON, or properties format.
 Customize the file to define log levels, appenders, and other properties according to your application's needs.
 The configuration file should be placed in the `src/main/resources` directory.
 A basic `log4j2.xml` configuration might look like this:
-
-TIP: This configuration defines a console appender with a simple pattern layout and sets the root logger level to INFO.
 
 [source,xml]
 ----
@@ -204,6 +208,8 @@ TIP: This configuration defines a console appender with a simple pattern layout 
 </Configuration>
 ----
 
+TIP: _This configuration defines a console appender with a simple pattern layout and sets the root logger level to INFO._
+
 Let's make a breakdown of what's happening in this code:
 
 .XML Declaration +
@@ -214,19 +220,19 @@ Let's make a breakdown of what's happening in this code:
 
 This line declares that the file is an XML document and uses version 1.0 with UTF-8 encoding, ensuring that the file can include characters from any human language, making it internationally readable.
 
-.Configuration Root Element +
+.Configuration of Root Element +
 [source,xml]
 ----
 <Configuration status="WARN">
 ----
 
-The root element of every Log4j 2 configuration file.
-The status attribute set to "WARN" controls the logging level for internal Log4j 2 status messages.
-Here, only warnings and errors from the Log4j 2 framework itself will be printed to the console, reducing clutter from internal Log4j 2 information messages.
+The root element of every Log4j2 configuration file.
+The status attribute set to "WARN" controls the logging level for internal Log4j2 status messages.
+Here, only warnings and errors from the Log4j2 framework itself will be printed to the console, reducing clutter from internal Log4j2 information messages.
 
 ==== Appenders Section +
 
-Appenders in Log4j 2 are responsible for delivering LogEvents to their destination.
+Appenders in Log4j2 are responsible for delivering LogEvents to their destination.
 It's an output destination where the log messages are directed, such as a file, console, database, remote server, or even custom destinations.
 Each appender can have its own layout, which controls the format of the output log message.
 Multiple appenders can be attached to a single logger, allowing log messages to be sent to multiple destinations.
@@ -258,11 +264,11 @@ In practice, when your application logs a message at the INFO level (or higher) 
 
 `12:34:56.789 [main] INFO com.example.YourClass - This is your log message`
 
-TIP: This output reflects the pattern defined in the PatternLayout, showing the timestamp, thread name, log level, logger name, and the log message, followed by a new line.
+TIP: _This output reflects the pattern defined in the PatternLayout, showing the timestamp, thread name, log level, logger name, and the log message, followed by a new line.
 If we consider Log4J2 for our logger framework, there are several patterns that we can choose from or customize. +
-Refer to the https://logging.apache.org/log4j/2.x/manual/layouts.html[official Log4J2 documentation] to learn more about them.
+Refer to the https://logging.apache.org/log4j/2.x/manual/layouts.html[official Log4J2 documentation] to learn more about them._
 
-*Here are some common types of appenders in Log4j 2:*
+*Here are some common types of appenders in Log4j2:*
 
 .ConsoleAppender +
 The ConsoleAppender writes log events to System.out or System.err.
@@ -332,10 +338,10 @@ This is particularly useful for alerting on critical errors.
 </Appenders>
 ----
 
-TIP: For detailed illustrations, please refer to the examples provided in the accompanying examples folder.
+TIP: For detailed illustrations, please refer to the examples provided in the accompanying "Log4j2 examples" folder.
 
 .Custom Appenders +
-Log4j 2 allows for the creation of custom appenders if the built-in appenders do not meet specific requirements.
+Log4j2 allows for the creation of custom appenders if the built-in appenders do not meet specific requirements.
 Implementing a custom appender involves extending the Appender interface or one of its abstract implementations, like AbstractAppender.
 
 For additional information on setting up a Custom Appender, refer to the https://logging.apache.org/log4j/2.x/manual/extending.html[official Log4J2 documentation] to learn more about them.
@@ -459,18 +465,18 @@ public void loginUser(String username, String password) {
 }
 ----
 
-TIP: Monitor and analyze the generated log output to gain insights into your application's behavior, troubleshoot issues, or track specific events.
-Use the configured appenders to direct log messages to the desired destinations for further analysis.
+TIP: _Monitor and analyze the generated log output to gain insights into your application's behavior, troubleshoot issues, or track specific events.
+Use the configured appenders to direct log messages to the desired destinations for further analysis._
 
 === Logging to Both File and Console
 
 This is very useful in a non-prod environment where we may want to see debug messages in the console, and we may want to persist the higher level logs to a file for later analysis.
 
 To configure Log4j2 to log to both a file and the console, we would typically use a configuration file where we define Appenders for each output target and a Logger that references these appenders.
-Log4j 2 supports various types of configuration files, including XML, JSON, YAML, and properties files.
+Log4j2 supports various types of configuration files, including XML, JSON, YAML, and properties files.
 Below is an example of how to do this with an XML configuration file.
 
-TIP: The XML configuration below defines two appenders: one for logging to the console (Console) and another for logging to a file (File), and it attaches both appenders to the root logger.
+TIP: _The XML configuration below defines two appenders: one for logging to the console (Console) and another for logging to a file (File), and it attaches both appenders to the root logger._
 
 ==== Log4j2 XML Configuration Example
 
@@ -509,32 +515,32 @@ Lower level messages (DEBUG, TRACE) will be ignored.
 * `<AppenderRef>`: These elements link the appenders to the root logger.
 Both the console and file appenders are referenced here, so log messages will go to both destinations.
 
-NOTE: With the log4j2.xml configuration file in place, Log4j 2 will automatically detect and load it when our application starts.
-And we don't need to manually load this configuration file in our code.
+NOTE: _With the log4j2.xml configuration file in place, Log4j2 will automatically detect and load it when our application starts.
+And we don't need to manually load this configuration file in our code._
 
 When we run our application, we should see the log messages in both the console and the app.log file, formatted according to the pattern we specified in the configuration file.
 
 ==== Configuration Using a Properties File
 
-Unlike Log4j, which supports configuration only through properties and XML formats, we can define the Log4j 2 configurations using JSON, XML, YAML, or properties format.
+Unlike Log4j, which supports configuration only through properties and XML formats, we can define the Log4j2 configurations using JSON, XML, YAML, or properties format.
 All these formats are functionally equivalent.
 Therefore, we can easily convert the configuration done in one format to any other.
 
-When Log4j 2 was released, it didn’t have the support for configuration through the properties file.
+When Log4j2 was released, it didn’t have the support for configuration through the properties file.
 It started supporting the properties file from the release of version 2.4. The default properties configuration file is always `log4j2.properties`.
 The Logger gets the reference of this file from the CLASSPATH.
 The system property may refer to a local file system or may contain a URL.
 Log4j2 provides a DefaultConfiguration if it cannot locate a configuration file.
 In this case, we get the logging output redirected to the console and the root logger level set to ERROR.
 
-TIP: The `log4j2.properties` file is a simple, key-value pair format that is easy to read and write.
+TIP: _The `log4j2.properties` file is a simple, key-value pair format that is easy to read and write._
 
-===== Syntax of the log4j2.properties File
+.Syntax of the log4j2.properties File
 
 The syntax of the `log4j2.properties` file isn’t the same as that of log4j.properties.
 In the log4j.properties file, every configuration starts with ‘log4j‘, while this has been omitted in the log4j2.properties configuration.
 
-Here's an example `log4j2.properties` file that configures Log4j 2 to log to both the console and a file:
+Here's an example `log4j2.properties` file that configures Log4j2 to log to both the console and a file:
 
 [source,properties]
 ----
@@ -562,8 +568,8 @@ rootLogger.appenderRef.file.ref = FileAppender
 ----
 
 .Explanation of Configuration Elements
-* `status = error`: Sets the log level for internal Log4j 2 status logging.
-It's helpful for debugging Log4j 2 issues.
+* `status = error`: Sets the log level for internal Log4j2 status logging.
+It's helpful for debugging Log4j2 issues.
 
 * `name = PropertiesConfig`: An arbitrary name for your configuration.
 
@@ -585,8 +591,8 @@ This pattern includes the timestamp, log level, logger name, line number, and th
 In this case, it's set to INFO, meaning that INFO, WARN, ERROR, and FATAL messages will be logged, while DEBUG and TRACE messages will be ignored.
 * `rootLogger.appenderRef.console.ref = ConsoleAppender` and `rootLogger.appenderRef.file.ref = FileAppender`: Attaches the defined appenders to the root logger.
 
-NOTE: With the log4j2.properties file in place, Log4j 2 will automatically detect and use it when your application starts.
-You don't need to manually load this configuration in your code.
+NOTE: _With the log4j2.properties file in place, Log4j2 will automatically detect and use it when your application starts.
+You don't need to manually load this configuration in your code._
 
 === Lazy Logging With Lambda Expressions
 
@@ -604,7 +610,7 @@ logger.trace("Number is {}", getRandomNumber());
 ----
 
 In this example, the `getRandomNumber()` method is called to substitute the log message parameter regardless of whether TRACE statements are displayed or not.
-For example, if the log level is set to DEBUG, log4j 2 will not log the message, but the `getRandomNumber()` method still runs.
+For example, if the log level is set to DEBUG, Log4j2 will not log the message, but the `getRandomNumber()` method still runs.
 In other words, the execution of this method may be unnecessary.
 
 Before the addition of support for lambda expressions, we could avoid constructing messages which are not logged by explicitly checking the log level before executing the log statement:
@@ -636,13 +642,13 @@ We can also use multiple lambda expressions for a log message:
 logger.trace("Name is {} and age is {}", () -> getName(), () -> getRandomNumber());
 ----
 
-==== Benefits of Using Lambda Expressions with Log4j 2
+==== Benefits of Using Lambda Expressions with Log4j2
 
 * *Performance Optimization*: By deferring the evaluation of log messages, lambda expressions help avoid unnecessary computation, improving the application's performance.
 * *Code Clarity*: Lambda expressions can lead to more readable and concise code, making it easier to understand the logging logic.
 * *Functional Programming Style*: They allow for a more functional programming style in Java, making your logging statements part of functional pipelines if needed.
 
-TIP: In conclusion, the integration of lambda expressions into Log4j 2 provides significant benefits, particularly in terms of performance optimization and code readability, making it a powerful feature for developers logging in Java applications.
+TIP: _In conclusion, the integration of lambda expressions into Log4j2 provides significant benefits, particularly in terms of performance optimization and code readability, making it a powerful feature for developers logging in Java applications._
 
 == Resources
 
