@@ -34,7 +34,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 . link:JT/07_debugging_and_run_debug_configuration/IDE_Debugger/How_to_debug.adoc[How to debug? IDE Debugger & Run configurations]
 . link:JT/08_demystifying_logs/Demystifying_logs.adoc[Demystifying logs. How to interpret logs & stack traces]
 . link:JT/09_oop_basics/OOP_basics.adoc[OOP Basics - Classes. Objects. Methods]
-. link:JT/10_inheritance_and_access_modifiers/Example/Access%20Modifiers/README_ACCESS_MODIFIERS.adoc[Inheritance & Access modifiers]
+. link:JT/10_inheritance_and_access_modifiers/Example/Access_Modifiers/README_ACCESS_MODIFIERS.adoc[Inheritance & Access modifiers]
 . link:JT/11_overloading_overriding/overloading_vs_overriding.adoc[Overriding vs. Overloading]
 . link:JT/12_data_structures/data_structure.adoc[Data Structure]
 . link:JT/13_applied_OOP/Applied_OOP.adoc[Applied OOP (Inheritance + Abstraction + Encapsulation + Polymorphism)]

@@ -20,7 +20,7 @@ public class Rectangle {
     }
 
     public void setLength(double length) {
-        this.length = length;
+        this.length = length;// 'this' distinguish instance variables of the class(line 5) from parameter of the method
     }
 
     public double getWidth() {

@@ -1,19 +1,9 @@
 = Inheritance
+:toc:
+:sectnums:
+:highlightjs-languages: asciidoc, java
 
-== Contents
-
-* <<basic-idea,Basic idea>>
-* <<extends-keyword,extends keyword>>
-* <<super-keyword,super keyword>>
-* <<is-a-relationship,IS-A relationship>>
-* <<implements-keyword,implements keyword>>
-* <<has-a-relationship,HAS-A relationship>>
-* <<types-of-Inheritance,Types of Inheritance>>
-* <<resources,Resources>>
-
-[[basic-idea]]
 == Basic idea
-
 ****
 *_Inheritance_* can be defined as the process where one class acquires the properties (methods and fields) of another. With the use of inheritance the information is made manageable
 in a hierarchical order.
@@ -22,13 +12,12 @@ The class which inherits the properties of other is known as subclass (derived c
 parent class).
 ****
 
-[[extends-keyword]]
-== extends keyword
+== Extends keyword
 
 ****
 To express the inheritance we use the *_extends_* keyword with the purpose to inherit the properties of a class. Following is the syntax of extends keyword.
 
-[source,java]
+[source%linenums,java]
 ----
 class Super {
 
@@ -52,8 +41,7 @@ A subclass inherits all the members (_fields, methods, and nested classes_) from
 superclass can be invoked from the subclass_.
 ****
 
-[[super-keyword]]
-== super keyword
+== 'super' keyword
 
 ****
 The *_super_* keyword is similar to *_this_* keyword. Following are the scenarios where the *_super_* keyword is used.
@@ -68,7 +56,7 @@ The *_super_* keyword is similar to *_this_* keyword. Following are the scenario
 If a class is inheriting properties of another class and if the members of the superclass have similar names as the sub class, to differentiate these members we use super keyword as shown
 below.
 
-[source,java]
+[source%linenums,java]
 ----
  super.variable;
 
@@ -86,7 +74,7 @@ below.
 If a class is inheriting the properties of another class, the subclass automatically acquires the default constructor of the superclass. But if you want to call a parameterized constructor of the
 superclass, you need to use the *_super_* keyword as shown below:
 
-[source,java]
+[source%linenums,java]
 ----
  super(values);
 ----
@@ -95,7 +83,6 @@ superclass, you need to use the *_super_* keyword as shown below:
 *link:Subclass.java[]* demonstrates how to use the *_super_* keyword to invoke the parametrized constructor of the superclass.
 ****
 
-[[is-a-relationship]]
 == IS-A relationship
 
 ****
@@ -134,13 +121,12 @@ With the use of the *_extends_* keyword, subclasses will be able to inherit all 
 *link:Is_A_relationship.java[]* is a good example of IS-A Relationship
 ****
 
-[[implements-keyword]]
 == implements keyword
 
 ****
 Generally, the *_implements_* keyword is used with classes _to inherit the properties of an interface_. Interfaces can never be extended by a class.
 
-[source,java]
+[source%linenums,java]
 ----
 public interface Animal {
  }
@@ -155,13 +141,12 @@ public interface Animal {
 *link:Implements_Example.java[]* is a good example of using *_implements_* keyword to show the inheritance.
 ****
 
-[[has-a-relationship]]
 == HAS-A relationship
 
 ****
 These relationships are mainly based on behavior. This determines whether a certain class HAS-A certain thing/function/capability. This relationship helps to reduce duplication of code as well as bugs.
 
-[source,java]
+[source%linenums,java]
 ----
 public class Vehicle {
 
@@ -182,7 +167,6 @@ Speed class in multiple applications.
 In Object-Oriented feature, the users do not need to bother about which object is doing the real work. To achieve this, the *_Van.class_* hides the implementation details from the users of the *_Van.class_*. So, basically what happens is users would ask the *_Van.class_* to do a certain action and the *_Van.class_* will either do the work by itself or ask another class to perform the action.
 ****
 
-[[types-of-Inheritance]]
 == Types of Inheritance
 
 ****
@@ -192,7 +176,7 @@ image:../../resources/Inheritance/Types_of_Inheritance.png[Types_of_Inheritance.
 
 A very important fact to remember is that Java does not support multiple inheritance. This means that a class cannot extend more than one class. Therefore, following is illegal and will not compile:
 
-[source,java]
+[source%linenums,java]
 ----
  public class extends Animal, Mammal {
 
@@ -202,7 +186,6 @@ A very important fact to remember is that Java does not support multiple inherit
 However, a class can implement one or more interfaces, which has allowed Java to overcome the impossibility of multiple classes inheritance.
 ****
 
-[[resources]]
 == Resources
 
 ****
