@@ -1,21 +1,18 @@
 = Utility libraries
----
+:doctype: book
+:icons: font
+:toc: left
+:sectnums:
+:source-highlighter: highlightjs
+:highlightjs-languages: java, xml
 
-== Table of Contents ==
-:toc:
-<<utility, 1. Introduction to Utility libraries>> +
-<<datafaker, 2. Data Faker>> +
-<<awaitility, 3. Awaitility>> +
-<<resources, 4. Resources>>
+== Introduction to Utility libraries ==
 
-[[utility]]
-== 1. Introduction to Utility libraries ==
-
-Utility libraries refer to collections of reusable functions, classes and routines that provide common functionality to
-simplify programming tasks. It contains low level code used by many libraries. These libraries are designed to
-assist developers by offering pre-built, generic functions that can be easily integrated into their applications.
-These libraries often cover a wide range of areas, including data structures, input/output operations, concurrency,
-string manipulation, and more. Here are some popular utility libraries in Java:
+Utility libraries refer to collections of reusable functions, classes and routines that provide common functionality to simplify programming tasks.
+It contains low level code used by many libraries.
+These libraries are designed to assist developers by offering pre-built, generic functions that can be easily integrated into their applications.
+These libraries often cover a wide range of areas, including data structures, input/output operations, concurrency, string manipulation, and more.
+Here are some popular utility libraries in Java:
 
 1. Apache Commons Lang:
 - Provides a variety of utility classes for working with strings, arrays, numbers, and more.
@@ -24,42 +21,41 @@ string manipulation, and more. Here are some popular utility libraries in Java:
 3. Apache Commons IO:
 - Contains utilities for working with input/output operations, such as file and stream handling.
 4. Guava:
-- Developed by Google, Guava provides a set of core libraries for Java, including collections, caching, functional
-programming, and more.
+- Developed by Google, Guava provides a set of core libraries for Java, including collections, caching, functional programming, and more.
 5. Jackson:
 - A popular JSON processing library that facilitates working with JSON data, including data binding and streaming.
 6. Log4j:
 - A widely-used logging framework that allows flexible configuration and efficient logging in Java applications.
 7. Slf4j (Simple Logging Facade for Java):
-- Provides a simple facade or abstraction for various logging frameworks, allowing developers to use their preferred
-logging implementation.
+- Provides a simple facade or abstraction for various logging frameworks, allowing developers to use their preferred logging implementation.
 8. JUnit:
 - A widely-used testing framework for Java that supports the creation and execution of unit tests.
 9. Commons Math:
 - A library for mathematical and statistical operations, offering a wide range of functions and algorithms.
 10. Lombok:
-- A library that simplifies the boilerplate code in Java, reducing the amount of code needed for getters, setters,
-constructors, and more.
+- A library that simplifies the boilerplate code in Java, reducing the amount of code needed for getters, setters, constructors, and more.
 11. Datafaker:
 - A library for Java and Kotlin to generate fake data.
 12. Awaitility:
 - A library which provides a simple domain-specific language (DSL) for asynchronous systems testing.
-Allows to define the expectations of async operations within tests - without having to deal with threads,
-timeouts and other concurrency issues.
+Allows to define the expectations of async operations within tests - without having to deal with threads, timeouts and other concurrency issues.
 
-These utility libraries are widely used in Java development and can significantly enhance productivity by providing
-pre-built, well-tested functionality that can be easily integrated into projects.
+These utility libraries are widely used in Java development and can significantly enhance productivity by providing pre-built, well-tested functionality that can be easily integrated into projects.
 
-[[datafaker]]
-== 2. Data Faker ==
-Datafaker is a library for Java and Kotlin to generate fakedata. This can be very helpful when generating test data to fill a database, to generate data for a stress test, or anonymize data from production services. +
-*Datafaker* is the modern fork for *Javafaker*. It was transferred to Java 8 and underwent improvements, increasing the library’s performance. However, the current API stayed more or less the same. +
+== Data Faker ==
+
+Datafaker is a library for Java and Kotlin to generate fakedata.
+This can be very helpful when generating test data to fill a database, to generate data for a stress test, or anonymize data from production services. +
+*Datafaker* is the modern fork for *Javafaker*.
+It was transferred to Java 8 and underwent improvements, increasing the library’s performance.
+However, the current API stayed more or less the same. +
 Thus, previously used Javafaker won’t have any problems migrating to Datafaker.
 
-=== *2.1. Installation* ===
+=== Installation ===
+
 The latest version of Datafaker is 2.1.0. It can be included in your pom.xml:
 
-[source, maven]
+[source,xml]
 ----
 <!-- https://mvnrepository.com/artifact/net.datafaker/datafaker -->
 <dependency>
@@ -69,11 +65,11 @@ The latest version of Datafaker is 2.1.0. It can be included in your pom.xml:
 </dependency>
 ----
 
-=== *2.2. Usage* ===
+=== Usage ===
 
 Apply Datafaker to generate fake data, you can use the following code as an example:
 
-[source.try-it,java]
+[source,java]
 ----
 import net.datafaker.Faker;
 
@@ -84,7 +80,9 @@ String name = faker.name().fullName();
         String lastName = faker.name().lastName();
         String streetAddress = faker.address().streetAddress();
 ----
+
 Possible Output:
+
 ----
 Francisca
 O'Conner
@@ -92,8 +90,10 @@ Andrew Rosenbaum III
 94741 Merle Courts
 ----
 
-=== *2.3  Advanced usage* ===
-Datafaker, as well as Javafaker, support generating values based on the provided pattern. Datafaker introduced additional functionality added on Advanced usage section with emphasis on:
+=== Advanced usage ===
+
+Datafaker, as well as Javafaker, support generating values based on the provided pattern.
+Datafaker introduced additional functionality added on Advanced usage section with emphasis on:
 
 https://www.datafaker.net/documentation/sequences/[Sequences] +
 https://www.datafaker.net/documentation/date-format/[Date format] +
@@ -102,9 +102,10 @@ https://www.datafaker.net/documentation/formats/[Formats] +
 https://www.datafaker.net/documentation/schemas/[Transformation schemas] +
 https://www.datafaker.net/documentation/unique-values/[Unique values] +
 
-For example, regexify is a more flexible way of creating formatted String values. We can use the regexify directive as an expression or call the regexify method directly on the Faker object:
+For example, regexify is a more flexible way of creating formatted String values.
+We can use the regexify directive as an expression or call the regexify method directly on the Faker object:
 
-[source.try-it,java]
+[source,java]
 ----
 public class Regexify {
     private static Faker faker = new Faker();
@@ -123,7 +124,9 @@ public class Regexify {
     }
 }
 ----
+
 Possible Output:
+
 ----
 Expression: bye
 Regexify with a method: DCCC
@@ -131,16 +134,16 @@ Regexify with a method: DCCC
 
 For more information and a full list of all the fake data you can access the https://www.datafaker.net/documentation/getting-started/[link]
 
-[[awaitility]]
-== 3. Awaitility ==
+== Awaitility ==
 
 Awaitility — a library which provides a simple domain-specific language (DSL) for asynchronous systems testing.
 With Awaitility, we can express our expectations from the system in an easy-to-read DSL.
 
-=== *3.1. Installation* ===
+=== Installation ===
+
 The latest version of Awaitility is 4.2.0. It can be included in your pom.xml:
 
-[source, maven]
+[source,xml]
 ----
 <!-- https://mvnrepository.com/artifact/org.awaitility/awaitility -->
 <dependency>
@@ -151,11 +154,11 @@ The latest version of Awaitility is 4.2.0. It can be included in your pom.xml:
 </dependency>
 ----
 
-=== *3.2. Usage* ===
+=== Usage ===
 
 Apply Awaitility for testing using the following code as an example:
 
-[source.try-it,java]
+[source,java]
 ----
 import static org.awaitility.Awaitility.await;
 //..
@@ -166,7 +169,9 @@ public EmployeeListPage ClickEmployeeList() {
        .until(lnkEmployeeList::isDisplayed, is(true));
     }
 ----
+
 or using lambda expression
+
 [source.try-it,java]
 ----
 //..
@@ -174,7 +179,8 @@ await().atMost(TEN_SECONDS)
 .untilAsserted(()->Assert.assertEquals("Wait for the link to be displayed",lnkEmployeeList.isDisplayed(),true));
 ----
 
-Sometimes, we have a situation where a method throws an exception before an asynchronous job is done. Awaitility provides the possibility of ignoring this exception without failing a test.
+Sometimes, we have a situation where a method throws an exception before an asynchronous job is done.
+Awaitility provides the possibility of ignoring this exception without failing a test.
 
 [source.try-it,java]
 ----
@@ -186,8 +192,7 @@ await().atMost(TEN_SECONDS)
 
 For more details and detailed explanations for other possibilities you can access the http://www.awaitility.org/[awaitility site] and https://github.com/awaitility/awaitility/wiki/Usage[usage guide]
 
-[[resources]]
-== 4. Resources ==
+== Resources ==
 
 - https://nx.dev/concepts/more-concepts/library-types
 - https://www.datafaker.net/documentation/getting-started/
@@ -198,8 +203,4 @@ For more details and detailed explanations for other possibilities you can acces
 - https://www.mastertheboss.com/various-stuff/testing-java/testing-with-awaitility-made-simple/#google_vignette
 - https://www.youtube.com/watch?v=KbmpBZO4EoY
 
-
-
-
-
-Copyright (C) 2024 by Verginia Stolear
+Author (C) 2024 Verginia Stolear, edited by Sabrina Graur.
