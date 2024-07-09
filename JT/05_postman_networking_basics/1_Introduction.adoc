@@ -1,0 +1,95 @@
+= Postman documentation overview
+Liudmila Topal <liudmila.topal@endava.com>
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+=== Overview
+This is the place to find information on how to use Postman in your API projects.
+
+If you're learning to carry out a specific task or workflow in Postman, check out the following topics to find resources:
+
+. *Postman basics overview*
++
+To get started using Postman, check out the xref:2_Postman basics.adoc[Postman basics overview] section.
+. *Send requests*
++
+You can send requests in Postman to connect to APIs you are working with.
++
+To learn more about how to send requests, see xref:5_Send_requests.adoc[Send API requests and get response data in Postman].
+. *Write scripts*
++
+Postman has a powerful runtime based on Node.js that enables you to add dynamic behavior to requests and collections.
++
+To learn more about scripts, see https://learning.postman.com/docs/tests-and-scripts/write-scripts/intro-to-scripts/[Use scripts to add logic and tests to Postman requests].
+. *Use collections*
++
+Postman Collections are groups of saved requests.
++
+To learn more about collections, see xref:6_Postman_collections.adoc[Organize and automate API requests in Postman Collections].
+. *Use Postman Flows*
++
+Postman Flows is a visual tool for creating API workflows.
++
+To learn more about Postman Flows, see https://learning.postman.com/docs/postman-flows/overview/[Build API applications visually using Postman Flows].
+. *Use the Postman CLI*
++
+The Postman CLI is a secure command-line companion for Postman.
++
+To learn more about the Postman CLI, see https://learning.postman.com/docs/postman-cli/postman-cli-overview/[Explore Postman's command-line companion].
+. *Collaborate in Postman*
++
+Postman provides a variety of tools to enable and enhance collaboration within your team.
++
+To learn more about collaboration in Postman, see https://learning.postman.com/docs/collaborating-in-postman/collaborate-in-postman-overview/[Collaborate in Postman].
+. *Design and develop your API*
++
+Postman supports https://www.postman.com/api-first/[API-first development] with the API Builder.
++
+To learn more about API-first development, see https://learning.postman.com/docs/designing-and-developing-your-api/the-api-workflow/[Design your API in Postman using the API Builder].
+. *Document your API*
++
+https://www.postman.com/api-platform/api-documentation/[Documentation] is an important part of any collection or API. _Good documentation helps the people_ who use your collection understand what it does and how each request works.
++
+To learn more about documenting your API, see https://learning.postman.com/docs/publishing-your-api/api-documentation-overview/[Document your APIs in Postman].
+. *Monitor your API*
++
+Postman Monitors give you continuous visibility into the health and performance of your APIs.
++
+To learn more about using monitors, see https://learning.postman.com/docs/monitoring-your-api/intro-monitors/[Monitor health and performance of your APIs in Postman].
+. *API Governance and API Security*
++
+https://www.postman.com/api-platform/api-governance/[API governance] is the practice of defining and applying development
+rules that promote consistent API behaviors across your organization's API landscape.
++
+A robust https://www.postman.com/api-platform/api-security/[API security] posture means that your organization has development rules that promote security-first API behaviors.
++
+To learn more about Postman's API Governance and API Security features, see https://learning.postman.com/docs/api-governance/api-governance-overview/[API Governance and API Security in Postman].
+. *Administration*
++
+Postman provides a variety of options to customize your team's experience, from the initial setup to ongoing team and plan management.
++
+To learn more about administering your Postman team, see the https://learning.postman.com/docs/administration/managing-your-team/managing-your-team/[Team management overview].
+. *Use reports*
++
+Postman generates reports that enable you to visualize data for how your team uses Postman.
++
+To learn more about how to use reports, see https://learning.postman.com/docs/reports/reports-overview/[View reports on usage, security, and billing in Postman].
+. *Developer resources*
++
+If you're integrating Postman with your CI/CD workflow or are developing with Postman APIs or libraries, check out https://learning.postman.com/docs/developer/resources-intro/[Postman developer resources].
+. *Integrations*
+You can connect Postman to your API workflows with integrations for popular third-party solutions.
++
+For more information, see https://learning.postman.com/docs/integrations/intro-integrations/[Integrate Postman with third-party solutions].
+
+=== Resources about APIs and Postman
+If you're starting to learn about APIs and Postman, you can use a variety of resources both in and outside Postman.
+
+==== Public workspaces
+Explore https://www.postman.com/explore[workspaces, collections, and more] that you can try out inside Postman,
+like the following:
+
+* https://www.postman.com/postman/workspace/published-postman-templates/collection/9065401-ff29b3be-af69-4442-91e0-c1158b620fc2?ctx=documentation[Learn by API] - Explore beginner API concepts.
+* https://www.postman.com/postman/workspace/postman-galaxy-training/overview[Postman Training] - Learn APIs 101, Testing and Automation, API Adoption, and API First, earning https://badgr.com/public/issuers/BC0x4AQaQPC7lFilsBP_tQ/badges[Postman badges].
+* https://academy.postman.com/[Student Program] - Take the Student Expert training, covering request configurations and test scripting.
