@@ -1,0 +1,30 @@
+= Data import and export in Postman
+Liudmila Topal <liudmila.topal@endava.com>
+
+==== Postman can:
+
+* import and export Postman data, including collections, environments, globals, and data dumps.
+* import non-Postman data, such as API definitions and data from other API clients, to help you unify your API development workflow.
+
+==== You can:
+* https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/[Import data into Postman] by dragging and dropping files, or by pasting raw text or a URL.
++
+Postman automatically recognizes Postman data such as collections, environments, and data dumps. You can also https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/[import API definitions into Postman].
+* Import data from other API clients, so you can work with it in Postman.
++
+You can migrate data from
+https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-soapui/[SoapUI],
+https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-hoppscotch/[Hoppscotch],
+https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-insomnia/[Insomnia],
+and https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-thunder-client/[Thunder Client].
+* https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-git/[Import data from a Git repository,] so you can work with it in Postman.
++
+Can import collections, environments, and API definitions from local or remote GitHub, GitLab, Bitbucket, and Azure DevOps repositories.
+* https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-curl-commands/#import-a-curl-command-into-postman[Import a cURL command] as a new Postman request or https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-curl-commands/#convert-a-postman-request-to-curl[convert a Postman request to a cURL command].
++
+You can also https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-swagger/[import Swagger APIs] or https://learning.postman.com/docs/integrations/available-integrations/working-with-openAPI/[import OpenAPI definitions].
+* https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/[Export collections and environments] from Postman as JSON files.
++
+You can also https://learning.postman.com/docs/getting-started/importing-and-exporting/exporting-data/#exporting-data-dumps[export a data dump] with all of your Postman collections, environments, globals, and header presets.
++
+After exporting, you can import the files into any Postman instance or use them with https://learning.postman.com/docs/collections/using-newman-cli/command-line-integration-with-newman/[Newman].
