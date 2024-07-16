@@ -66,7 +66,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 [%collapsible]
 ====
 [start=29]
-. link:ST/29_layered_architecture/Layerd_Architecture_README.md[Layered (N-tier) architecture]
+. link:ST/29_layered_architecture/Layered_Architecture_README.adoc[Layered (N-tier) architecture]
 . link:ST/30_api_model_rest_basics/Api_Model_and_Rest_Basics_README.md[API Model // REST basics]
 . link:ST/31_sending_and_validating_API_requests_and_configuration_of_API_client/API_requests_and_responces.md[Sending and validating API requests. Configuration of API client]
 . link:ST/32_api_requests_in_cucumber_tests/docs/api-tests-with-cumber.md[API requests in Cucumber tests]
