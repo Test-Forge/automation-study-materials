@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class NavigationTest {
+public class DepricatedNavigationTest {
 
     @Test
     public void navigationTest() {

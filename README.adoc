@@ -56,7 +56,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 . link:TL/22_logger_configuration_and_usage/Logger_Configuration_And_Usage.adoc[Logger configuration & usage ]
 . link:TL/23_simple_design_patterns_singleton_page_object/Design_Patterns_README.md[Simple Design Patterns. Singleton. Page Object]
 . link:TL/24_scenario_context/Scenario_Context_README.md[Scenario Context]
-. link:TL/25_WebDriver_configuration/WebDriver_configuration_README.md[WebDriver Configuration]
+. link:TL/25_WebDriver_configuration/WebDriver_configuration_README.adoc[WebDriver Configuration]
 . link:TL/26_WebElements_in_page_objects_and_XPath_functions[WebElements in Page Objects. XPath functions]
 . link:TL/27_bdd_cucumber/Bdd_Cucumber.adoc[BDD. Cucumber]
 . link:TL/28_utility_libraries_data_faker_awaitility/Utility_Libraries_README.adoc[Utility libraries - Data faker, awaitility]
