@@ -26,7 +26,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 [%collapsible]
 ====
 . link:JT/01_environment_setup/Introduction.adoc[Environment Setup]
-. *WIP* _Postman.Networking basics_
+. link:JT/05_postman_networking_basics/1_Introduction.adoc[Postman. Networking basics]
 . link:JT/02_maven_dependency_management/readme.adoc[Maven & Dependency management]
 . link:JT/03_java_basics/Java_Programming_basics.adoc[Java Basics]
 . link:JT/04_build_tools_maven_gradle/Build_Tools_Maven_Gradle_README.adoc[Build Tools - Maven, Gradle]
