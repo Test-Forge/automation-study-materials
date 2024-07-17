@@ -76,5 +76,5 @@ Additionally, feel free to contribute directly by submitting a pull request with
 . link:ST/36_generics_applied/generics_applied_README.md[Generics applied]
 . link:ST/37_regex_and_pattern_in_programming/Regular%20Expressions%20and%20patterns.adoc[Regex & patterns in programming]
 . link:ST/38_input_output_programming/README.md[Input/Output programming]
-. link:ST/39_exception_handling_and_custom_exceptions/Exception_Handling_Custom_Exceptions_README.md[Exception handling. Custom exceptions]
+. link:ST/39_exception_handling_and_custom_exceptions/Exception_Handling_Custom_Exceptions_README.adoc[Exception handling. Custom exceptions]
 ====
