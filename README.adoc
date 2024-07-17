@@ -54,7 +54,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 . link:TL/20_test_hooks_Before&After/Test_Hooks_Before_&_After_README.adoc[Test hooks - Before & After]
 . link:TL/21_assertions_matchers_custom_assertions/Assertions_Matchers_CustomAssertions_README.adoc[Assertions. Matchers. Custom assertions]
 . link:TL/22_logger_configuration_and_usage/Logger_Configuration_And_Usage.adoc[Logger configuration & usage ]
-. link:TL/23_simple_design_patterns_singleton_page_object/Design_Patterns_README.md[Simple Design Patterns. Singleton. Page Object]
+. link:TL/23_simple_design_patterns_singleton_page_object/Design_Patterns_README.adoc[Simple Design Patterns. Singleton. Page Object]
 . link:TL/24_scenario_context/Scenario_Context_README.md[Scenario Context]
 . link:TL/25_WebDriver_configuration/WebDriver_configuration_README.adoc[WebDriver Configuration]
 . link:TL/26_WebElements_in_page_objects_and_XPath_functions[WebElements in Page Objects. XPath functions]

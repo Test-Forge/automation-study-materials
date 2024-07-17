@@ -1,6 +1,6 @@
 = Layered (N-tier) Architecture
 :doctype: book
-:toc:
+:toc: left
 :sectnums:
 
 '''
