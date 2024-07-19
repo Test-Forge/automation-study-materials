@@ -1352,6 +1352,19 @@ div.unbreakable{
 .line-through{
     text-decoration:line-through
 }
+.columnA{
+    float: left;
+    width: 31%;
+    padding: 15px;
+    text-align: justify;
+}
+.columnB{
+    float: right;
+    width: 69%;
+    padding: 15px;
+    margin: auto;
+    text-align: justify;
+}
 .aqua{
     color:#00bfbf
 }

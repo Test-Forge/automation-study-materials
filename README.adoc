@@ -67,7 +67,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 ====
 [start=29]
 . link:ST/29_layered_architecture/Layered_Architecture_README.adoc[Layered (N-tier) architecture]
-. link:ST/30_api_model_rest_basics/Api_Model_and_Rest_Basics_README.md[API Model // REST basics]
+. link:ST/30_api_model_rest_basics/Api_Model_and_Rest_Basics_README.adoc[API Model // REST basics]
 . link:ST/31_sending_and_validating_API_requests_and_configuration_of_API_client/API_requests_and_responces.md[Sending and validating API requests. Configuration of API client]
 . link:ST/32_api_requests_in_cucumber_tests/docs/api-tests-with-cumber.md[API requests in Cucumber tests]
 . link:ST/33_common_data_structures_in_network_communication/Common_Data_Structures_In_Network_Communication_README.md[Commonly used data structures in network communication (json, byte array, XML etc.)]
