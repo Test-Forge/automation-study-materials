@@ -1,0 +1,42 @@
+= API Client Configuration
+:toc:
+
+'''
+
+== Overview
+
+The API Client Configuration Project is a .NET solution designed to provide a standardized and reusable configuration for interacting with RESTful APIs. The project utilizes RestSharp, a popular REST client library, to streamline the process of making HTTP requests and handling responses.
+
+== Project Setup
+
+. Copy from *APITestInCSharp* to your repo
+. Open the project in IDE (Visual Studio 2022)
+. To run a .NET RestSharp test project, you need to have a few dependencies installed:
+* .NET SDK
+* RestSharp NuGet Package
+
+== Components description
+
+* DTO(Data Transfer Object) are used to facilitate the efficient and structured transfer of data between different parts of an application.
+* BaseService - serves as a utility class for simplifying and centralizing common operations related to making API requests and handling responses using RestSharp in .NET.
+* ApiService class extends the BaseService class and acts as a client for interacting with a specific API.
+* RegressionTest - test suite
+
+== How to run
+
+*Step 1:* Open the Test Runner
+Open your solution in Visual Studio.
+Locate and open the Test Explorer window. You can find it under "Test" &gt; "Test Explorer" in the menu.
+Test Explorer displays a list of all your tests.
+
+*Step 2:* Discover Tests
+
+Test Explorer automatically discovers tests in your solution. If it doesn't, you might need to build your solution first.
+Right-click on the project or solution in Solution Explorer and choose "Build."
+
+*Step 3:* Run Tests
+In Test Explorer, you can select specific tests, test classes, or run all tests.
+Right-click on the selected tests and choose "Run Selected Tests" or "Run All Tests."
+
+*Step 4:* View Results
+Test Explorer displays the test results.
