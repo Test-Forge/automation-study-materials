@@ -1,0 +1,392 @@
+= Sending and Validating API Requests. Configuration of API Clients
+:doctype: book
+:toc: left
+:sectnums:
+
+'''
+
+== API Requests and HTTP Methods
+
+image::images/rest_api.jpg[Rest_API,800,465]
+
+=== HTTP Methods
+
+* *GET:* Fetches/Requests Resource
+* *POST:* Creates/Inserts Resource
+* *PUT:* Update/Modifies Resource
+* *PATCH:* Updates/Modifies Partial Resource
+* *DELETE:* Deletes/Removes Resource
+* *OPTIONS:* Determine Server Capabilities, Cross-Origin Resource Sharing (CORS), Resource Discovery
+
+=== HTTP Request Structure
+
+image::images/request_structure.png[Request Structure,800,465]
+
+* *URL:* Unique address for a resource on the server.
+* *Method:* Specifies the HTTP method (e.g., GET, POST, PUT, DELETE).
+* *Headers:*
+** Host: Domain name of the server (mandatory in HTTP/1.1).
+** User-Agent: Identifies the software or device.
+** Accept: Informs the server about client-supported media.
+** Content-Type: Indicates the media type of the request payload.
+** Authorization: Provides credentials for accessing protected resources.
+** Many other headers for various purposes.
+* *Body (Optional):*
+
+** In certain HTTP methods like POST or PUT, a request may include a message body carrying data.
+** The Content-Type header specifies the format of the data (e.g., JSON, form data, XML).
+
+[source,json]
+----
+{
+  "data": {
+    "user": "John Doe",
+    "age": 30,
+    "status": "active"
+  }
+}
+----
+
+== Validation of API Responses
+
+image::images/response_structure.png[Response Structure,800,465]
+
+* *Status Code:*
+** 100–199: Informational responses
+** 200–299: Successful responses
+*** 200 - OK
+*** 201 - Created
+*** 204 - No Content
+** 300–399: Redirects
+** 400–499: Client errors
+*** 400 - Bad Request
+*** 404 - Not Found
+*** 409 - Conflict
+** 500–599: Server errors
+*** 500 - Internal Server Error
+* *Headers:*
+** Content Type: Content's format
+** Content Length: Size of the Content
+** Expires: When is this invalid
+** More headers…
+* *Body:*
+** The HTTP response body contains data or information about the success/failure of the request.
+[source,json]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "message": "Request successful",
+  "data": {
+    "user": "John Doe",
+    "age": 30,
+    "status": "active"
+  }
+}
+----
+
+== Validation of API Responses in Tests
+
+[TIP]
+To ensure the correctness of API responses, it's crucial to compare the received data with expectations.
+Verify that the returned data matches the anticipated format, contains the right fields, and aligns with the documented API specifications.
+This step helps catch discrepancies that might affect application functionality.
+
+.*Checking HTTP Status Code*
+Verify the response's status code to ensure that the request has been processed successfully.
+
+.*Validating Response Structure*
+Check if the response structure aligns with expectations, including the correct presence and format of data.
+This is particularly important for JSON responses.
+
+.*Comparing Received Data with Expectations*
+Compare the data received in the response with the expected values.
+Ensure that key information is present and has the correct values.
+
+.*Handling Errors Appropriately*
+Implement error-handling logic in tests.
+Check how the API responds to invalid requests or specific error situations.
+
+.*Integrating Tests into the Build Pipeline*
+Ensure that automated API tests are integrated into your build pipeline to execute them automatically during development.
+
+== Tool and Library Selection
+
+[TIP]
+Effective API testing is crucial for ensuring software reliability, and the choice of tools and libraries is paramount in achieving this goal.
+Just as a well-selected set of instruments enhances a musical composition, the right testing tools streamline processes, improve coverage, and ensure optimal API performance.
+The judicious selection of tools accelerates testing cycles, identifies vulnerabilities, and supports timely software delivery in our dynamic digital landscape.
+In essence, the importance of tool and library selection for API testing cannot be overstated.
+
+* *Postman:*
+** _Type:_ GUI-based
+** _Description:_ A comprehensive API testing tool with support for various HTTP methods and a user-friendly interface.
+
+* *Insomnia:*
+** _Type:_ GUI-based
+** _Description:_ User-friendly API testing tool with a sleek interface.
+
+* *Newman (from Postman):*
+** _Type:_ Command-line
+** _Description:_ Command-line collection runner for Postman, suitable for CI/CD pipelines.
+
+* *REST Assured:*
+** _Type:_ Library (Java, Groovy)
+** _Description:_ A Java library for testing RESTful APIs, supporting a DSL for writing tests.
+
+* *RestSharp:*
+** _Type:_ Library (.NET, C#)
+** _Description:_ An open-source library for .NET and C# developers, simplifying RESTful API consumption.
+
+* *Karate DSL:*
+** _Type:_ Library (Java, JavaScript)
+** _Description:_ A testing framework based on Cucumber syntax, designed for API testing.
+
+* *Supertest (for JavaScript/Node.js):*
+** _Type:_ Library (JavaScript/Node.js)
+** _Description:_ A testing library specifically designed for HTTP assertions in Node.js.
+
+== Best Practices and Additional Considerations
+
+.*Consistency in Test Data*
+[%collapsible]
+====
+__Maintaining consistency in test data is crucial for reliable and repeatable API testing.
+Use consistent and well-defined datasets for your tests to ensure that results remain predictable.
+Avoid using live or production data in test environments, as it may introduce variability and impact the accuracy of your tests.
+Regularly update and review test data to reflect changes in the application's requirements.__
+====
+
+.*Adapting Tests to API Changes*
+[%collapsible]
+====
+__APIs are dynamic and subject to changes over time.
+To ensure the longevity of your tests, establish a strategy for handling API changes.
+Design tests with flexibility in mind, and use versioning for APIs when possible.
+Implement a systematic approach to update tests when API changes occur, ensuring that they remain accurate and effective.
+Regularly review and update test scripts to align with the evolving API specifications.__
+====
+
+.*Monitoring and Reporting Results:*
+[%collapsible]
+====
+__Effective monitoring and reporting are essential for maintaining a healthy API testing process.
+Establish a comprehensive reporting mechanism to track test results, including successful runs, failures, and any issues encountered.
+Utilize logging and alerting systems to promptly identify and address test failures.
+Implement periodic reviews of test results to identify trends, patterns, or areas for improvement.
+Regularly update stakeholders on the status of API tests and collaborate on addressing any issues that may arise.
+Continuous monitoring ensures the reliability and effectiveness of your API testing efforts.__
+====
+
+== Best Practices and Additional Considerations
+
+=== For C#
+
+*Step 1:* Create a new .NET project Start by creating a new .NET project in your preferred IDE, such as Visual Studio.
+
+*Step 2:* Install Required Packages +
+Make sure you have RestSharp and your chosen testing framework installed in your test project.
+
+[source,bash]
+----
+# Install RestSharp
+Install-Package RestSharp
+
+# Install NUnit (you can use another testing framework if you prefer)
+Install-Package NUnit
+
+----
+
+*Step 3:* Create API client class +
+Create a class that will act as your API client.
+This class will encapsulate the logic for making API requests.
+Here's a simple example:
+
+[source,csharp]
+----
+using RestSharp;
+
+public class ApiClient
+{
+    private readonly RestClient _restClient;
+
+    public ApiClient(string baseUrl)
+    {
+        _restClient = new RestClient(baseUrl);
+    }
+
+    public IRestResponse Get(string resource)
+    {
+        var request = new RestRequest(resource, Method.GET);
+        return _restClient.Execute(request);
+    }
+
+    // Add methods for other HTTP methods (POST, PUT, DELETE) as needed
+}
+----
+
+*Step 4:* Create test class Create a test class where you'll write your test cases.
+You can use a testing framework like NUnit or MSTest.
+Here's an example using NUnit:
+
+[source,csharp]
+----
+using NUnit.Framework;
+
+[TestFixture]
+public class ApiTests
+{
+    private ApiClient _apiClient;
+
+    [SetUp]
+    public void SetUp()
+    {
+        // Initialize the API client with the base URL of your API
+        _apiClient = new ApiClient("https://api.example.com");
+    }
+
+    [Test]
+    public void TestGetRequest()
+    {
+        // Specify the resource you want to test
+        var resource = "/endpoint";
+
+        // Make the API request
+        var response = _apiClient.Get(resource);
+
+        // Add assertions based on the response
+        Assert.That(response.StatusCode, Is.EqualTo(System.Net.HttpStatusCode.OK));
+        // Add more assertions as needed
+    }
+
+    // Add more test methods for other scenarios
+}
+----
+
+*Step 5:* Run the tests Run your test class to execute the test cases.
+Ensure that the API responses meet your expectations.
+
+=== For Java
+
+*Step 1:* Create a new Java project Start by creating a new Java project in your preferred IDE, such as IntelliJ IDEA or Eclipse.
+
+*Step 2:* Install Required Dependencies Make sure you have RestAssured and your chosen testing framework installed in your test project.
+You can use Maven or Gradle to manage your dependencies.
+
+.For Maven, add the following dependencies to your pom.xml:
+[source,xml]
+----
+<dependency>
+<groupId>io.rest-assured</groupId>
+<artifactId>rest-assured</artifactId>
+<version>4.4.0</version>
+<scope>test</scope>
+</dependency>
+
+<dependency>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>7.4.0</version>
+<scope>test</scope>
+</dependency>
+----
+
+.For Gradle, add the following to your build.gradle:
+[source,shell]
+----
+testImplementation 'io.rest-assured:rest-assured:4.4.0'
+testImplementation 'org.testng:testng:7.4.0'
+----
+
+*Step 3:* Create API Client Class Create a class that will act as your API client.
+This class will encapsulate the logic for making API requests.
+Here’s a simple example:
+
+[source,java]
+----
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+public class ApiClient {
+private final String baseUrl;
+
+    public ApiClient(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
+
+    public Response get(String resource) {
+        return RestAssured.get(baseUrl + resource);
+    }
+
+    // Add methods for other HTTP methods (POST, PUT, DELETE) as needed
+}
+----
+
+*Step 4:* Create Test Class Create a test class where you’ll write your test cases.
+You can use a testing framework like TestNG or JUnit.
+Here’s an example using TestNG:
+
+[source,java]
+----
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+public class ApiTests {
+private ApiClient apiClient;
+
+    @BeforeClass
+    public void setUp() {
+        // Initialize the API client with the base URL of your API
+        apiClient = new ApiClient("https://api.example.com");
+    }
+
+    @Test
+    public void testGetRequest() {
+        // Specify the resource you want to test
+        String resource = "/endpoint";
+
+        // Make the API request
+        Response response = apiClient.get(resource);
+
+        // Add assertions based on the response
+        Assert.assertEquals(response.getStatusCode(), 200);
+        // Add more assertions as needed
+    }
+
+    // Add more test methods for other scenarios
+}
+----
+
+*Step 5:* Run the Tests Run your test class to execute the test cases.
+Ensure that the API responses meet your expectations.
+
+If you use TestNG, you can run your tests directly from your IDE or use the following Maven command:
+
+[source,shell]
+----
+Copy code
+mvn test
+----
+
+An example of an API client configuration with tests and some practice exercises you could find in ApiTestInCSharp
+
+image::images/myApi.jpg[itIsEasyTheySaid,align="center"]
+
+== Resources
+
+. https://medium.com/api-world/api-architecture-the-http-protocol-and-its-importance-aeba0fe46f91[API Architecture]
+. https://testsigma.com/guides/api-testing/["API Testing | What It is, How to Test &amp; Best Practices"]
+. https://www.geeksforgeeks.org/api-testing-software-testing/[API Testing – Software testing]
+. https://www.ontestautomation.com/restful-api-testing-in-csharp-with-restsharp/[RESTful API testing in C# with RestSharp]
+. https://www.softwaretestinghelp.com/web-services-testing-using-apache-http-client/#Types_of_Web_Services[Web Services Testing Using Apache HTTP Client in Eclipse]
+. https://chat.openai.com/[ChatGPT]
+
+Created by: +
+Valentina Țurcanu +
+Email: link:mailto:valentina.turcanu@endava.com[valentina.turcanu@endava.com]
+
+Edited by: +
+Igor Gorea
