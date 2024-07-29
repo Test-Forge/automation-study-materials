@@ -3,7 +3,7 @@
  * (You can then check your solutions against the proposed solutions below)
  * <p>
  * Before solving the questions, it is highly recommended to read/analyze the following:
- * "Complete_Guide_Streams_Lambda_Expressions_Java_Payments_README.md" and LambdaExpressionExamples.java
+ * "Streams__And_Lambda_Expressions.adoc" and LambdaExpressionExamples.java
  * <p>
  * Question 1: How would you write a lambda expression to sort a list of transactions by their amount?
  * Question 2: Create a lambda expression for a functional interface that validates if a transaction is above a certain amount
