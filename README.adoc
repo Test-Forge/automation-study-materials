@@ -73,7 +73,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 . link:ST/33_common_data_structures_in_network_communication/Common_Data_Structures_In_Network_Communication_README.md[Commonly used data structures in network communication (json, byte array, XML etc.)]
 . link:ST/34_programming_with_collections_operations/Programming_With_Collections_Operations.adoc[Programming with Collections. Operations(Creating, sorting, filtering)]
 . link:ST/35_streams&lambda_expressions/Streams__And_Lambda_Expressions.adoc[Streams & lambda expressions]
-. link:ST/36_generics_applied/generics_applied_README.md[Generics applied]
+. link:ST/36_generics_applied/1_2_generics_applied_README.adoc[Generics applied]
 . link:ST/37_regex_and_pattern_in_programming/Regular%20Expressions%20and%20patterns.adoc[Regex & patterns in programming]
 . link:ST/38_input_output_programming/README.md[Input/Output programming]
 . link:ST/39_exception_handling_and_custom_exceptions/Exception_Handling_Custom_Exceptions_README.adoc[Exception handling. Custom exceptions]
