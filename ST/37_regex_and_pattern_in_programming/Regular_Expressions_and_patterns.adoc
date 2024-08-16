@@ -1,58 +1,65 @@
 =  Regular Expression & pattern in programming
-author: Andrei Diogoti <andrei.diogoti@gmail.com>
-:toc: macro
-
-toc::[]
+:doctype: book
+:toc: left
 :sectnums:
+
+'''
 
 == Introduction
 
 === What are Regular Expressions and pattern?
 
-** *_Regular Expressions_* (shortened as regex) is a sequence of characters that specifies a match pattern in text.
-One line of regex can easily replace several dozen lines of programming codes.
-Regular expressions are used in search engines, in search and replace dialogs of word processors and text editors, in text processing utilities, and in lexical analysis.
-Usually such patterns are used by string-searching algorithms for "find" or "find and replace" operations on strings, or for input validation.
-Regex is supported in all the scripting languages (such as Perl, Python, PHP, Java and JavaScript).
+Regular Expressions, often called *regex*, are a powerful tool for finding patterns in text.
+They allow you to search, match, and manipulate text efficiently.
+A single line of regex can do the work of many lines of code.
+Regex is commonly used in search engines, text editors, word processors, and for validating user input in programming.
 
-** *_A regex pattern_* consists of a sequence of characters that define a search criterion.
-For example,`\\d+` represents one or more digits.
-Each character in a regular expression (that is, each character in the string describing its pattern) is either a metacharacter, having a special meaning, or a regular character that has a literal meaning.
+*How Regex Works:*
 
-_For example_, in the regex `b.`, 'b' is a literal character that matches just 'b', while `'.'` is a metacharacter that matches every character except a newline.
-Therefore, this regex matches, for example, 'b%', or 'bx', or 'b5'.
+A *regex pattern* is made up of characters that describe what you're looking for.
+For example, the pattern *'\d+'* matches one or more digits.
 
-Together, metacharacters and literal characters can be used to identify text of a given pattern or process a number of instances of it.
-Pattern matches may vary from a precise equality to a very general similarity, as controlled by the metacharacters.
+In a regex pattern, each character has a role:
 
-_For example_, `.` is a very general pattern, [a-z] (match all lower case letters from 'a' to 'z') is less general and b is a precise pattern (matches just 'b').
+* *Literal characters* match exactly what they represent.
+For example, the character *'b'* in a regex matches the letter 'b'.
+* *Metacharacters* have special meanings.
+For example, the dot *'.'* matches any character except a newline.
+Websphere mq Examples:
 
-** *_Strings and Regular Expressions_*: Both the patterns (used for matching) and the strings to be searched can be either Unicode strings (usually represented as str) or 8-bit strings (often represented as bytes).
-However, there are some important considerations when working with Unicode and 8-bit strings in the context of regular expressions: Unicode Strings (str): Unicode strings can represent characters from various scripts and languages.
-When using a Unicode string as the search target, you cannot directly match it with a bytes pattern (and vice versa).
-They must be of the same type.
+* The pattern *'b.'* will match any two-character string that starts with 'b', like 'ba', 'b2', or 'b@'.
+* The pattern *'[a-z]'* matches any lowercase letter from 'a' to 'z'.
+* The pattern *'.'* matches any character, making it very general, while *'b'* matches exactly the letter 'b'.
 
-_For example_, if you have a Unicode string containing Japanese text, you should use a Unicode-aware regex pattern to match it. 8-Bit Strings (bytes): 8-bit strings (bytes) are typically used for binary data or when working with legacy systems.
-When using an 8-bit string as the search target, you should use an 8-bit regex pattern.
-Be cautious when mixing Unicode escapes (e.g., \\u20AC) with 8-bit patterns; some engines may not handle them correctly.
+*Strings and Regular Expressions:*
 
- The metacharacter syntax is designed specifically to represent prescribed targets in a concise and flexible way to direct the automation of text processing of a variety of input data
+Both the patterns and the text you're searching through can be either Unicode strings or 8-bit strings (like bytes).
+However, they must be of the same type to match properly.
+
+* *Unicode Strings*: These can include characters from many different languages.
+If you're searching a Unicode string, use a Unicode-compatible regex pattern.
+* *8-Bit Strings*: Often used for binary data or older systems.
+Use 8-bit regex patterns for these.
+For example, if you're working with a Unicode string that contains Japanese text, your regex pattern should also be Unicode-aware to work correctly.
+
+[TIP]
+The metacharacter syntax is designed specifically to represent prescribed targets in a concise and flexible way to direct the automation of text processing of a variety of input data
 
 === What Are Regex Used For?
 
-Regex have numerous uses; sampling of the types of problems that you can solve with regex.
+Regular expressions (regex) are powerful tools for solving a wide range of text-related problems.
+Here are some examples of what you can accomplish with regex:
 
-* Check whether the pattern ss appears in the string Mississippi.
-* Check whether the letter p occurs three or more times in Mississippi.
-* Find and replace all instances of Mrs with Ms in a document.
-* Does a file name begin with Bob and end with .txt or .md?
-* Does a string have any non-alphanumeric characters in it?
-* Did the user enter a valid integer?
-* Are there any whitespace characters in the string?
-* Find and replace all non-alphanumeric characters in a string with -.
-* Locate all email addresses in a document.
-* Split a line of text into fields assuming that each whitespace character delimits two values.
-
+* Check if the pattern "ss" appears in the string "Mississippi."
+* Determine whether the letter "p" occurs three or more times in "Mississippi."
+* Find and replace all instances of "Mrs" with "Ms" in a document.
+* Verify if a file name starts with "Bob" and ends with ".txt" or ".md."
+* Identify if a string contains any non-alphanumeric characters.
+* Validate if the user has entered a valid integer.
+* Check for any whitespace characters in a string.
+* Replace all non-alphanumeric characters in a string with a hyphen ("-").
+* Locate all email addresses within a document.
+* Split a line of text into fields, using whitespace as the delimiter between values.
 
 == Regex Syntax Summary
 
@@ -62,6 +69,7 @@ E.g., the regex x matches substring "x"; regex 9 matches "9"; regex = matches "=
 A quantifier after an element (such as a token, character, or group) specifies how many times the preceding element is allowed to repeat.
 The most common quantifiers are the question mark ?, the asterisk * (derived from the Kleene star), and the plus sign + (Kleene plus).
 
+.Special Regex Characters
 [%autowidth.stretch]
 |===
 |Quantifier|Description
@@ -113,7 +121,7 @@ It accepts all those in [0-9]+ plus the empty string.
 * _Position Anchors_: does not match character, but position such as start-of-line, end-of-line, start-of-word and end-of-word.
 ** ^, $: start-of-line and end-of-line respectively.
 E.g., ^[0-9]$ matches a numeric string.
-** *\b*: boundary of word, i.e., start-of-word or end-of-word.
+** \b: boundary of word, i.e., start-of-word or end-of-word.
 E.g., \bcat\b matches the word "cat" in the input string.
 ** \B: Inverse of \b, i.e., non-start-of-word or non-end-of-word.
 ** \<, \>: start-of-word and end-of-word respectively, similar to \b. E.g.,`\<cat\>` matches the word "cat" in the input string.
@@ -125,11 +133,11 @@ Same as [^\n]
 For example, +
 `a.b` matches any string that contains an "a", and then any character and then "b". +
 `a.*b` matches any string that contains an "a", and then the character "b" at some later point.
-** *\d*, *\D*: Any one digit/non-digit character.
+** \d, \D: Any one digit/non-digit character.
 Digits are [0-9]
-** *\w, \W*: Any one word/non-word character.
+** \w, \W: Any one word/non-word character.
 For ASCII, word characters are [a-zA-Z0-9_]
-** *\s, \S*: Any one space/non-space character.
+** \s, \S: Any one space/non-space character.
 For ASCII, whitespace characters are [ \n\r\t\f]
 
 * _Greediness, Laziness and Backtracking for Repetition Operators_
@@ -146,13 +154,14 @@ For example, if the regex z*zzz is matched against the string "zzzz", the z* fir
 This feature might not be supported in some languages.
 These constructions can be combined to form arbitrarily complex expressions, much like one can construct arithmetical expressions from numbers and the operations +, −, ×, and ÷.
 
-*Book* https://www.octawian.ro/fisiere/situri/asor/build/html/_downloads/23959de8d6104244fc49cc08032586b2/Fitzgerald_Regex.pdf["Regular Expression O'Really]
-
-:sectnums:
+[CAUTION]
+*Book* "https://www.octawian.ro/fisiere/situri/asor/build/html/_downloads/23959de8d6104244fc49cc08032586b2/Fitzgerald_Regex.pdf[Regular Expression O'Really]"
 
 == How to write regular expressions with hands-on examples
-:sectnumlevels: 2
-===  Numbers `[0-9]+ or \d+`
+
+===  Numbers
+
+`[0-9]+ or \d+`
 
 * A regex (regular expression) consists of a sequence of sub-expressions.
 In this example, [0-9] and +.
@@ -171,7 +180,9 @@ For examples,
 There are more than one way to write a regex!
 Take note that many programming languages (C, Java, JavaScript, Python) use backslash \ as the prefix for escape sequences (e.g., \n for newline), and you need to write "\\d+" instead.
 
-=== Full Numeric Strings  `^[0-9]+$ or ^\d+$`
+=== Full Numeric Strings
+
+`^[0-9]+$ or ^\d+$`
 
 * The leading ^ and the trailing $ are known as position anchors, which match the start and end positions of the line, respectively.
 As the result, the entire input string shall be matched fully, instead of a portion of the input string (substring).
@@ -179,7 +190,9 @@ As the result, the entire input string shall be matched fully, instead of a port
 It does not match with "" (empty string), "abc", "a123", "abc123xyz", etc.
 However, it also matches "000", "0123" and "0001" with leading zeros.
 
-=== Positive Integer Literals `[1-9][0-9]*|0 or [1-9]\d*|0`
+=== Positive Integer Literals
+
+`[1-9][0-9]*|0 or [1-9]\d*|0`
 
 * [1-9] matches any character between 1 to the 9; [0-9]* matches zero or more digits.
 The * is an occurrence indicator representing zero or more occurrences.
@@ -195,19 +208,25 @@ For examples,
 ** If the input string is "abc123xyz456_0", it matches substrings "123", "456" and "0" (three matches).
 ** If the input string is "0012300", it matches substrings: "0", "0" and "12300" (three matches)!!!
 
-=== Full Integer Literals `^[+-]?[1-9][0-9]*|0$ or ^[+-]?[1-9]\d*|0$`
+=== Full Integer Literals
+
+`^[+-]?[1-9][0-9]*|0$ or ^[+-]?[1-9]\d*|0$`
 
 * This regex match an Integer literal (for entire string with the position anchors), both positive, negative and zero.
 * [+-] matches either + or - sign. ? is an occurrence indicator denoting 0 or 1 occurrence, i.e. optional. Hence, [+-]? matches an optional leading + or - sign.
 * We have covered three occurrence indicators: + for one or more, * for zero or more, and ? for zero or one.
 
-=== Identifiers (or Names) `[a-zA-Z_][0-9a-zA-Z_]* or [a-zA-Z_]\w*`
+=== Identifiers (or Names)
+
+`[a-zA-Z_][0-9a-zA-Z_]* or [a-zA-Z_]\w*`
 
 * Begin with one letters or underscore, followed by zero or more digits, letters and underscore.
 * You can use metacharacter \w for a word character [a-zA-Z0-9_].
 Recall that metacharacter \d can be used for a digit [0-9].
 
-=== Image Filenames `^\w+\.(gif|png|jpg|jpeg)$`
+=== Image Filenames
+
+`^\w+\.(gif|png|jpg|jpeg)$`
 
 * The position anchors ^ and $ match the beginning and the ending of the input string, respectively.
 That is, this regex shall match the entire input string, instead of a part of the input string (substring).
@@ -223,7 +242,9 @@ The parentheses are used for grouping the selections.
 * The modifier i after the regex specifies case-insensitive matching (applicable to some languages like Perl and JavaScript only).
 That is, it accepts "test.GIF" and "TesT.Gif".
 
-=== Email Addresses `^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$`
+=== Email Addresses
+
+`^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$`
 
 * The position anchors ^ and $ match the beginning and the ending of the input string, respectively.
 That is, this regex shall match the entire input string, instead of a part of the input string (substring).
@@ -241,7 +262,9 @@ In regex, all characters other than those having special meanings matches itself
 * The sub-expression \.\w{2,3} matches a . followed by two or three word characters, e.g., ".com", ".edu", ".us", ".uk", ".co".
 * (\.\w{2,3})+ specifies that the above sub-expression could occur one or more times, e.g., ".com", ".co.uk", ".edu.sg" etc.
 
-=== Swapping Words using Parenthesized Back-References `^(\S+)\s+(\S+)$ and $2 $1`
+=== Swapping Words using Parenthesized Back-References
+
+`^(\S+)\s+(\S+)$ and $2 $1`
 
 * The ^ and $ match the beginning and ending of the input string, respectively.
 * The \s (lowercase s) matches a whitespace (blank, tab \t, and newline \r or \n).
@@ -256,7 +279,9 @@ In this regex, there are two (\S+), match the first two words, separated by one 
 The two matched words are extracted from the input string and typically kept in special variables $1 and $2 (or \1 and \2 in Python), respectively.
 * To swap the two words, you can access the special variables, and print "$2 $1" (via a programming language);
 
-===  HTTP Addresses `^http:\/\/\S+(\/\S+)*(\/)?$`
+===  HTTP Addresses
+
+`^http:\/\/\S+(\/\S+)*(\/)?$`
 
 * Begin with http://.
 Take note that you may need to write / as \/ with an escape code in some languages (JavaScript, Perl).
@@ -264,69 +289,71 @@ Take note that you may need to write / as \/ with an escape code in some languag
 * Followed by (\/\S+)*, zero or more "/...", for the sub-directories.
 * Followed by (\/)?, an optional (0 or 1) trailing /, for directory request.
 
-
-:sectnumlevels!: 2
-
 ==  Regex in Programming Languages
 
-=== *Regular Expressions in Java*
-Java does not have a built-in Regular Expression class, but we can import the *java.util.regex* package to work with regular expressions. The package includes the following classes:
+=== Regular Expressions in Java
+
+Java doesn't include a built-in Regular Expression class, but you can work with regular expressions by importing the '*java.util.regex*' package.
+This package provides several essential classes for handling regex:
 
 image::images/java_regex_api.png[Tiger,600,150,float="center",align="center"]
 
-** Pattern Class - Defines a pattern (to be used in a search)
-** Matcher Class - Used to search for the pattern
-** MatchResult (interface) - It is result of a match operation. It contains query methods used to determine the results of a match against a regular expression.
-** PatternSyntaxException Class - Indicates syntax error in a regular expression pattern
-
-:sectnumlevels: 3
+** *Pattern Class*: Defines a regular expression pattern used in searches.
+** *Matcher Class*: Performs search operations based on the pattern.
+** *MatchResult Interface*: Holds the result of a match operation, providing methods to query the outcome of a regex match.
+** *PatternSyntaxException Class*: Signals a syntax error in a regular expression pattern.
 
 ==== Pattern class
 
-It represents the compiled representation of a regular expression. To use Java regex API, we must compile the regular expression to this class.
+The *'Pattern'* class represents a compiled regular expression in Java.
+To work with regular expressions using Java's regex API, you first need to compile the regular expression into a *'Pattern'* object.
 
-After compilation, it’s instance can be used to create a Matcher object that can match lines/strings against the regular expression.
+Once compiled, a *'Pattern'* instance can be used to create *'Matcher'* objects that match strings against the regular expression.
+Multiple *'Matcher'* instances can share the same *'Pattern'*, with state information managed separately within each *'Matcher'*.
+This makes *'Pattern'* instances thread-safe and immutable.
 
-Note that many matchers can share the same pattern. State information during processing is kept inside Matcher instance.
+Key methods and functionalities of the *'Pattern'* class include:
 
-Instances of this class are immutable and are safe for use by multiple concurrent threads.
-
-** Predicate asPredicate() – Creates a Java 8 predicate which can be used to match a string.
-** static Pattern compile(String regex) – It is used to compile the given regular expression into a pattern.
-** static Pattern compile(String regex, int flags) – It is used to compile the given regular expression into a pattern with the given flags.
-** int flags() – It is used to return this pattern’s match flags.
-** Matcher matcher(CharSequence input) – It is used to create a matcher that will match the given input against this pattern.
-** static boolean matches(String regex, CharSequence input) – It is used to compile the given regular expression and attempts to match the given input against it.
-** String pattern() – It is used to return the regular expression from which this pattern was compiled.
-** static String quote(String s) – It is used to return a literal pattern String for the specified String.
-** String[] split(CharSequence input) – It is used to split the given input sequence around matches of this pattern.
-** String[] split(CharSequence input, int limit) – It is used to split the given input sequence around matches of this pattern.
-** Stream splitAsStream(CharSequence input) – Creates a stream from the given input sequence around matches of this pattern.
+** *'asPredicate()'*: Creates a Java 8 predicate that can be used to match a string.
+** *'static Pattern compile(String regex)'*: Compiles the given regular expression into a Pattern.
+** *'static Pattern compile(String regex, int flags)'*: Compiles the given regular expression with the specified flags.
+** *'int flags()'*: Returns the match flags for this pattern.
+** *'Matcher matcher(CharSequence input)'*: Creates a Matcher to match the input against this pattern.
+** *'static boolean matches(String regex, CharSequence input)'*: Compiles the given regular expression and matches it against the input.
+** *'String pattern()'*: Returns the regular expression from which this pattern was compiled.
+** *'static String quote(String s)'*: Returns a literal pattern string for the specified input.
+** *'String[] split(CharSequence input)'*: Splits the input sequence around matches of this pattern.
+** *'String[] split(CharSequence input, int limit)'*: Splits the input sequence around matches of this pattern, up to the specified limit.
+** *'Stream splitAsStream(CharSequence input)'*: Creates a stream from the input sequence, split around matches of this pattern.
 
 ==== Matcher class
-It is the main class that performs match operations on a string/line by interpreting a Pattern. Once created, a matcher can be used to perform the different kinds of match operations.
 
-This class also defines methods for replacing matched sub-sequences with new strings whose contents can, if desired, be computed from the match result.
+The *'Matcher'* class is the core component for performing match operations on a string or line by interpreting a *'Pattern'*.
+Once a *'Matcher'* is created, it can execute various match operations.
 
-Instances of  this class are not thread safe.
+This class also provides methods to replace matched subsequences with new strings, which can be dynamically generated from the match result.
 
-** boolean find() – It is mainly used for searching multiple occurrences of the regular expressions in the text.
-** boolean find(int start) – It is used for searching occurrences of the regular expressions in the text starting from the given index.
-** int start() – It is used for getting the start index of a match that is being found using find() method.
-** int end() – It is used for getting the end index of a match that is being found using find() method. It returns index of character next to last matching character.
-** int groupCount() – It is used to find the total number of the matched subsequence.
-** String group() – It is used to find the matched subsequence.
-** boolean matches() – It is used to test whether the regular expression matches the pattern.
-** boolean lookingAt() – Attempts to match the input sequence, starting at the beginning of the region, against the pattern.
-** String quoteReplacement(String s) – Returns a literal replacement String for the specified String.
-** Matcher reset() – Resets this matcher.
-** MatchResult toMatchResult() – Returns the match state of this matcher as a MatchResult.
+Note: Instances of the *'Matcher'* class are not thread-safe.
 
-:sectnumlevels!: 3
+Key methods of the *'Matcher'* class include:
 
-*_Java Regex Examples:_*
+** *boolean find()*: Searches for multiple occurrences of the regular expression in the text.
+** *boolean find(int start)*: Searches for occurrences starting from a specified index.
+** *int start()*: Returns the start index of the current match found by find().
+** *int end()*: Returns the end index of the current match, pointing to the character just after the last matched character.
+** *int groupCount()*: Returns the total number of matched subsequences.
+** *String group()*: Retrieves the matched subsequence.
+** *boolean matches()*: Tests whether the entire input sequence matches the pattern.
+** *boolean lookingAt()*: Attempts to match the input sequence starting from the beginning.
+** *String quoteReplacement(String s)*: Returns a literal replacement string for the specified string.
+** *Matcher reset()*: Resets the matcher, clearing any state information.
+** *MatchResult toMatchResult()*: Returns the current match state as a MatchResult.
 
-You first create a Pattern object which defines the regular expression. This Pattern object allows you to create a Matcher object for a given string. This Matcher object then allows you to do regex operations on a String.
+.*Java Regex Examples:*
+You first create a Pattern object which defines the regular expression.
+This Pattern object allows you to create a Matcher object for a given string.
+This Matcher object then allows you to do regex operations on a String.
+
 [source,java]
 ----
 import java.util.regex.Matcher;
@@ -361,22 +388,23 @@ public class RegexExamples {
 }
 ----
 
-link:exemples/Java/ValidateNumbers.java[ValidateRegexNumber]
+[NOTE]
+*Java files for reference:* +
+link:examples/Java/ValidateNumbers.java[ValidateRegexNumber] +
+link:examples/Java/ValidateEmail.java[ValidateEmail] +
+link:examples/Java/ValidateIpAddress.java[ValidateIpAddress] +
+link:examples/Java/ValidatePhone.java[ValidatePhone]
 
-link:exemples/Java/ValidateEmail.java[ValidateEmail]
-
-link:exemples/Java/ValidateIpAddress.java[ValidateIpAddress]
-
-link:exemples/Java/ValidatePhone.java[ValidatePhone]
-
-*To learn more, visit:*
+====
+*For additional information visit these resources:*
 
 * https://docs.oracle.com/javase/tutorial/essential/regex/index.html[Java Framework Documentation for Regular Expressions]
 * https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html[Pattern Class Java Documentation]
 * https://docs.oracle.com/javase/8/docs/api/java/util/regex/Matcher.html[Matcher Class Java Documentation]
 * https://www.javatpoint.com/java-regex[Java regex]
+====
 
-=== *Regular Expression in Phyton*
+=== Regular Expression in Python
 
 Python has a built-in package called *re* (RegEx Module), which can be used to work with Regular Expressions.
 Import the re module:
@@ -393,9 +421,7 @@ txt = "The rain in Spain"
 x = re.search("^The.*Spain$", txt)
 ----
 
-
-Popular Python re Module Functions
-
+.Popular Python re Module Functions
 [%autowidth.stretch]
 |===
 |Function|Description
@@ -409,23 +435,21 @@ Popular Python re Module Functions
 |re.sub(A, B, C) | Replace A with B in the string C.
 |===
 
-*Python Regex Examples:*
+[NOTE]
+*Python Regex Examples:* +
+link:examples/Python/ValidateNumbers.py[ValidateNumber] +
+link:examples/Python/ValidateEmail.py[ValidateEmail] +
+link:examples/Python/ValidateIpAddress.py[ValidateIpAddress] +
+link:examples/Python/ValidatePhone.py[ValidatePhone]
 
-link:exemples/Python/ValidateNumbers.py[ValidateNumber]
-
-link:exemples/Python/ValidateEmail.py[ValidateEmail]
-
-link:exemples/Python/ValidateIpAddress.py[ValidateIpAddress]
-
-link:exemples/Python/ValidatePhone.py[ValidatePhone]
-
-
-*To learn more, visit:*
+====
+*For additional information visit these resources:*
 
 * https://docs.python.org/3/howto/regex.html[Regular Expression HOWTO]
 * https://realpython.com/regex-python/[Regexes in Python]
+====
 
-=== *Regular Expression in JavaScript*
+=== Regular Expression in JavaScript
 
 There are two ways you can create a regular expression in JavaScript.
 
@@ -433,10 +457,12 @@ There are two ways you can create a regular expression in JavaScript.
 
 The regular expression consists of a pattern enclosed between slashes /.
 For example,
+
 [source,javascript]
 ----
 const regularExp = /abc/;
 ----
+
 Here, /abc/ is a regular expression.
 
 ** Using the RegExp() constructor function:
@@ -448,8 +474,7 @@ For example,
 const reguarExp = new RegExp('abc');
 ----
 
-RegExp Object Methods
-
+.RegExp Object Methods
 [%autowidth.stretch]
 |===
 |Method|Description
@@ -458,36 +483,35 @@ RegExp Object Methods
 |exec()    |Tests for a match in a string. Returns the first match
 |test()|Tests for a match in a string. Returns true or false
 |toString()|    Returns the string value of the regular expression
-|matchAll()|	Returns an iterator containing to all the matches.
-|search()|	Tests for a match in a string and returns the index of the match. It returns -1 if the search fails.
-|replace()|	Searches for a match in a string and replaces the matched substring with a replacement substring.
-|split()|	Break a string into an array of substrings.
+|matchAll()|    Returns an iterator containing to all the matches.
+|search()|    Tests for a match in a string and returns the index of the match. It returns -1 if the search fails.
+|replace()|    Searches for a match in a string and replaces the matched substring with a replacement substring.
+|split()|    Break a string into an array of substrings.
 |===
 
-*JavaScript Regex Examples:*
+[NOTE]
+*JavaScript Regex Examples:* +
+link:examples/JavaScript/ValidateNumbers.js[ValidateNumber] +
+link:examples/JavaScript/ValidateEmail.js[ValidateEmail] +
+link:examples/JavaScript/ValidateIpAddress.js[ValidateIpAddress] +
+link:examples/JavaScript/ValidatePhone.js[ValidatePhone]
 
-link:exemples/JavaScript/ValidateNumbers.js[ValidateNumber]
+====
+*For additional information visit these resources:*
 
-link:exemples/JavaScript/ValidateEmail.js[ValidateEmail]
-
-link:exemples/JavaScript/ValidateIpAddress.js[ValidateIpAddress]
-
-link:exemples/JavaScript/ValidatePhone.js[ValidatePhone]
-
-*To learn more, visit*:
-
-* https://www.freecodecamp.org/news/regular-expressions-for-beginners/[How to Use Regular Expressions  in JavaScript]
+* https://www.freecodecamp.org/news/regular-expressions-for-beginners/[How to Use Regular Expressions in JavaScript]
 * https://www.programiz.com/javascript/regex[JavaScript Regex]
-
+====
 
 == Useful tools for regex validation and creation
 
-Online tools to learn, build & test Regular Expression (RegEx/RegExp)
+For more information there are online tools to learn, build & test Regular Expression (RegEx/RegExp)
 
-https://regex101.com/[regex101.com]
-
-https://regexr.com/[regexr.com]
-
+https://regex101.com/[regex101.com] +
+https://regexr.com/[regexr.com] +
 https://www.regextester.com/[regextester.com]
 
-:sectnums!:
+Created in 2024 by: +
+link:mailto:andrei.diogoti@gmail.com[Andrei Diogoti] +
+Edited by: +
+Igor Gorea
