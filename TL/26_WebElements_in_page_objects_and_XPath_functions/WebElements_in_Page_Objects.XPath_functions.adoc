@@ -1,11 +1,12 @@
 = WebElements in Page Objects
+Stanislav Scurtu
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
-
-by mailto:stanislav.scurtu@gmail.com[Stanislav Scurtu] +
-March 2024
+:icons: font
+:highlightjs-languages: java
 
 = Overview
 

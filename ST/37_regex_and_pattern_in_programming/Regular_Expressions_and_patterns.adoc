@@ -1,9 +1,12 @@
 =  Regular Expression & pattern in programming
+Andrei Diogoti, Igor Gorea
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
 :toc: left
 :sectnums:
-
-'''
+:icons: font
+:highlightjs-languages: java
 
 == Introduction
 
@@ -511,7 +514,3 @@ https://regex101.com/[regex101.com] +
 https://regexr.com/[regexr.com] +
 https://www.regextester.com/[regextester.com]
 
-Created in 2024 by: +
-link:mailto:andrei.diogoti@gmail.com[Andrei Diogoti] +
-Edited by: +
-Igor Gorea

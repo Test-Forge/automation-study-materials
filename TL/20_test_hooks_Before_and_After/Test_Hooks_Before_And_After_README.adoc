@@ -1,13 +1,13 @@
 = Test Hooks. Before & After.
-by Igor Chele
+Igor Chele
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
+:icons: font
+:highlightjs-languages: java
 
-== Contents
-- <<hooks,HOOKS - General info>>
-- <<attributes-used-with-hooks,Attributes used with Hooks>>
--  <<examples,Examples>>
--  <<conclusions,Conclusions>>
-
-[[hooks]]
 == HOOKS
 
 In the context of Cucumber for Java, Hooks are blocks of code that run before or after scenarios.
@@ -44,7 +44,6 @@ Cucumber Java supports several types of Hooks, including:
    preconditions required for specific tests divided by some tags (as : UI, API, Regression, Production,
    Sanity and others), still some general preconditions are required in order to start any test pack.
 
-[[attributes-used-with-hooks]]
 == Attributes used with Hooks
 
 - **Tags** - Tags are applied especially for Cucumber scenarios and features, hence the need to prepare specific
@@ -65,7 +64,6 @@ Cucumber Java supports several types of Hooks, including:
   operations.
 
 
-[[examples]]
 == Examples
 
 *The simple Hooks configuration as a separate class.*
@@ -118,9 +116,10 @@ import org.junit.runner.RunWith;
 public class TestRunner {
 }
 ----
+
 '''
-'''
-A more complex example of the Hooks class.::
+
+*A more complex example of the Hooks class:*
 
 - In this case, we have a specific separation of UI and API tests with tags "@UI"/"@API".
 - @BeforeAll and @AfterAll hooks are used for both types of tests.
@@ -220,7 +219,6 @@ public class Hooks {
 - @AfterAll - with timeout implemented - includes a method which close all browser windows(webDriver also) and other
   that clears all temporary saved data in Scenario Context.
 
-[[conclusions]]
 == Conclusions
 
 Hooks helps us prepare specific conditions for testing, especially useful in complex projects with several test

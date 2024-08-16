@@ -1,8 +1,12 @@
 = Basic Literals
 Liudmila Topal <liudmila.topal@endava.com>
-3.0, July 29, 2022: AsciiDoc article template
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 Regardless of its complexity, a program always performs operations on _numbers_, _strings_, and other values.
 
@@ -22,7 +26,7 @@ Variables can only store matching data.
 You wouldn't want to accidentally put honey in a cardboard cereal box or pour cereal into a salt shaker.
 To prevent such mistakes, learn to distinguish between the basic literals: _integer numbers, strings, and characters_.
 
-=== Integer numbers
+== Integer numbers
 These *numbers* are used to count things in the real world. Also, we will often use them in Java.
 
 TIP: Here are several examples of valid integer number literals separated by commas: _0, 1, 2, 10, 11, 100_.
@@ -42,7 +46,7 @@ int numPackedApples = 1_000_000;
 
 TIP: More info about Integer you can find xref:../../03_java_basics/data_types/Data_Types.adoc#_integer_data_type[here].
 
-=== Characters
+== Characters
 *A character* is a single symbol, denoted with single quotes.
 
 You can use character literals to represent single letters like '_A_', '_x_', digits from '_0_' to '_9_', whitespaces (' '), and other characters or symbols like '_$_'.
@@ -59,7 +63,7 @@ TIP: Fun fact: characters sit between integers and strings: they resemble string
 
 TIP: More info about Char you can find xref:../../03_java_basics/data_types/Data_Types.adoc#_char_data_type[here].
 
-=== Strings
+== Strings
 *A string* is a sequence of characters, encapsulated by double quotes.
 
 It represents text-based information, such as an advertising line, a webpage address, or a website login name.
@@ -80,7 +84,7 @@ String doubleQuoted = "A";
 
 TIP: More info about Strings you can find xref:../../03_java_basics/data_types/Data_Types.adoc#_strings[here].
 
-=== Conclusion
+== Conclusion
 * *123* is an integer number, "*123*" is a string;
 * '*A*' is a character, "*A*" is a string;
 * '*1*' is a character, *1* is an integer number.

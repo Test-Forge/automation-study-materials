@@ -6,7 +6,8 @@ TIP: The word *final* means that cannot be changed.
 
 Once declare a class as _final_, the values remain the same throughout the program.
 
-The purpose of the final class is to make the class *immutable* like the String class. It is only a way to make the class immutable.
+The purpose of the final class is to make the class *immutable* like the String class.
+It is only a way to make the class immutable.
 
 * The final class cannot be extended.
 * Prevents the class from being sub-classed.

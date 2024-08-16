@@ -1,24 +1,27 @@
 = Programming with Collections. Operations. (Creating, sorting, filtering)
+Iurii Rusakov, Liliana Coroz
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
-:sectnumlevels: 2
+:icons: font
+:highlightjs-languages: java
 
-=== Introduction
+== Introduction
 
-==== Brief Overview: The Significance of Collections in Java
+=== Brief Overview: The Significance of Collections in Java
 
 Collections in Java represent a framework that provides an architecture for storing and manipulating a group of objects. Collections are used to perform various operations such as searching, sorting, insertion, manipulation, and deletion. The Java Collections Framework (JCF) is a set of classes and interfaces in `java.util` that implement commonly reusable collection data structures. The framework has a variety of interfaces, each with several implementations allowing collections to be viewed and manipulated independently from the details of their representation.
 
-==== General Overview of Java Collections Framework (JCF)
+=== General Overview of Java Collections Framework (JCF)
 The JCF provides many data structures and algorithms commonly used for dealing with collections. It is designed to offer high-performance, high-quality implementations of useful data structures and algorithms. The main benefits of the Java Collections Framework are that it improves program speed and quality, allows interoperability among unrelated APIs, reduces effort in designing and learning new APIs, and fosters software reuse.
 
 image::charts%2Fcollections_cart.png[collections_cart.png, align="center"]
 
-=== Creating Collections in Java
+== Creating Collections in Java
 
-==== Exploring Interfaces and Collection Classes (List, Set, Map, etc.)
+=== Exploring Interfaces and Collection Classes (List, Set, Map, etc.)
 
 In Java, the Collections Framework defines several interfaces and classes. There are four main interfaces in the Java Collections Framework `List`, `Set`, `Map` and `Queue`.
 
@@ -28,7 +31,7 @@ In Java, the Collections Framework defines several interfaces and classes. There
 * `Queue` is a collection that orders its elements in a specific order for processing. A typical queue processes its elements in a first‐in, first‐out order, but other orderings are possible.  Implementations include `LinkedList`, `PriorityQueue`.
 
 image::charts%2FJava_Collections_Framework_types.png[Java_Collections_Framework_types.png, align="center"]
-==== Examples of Creating Collections: ArrayList, HashSet, HashMap, LinkedList
+=== Examples of Creating Collections: ArrayList, HashSet, HashMap, LinkedList
 
 Creating collections in Java is straightforward and involves invoking the constructor of the implementing class. Here are examples for `ArrayList`, `HashSet`, `HashMap` and `LinkedList`:
 
@@ -40,7 +43,7 @@ Map<String, Integer> map = new HashMap<>();
 Queue<Integer> queue = new LinkedList<>();
 ----
 
-==== Features of Using Generics in Collections
+=== Features of Using Generics in Collections
 
 Generics in Java allow you to define classes, interfaces, and methods with placeholder types, and specify the actual type when using them. This feature provides stronger type checks at compile time and eliminates the need for type casting. With generics, you can ensure that your collection only holds objects of a specific type. For example:
 
@@ -54,9 +57,9 @@ Queue<Integer> queue = new LinkedList<>(); // can only contain Integers
 
 Using generics with collections makes your code safer and clearer, as it explicitly states what types of objects are stored in your collection.
 
-=== Operations with Collections in Java
+== Operations with Collections in Java
 
-==== Fundamental Operations: Adding, Removing, and Accessing Elements
+=== Fundamental Operations: Adding, Removing, and Accessing Elements
 
 Collections in Java provide a rich set of methods to perform various operations. Here are the common operations:
 
@@ -105,7 +108,7 @@ int size = set.size(); // size is 3
 
 * *Accessing Elements:* Lists allow accessing elements by their index using the `get` method, e.g., `list.get(index)`. Sets don't support indexed access due to their nature.
 
-==== Working with Iterators for Collection Traversal
+=== Working with Iterators for Collection Traversal
 
 Iterators are used to traverse collections in Java. Each collection provides an iterator that can be used to iterate through the collection's elements:
 
@@ -138,7 +141,7 @@ Map<String, Integer> map = new HashMap<>();
   map.forEach((key, value) -> System.out.println(key + " is " + value + " years old."));
 ----
 
-==== Code Examples for Operations with Different Collection Types
+=== Code Examples for Operations with Different Collection Types
 
 For Lists:
 
@@ -182,13 +185,13 @@ System.out.println(queue.poll());    // 4
 System.out.println(queue.peek());    // null
 ----
 
-=== Sorting Collections in Java
+== Sorting Collections in Java
 
-==== Introduction to Sorting: Significance and Principles
+=== Introduction to Sorting: Significance and Principles
 
 Sorting is a fundamental operation that organizes elements of a collection in a certain order. The ability to sort collections efficiently is crucial for many applications that require quick search operations or ordered data presentation.
 
-==== Sorting Using Collections.sort() and Comparable
+=== Sorting Using Collections.sort() and Comparable
 
 The `Collections.sort()` method is used to sort lists in Java. To use this method, the elements of the list must implement the `Comparable` interface, which requires defining the `compareTo` method. For example:
 
@@ -207,7 +210,7 @@ List<User> users = new ArrayList<>();
 Collections.sort(users);
 ----
 
-==== Sorting Using Comparator
+=== Sorting Using Comparator
 
 A `Comparator` is used when you want to sort objects based on multiple fields or when objects do not implement `Comparable`. You can pass a `Comparator` to the `Collections.sort()` method:
 
@@ -221,7 +224,7 @@ Comparator<User> comparator = new Comparator<User>() {
 Collections.sort(users, comparator);
 ----
 
-==== Examples of Sorting Lists and Arrays
+=== Examples of Sorting Lists and Arrays
 
 Sorting a list of strings:
 
@@ -248,13 +251,13 @@ Comparing *Comparable* and *Comparator*
 image::charts%2FComparison_of_Comparable_and_Comparator.png[Comparison_of_Comparable_and_Comparator.png, align="center"]
 
 
-=== Filtering Collections in Java
+== Filtering Collections in Java
 
-==== Significance and Methods of Filtering Collections
+=== Significance and Methods of Filtering Collections
 
 Filtering is a common operation applied to collections when you need to select elements that meet certain criteria. It allows developers to extract subsets of data that match the defined conditions, enhancing flexibility and efficiency in data processing.
 
-==== Using Streams API for Filtering Collections
+=== Using Streams API for Filtering Collections
 
 Java's Streams API, introduced in Java 8, provides a modern and functional approach to processing collections. It offers a declarative way to filter collections:
 
@@ -266,7 +269,7 @@ List<String> filteredNames = names.stream() // create a stream
     .collect(Collectors.toList()); // collect results into a list
 ----
 
-==== Examples of Filtering Using Lambda Expressions and Methods filter, map, reduce
+=== Examples of Filtering Using Lambda Expressions and Methods filter, map, reduce
 
 * *Filter:*
 
@@ -295,21 +298,21 @@ List<String> filteredNames = names.stream() // create a stream
   .reduce(0, (a, b) -> a + b); // sum all elements of the stream starting from 0
 ----
 
-=== Best Practices for Working with Collections in Java
+== Best Practices for Working with Collections in Java
 
-==== Tips for Effective Use of Collections
+=== Tips for Effective Use of Collections
 
 * *Understand your Data:* Choose the right collection type based on the size of the data, the frequency of insertions and deletions, and whether the data needs to be ordered or sorted.
 * *Use Generics:* They provide type safety by ensuring that only a specific type of elements can be added to the collection.
 * *Prefer Immutable Collections:* Immutable collections are inherently thread-safe and can help to avoid side effects.
 
-==== Avoiding Common Mistakes and Improving Performance
+=== Avoiding Common Mistakes and Improving Performance
 
 * *Minimize the Scope of Collections:* Keep collections as private as possible. Use unmodifiable wrappers when collections need to be returned.
 * *Avoid Premature Optimization:* Use profiling tools to find bottlenecks rather than guessing.
 * *Use Lazy Initialization Wisely:* Lazy initialization of collections can save memory and initialization time, but it can also introduce complexity.
 
-==== Examples of Optimizing Work with Large Collections
+=== Examples of Optimizing Work with Large Collections
 
 * *Use Stream API for Parallel Processing:* The Stream API can greatly improve the performance of operations on large collections by utilizing parallel processing:
 
@@ -325,9 +328,9 @@ List<String> filteredNames = names.stream() // create a stream
 
 By following these best practices and examples, you can ensure efficient and effective use of collections in your Java applications, resulting in cleaner, faster, and more maintainable code.
 
-=== Conclusion
+== Conclusion
 
-==== Summarizing Key Points about Working with Collections in Java
+=== Summarizing Key Points about Working with Collections in Java
 
 Throughout this guide, we've explored the fundamental aspects of the Java Collections Framework (JCF) and how it provides a comprehensive set of tools and structures for managing groups of objects. Key takeaways include:
 
@@ -339,7 +342,7 @@ Throughout this guide, we've explored the fundamental aspects of the Java Collec
 
 * *Best Practices:* We highlighted the importance of best practices such as choosing the right collection type, using generics for type safety, and considering performance implications when working with large collections.
 
-==== Depending on the necessity we’ll use:
+=== Depending on the necessity we’ll use:
 
 * *Set* - when we want a collection of unique elements
 * *List* – when we want elements inside the collection to be ordered
@@ -348,5 +351,3 @@ Throughout this guide, we've explored the fundamental aspects of the Java Collec
 * *Queue* – when we want elements inside the collection to be arranged in the order to be processed
 * *Stack* – when we want elements inside the collection to be arranged in the order to be processed (LIFO)
 * *Deque* – when we want elements inside the collection to be arranged in the order to be processed (FIFO)
-
-Author © 2024 *Iurii Rusakov*, edited by *Liliana Coroz*.

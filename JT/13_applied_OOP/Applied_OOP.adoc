@@ -1,10 +1,14 @@
 = Applied OOP
-:toc:
+Igor Chele
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
 :sectnums:
+:icons: font
+:highlightjs-languages: java
 
-Author Name: Igor Chele 28.03.2024
-
-=== Encapsulation
+== Encapsulation
 
 Encapsulation is (one of) the fundamental principle of object-oriented programming (OOP).
 
@@ -68,14 +72,13 @@ video::WZEPT77pB0g[youtube]
 
 Conclusions:
 
-==== Why should we use it?
+=== Why should we use it?
 
 * Better control of class attributes and methods
 * Class attributes can be made *read-only* (if you only use the get method), or *write-only* (if you only use the set method)
 * Flexible: the programmer can change one part of the code without affecting other parts
 * Increased security of data
 
----
 
 === Inheritance
 
@@ -116,7 +119,7 @@ and https://www.youtube.com/watch?v=WlQacYskOu4[Constructors in Inheritance]
 
 video::WlQacYskOu4[youtube]
 
----
+'''
 
 === Polymorphism
 
@@ -169,7 +172,7 @@ And then set the calories within the constructors of these subclasses.
 Override the makeJuice() method to print the specific type of juice that's going to be made. And then finally create a Market class which tests polymorphism by creating several variations of these objects.
 ----
 
----
+'''
 
 === Abstraction
 
@@ -210,4 +213,5 @@ create an abstract class called Animal, which declares an abstract method called
 Then create a Pig class and a Duck class that both extend the Animal class.
 Finally, create a Farm class to test these implementations.
 
+----
 

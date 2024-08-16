@@ -1,9 +1,12 @@
 = Sending and Validating API Requests. Configuration of API Clients
+Valentina Țurcanu, Igor Gorea
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
 :toc: left
 :sectnums:
-
-'''
+:icons: font
+:highlightjs-languages: java
 
 == API Requests and HTTP Methods
 
@@ -384,9 +387,3 @@ image::images/myApi.jpg[itIsEasyTheySaid,align="center"]
 . https://www.softwaretestinghelp.com/web-services-testing-using-apache-http-client/#Types_of_Web_Services[Web Services Testing Using Apache HTTP Client in Eclipse]
 . https://chat.openai.com/[ChatGPT]
 
-Created by: +
-Valentina Țurcanu +
-Email: link:mailto:valentina.turcanu@endava.com[valentina.turcanu@endava.com]
-
-Edited by: +
-Igor Gorea

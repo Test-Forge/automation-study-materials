@@ -1,5 +1,13 @@
-== Tree
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
+
+== Tree
+
 image::../resources/tree.png[width=700,align="center"]
 
 A *tree* is a collection of elements (nodes) connected with edges that reflect parent-child relationships.
@@ -38,7 +46,8 @@ a|image::../resources/red_black_tree.png[]
 
 .*How to Create the Tree?*
 You can use any class that implements the Queue interface, like LinkedList or PriorityQueue.
-[source, java]
+
+[source,java]
 ----
 public class TreeNode {
 
@@ -53,7 +62,8 @@ TreeNode root = new TreeNode(1);
 ----
 
 Also, the tree can be created using Map or Set:
-[source, java]
+
+[source,java]
 ----
 TreeSet <String> tree1 = new TreeSet <String>();
 
@@ -62,7 +72,8 @@ TreeMap<Integer,String> tree2 = new TreeMap<Integer,String>();
 
 .*How to add Elements into the Tree?*
 Use the *add()* method to add an element (node) at the end of the LinkedList.
-[source, java]
+
+[source,java]
 ----
 //method in TreeNode class
 public void addChild(TreeNode child) {
@@ -149,7 +160,8 @@ A cycle is a path in the graph that starts and ends at the same vertex, traversi
 .*How to Create the Graph?*
 Java doesn’t have a default implementation of the graph data structure.
 However, it can be implemented using Java Collections.
-[source, java]
+
+[source,java]
 ----
 // Defining a vertex:
 class Vertex {
@@ -177,7 +189,7 @@ Graph createGraph() {
 ----
 
 .*How to add Elements into the Graph?*
-[source, java]
+[source,java]
 ----
 // A method to add a vertice
 void addVertex(String label) {
@@ -194,7 +206,7 @@ void addEdge(String label1, String label2) {
 ----
 
 .*How to Remove Elements from the Graph?*
-[source, java]
+[source,java]
 ----
 // A method to remove a vertice
 void removeVertex(String label) {
@@ -239,17 +251,17 @@ More details on these algorithms we covered in the section about trees.
 
 image::../resources/hash_table.png[width=700,align="center"]
 
-A *hash table* or hash map stores key-value pairs in an array. The key is a unique identifier to access or retrieve
-the value, which is the associated data or information.
+A *hash table* or hash map stores key-value pairs in an array.
+The key is a unique identifier to access or retrieve the value, which is the associated data or information.
 
 .*How to Create the Hash Table?*
-[source, java]
+[source,java]
 ----
 Hashtable<Integer, String> hash1 = new Hashtable<Integer, String>();
 ----
 
 .*How to add Elements into the Hash Table?*
-[source, java]
+[source,java]
 ----
 hash1.put(1, "Free");
 hash1.put(2, "Courses");
@@ -257,7 +269,7 @@ hash1.put(3, "on");
 ----
 
 .*How to Remove Elements from the Hash Table?*
-[source, java]
+[source,java]
 ----
 hashtable.remove(4);
 ----
@@ -266,14 +278,16 @@ hashtable.remove(4);
 This example shows how to use the `getOrDefault()` function which returns the value to which a specified key is mapped, or a defaultValue if the hashtable contains no mapping for that key.
 
 It takes two parameters: a key and a default value to be printed as a message if the key is not present in the hashtable.
-[source, java]
+
+[source,java]
 ----
 hashtable.getOrDefault(2, "Not Found in the Hashtable");
 ----
 
 .*How to Get Keys from the Hash Table?*
 The `keys()` method is used to get an enumeration of the keys in this hashtable.
-[source, java]
+
+[source,java]
 ----
  // create enumeration for keys
       Enumeration en = hash1.keys();
@@ -283,7 +297,7 @@ The `keys()` method is used to get an enumeration of the keys in this hashtable.
 ----
 
 .*How to get Size of the Hash Table?*
-[source, java]
+[source,java]
 ----
 hash1.size();
 ----
@@ -298,4 +312,5 @@ image::../resources/hash_function.jpg[align="center"]
 * https://www.scaler.com/topics/hashtable-in-java/[Hashtable in Java tutorial]
 * Learn more about https://www.javatpoint.com/java-hashtable/[methods of Java Hashtable]
 ====
+
 xref:../data_structure.adoc[Go back to Data Structure main page]

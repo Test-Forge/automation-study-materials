@@ -1,15 +1,17 @@
 = Clean code. Java naming convention principles
 Tudor Mateevici, Scurtu Stanislav
-<tudor.mateeevici@endava.com>, <stanislav.scurtu@gmail.com>
-:revnumber: 2.0
-:revdate: 2024-04-16
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
 :toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 Writing clean code in Java is crucial for maintaining readability, reusability, and overall code quality.
 Here are some key principles specifically related to clean code practices and naming conventions in Java:
 
-=== Meaningful Names
+== Meaningful Names
 
 * *Intention-Revealing Names:* Names of variables, methods, and classes should reveal why they exist, what they do, and how they are used.
 For example, `createUserAccount` is more descriptive than just `create`.
@@ -36,7 +38,7 @@ int elapsedTimeInDays;
 
 The good example uses a name that clearly states what the variable represents without needing additional comments.
 
-=== Functions
+== Functions
 
 * *Small and Focused:* Functions should be short and limited to a single task.
 Each function should ideally be no more than 20 lines long.
@@ -74,7 +76,7 @@ private boolean isValidEmail(String emailAddress) {
 The good example shows functions doing one thing: `isValidEmail` checks for email validity, and `sendEmailToAddress` handles the sending process.
 This makes the functions easier to understand and reuse.
 
-=== Comments
+== Comments
 
 * *Use Comments Wisely:* Comments should be used to explain "why" something is done, not "what" is done; the code itself should be clear enough to show what is happening.
 * *Avoid Redundant Comments:* Do not use comments that are redundant with what can be clearly seen in the code; for example, avoid comments like `i++; // increment i by 1`.
@@ -97,7 +99,7 @@ x++;
 
 The good example provides a reason why the operation is necessary, which is not evident from the code alone.
 
-=== Formatting
+== Formatting
 
 * *Consistency*: Stick to a consistent coding style regarding indentation, braces, whitespace, etc.
 This can often be enforced using tools like linters or formatters (e.g., Google Java Style Guide or Checkstyle).
@@ -130,7 +132,7 @@ public class Car {
 
 This example is well-formatted with clear and consistent indentations and method organization.
 
-=== Error Handling
+== Error Handling
 
 * *Use Exceptions Rather Than Return Codes:* Using exceptions for error handling can make the code cleaner and more readable, as it separates the error handling from the main logic.
 * *Don't Ignore Exceptions:* Catch only those exceptions that you can actually handle meaningfully.
@@ -159,7 +161,7 @@ try {
 
 The good example catches only a specific exception and includes meaningful error handling, like logging the error.
 
-=== Classes
+== Classes
 
 * *Small and Focused:* Like functions, classes should also be small and focused on a single responsibility.
 The Single Responsibility Principle (SRP) states that a class should have only one reason to change.
@@ -208,7 +210,7 @@ If authentication logic changes, only `AuthenticationService` needs to be update
 `UserManager` controls how user data is accessed and manipulated, hiding the details of the user list from other classes.
 `AuthenticationService` manages how authentication is performed, using `UserManager` through a well-defined interface.
 
-=== Naming Conventions
+== Naming Conventions
 
 * *Class Names:* Should be nouns (e.g., `Customer`, `Account`), and use CamelCase with the first letter of each internal word capitalized.
 * *Method Names:* Should be verbs (e.g., `deletePage`, `save`) and use lowerCamelCase.

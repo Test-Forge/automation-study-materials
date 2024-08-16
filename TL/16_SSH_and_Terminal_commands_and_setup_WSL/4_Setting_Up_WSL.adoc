@@ -1,7 +1,9 @@
-= *Setting Up WSL (Windows Subsystem for Linux)*
+= Setting Up WSL (Windows Subsystem for Linux)
+Iurii Rusakov, Igor Gorea
 :doctype: book
 :toc: left
 :sectnums:
+:highlightjs-languages: java
 
 '''
 
@@ -232,5 +234,3 @@ And consists of two parts:
 
 
 Together, these settings help optimize the performance and behavior of the Linux virtual machine in WSL 2. They also ensure compatibility with specific requirements, such as the use of systemd and the new version of cgroups.
-
-Copyright © 2024 by Iurii Rusakov, Igor Gorea

@@ -1,8 +1,12 @@
 = Postman basic
 Liudmila Topal <liudmila.topal@endava.com>
-3.0, July 29, 2022: AsciiDoc article template
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
 ====
@@ -13,7 +17,7 @@ image::resource/what-is-postman-illustration-4.png[400, 400]
 
 Postman simplifies each step of the API lifecycle and streamlines collaboration, so you can create better APIs - faster.
 
-=== Terminologies Related to Postman
+== Terminologies Related to Postman
 API:: _Application Programming Interface_ is software that acts as an intermediary for two apps to communicate with each other.
 +
 We use APIs whenever we use an application like Twitter, Facebook, sending text messages, or checking the weather over the phone.
@@ -23,7 +27,7 @@ like graphic images, text, video, sound, and other multimedia data.
 +
 The Web users implicitly make use of HTTP as soon as they open their Web browser.
 
-=== Why use Postman?
+== Why use Postman?
 Postman is based on a wide range of extremely user-friendly power tools.
 
 TIP: For more than 8 million users, Postman has become a tool of convenience.

@@ -1,7 +1,9 @@
 = *Secure Shell (SSH)*
+Iurii Rusakov, Igor Gorea
 :doctype: book
 :toc: left
 :sectnums:
+:highlightjs-languages: java
 
 '''
 
@@ -81,5 +83,3 @@ ssh username@remote_host
 ----
 
 Where username is your username on the remote_host server you wish to connect to.
-
-Copyright © 2024 by Iurii Rusakov, Igor Gorea

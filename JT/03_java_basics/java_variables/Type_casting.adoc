@@ -1,10 +1,16 @@
 = Type casting
 Liudmila Topal <liudmila.prepelita@endava.com>
 3.0, July 29, 2022: AsciiDoc article template
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 Suppose, you need to assign a value of one type to a variable of another type.
+
 ----
 To do that, your program needs to cast the source type to the target type.
 ----
@@ -14,7 +20,8 @@ Java provides _two kinds of casting_ for primitive types: *implicit* and *explic
 * _The first one_ is performed automatically by the java compiler when it is possible.
 * _The second one_ – only by a programmer.
 
-=== Implicit casting
+== Implicit casting
+
 The compiler automatically performs *implicit casting* when the target type is wider than the source type.
 The picture below illustrates the direction of this casting.
 
@@ -32,17 +39,18 @@ When we convert an _int_ to _float_, or a _long_ to _float_ or to _double_, we m
 
 However, the result of this conversion will be a correctly rounded version of the integer value, which will be in the overall range of the target type.
 
-[source, java]
+[source,java]
 ----
 long bigLong = 1_200_000_002L;
 float bigFloat = bigLong;
 ----
 
-When we convert a _char_ to an _int_ in Java, we actually get the *ASCII value* for a given character. The ASCII value is an integer representation of English alphabet letters (both uppercase and lowercase), digits, and other symbols.
+When we convert a _char_ to an _int_ in Java, we actually get the *ASCII value* for a given character.
+The ASCII value is an integer representation of English alphabet letters (both uppercase and lowercase), digits, and other symbols.
 
 https://ascii.cl/[Here] you can find some of the standard symbols in ASCII.
 
-[source, java]
+[source,java]
 ----
 char character = 'a';
 char upperCase = 'A';
@@ -52,11 +60,12 @@ int ascii2 = upperCase;
 ----
 
 [NOTE]
-=====
+====
 link:casting_examples/ImplicitCasting.java[Here] you can find some examples.
-=====
+====
 
-=== Explicit casting
+== Explicit casting
+
 The considered implicit casting does not work when the target type is narrower than the source type.
 
 TIP: But programmers can apply *explicit casting* to a source type to get another type they want.
@@ -65,7 +74,7 @@ It may lose information about the overall magnitude of a numeric value and may a
 
 To perform explicit casting, a programmer must write the target type in parentheses before the source.
 
-[source, java]
+[source,java]
 ----
 (targetType) source
 ----
@@ -74,7 +83,7 @@ Any possible casting not presented in the picture above needs such an approach, 
 
 TIP: However, the explicit casting may truncate the value because long and _double can store a much larger number than int_.
 
-[source, java]
+[source,java]
 ----
 long bigNum = 100_000_000_000_000L;
 int n = (int) bigNum;
@@ -85,6 +94,6 @@ Note, that despite the power of explicit casting, it is still impossible to cast
 ----
 
 [NOTE]
-=====
+====
 link:casting_examples/ExplicitCasting.java[Here] you can find an example.
-=====
+====

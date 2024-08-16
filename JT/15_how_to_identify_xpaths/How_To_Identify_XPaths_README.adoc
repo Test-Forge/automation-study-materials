@@ -1,13 +1,16 @@
 = How to identify XPaths. Tools for XPaths. Cheat sheet
 Scurtu Stanislav, Liurca Andreea
-<stanislav.scurtu@gmail.com>
-:revnumber: 2.0
-:revdate: 2024-04-17
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
 :toc: left
 :sectnums:
 :icons: font
+:highlightjs-languages: java
 
-== Introduction to XPath: Navigating the Web Landscape
+== Introduction to XPath
+
+*Navigating the Web Landscape*
 
 `XPath (XML Path Language)` is a query language used for navigating XML documents.
 Is a crucial component in automating interactions with web pages through tools like Selenium WebDriver.
@@ -17,7 +20,10 @@ image::images/example_xpath.png[align=center,width=555]
 
 '''
 
-=== XPath Syntax Demystified: Absolute vs. Relative Paths
+=== XPath Syntax Demystified
+
+*Absolute vs.
+Relative Paths*
 
 XPath's expressions can be categorized into absolute and relative paths.
 Absolute paths begin from the root node, while relative paths initiate from the current node.
@@ -42,7 +48,9 @@ It starts from anywhere within the document.
 
 '''
 
-=== Strategies for Element Identification: Using Attributes and Hierarchy
+=== Strategies for Element Identification
+
+*Using Attributes and Hierarchy*
 
 * Using Attributes:
 
@@ -146,32 +154,34 @@ If you are working with Selenium WebDriver in a programming environment, many ID
 * IntelliJ IDEA, Eclipse, Visual Studio Code, etc.: IDEs often have plugins/extensions that can assist in XPath creation and validation.
 ====
 
-== Common XPath Patterns: A Cheat Sheet for Element Identification
+== Common XPath Patterns
+
+*A Cheat Sheet for Element Identification*
 
 XPath cheat sheet with examples that you can use as a quick reference for identifying and locating elements on a webpage.
 
-=== Basic XPath Expressions:
+=== Basic XPath Expressions
 
 - Select any element
-
++
 ```xpath
 //*
 ```
 
 - Select element by tag name:
-
++
 ```xpath
 //div
 ```
 
 - Select element by ID attribute:
-
++
 ```xpath
 //*[@id='exampleId']
 ```
 
 - Select element by class attribute:
-
++
 ```xpath
 //*[contains(@class, 'exampleClass')]
 ```
@@ -184,7 +194,7 @@ They have different meanings and behaviours:
 - The forward-slash operator selects the immediate childrent of the current node.
 - It specifies the direct path to the desired element.
 - It starts the selection from the root node or the context node.
-
++
 ```xpath
 /html/body/div/p
 ```
@@ -196,7 +206,7 @@ select all `*p*` elements that are direct children of `*div*` elements, which ar
 - The double-slash operator selects all elements in the document that match the following selection criteria, regardless of their position in the document hierarchy.
 - It specifies a more flexible path to the desired element.
 - It starts the selection from the current node, but it can traverse down multiple levels in the document hierarchy to find matching elements.
-
++
 ```xpath
 //div//p
 ```
@@ -206,13 +216,13 @@ select all `*p*` elements that are descendants of `*div*` elements, regardless o
 ==== Attribute-based Xpath Expressions:
 
 - Select input element with a specific attribute:
-
++
 ```xpath
 //input[@type='text']
 ```
 
 - Select element with a specific value in an attribute:
-
++
 ```xpath
 //button[@name='submit']
 ```
@@ -220,7 +230,7 @@ select all `*p*` elements that are descendants of `*div*` elements, regardless o
 Text-based XPath Expressions:
 
 - Select element containing specific text:
-
++
 ```xpath
 //h1[contains(text(),'Industries')]
 ```
@@ -230,23 +240,23 @@ image::images/text_based_xpath_expressions.png[]
 ==== Hierarchy and Position-based XPath Expressions:
 
 - Select the first child element:
-
++
 ```xpath
 //div/*[1]
 ```
 
 - Select element based on its position in the hierarchy:
-
++
 ```xpath
 //div[@class='parent']/child::p
 ```
-
++
 ```xpath
 //form[@class='my-form']/child::input[@id='email']
 ```
 
 - Select element based on descendant axis `//`
-
++
 ```xpath
 //form[@class='my-form']//input[@id='password']
 ```
@@ -254,7 +264,7 @@ image::images/text_based_xpath_expressions.png[]
 image::images/descendat-input-email.png[width=700]
 
 - Select element based on parent axis `/..`:
-
++
 ```xpath
 //input[@id='password']/..
 ```
@@ -262,7 +272,7 @@ image::images/descendat-input-email.png[width=700]
 image::images/parent-axis.png[width=700]
 
 - Select element based on ancestor axis `ancestor::`
-
++
 ```xpath
 //input[@id='password']/ancestor::div
 ```
@@ -272,7 +282,7 @@ image::images/ancestor-div.png[width=700]
 ==== Logical conditions in XPath:
 
 - Select element based on multiple conditions `AND`:
-
++
 ```xpath
 //input[@type='submit' and @value='Login']
 ```
@@ -282,13 +292,13 @@ image::images/multiple_conditions.png[width=700]
 Wildcards and Functions:
 
 - Select element with an atribute starting with a specific value:
-
++
 ```xpath
 //input[starts-with(@id, 'prefix')]
 ```
 
 - Select element with an attribute containing a specific value:
-
++
 ```xpath
 //div[contains(@class, 'my-form__actions')]
 ```
@@ -300,8 +310,8 @@ How to parse a table in Selenium using XPath?
 
 For example, we have the following HTML table structure:
 
-```html
-
+[source,html]
+----
 <table class="SpecTable">
     <col width="40%"/>
     <col width="60%"/>
@@ -322,11 +332,12 @@ For example, we have the following HTML table structure:
         <td class="DarkRow">14 MP</td>
     </tr>
 </table>
-```
+----
 
 We can parse this table in Selenium using the following Java code:
 
-```java
+[source,java]
+----
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -364,7 +375,7 @@ public class TableParserExample {
         driver.quit();
     }
 }
-```
+----
 
 [NOTE]
 For more information: https://www.browserstack.com/guide/handle-web-tables-in-selenium
@@ -372,7 +383,8 @@ For more information: https://www.browserstack.com/guide/handle-web-tables-in-se
 [quote]
 How to parse a list in Selenium using XPath and JavascriptExecutor ?
 
-```java
+[source,java]
+----
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -474,8 +486,7 @@ public class Librarius {
         driver.quit();
     }
 }
-
-```
+----
 
 [quote]
 How to use `@FindBy` annotation?
@@ -487,36 +498,39 @@ image::images/findby-annotation.png[]
 In the screen for the `Email` field we can use the `id` locator - `email` as a selector to locate the field.
 So, to use it in the code with ``@FindBy`` annotation, we can write it as follows:
 
-```java
+[source,java]
+----
 @FindBy(id="email")
 private WebElement emailField;
-```
+----
 
 Similarly, we can use other locator strategies like name, CSS, XPath, etc.
 
 Once we have defined the WebElement, we can directly use it in the methods to act on the element.
 The following lines of code show how to interact with the WebElement defined using `@FindBy` annotation:
 
-```java
+[source,java]
+----
 public void enterEmail() {
     this.emailField.sendKeys("your-email");
         }
-```
+----
 
-Fore more information: https://www.lambdatest.com/blog/findby-annotation-selenium-java/
+[NOTE]
+For more information: https://www.lambdatest.com/blog/findby-annotation-selenium-java/
 
 [IMPORTANT]
 XPath's expressions may vary based on the specific HTML structure of the webpage. +
 It is recommended to prioritize the use of stable attributes, such as IDs, for more reliable element identification.
 
-== XPath Challenges and Solutions: Troubleshooting in Automation
+== XPath Challenges and Solutions
+
+*Troubleshooting in Automation*
 
 XPath is a powerful tool for locating elements on web pages, but like any technology, it comes with its set of challenges.
 Troubleshooting XPath expressions is a common aspect of web automation, and understanding the challenges and their solutions is crucial for effective and maintainable automation scripts.
 
-[sidebar]
-🚧 Challenges:
-
+.*🚧 Challenges:*
 1. Brittleness of XPath:
 
 - XPath expressions based solely on the structure of the HTML can be brittle and prone to break when the page layout changes.
@@ -533,9 +547,7 @@ Troubleshooting XPath expressions is a common aspect of web automation, and unde
 
 - XPath expressions that traverse large portions of the HTML document may impact performance, leading to slower test execution.
 
-[sidebar]
-🚀 Solutions:
-
+.*🚀 Solutions:*
 1. Use Stable Attributes:
 
 - Whenever possible, use stable attributes like IDs or unique classes in your XPath expressions.
@@ -558,47 +570,55 @@ For example, using 'text()' to locate elements based on their visible text conte
 - Implement the Page Object Model to encapsulate the XPath expressions within dedicated classes.
 This promotes code reusability and easier maintenance.
 
-```java
+[source,java]
+----
 public class LoginPage {
     public static final String USERNAME_INPUT = "//input[@id='username']";
 }
-```
+----
 
-== Future Trends: Evolving Role of XPath in Automation Technologies
+== Future Trends
 
-[sidebar]
+*Evolving Role of XPath in Automation Technologies*
+
+====
 🔑 Enhanced Browser Support for Selectors:
 
 - Future versions of browsers and browser automation tools may introduce enhanced support for advanced selectors, reducing reliance on complex XPath expressions.
 This could include improved CSS selector capabilities and native support for more efficient element identification
+====
 
-[sidebar]
+====
 🔑 Machine Learning for Element Recognition:
 
 - Integration of machine learning techniques to automatically generate and optimize XPath expressions based on historical data.
 Tools may leverage AI algorithms to adapt and evolve XPath expressions for improved accuracy and resilience against web page changes.
+====
 
-[sidebar]
+====
 🔑 Visual Testing and AI-Driven Automation:
 
 - The rise of visual testing tools that use artificial intelligence for element recognition.
 Instead of relying solely on XPath expressions, these tools may employ image and visual recognition algorithms to identify and interact with elements on web pages.
+====
 
-[sidebar]
+====
 🔑 Integration with Natural Language Processing (NLP):
 
 - Integration of natural language processing capabilities in automation tools, allowing testers to express element identification criteria in a more human-readable format.
 This could lead to the generation of XPath expressions based on plain language instructions.
+====
 
-[sidebar]
+====
 🔑 Collaboration with Page Object Model (POM):
 
 - Improved integration between XPath-based automation and the Page Object Model.
 Automation frameworks may provide more streamlined mechanisms for creating and managing page objects with XPath expressions.
+====
 
 == XPath Mastery Across Automation Tools
 
-=== Best Practice for XPath Usage in image:images/selenium-icon.png[align="left",width="30"] Selenium WebDriver
+=== XPath Usage in image:images/selenium-icon.png[align="left",width="30"] Selenium WebDriver
 
 📚 Description: +
 Selenium WebDriver is a widely used open-source automation framework for web applications.
@@ -608,14 +628,15 @@ It supports multiple programming languages such as Java, Python, and C#, allowin
 Selenium WebDriver extensively uses XPath to locate and interact with elements on web pages.
 Developers can use XPath expressions to find elements by their attributes, text content, or position in the HTML hierarchy.
 
-```java
+[source,java]
+----
 WebElement usernameInput = driver.findElement(By.xpath("//input[@id='username']"));
-```
+----
 
 [TIP]
 Check the link:example/selenium/loginPage.java[example] in examples folder.
 
-=== Beyond Selenium: XPath in Mobile Automation with image:images/appium-icon.png[align="left",width="30"] Appium
+=== XPath in Mobile Automation with image:images/appium-icon.png[align="left",width="30"] Appium
 
 📚 Description: +
 Appium is an open-source automation tool for mobile applications on Android and iOS platforms.
@@ -625,14 +646,15 @@ It enables cross-platform mobile app testing using standard WebDriver protocols.
 Similar to Selenium, Appium relies on XPath for locating mobile app elements.
 Test scripts can use XPath expressions to identify UI elements for interaction.
 
-```java
+[source,java]
+----
 MobileElement loginButton = driver.findElement(MobileBy.xpath("//button[@text='Login']"));
-```
+----
 
 [TIP]
 Check the link:example/appium/loginPage.java[example] in examples folder.
 
-=== Modern Web Testing with image:images/cypress-icon.png[align="left",width="30"] Cypress: Leveraging XPath in JavaScript
+=== XPath in JavaScript with image:images/cypress-icon.png[align="left",width="30"] Cypress
 
 📚 Description: +
 Cypress is a JavaScript-based end-to-end testing framework designed for modern web applications.
@@ -642,14 +664,15 @@ It operates directly in the browser and provides a real-time preview of the appl
 While Cypress emphasizes using JavaScript selectors, it does support XPath for element identification.
 Developers can use XPath expressions to locate and interact with DOM elements.
 
-```javascript
+[source,javascript]
+----
 cy.xpath('//input[@id="username"]').type('yourusername');
-```
+----
 
 [TIP]
 Check the link:example/js_cypress/loginPage.js[example] in examples folder.
 
-=== image:images/playwright-icon.png[align="left",width="30"] Playwright's Perspective: XPath in a Multi-Browser World
+=== XPath in a Multi-Browser World from image:images/playwright-icon.png[align="left",width="30"] Playwright's Perspective
 
 📚 Description: +
 Playwright is a modern automation library for browsers that supports multiple programming languages.
@@ -659,14 +682,15 @@ It allows users to automate actions in Chromium, Firefox, and WebKit browsers.
 Playwright supports both CSS selectors and XPath for element identification.
 Developers can choose between these strategies based on their preferences and project requirements.
 
-```pw
+[source,pw]
+----
 const usernameInput = await page.$('xpath=//input[@id="username"]');
-```
+----
 
 [TIP]
 Check the link:example/js_playwright/loginPage.js[example] in examples folder.
 
-=== image:images/katalon-icon.png[align="left",width="30"] Katalon Studio and XPath: Streamlining Object Identification
+=== XPath in image:images/katalon-icon.png[align="left",width="30"] Katalon Studio: Streamlining Object Identification
 
 📚 Description: +
 Katalon Studio is a comprehensive automation solution for both web and mobile applications.
@@ -676,9 +700,10 @@ It provides a graphical user interface for test case design and supports scripti
 Katalon Studio allows users to use XPath expressions for object identification in their test scripts.
 It provides a user-friendly interface for creating and managing XPath-based test objects.
 
-```katalon
+[source,katalon]
+----
 WebUI.click(findTestObject('Page/Login/input_Username'))
-```
+----
 
 [TIP]
 Check the link:example/katalon/loginPage.java[example] in examples folder.

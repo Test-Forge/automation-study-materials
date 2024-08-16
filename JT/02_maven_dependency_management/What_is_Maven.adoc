@@ -1,10 +1,13 @@
 = What is Maven?
 Scurtu Stanislav
 <stanislav.scurtu@gmail.com>
-:revnumber: 1.0
-:revdate: 2024-04-03
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
 :toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 == Overview
 

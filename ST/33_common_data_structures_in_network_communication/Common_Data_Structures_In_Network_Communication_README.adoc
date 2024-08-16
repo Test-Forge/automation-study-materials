@@ -1,78 +1,60 @@
 = Commonly used data structures in network communication
+Mihail Trifonov, Igor Gorea
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
 :toc: left
 :sectnums:
-
-'''
+:icons: font
+:highlightjs-languages: java
 
 image::resources/network.png[align="center"]
 
 == Introduction
 
-In the realm of network communication, data structures and formats play
-a crucial role in facilitating the exchange of information between
-systems. From simple text-based formats to binary serialization
-protocols, each structure has its own history, purpose, strengths, and
-weaknesses. With the objective of facilitating data transfer among two
-or more entities, whether they reside on the same machine or within the
-same application, or are situated in disparate locations, employing
-diverse software and developed using various programming languages, the
-network data structures, along with their mutually agreed upon methods
-of reading and writing data, serve to accomplish this objective. In this
-article, however, we'll NOT expand on the methods of transforming the
-data structures to and from programming language related structures
-(Serialization and Deserialization), we'll explore the commonly used
-data structures and formats like: JSON, XML, CSV, YAML, Protobuf and
-Byte Array. Reviewing their purpose, syntax, strong and weak points.
+In the realm of network communication, data structures and formats play a crucial role in facilitating the exchange of information between systems.
+From simple text-based formats to binary serialization protocols, each structure has its own history, purpose, strengths, and weaknesses.
+With the objective of facilitating data transfer among two or more entities, whether they reside on the same machine or within the same application, or are situated in disparate locations, employing diverse software and developed using various programming languages, the network data structures, along with their mutually agreed upon methods of reading and writing data, serve to accomplish this objective.
+In this article, however, we'll NOT expand on the methods of transforming the data structures to and from programming language related structures (Serialization and Deserialization), we'll explore the commonly used data structures and formats like: JSON, XML, CSV, YAML, Protobuf and Byte Array.
+Reviewing their purpose, syntax, strong and weak points.
 
 [NOTE]
-For the first for you will be able to find concrete examples in the
-'*examples*' package, structured as the representation of
-'Employee.java' in the respective format.
-
+For the first for you will be able to find concrete examples in the '*examples*' package, structured as the representation of 'Employee.java' in the respective format.
 
 == JSON - JavaScript Object Notation
 
 image::resources/json-statham.png[align="center"]
 
-is a lightweight data-interchange format. It is easy for humans to read
-and write. It is easy for machines to parse and generate. It is based on
-a subset of the JavaScript Programming Language Standard ECMA-262 3rd
-Edition - December 1999. JSON is a text format that is completely
-language independent but uses conventions that are familiar to
-programmers of the C-family of languages, including C, C++, C#, Java,
-JavaScript, Perl, Python, and many others. These properties make JSON an
-ideal data-interchange language.
+is a lightweight data-interchange format.
+It is easy for humans to read and write.
+It is easy for machines to parse and generate.
+It is based on a subset of the JavaScript Programming Language Standard ECMA-262 3rd Edition - December 1999. JSON is a text format that is completely language independent but uses conventions that are familiar to programmers of the C-family of languages, including C, C++, C#, Java, JavaScript, Perl, Python, and many others.
+These properties make JSON an ideal data-interchange language.
 
-JSON is widely used for transmitting structured data between a server
-and a client in web applications. It's commonly used in RESTful APIs,
-AJAX requests, and configuration files.
+JSON is widely used for transmitting structured data between a server and a client in web applications.
+It's commonly used in RESTful APIs, AJAX requests, and configuration files.
 
 [TIP]
 ====
 JSON is built on two structures:
 
-. A collection of name/value pairs. In various languages, this is
-realized as an object, record, struct, dictionary, hash table, keyed
-list, or associative array.
-. An ordered list of values. In most languages, this is realized as an
-array, vector, list, or sequence.
+. A collection of name/value pairs.
+In various languages, this is realized as an object, record, struct, dictionary, hash table, keyed list, or associative array.
+. An ordered list of values.
+In most languages, this is realized as an array, vector, list, or sequence.
 ====
 
-
-These are universal data structures. Virtually all modern programming
-languages support them in one form or another. It makes sense that a
-data format that is interchangeable with programming languages also be
-based on these structures.
+These are universal data structures.
+Virtually all modern programming languages support them in one form or another.
+It makes sense that a data format that is interchangeable with programming languages also be based on these structures.
 
 In JSON, *structures take on these forms*:
 
 '''
 
-* An object is an unordered set of name/value pairs. An object begins
-with '\{' (left brace) and ends with '}' (right brace). Each name is
-followed by ':' (colon) and the name/value pairs are separated by
-',' (comma).
+* An object is an unordered set of name/value pairs.
+An object begins with '\{' (left brace) and ends with '}' (right brace).
+Each name is followed by ':' (colon) and the name/value pairs are separated by ',' (comma).
 
 .json-object-schema
 image::resources/json-object-schema.png[align="center"]
@@ -92,9 +74,9 @@ image::resources/json-object-schema.png[align="center"]
 
 '''
 
-* An array is an ordered collection of values. An array begins with '['
-(left bracket) and ends with ']' (right bracket). Values are separated
-by ',' (comma).
+* An array is an ordered collection of values.
+An array begins with '[' (left bracket) and ends with ']' (right bracket).
+Values are separated by ',' (comma).
 
 .json-array-schema
 image::resources/json-array-schema.png[align="center"]
@@ -108,25 +90,24 @@ image::resources/json-array-schema.png[align="center"]
 
 '''
 
-* A value can be a string in double quotes, or a number, or true or
-false or null, or an object or an array. These structures can be nested.
+* A value can be a string in double quotes, or a number, or true or false or null, or an object or an array.
+These structures can be nested.
 
 .json-value-schema
 image::resources/json-value-schema.png[align="center"]
 
 '''
 
-* A string is a sequence of zero or more Unicode characters, wrapped in
-double quotes, using backslash escapes. A character is represented as a
-single character string. A string is very much like a C or Java string.
+* A string is a sequence of zero or more Unicode characters, wrapped in double quotes, using backslash escapes.
+A character is represented as a single character string.
+A string is very much like a C or Java string.
 
 .json-string-schema
 image::resources/json-string-schema.png[align="center"]
 
 '''
 
-* A number is very much like a C or Java number, except that the octal
-and hexadecimal formats are not used.
+* A number is very much like a C or Java number, except that the octal and hexadecimal formats are not used.
 
 
 .json-number-schema
@@ -134,8 +115,8 @@ image::resources/json-number-schema.png[align="center"]
 
 '''
 
-* Whitespace can be inserted between any pair of tokens. Excepting a few
-encoding details, that completely describes the language.
+* Whitespace can be inserted between any pair of tokens.
+Excepting a few encoding details, that completely describes the language.
 
 .json-whitespace-schema
 image::resources/json-whitespace-schema.png[align="center"]
@@ -146,8 +127,7 @@ image::resources/json-whitespace-schema.png[align="center"]
 *Pros*:
 
 * Human-readable and easy to write.
-* Supports a wide range of data types, including objects, arrays,
-strings, numbers, booleans, and null values.
+* Supports a wide range of data types, including objects, arrays, strings, numbers, booleans, and null values.
 * Widely supported across programming languages and platforms.
 * Lightweight and efficient for data transmission over the network.
 
@@ -162,43 +142,35 @@ strings, numbers, booleans, and null values.
 
 image::resources/xml-xml.png[align="center"]
 
-XML was developed in the late 1990s as a successor to SGML (Standard
-Generalized Markup Language). It was designed to be a flexible and
-extensible markup language for representing structured data and to be
-both human- and machine-readable.
+XML was developed in the late 1990s as a successor to SGML (Standard Generalized Markup Language).
+It was designed to be a flexible and extensible markup language for representing structured data and to be both human- and machine-readable.
 
 [TIP]
 ====
-XML is commonly used for data exchange and configuration in web
-services, document formats (e.g., XHTML, RSS, SOAP), and database
-systems.
+XML is commonly used for data exchange and configuration in web services, document formats (e.g., XHTML, RSS, SOAP), and database systems.
 ====
 
-*The main purpose of XML is serialization*, i.e.storing, transmitting,
-and reconstructing arbitrary data. For two disparate systems to exchange
-information, they need to agree upon a file format. XML standardizes
-this process. It is therefore analogous to a lingua franca for
-representing information.
+*The main purpose of XML is serialization*, i.e.storing, transmitting, and reconstructing arbitrary data.
+For two disparate systems to exchange information, they need to agree upon a file format.
+XML standardizes this process.
+It is therefore analogous to a lingua franca for representing information.
 
-As a markup language, XML labels, categorizes, and structurally
-organizes information. XML tags represent the data structure and contain
-metadata. What's within the tags is data, encoded in the way the XML
-standard specifies. An additional XML schema (XSD) defines the necessary
-metadata for interpreting and validating XML. (This is also referred to
-as the canonical schema.) An XML document that adheres to basic XML
-rules is "well-formed"; one that adheres to its schema is "valid."
+As a markup language, XML labels, categorizes, and structurally organizes information.
+XML tags represent the data structure and contain metadata.
+What's within the tags is data, encoded in the way the XML standard specifies.
+An additional XML schema (XSD) defines the necessary metadata for interpreting and validating XML.
+(This is also referred to as the canonical schema.) An XML document that adheres to basic XML rules is "well-formed"; one that adheres to its schema is "valid."
 
-*XML documents form a tree structure* that starts at "the root" and
-branches to "the leaves".
+*XML documents form a tree structure* that starts at "the root" and branches to "the leaves".
 
 .The XML Tree Structure
 image::resources/xml-structure-schema.png[align="center"]
 
-The syntax rules of XML are very simple and logical. The rules are easy
-to learn, and easy to use. Here are the Key Syntax rules:
+The syntax rules of XML are very simple and logical.
+The rules are easy to learn, and easy to use.
+Here are the Key Syntax rules:
 
-* XML Documents Must Have a Root Element, an element that is the parent
-of all other elements:
+* XML Documents Must Have a Root Element, an element that is the parent of all other elements:
 
 [source,xml]
 ----
@@ -223,48 +195,44 @@ In the following example 'note' is the root element:
 </note>
 ----
 
-* Prolog, The XML prolog is optional. If it exists, it must come first
-in the document. XML documents can contain international characters,
-like Norwegian øæå or French êèé. To avoid errors, you should specify
-the encoding used, or save your XML files as UTF-8, which is the default
-character encoding for XML documents.
+* Prolog, The XML prolog is optional.
+If it exists, it must come first in the document.
+XML documents can contain international characters, like Norwegian øæå or French êèé.
+To avoid errors, you should specify the encoding used, or save your XML files as UTF-8, which is the default character encoding for XML documents.
 
 [source,xml]
 ----
 <?xml version="1.0" encoding="UTF-8" ?>
 ----
 
-* Closing Tag, All XML Elements Must Have one. Note: The XML prolog does
-not have a closing tag! This is not an error. The prolog is not a part
-of the XML document. Here is an example of an opening and closing tag
-'p':
+* Closing Tag, All XML Elements Must Have one.
+Note: The XML prolog does not have a closing tag!
+This is not an error.
+The prolog is not a part of the XML document.
+Here is an example of an opening and closing tag 'p':
 
 [source,xml]
 ----
 <p>This is a paragraph</p>
 ----
 
-* XML Tags are Case Sensitive, The tag 'Letter' is different from the
-tag 'letter'. Opening and closing tags must be written with the same
-case:
+* XML Tags are Case Sensitive, The tag 'Letter' is different from the tag 'letter'.
+Opening and closing tags must be written with the same case:
 
 [source,xml]
 ----
 <message>This is correct</message>
 ----
 
-* XML Elements Must be Properly Nested, unlike in HTML where it can be
-otherwise. "Properly nested" simply means that since the 'i' element
-is opened inside the 'b' element, it must be closed inside the 'b'
-element.
+* XML Elements Must be Properly Nested, unlike in HTML where it can be otherwise.
+"Properly nested" simply means that since the 'i' element is opened inside the 'b' element, it must be closed inside the 'b' element.
 
 [source,xml]
 ----
 <b><i>This text is bold and italic</i></b>
 ----
 
-* XML Attribute Values Must Always be Quoted, like 'date' value from
-the example bellow:
+* XML Attribute Values Must Always be Quoted, like 'date' value from the example bellow:
 
 [source,xml]
 ----
@@ -274,17 +242,15 @@ the example bellow:
 </note>
 ----
 
-* Entity References, some characters have a special meaning in XML. If
-you place a character like "<" inside an XML element, it will generate
-an error because the parser interprets it as the start of a new element:
+* Entity References, some characters have a special meaning in XML.
+If you place a character like "<" inside an XML element, it will generate an error because the parser interprets it as the start of a new element:
 
 [source,xml]
 ----
 <message>salary < 1000</message>
 ----
 
-To avoid this error, replace the '<' character with an entity
-reference '&lt ;':
+To avoid this error, replace the '<' character with an entity reference '&lt ;':
 
 [source,xml]
 ----
@@ -295,9 +261,7 @@ Here are the 5 pre-defined entity references in XML:
 
 image::resources/xml-predefined-characters.png[]
 
-* Comments in XML, the syntax for writing comments in XML is similar to
-that of HTML, however two dashes in the middle of a comment are not
-allowed:
+* Comments in XML, the syntax for writing comments in XML is similar to that of HTML, however two dashes in the middle of a comment are not allowed:
 
 [source,xml]
 ----
@@ -321,32 +285,23 @@ allowed:
 
 == CSV - Comma-Separated Values
 
-CSV dates back to the early days of computing and has been widely used
-for storing and exchanging tabular data since the advent of spreadsheet
-applications.
+CSV dates back to the early days of computing and has been widely used for storing and exchanging tabular data since the advent of spreadsheet applications.
 
 image::resources/csv-reader.png[align="center"]
 
-CSV is commonly used for importing/exporting data from spreadsheets,
-databases, and other tabular datasets, that are characterized by simple
-structures. Once you've opened a CSV file, you will see lines containing
-the same sequence of data. Usually, commas separate the data, but a
-semicolon, space, or a different character might separate the pieces of
-information. However, the most common character is the comma.
+CSV is commonly used for importing/exporting data from spreadsheets, databases, and other tabular datasets, that are characterized by simple structures.
+Once you've opened a CSV file, you will see lines containing the same sequence of data.
+Usually, commas separate the data, but a semicolon, space, or a different character might separate the pieces of information.
+However, the most common character is the comma.
 
 [IMPORTANT]
 ====
-_**CSV is a flat format**, so if your objects
-have nested structures or complex relationships, you may need to flatten
-or denormalize the data before writing it to CSV. Conversely, when
-reading CSV data back into objects, you'll need to reconstruct the
-original hierarchical structure based on the flattened data._
+_**CSV is a flat format**, so if your objects have nested structures or complex relationships, you may need to flatten or denormalize the data before writing it to CSV.
+Conversely, when reading CSV data back into objects, you'll need to reconstruct the original hierarchical structure based on the flattened data._
 ====
 
-Let's see CSV in action of solving the next task - send data of an
-object that has variable properties represented as variables, lists of
-variables and another object. For our example our object will have the
-following data (represented in java code)
+Let's see CSV in action of solving the next task - send data of an object that has variable properties represented as variables, lists of variables and another object.
+For our example our object will have the following data (represented in java code)
 
 [source,java]
 ----
@@ -359,14 +314,10 @@ public class employee {
 }
 ----
 
-To represent a more complex structure with nested data like a list of
-properties and/or an object within the CSV format, you typically have
-two options:
+To represent a more complex structure with nested data like a list of properties and/or an object within the CSV format, you typically have two options:
 
-* _Flatten the Data_: Flatten the structure by representing each skill and
-manager property as separate columns. This approach may lead to a wide
-CSV file with many columns if the nested structures are complex or have
-a variable number of elements.
+* _Flatten the Data_: Flatten the structure by representing each skill and manager property as separate columns.
+This approach may lead to a wide CSV file with many columns if the nested structures are complex or have a variable number of elements.
 
 [source,csv]
 ----
@@ -376,11 +327,8 @@ id,name,age,department,skill1,skill2,skill3,manager_id,manager_name,manager_age,
 3,Bob,40,Finance,Accounting,Financial Analysis,Communication,2,Alice,25,Marketing
 ----
 
-* _Use Separate CSV Files_: Split the data into multiple CSV files, with
-one file for each entity (e.g., employees, skills, managers). Each CSV
-file represents a flat view of its corresponding entity, and
-relationships between entities are established through identifiers or
-keys.
+* _Use Separate CSV Files_: Split the data into multiple CSV files, with one file for each entity (e.g., employees, skills, managers).
+Each CSV file represents a flat view of its corresponding entity, and relationships between entities are established through identifiers or keys.
 
 [source,csv]
 ----
@@ -392,10 +340,8 @@ id,name,age,department,skill_ids,manager_id
 
 [NOTE]
 ====
-While CSV is not as expressive as JSON or XML for representing complex
-data structures, it can still be a convenient and widely supported
-format for simple tabular data, such as lists of objects with flat
-properties. For one more example you may check examples/employees.csv
+While CSV is not as expressive as JSON or XML for representing complex data structures, it can still be a convenient and widely supported format for simple tabular data, such as lists of objects with flat properties.
+For one more example you may check examples/employees.csv
 ====
 
 ====
@@ -403,8 +349,7 @@ properties. For one more example you may check examples/employees.csv
 
 * Simple and easy to understand.
 * Compact and efficient for storing tabular data.
-* Widely supported by spreadsheet software, databases, and programming
-languages.
+* Widely supported by spreadsheet software, databases, and programming languages.
 * Human-readable and editable with a text editor.
 
 *Cons*:
@@ -416,32 +361,24 @@ languages.
 
 == YAML - YAML Ain't Markup Language
 
-The YAML acronym was shorthand for Yet Another Markup Language. But the
-maintainers renamed it to YAML Ain't Markup Language to place more
-emphasis on its data-oriented features. YAML was introduced in the early
-2000s as a human-readable data serialization format inspired by other
-markup languages like XML and JSON. YAML is a data serialization
-language that is consistently listed as one of the most popular
-programming languages. It's often used as a format for configuration
-files, but its object serialization abilities make it a viable
-replacement for languages like JSON.
+The YAML acronym was shorthand for Yet Another Markup Language.
+But the maintainers renamed it to YAML Ain't Markup Language to place more emphasis on its data-oriented features.
+YAML was introduced in the early 2000s as a human-readable data serialization format inspired by other markup languages like XML and JSON.
+YAML is a data serialization language that is consistently listed as one of the most popular programming languages.
+It's often used as a format for configuration files, but its object serialization abilities make it a viable replacement for languages like JSON.
 
 [TIP]
 ====
-YAML is commonly used for configuration files, data serialization, and
-human-readable data representation.
+YAML is commonly used for configuration files, data serialization, and human-readable data representation.
 ====
 
-A YAML file starts with three dashes '—'. These dashes indicate the
-start of a new YAML document. YAML supports multiple documents, and
-compliant parsers will recognize each set of dashes as the beginning of
-a new one. Bellow will be listed *YAML basic 'syntax' components and
-rules set*:
+A YAML file starts with three dashes '—'.
+These dashes indicate the start of a new YAML document.
+YAML supports multiple documents, and compliant parsers will recognize each set of dashes as the beginning of a new one.
+Bellow will be listed *YAML basic 'syntax' components and rules set*:
 
-* *Maps/Dictionaries* (called mapping in YAML), the content of a mapping
-node is an unordered set of key/value node pairs, with the restriction
-that each of the keys is unique. YAML places no further restrictions on
-the nodes.
+* *Maps/Dictionaries* (called mapping in YAML), the content of a mapping node is an unordered set of key/value node pairs, with the restriction that each of the keys is unique.
+YAML places no further restrictions on the nodes.
 
 [source,yaml]
 ----
@@ -450,10 +387,9 @@ type: awesome
 born: 2001
 ----
 
-* *Arrays/Lists* (called sequences in YAML), the content of a sequence
-node is an ordered series of zero or more nodes. In particular, a
-sequence may contain the same node more than once. It could even contain
-itself.
+* *Arrays/Lists* (called sequences in YAML), the content of a sequence node is an ordered series of zero or more nodes.
+In particular, a sequence may contain the same node more than once.
+It could even contain itself.
 
 [source,yaml]
 ----
@@ -466,13 +402,10 @@ languages:
   - C
 ----
 
-* *Literals* (Strings, numbers, boolean, etc.), the content of a scalar
-node is an opaque datum that can be presented as a series of zero or
-more Unicode characters.
+* *Literals* (Strings, numbers, boolean, etc.), the content of a scalar node is an opaque datum that can be presented as a series of zero or more Unicode characters.
 ** *Literals Strings*, the string literals do not require to be quoted.
-It is only important to quote them when they contain a value that can be
-mistaken as a special character. Here is an example where the string has
-to be quoted as & is a special character.
+It is only important to quote them when they contain a value that can be mistaken as a special character.
+Here is an example where the string has to be quoted as & is a special character.
 +
 [source,yaml]
 ----
@@ -480,9 +413,7 @@ message1: YAML & JSON # breaks as a & is a special character
 
 message2: "YAML & JSON" # Works as the string is quoted
 ----
-** *Folding Strings*, strings can also be written in blocks and be
-interpreted without the new line characters using the fold operator
-(greater than).
+** *Folding Strings*, strings can also be written in blocks and be interpreted without the new line characters using the fold operator (greater than).
 +
 [source,yaml]
 ----
@@ -499,8 +430,7 @@ The above YAML snippet is interpreted as below.
 ----
 message: "even though it looks like this is a multiline message,it is actually not"
 ----
-** *Block strings*, strings can be interpreted as blocks using the block
-(pipe) character.
+** *Block strings*, strings can be interpreted as blocks using the block (pipe) character.
 +
 [source,yaml]
 ----
@@ -519,9 +449,8 @@ message: this is
  message
 ----
 ** *Chomp characters*, multiline strings may end with whitespaces.
-Preserve chomp(+) and strip chomp operators can be used either to
-preserve or strip the whitespaces. They can be used with block and pipe
-characters.
+Preserve chomp(+) and strip chomp operators can be used either to preserve or strip the whitespaces.
+They can be used with block and pipe characters.
 *** Preserving new line character
 +
 [source,yaml]
@@ -560,8 +489,8 @@ The above snippet is interpreted as below in JSON.
  "message": "This block line Will be interpreted as a single line without the newline character at the end"
 }
 ----
-* *Comments*, YAML file also supports comments, unlike JSON. A comment
-starts with #.
+* *Comments*, YAML file also supports comments, unlike JSON.
+A comment starts with #.
 
 [source,yaml]
 ----
@@ -570,12 +499,10 @@ starts with #.
 company: spacelift
 ----
 
-* *Indentation* - A YAML file relies on whitespace and indentation to
-indicate nesting. Notice the hierarchy and nesting is visible through a
-Python-like indentation style. It is critical to note that tab
-characters cannot be used for indentation in YAML files; only spaces can
-be used. The number of spaces used for indentation doesn't matter as
-long as they are consistent.
+* *Indentation* - A YAML file relies on whitespace and indentation to indicate nesting.
+Notice the hierarchy and nesting is visible through a Python-like indentation style.
+It is critical to note that tab characters cannot be used for indentation in YAML files; only spaces can be used.
+The number of spaces used for indentation doesn't matter as long as they are consistent.
 
 [source,yaml]
 ----
@@ -593,8 +520,7 @@ image::resources/yaml-spacing.png[align="center"]
 *Pros*:
 
 * Human-readable and intuitive syntax.
-* Supports complex data structures like lists, dictionaries, and nested
-objects.
+* Supports complex data structures like lists, dictionaries, and nested objects.
 * Comments are allowed for documentation.
 * Compact and expressive compared to XML.
 
@@ -607,29 +533,21 @@ objects.
 
 == Protobuf - Protocol Buffers
 
-Protocol Buffers, also known as Protobuf, is a method developed by
-Google for serializing structured data. It's designed to be a
-language-agnostic, platform-neutral, extensible, and efficient mechanism
-for serializing structured data. Protobuf is widely used in
-communication protocols, data storage, and RPC (Remote Procedure Call)
-systems.
+Protocol Buffers, also known as Protobuf, is a method developed by Google for serializing structured data.
+It's designed to be a language-agnostic, platform-neutral, extensible, and efficient mechanism for serializing structured data.
+Protobuf is widely used in communication protocols, data storage, and RPC (Remote Procedure Call) systems.
 
 [TIP]
 ====
-Protocol Buffers were developed by Google in 2008 and were initially
-used internally for various projects, including Google's internal
-services and open-source projects like Protocol Buffers itself.
+Protocol Buffers were developed by Google in 2008 and were initially used internally for various projects, including Google's internal services and open-source projects like Protocol Buffers itself.
 ====
 
-*The primary purpose of Protobuf* is to provide a compact, efficient, and
-easy-to-use method for serializing structured data, making it ideal for
-communication between systems and storing data in a structured format.
+*The primary purpose of Protobuf* is to provide a compact, efficient, and easy-to-use method for serializing structured data, making it ideal for communication between systems and storing data in a structured format.
 
 *Syntax and Examples*
 
-Protocol Buffers use a schema to define the structure of the data being
-serialized. This schema is written in a language-independent format,
-which can then be compiled into code for various programming languages.
+Protocol Buffers use a schema to define the structure of the data being serialized.
+This schema is written in a language-independent format, which can then be compiled into code for various programming languages.
 Here's a breakdown of the syntax using an example:
 
 * *Define the message structure:*
@@ -646,36 +564,29 @@ message Person {
 ----
 +
 This example defines a message type called Person with three fields:
-name, id, and email. name is a string, id is a 32-bit integer, and email
-is a repeated field (an array) of strings.
+name, id, and email. name is a string, id is a 32-bit integer, and email is a repeated field (an array) of strings.
 
 * *Compile the schema:*
 +
-To compile the schema .proto file into Java code, you'll need to use the
-Protocol Buffer compiler (protoc) along with the Java plugin. Here's how
-you can do it:
+To compile the schema .proto file into Java code, you'll need to use the Protocol Buffer compiler (protoc) along with the Java plugin.
+Here's how you can do it:
 +
-Assuming you have a .proto file named your_proto_file.proto containing
-the schema definition, you can compile it to generate Java code using
-the following command:
+Assuming you have a .proto file named your_proto_file.proto containing the schema definition, you can compile it to generate Java code using the following command:
 +
 [source,protoc]
 ----
 protoc --java_out=. your_proto_file.proto
 ----
 +
-This command tells protoc to generate Java code in the current directory
-(–java_out=.) based on the schema defined in your_proto_file.proto.
+This command tells protoc to generate Java code in the current directory (–java_out=.) based on the schema defined in your_proto_file.proto.
 +
-After running this command, you'll find Java files generated based on
-your schema. Typically, these files will be in a package structure
-matching the namespace specified in your .proto file.
+After running this command, you'll find Java files generated based on your schema.
+Typically, these files will be in a package structure matching the namespace specified in your .proto file.
 
 * *Using the generated code:*
 +
-Once you've compiled the schema and generated the Java code, you can use
-it in your Java project. Here's how you can create and use Protocol
-Buffer messages in Java:
+Once you've compiled the schema and generated the Java code, you can use it in your Java project.
+Here's how you can create and use Protocol Buffer messages in Java:
 +
 [source,java]
 ----
@@ -709,24 +620,17 @@ public class Main {
 }
 ----
 +
-In this Java example, we import the generated Java code for the Person
-message type (assuming it's in the package
-com.example.protos.YourProtoFile). Then, we create a new Person.Builder,
-set values for its fields, build the message, and serialize it to bytes.
-Later, we deserialize the bytes back into a Person object using the
-parseFrom method provided by Protocol Buffers.
+In this Java example, we import the generated Java code for the Person message type (assuming it's in the package com.example.protos.YourProtoFile).
+Then, we create a new Person.Builder, set values for its fields, build the message, and serialize it to bytes.
+Later, we deserialize the bytes back into a Person object using the parseFrom method provided by Protocol Buffers.
 
 [IMPORTANT]
 ====
-Ensure that you have the Protocol Buffers runtime library for Java
-included in your project's dependencies to use the generated code
-effectively.
+Ensure that you have the Protocol Buffers runtime library for Java included in your project's dependencies to use the generated code effectively.
 ====
 
-And yes, we touched the Serialization/Deserialization topic a bit, but
-it is difficult not to, when speaking about Binary Data or formats
-operating with it. The same will happen in the following chapter - the
-'raw' Byte Array.
+And yes, we touched the Serialization/Deserialization topic a bit, but it is difficult not to, when speaking about Binary Data or formats operating with it.
+The same will happen in the following chapter - the 'raw' Byte Array.
 
 ====
 *Pros*:
@@ -734,8 +638,7 @@ operating with it. The same will happen in the following chapter - the
 * Efficient binary encoding for compact data transmission.
 * Language-neutral with support for multiple programming languages.
 * Schema evolution support for backward and forward compatibility.
-* Generated code provides type safety and efficient
-serialization/deserialization.
+* Generated code provides type safety and efficient serialization/deserialization.
 
 *Cons*:
 
@@ -746,12 +649,10 @@ serialization/deserialization.
 
 == Byte Array
 
-Byte arrays are used to represent binary data in memory or during
-transmission over the network. In network communication, data is often
-transmitted as a stream of bytes. A byte array is a data structure that
-stores a sequence of bytes contiguously in memory. It provides a
-convenient way to represent data in a format that can be easily sent
-over a network.
+Byte arrays are used to represent binary data in memory or during transmission over the network.
+In network communication, data is often transmitted as a stream of bytes.
+A byte array is a data structure that stores a sequence of bytes contiguously in memory.
+It provides a convenient way to represent data in a format that can be easily sent over a network.
 
 *Syntax and Examples*
 
@@ -784,9 +685,7 @@ public class Client {
 }
 ----
 +
-In this Java example, we establish a connection to a server running on
-localhost at port 8080. We then get the output stream of the socket and
-write a byte array containing the data we want to send to the server.
+In this Java example, we establish a connection to a server running on localhost at port 8080. We then get the output stream of the socket and write a byte array containing the data we want to send to the server.
 
 * _Receiving Data:_
 +
@@ -822,26 +721,22 @@ public class Server {
 }
 ----
 +
-In this Java example, we create a server socket and accept incoming
-connections. Once a connection is established, we get the input stream
-of the socket and read data into a byte array buffer. We then convert
-the byte array to a string to interpret the received data.
+In this Java example, we create a server socket and accept incoming connections.
+Once a connection is established, we get the input stream of the socket and read data into a byte array buffer.
+We then convert the byte array to a string to interpret the received data.
 
 ====
 *Pros*:
 
 * Efficient representation of binary data.
-* Can represent any type of data, including images, audio, video, and
-serialized objects.
+* Can represent any type of data, including images, audio, video, and serialized objects.
 * Suitable for low-level network protocols and file formats.
 
 *Cons*:
 
 * Not human-readable or editable.
-* Platform-dependent byte ordering and encoding may cause compatibility
-issues.
-* Lack of structure makes it harder to parse and process compared to
-text-based formats.
+* Platform-dependent byte ordering and encoding may cause compatibility issues.
+* Lack of structure makes it harder to parse and process compared to text-based formats.
 ====
 
 == Resources
@@ -884,10 +779,3 @@ text-based formats.
 * https://bsonspec.org/spec.html
 
 == Keep digging!
-
-'''
-
-Created by: Mihail Trifonov +
-Edited by: Igor Gorea
-
-Email: mihail.trifonov@endava.com

@@ -1,0 +1,16 @@
+= General Table of Contents
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
+:icons: font
+:highlightjs-languages: java
+
+include::1_How_to_Create_an_AWS.adoc[]
+
+include::2_Secure_Shell_(SSH).adoc[]
+
+include::3_Terminal_Commands.adoc[]
+
+include::4_Setting_Up_WSL.adoc[]

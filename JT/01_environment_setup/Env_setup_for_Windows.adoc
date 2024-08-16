@@ -1,10 +1,15 @@
 = Software Installation for Windows
-:toc:
+Iurii Rusakov, Liudmila Topal
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-
-=== SDK, Maven
+== SDK, Maven
 
 Java SDK::
 The Java Software Development Kit (*SDK*), also known as the Java Development Kit (*JDK*), is a comprehensive suite of tools for developing Java applications.
@@ -56,18 +61,20 @@ image::resources/SDK-06.png[]
 * Check Java version by running the command: _java -version_
 * Check Maven version by running the command: _mvn -version_
 +
-TIP: If it looks like below, then you are all set up correctly! Versions may differ in your case, but the main thing is that there are no errors.
+TIP: If it looks like below, then you are all set up correctly!
+Versions may differ in your case, but the main thing is that there are no errors.
 +
 image::resources/SDK-07.png[]
 
-=== Git
+== Git
 
 Is a distributed version control system _used for tracking changes in source code_ during software development.
 It facilitates collaboration among developers by allowing multiple versions of a project to be maintained simultaneously and efficiently merging changes.
 
 . https://git-scm.com/download/win[*Download*] and install Git:
 +
-Before you start using Git, you have to make it available on your computer. Even if it's already installed, it's probably a good idea to update to the latest version.
+Before you start using Git, you have to make it available on your computer.
+Even if it's already installed, it's probably a good idea to update to the latest version.
 
 . Set up Git:
 +
@@ -88,11 +95,14 @@ Because this is a system configuration file, you would need administrative or su
 
 - *_~/.gitconfig_ or _~/.config/git/config_ file:*
 +
-Values specific personally to you, the user. You can make Git read and write to this file specifically by passing the _--global_ option, and this affects all of the repositories you work with on your system.
+Values specific personally to you, the user.
+You can make Git read and write to this file specifically by passing the _--global_ option, and this affects all of the repositories you work with on your system.
 
 - *config file in the Git directory (that is, _.git/config_) of whatever repository you're currently using:*
 +
-Specific to that single repository. You can force Git to read from and write to this file with the _--local_ option, but that is in fact the default. Unsurprisingly, you need to be located somewhere in a Git repository for this option to work properly.
+Specific to that single repository.
+You can force Git to read from and write to this file with the _--local_ option, but that is in fact the default.
+Unsurprisingly, you need to be located somewhere in a Git repository for this option to work properly.
 +
 Each level overrides values in the previous level, so values in .git/config trump those in [path]/etc/gitconfig.
 +
@@ -108,9 +118,9 @@ $ git config --list --show-origin
 _The first thing you should do when you install Git_ is to set your username and email address.
 +
 [NOTE]
-=====
+====
 This is important because every Git commit uses this information, and it's immutably baked into the commits you start creating:
-=====
+====
 +
 [source,bash]
 ----
@@ -123,7 +133,8 @@ If you want to override this with a different name or email address for specific
 +
 **Your default branch name**
 +
-_By default_, Git will create a branch called master when you create a new repository with git init. From Git version 2.28 onwards, you can set a different name for the initial branch.
+_By default_, Git will create a branch called master when you create a new repository with git init.
+From Git version 2.28 onwards, you can set a different name for the initial branch.
 +
 _To set main as the default branch name, do:_
 +
@@ -146,6 +157,7 @@ color.interactive=auto
 color.diff=auto
 ...
 ----
+
 You can also check what Git thinks a specific key's value is by typing git config <key>:
 +
 [source,bash]
@@ -154,7 +166,7 @@ $ git config user.name
 John Doe
 ----
 
-=== [[intellij-idea]]IntelliJ IDEA
+== [[intellij-idea]]IntelliJ IDEA
 
 . https://www.jetbrains.com/idea/download/[*Download*] and install IntelliJ IDEA:
 
@@ -169,7 +181,8 @@ Click on "_Accept_" to proceed:
 +
 image::resources/idea-02.png[]
 +
-Then you can see the first screen of IntelliJ IDEA. Here you can:
+Then you can see the first screen of IntelliJ IDEA.
+Here you can:
 +
 image::resources/idea-03.png[]
 +
@@ -182,7 +195,8 @@ image::resources/idea-04.png[]
 +
 Set up the new project in IntelliJ IDEA or create a new one from existing sources
 +
-You should have a link to the project repository. If you don't have it, ask your team lead for it.
+You should have a link to the project repository.
+If you don't have it, ask your team lead for it.
 +
 *OR:*
 
@@ -202,16 +216,15 @@ image::resources/idea-08.png[]
 +
 image::resources/idea-09.png[]
 
-=== [[postman]]Postman
+== [[postman]]Postman
 
 *Postman* is an app for interacting with HTTP APIs.
 It presents you with a friendly GUI _for constructing requests and reading responses_.
 
-But Postman recently changed their software to remove the Scratch Pad mode, which means that all configuration data,
-including _Collections and Environments_, is uploaded to Postman's cloud servers.
+But Postman recently changed their software to remove the Scratch Pad mode, which means that all configuration data, including _Collections and Environments_, is uploaded to Postman's cloud servers.
 
-This poses a **potential security risk** for many projects. To avoid storing collections in a Postman account,
-users are advised to uninstall their current version of Postman and install an older version using the following https://go.pstmn.io/dl-win64-v9-latest[link].
+This poses a **potential security risk** for many projects.
+To avoid storing collections in a Postman account, users are advised to uninstall their current version of Postman and install an older version using the following https://go.pstmn.io/dl-win64-v9-latest[link].
 
 . https://go.pstmn.io/dl-win64-v9-latest[*Download*] and installPostman for Windows (64-bit):
 +
@@ -222,21 +235,28 @@ image::resources/postman-02.png[]
 Do not sign up or log in and don't Update software for security reasons.
 ====
 +
-Requests are the foundation of Postman, as they are used to test APIs. Over time, the number of requests will increase, and it can become challenging to navigate through them. Therefore, it's essential to organize requests into collections. Collections can be thought of as folders for storing requests. Organizing collections is a significant topic, and it's something that might be discussed in an interview. In short, collections should have a logical structure and be organized based on a certain criterion, such as the version of the API being tested or a specific block of functionality.
+Requests are the foundation of Postman, as they are used to test APIs.
+Over time, the number of requests will increase, and it can become challenging to navigate through them.
+Therefore, it's essential to organize requests into collections.
+Collections can be thought of as folders for storing requests.
+Organizing collections is a significant topic, and it's something that might be discussed in an interview.
+In short, collections should have a logical structure and be organized based on a certain criterion, such as the version of the API being tested or a specific block of functionality.
 +
 Both requests and collections can be created using the "New" button in the upper left corner of the interface.
 +
 Postman collection with endpoints and environments set up will be provided by your project team lead.
 
-=== [[winscp]]WinSCP
+== [[winscp]]WinSCP
 
 WinSCP (Windows Secure Copy) is a free and open-source file transfer client for Windows.
 
-It supports protocols like SFTP, SCP, FTPS, and FTP, and is commonly used for secure file transfer between a local computer and a remote server. It also offers a graphical user interface for easy navigation and file management.
+It supports protocols like SFTP, SCP, FTPS, and FTP, and is commonly used for secure file transfer between a local computer and a remote server.
+It also offers a graphical user interface for easy navigation and file management.
 
 . https://winscp.net/eng/download.php[*Download*] WinSCP:
 +
-Click on the "*Download*" button for the latest version of WinSCP. This will download the installation package to your computer.
+Click on the "*Download*" button for the latest version of WinSCP.
+This will download the installation package to your computer.
 
 . Run the Installer:
 +
@@ -286,8 +306,7 @@ You can choose to start WinSCP right away or uncheck the option and click "_Fini
 +
 image::resources/winscp-02.png[]
 
-==== Using WinSCP
-image::resources/winscp-03.png[]
+=== Using WinSCP image::resources/winscp-03.png[]
 
 [INFO]
 ====
@@ -299,13 +318,14 @@ You'll need to provide the server details, such as _hostname_, _username_, and _
 
 image::resources/winscp-04.png[]
 
-=== [[oracle-sql]]Oracle SQL
+== [[oracle-sql]]Oracle SQL
 
 Oracle SQL Developer is a free graphical tool that enhances productivity and simplifies database development tasks.
 
 [NOTE]
 ====
-With SQL Developer, you can browse database objects, run SQL statements and SQL scripts, edit and debug PL/SQL statements, manipulate and export data, and view and create reports. You can connect to Oracle databases, and you can connect to selected third-party (non-Oracle) databases, view metadata and data, and migrate these databases to Oracle.
+With SQL Developer, you can browse database objects, run SQL statements and SQL scripts, edit and debug PL/SQL statements, manipulate and export data, and view and create reports.
+You can connect to Oracle databases, and you can connect to selected third-party (non-Oracle) databases, view metadata and data, and migrate these databases to Oracle.
 ====
 
 . Browse to this https://www.oracle.com/database/sqldeveloper/technologies/download/[link] and click on *Download*:
@@ -334,11 +354,12 @@ image::resources/oracle-06.png[]
 +
 image::resources/oracle-07.png[]
 
-. Open the shortcut. It will give you welcome page:
+. Open the shortcut.
+It will give you welcome page:
 +
 image::resources/oracle-08.png[]
 
-=== [[putty]]PuTTY
+== [[putty]]PuTTY
 
 PuTTY is a free, open-source terminal emulator, serial console, and network file transfer application.
 
@@ -370,20 +391,25 @@ image::resources/putty-02.png[]
 +
 * *License Agreement*: Read the End-User License Agreement, select _"I accept the terms in the License Agreement"_, and click _"Next"_.
 +
-* *Destination Folder*: Choose the folder where you want to install PuTTY. The default location is usually fine. Click _"Next"_.
+* *Destination Folder*: Choose the folder where you want to install PuTTY.
+The default location is usually fine.
+Click _"Next"_.
 +
-* *Product Features*: Choose the features you want to install. You can select the default set of features or customize them according to your needs. Click _"Next"_.
+* *Product Features*: Choose the features you want to install.
+You can select the default set of features or customize them according to your needs.
+Click _"Next"_.
 +
 * *Ready to Install*: Review your choices and click _"Install"_ to start the installation.
 
 . Completing the Installation:
 +
-The installer will now install PuTTY on your computer. This may take a few moments.
+The installer will now install PuTTY on your computer.
+This may take a few moments.
 +
 [NOTE]
 Once the installation is complete, click _"Finish"_ to exit the installer.
 
-==== Using PuTTY
+=== Using PuTTY
 
 [NOTE]
 To start PuTTY, go to the Start Menu or the installation directory, and click on the PuTTY icon.
@@ -398,5 +424,3 @@ image::resources/putty-03.png[]
 If you're connecting for the first time, you may see a security alert about the server's host key.
 +
 If you trust the server, click _"Yes"_ to continue.
-
-Copyright © 2024 by Iurii Rusakov, Liudmila Topal

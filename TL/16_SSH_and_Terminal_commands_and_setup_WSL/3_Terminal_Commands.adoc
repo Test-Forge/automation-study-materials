@@ -1,7 +1,9 @@
-= *Terminal Commands*
+= Terminal Commands
+Iurii Rusakov, Igor Gorea
 :doctype: book
 :toc: left
 :sectnums:
+:highlightjs-languages: java
 
 '''
 
@@ -206,5 +208,3 @@
 * Search for a specific text in all files in a directory:
 
  `grep -r "text" /path/to/directory`
-
-Copyright © 2024 by Iurii Rusakov, Igor Gorea

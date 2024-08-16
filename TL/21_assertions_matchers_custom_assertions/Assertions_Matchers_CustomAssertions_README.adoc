@@ -1,8 +1,12 @@
 = Assertions. Matchers. Custom assertions.
+Ilie Grecu, Sabrina Graur
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
+:icons: font
+:highlightjs-languages: java
 
 == Assertions. General overview.
 
@@ -416,5 +420,3 @@ public static BookAssert assertThat(Book actual) {
 And next we add custom assertions methods to the assertion class. 
 
 Test cases for described above assertions and matchers can be found in `TestAssertions` class.
-
-Author © 2024 Ilie Grecu, edited by Sabrina Graur.

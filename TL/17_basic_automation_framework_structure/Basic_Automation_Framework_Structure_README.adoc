@@ -1,12 +1,12 @@
+= Basic Automation Framework Structure
+Mihail Trifonov, Chiril Colesnicenco
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:revdate: June 2024
 :toc: left
-:toc-title: Contents
 :sectnums:
 :icons: font
-
-
-= Basic Automation Framework Structure
+:highlightjs-languages: java
 
 image::resources/basic_atf_structure.png[width=322,align="center"]
 
@@ -171,6 +171,7 @@ In our case ATF being a Maven project has a structure from the start comprised o
 Normally the 'src' package contains 'main' and 'test' packages, for our current example we will get rid of the 'main' one, all the code will be under 'src/test' package (except the files that need to be in the root folder).
 
 image::resources/maven_project_structure.png[width=322,align="center"]
+
 [.text-center]
 basic maven project structure
 
@@ -191,6 +192,7 @@ The given example of ATFs structure is based on the following basic tools:
 As you already know, our dependencies should be placed in the 'pom.xml' file
 
 image::resources/pom_xml_location.png[width=322,align="center"]
+
 [.text-center]
 pom.xml file location
 
@@ -230,7 +232,7 @@ The 'Runner' class is the place where you configure your test suite run, here yo
 .*'api' package*
 [%collapsible]
 ====
-image::resources/api_package.png[width=405, text-align="center", align="center"]
+image::resources/api_package.png[width=405,text-align="center",align="center"]
 [.text-center]
 api package location
 
@@ -243,6 +245,7 @@ This 'POJO' classes could be grouped in 2 categories:
 * *'requests'* - serve as 'build material' for request bodies
 * *'responses'* - serve a storage for data returned in responses
 ====
+
 .*'configurations' package*
 [%collapsible]
 ====
@@ -293,6 +296,7 @@ This class should act as parent for the other 'page objects'.
 There also could be a class like 'CommonSteps', containing steps that are repeated on different pages, just don't forget to pass the current pages name as a parameter to the step.
 Related to steps with API interactions only, they may be placed either in POM pages or in a separate class - the decision here should come from testing necessities.
 ====
+
 .*'utils' package*
 [%collapsible]
 ====
@@ -305,6 +309,7 @@ And finally the last package from 'java' package - the 'utils' package, now if f
 If in the process of testing some additional necessities arise for some data generation, data parsing, etc. all the implementation for this 'helper' classes should be placed in this package and named accordingly.
 ====
 =====
+
 .*resources folder*
 [%collapsible]
 ====
@@ -324,11 +329,13 @@ Additionally, also here is placed the 'log4j.xml' configuration file for the 'lo
 ====
 
 '''
+
 *Reports*
 
 Also, a good practice is to have a separate folder to keep the execution reports, in the given case it is besides the 'src':
 
 image::resources/reports_folder.png[width=410,align="center"]
+
 [.text-center]
 reports folder location
 
@@ -362,7 +369,6 @@ ATF vs Application under test
 == Resources
 
 image::resources/resources_digging.png[width=410,align="left"]
-
 
 Additional information on topics mentioned above you might be interested in:
 
@@ -402,16 +408,3 @@ Additional information on topics mentioned above you might be interested in:
 * @freecodecamp
 
 * https://www.youtube.com/watch?v=Gg8vBJvMQkQ
-
-'''
-*Created by:*
-Mihail Trifonov
-
-*Email:* mihail.trifonov@endava.com
-
-*Updated by:*
-Chiril Colesnicenco
-
-image::resources/author_awaiting_feedback.png[width=660,align="center"]
-[.text-center]
-author awaiting feedback

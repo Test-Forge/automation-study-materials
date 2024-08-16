@@ -1,4 +1,12 @@
 = Exploring Build Tools: Maven vs. Gradle
+Liurca Andreea, Iurii Rusakov
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
+:icons: font
+:highlightjs-languages: java
 
 ++++
 <style>
@@ -13,71 +21,60 @@
 [.text-center]
 image::images/maven_gradle.png[width=40%]
 
-'''
-
-== Contents
-
-1. link:#introduction-to-build-tools[Introduction to Build Tools]
-
-2. link:#maven-the-convention-based-build-tools[Maven: The Convention-Based Build Tools]
-
-3. link:#gradle-the-flexible-build-automation-tools[Gradle: The Flexible Build Automation Tool]
-
-4. link:#feature-comparison-maven-vs-gradle[Feature Comparison: Maven vs. Gradle]
-
-5. link:#local-and-remote-repository[Local and Remote Repository]
-
-6. link:#maven-and-gradle-command-line-options[Maven and Gradle: Command-Line Options]
-
-7. link:#advanced-build-configurations-with-maven-and-gradle[Advanced Build Configurations with Maven and Gradle]
-8. link:#emerging-trends-in-build-automation-tools[Emerging trends in build automation tools]
-8. link:#performance[Performance]
-9. link:#resources[Resources]
-
-'''
-
 == [[introduction-to-build-tools]] 🔥 Introduction to Build Tools
 
 === 🌍 What are Build tools?
 
-*Build tools* are an essential part of the software development lifecycle. They are specialized software that automates various tasks such as compiling source code into binary code, packaging binary code, running tests, and creating documentation among others.
+*Build tools* are an essential part of the software development lifecycle.
+They are specialized software that automates various tasks such as compiling source code into binary code, packaging binary code, running tests, and creating documentation among others.
 
-A build tool streamlines the process of code compilation, ensuring that software builds are consistent and reproducible. It often supports dependency management, allowing developers to specify and integrate external libraries easily. Moreover, build tools can be integrated with continuous integration systems to enable automatic builds every time a change is made to the source code.
+A build tool streamlines the process of code compilation, ensuring that software builds are consistent and reproducible.
+It often supports dependency management, allowing developers to specify and integrate external libraries easily.
+Moreover, build tools can be integrated with continuous integration systems to enable automatic builds every time a change is made to the source code.
 
 === Key Advantages of Utilizing Build Tools
 
  🔑 **Automation:**
 
-One of the most prominent benefits of build tools is their ability to automate repetitive tasks, thereby reducing manual errors and inefficiencies. This ensures consistent outcomes, even for complex projects.
+One of the most prominent benefits of build tools is their ability to automate repetitive tasks, thereby reducing manual errors and inefficiencies.
+This ensures consistent outcomes, even for complex projects.
 
  🔑 **Dependency Management:**
 
-Modern applications often rely on a myriad of external libraries and frameworks. Build tools simplify the process of integrating these dependencies, ensuring the application remains functional and up-to-date.
+Modern applications often rely on a myriad of external libraries and frameworks.
+Build tools simplify the process of integrating these dependencies, ensuring the application remains functional and up-to-date.
 
  🔑 **Task Parallelism:**
 
-Many advanced build tools can execute multiple tasks concurrently. This parallel processing significantly reduces build times, especially for larger projects.
+Many advanced build tools can execute multiple tasks concurrently.
+This parallel processing significantly reduces build times, especially for larger projects.
 
  🔑 **Incremental Builds:**
 
-Instead of compiling the entire application every time a change is made, build tools can detect modifications in the source code and only recompile the affected sections. This results in faster build times and quicker feedback loops.
+Instead of compiling the entire application every time a change is made, build tools can detect modifications in the source code and only recompile the affected sections.
+This results in faster build times and quicker feedback loops.
 
  🔑 **CI/CD Integration:**
 
-Continuous Integration and Continuous Deployment (CI/CD) have become staples in modern development practices. Build tools often come with native support for CI/CD pipelines, ensuring seamless integration, testing, and deployment of code changes.
+Continuous Integration and Continuous Deployment (CI/CD) have become staples in modern development practices.
+Build tools often come with native support for CI/CD pipelines, ensuring seamless integration, testing, and deployment of code changes.
 
 '''
 
 == [[maven-the-convention-based-build-tools]]❗ Maven: The Convention-Based Build Tools
 
-*Maven* is a software project management build tool based on Project Object Model (POM). The tool is typically used for Java-based projects. Every Java project requires certain dependencies, which are automatically downloaded when running a Maven build. This simplifies everyday tasks for Java developers and helps them with their projects.
+*Maven* is a software project management build tool based on Project Object Model (POM).
+The tool is typically used for Java-based projects.
+Every Java project requires certain dependencies, which are automatically downloaded when running a Maven build.
+This simplifies everyday tasks for Java developers and helps them with their projects.
 
 === Five primary and most significant concepts of Maven:
+
 [%collapsible]
 .🧩Project Object Model (POM)
 ====
 
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -91,7 +88,7 @@ Continuous Integration and Continuous Deployment (CI/CD) have become staples in 
 [%collapsible]
 .🧩Dependencies and repositories
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -103,7 +100,7 @@ Continuous Integration and Continuous Deployment (CI/CD) have become staples in 
 [%collapsible]
 .🧩Build life cycles, phases and goals
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -116,7 +113,7 @@ Continuous Integration and Continuous Deployment (CI/CD) have become staples in 
 [%collapsible]
 .🧩Build profiles
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -130,7 +127,7 @@ Continuous Integration and Continuous Deployment (CI/CD) have become staples in 
 [%collapsible]
 .🧩Build plugins
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -146,11 +143,13 @@ Maven follows a modular architecture designed to support various aspects of the 
 
 image::images/maven-arhitecure.png[width=30%]
 
-Overall, Maven's architecture provides a flexible and extensible framework for managing software projects, automating builds, and streamlining the software development process. By leveraging its modular components and standardized conventions, developers can efficiently build, test, and deploy software projects of varying complexity.
+Overall, Maven's architecture provides a flexible and extensible framework for managing software projects, automating builds, and streamlining the software development process.
+By leveraging its modular components and standardized conventions, developers can efficiently build, test, and deploy software projects of varying complexity.
 
 === Maven build lifecycle
 
-The Maven Build Lifecycle consists of several predefined phases, organized into three main lifecycles: Clean, Default, and Site. Each phase represents a specific stage in the software development process, and Maven executes the phases sequentially.
+The Maven Build Lifecycle consists of several predefined phases, organized into three main lifecycles: Clean, Default, and Site.
+Each phase represents a specific stage in the software development process, and Maven executes the phases sequentially.
 
 *Clean Lifecycle:*
 
@@ -168,7 +167,8 @@ The Maven Build Lifecycle consists of several predefined phases, organized into 
 - The Site Lifecycle is used for generating project documentation and reports.
 - It consists of several phases, including: pre-site, site, post-site, site-deploy.
 
-Developers can execute lifecycle phases using Maven commands such as `mvn clean`, `mvn compile`, `mvn test`, `mvn package`, `mvn install`, and `mvn deploy`. Maven automatically executes all preceding phases when a specific phase is invoked, ensuring that tasks are executed in the correct order.
+Developers can execute lifecycle phases using Maven commands such as `mvn clean`, `mvn compile`, `mvn test`, `mvn package`, `mvn install`, and `mvn deploy`.
+Maven automatically executes all preceding phases when a specific phase is invoked, ensuring that tasks are executed in the correct order.
 
 Additionally, developers can customize and extend the build process by defining custom lifecycle phases, binding goals to existing phases, or creating custom plugins to perform specialized tasks.
 
@@ -176,9 +176,10 @@ Overall, the Maven Build Lifecycle provides a standardized and predictable mecha
 
 === Phases of the build Lifecycle:
 
-image::images/Maven-Life-Cycle-jpg[width=30%]
+image::images/Maven-Life-Cycle.jpg[width=30%]
 
-The *Maven Build Lifecycle* consists of several predefined phases, organized into three main lifecycles: Clean, Default, and Site. Each phase represents a specific stage in the software development process, and Maven executes the phases sequentially.
+The *Maven Build Lifecycle* consists of several predefined phases, organized into three main lifecycles: Clean, Default, and Site.
+Each phase represents a specific stage in the software development process, and Maven executes the phases sequentially.
 
 *For more information:*
 
@@ -190,22 +191,29 @@ image::images/maven_build_life_cycle.jpg[width=30%]
 
 === 🌍 What is Gradle?
 
-*Gradle* is a build automation tool known for its flexibility to build software. A build automation tool is used to automate the creation of applications. The building process includes compiling, linking, and packaging the code. The process becomes more consistent with the help of build automation tools.
+*Gradle* is a build automation tool known for its flexibility to build software.
+A build automation tool is used to automate the creation of applications.
+The building process includes compiling, linking, and packaging the code.
+The process becomes more consistent with the help of build automation tools.
 
-It is popular for its ability to build automation in languages like Java, Scala, Android, C/C++, and Groovy. The tool supports groovy-based Domain Specific Language over XML. Gradle provides building, testing, and deploying software on several platforms.
+It is popular for its ability to build automation in languages like Java, Scala, Android, C/C++, and Groovy.
+The tool supports groovy-based Domain Specific Language over XML.
+Gradle provides building, testing, and deploying software on several platforms.
 
-The tool is popular for building any software and large projects. Gradle includes the pros of Ant and Maven and curbs the cons of both.
+The tool is popular for building any software and large projects.
+Gradle includes the pros of Ant and Maven and curbs the cons of both.
 
 === Groovy-based DSL: Understanding Gradle's build scripts
 
-Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scripts. This DSL allows developers to write build scripts in a concise and readable manner, leveraging Groovy's expressive syntax and language features.
+Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scripts.
+This DSL allows developers to write build scripts in a concise and readable manner, leveraging Groovy's expressive syntax and language features.
 
 === Key aspects of Gradle's Groovy-based DSL include:
 
 [%collapsible]
 .🧩Declarative Syntax
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -216,7 +224,7 @@ Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scr
 [%collapsible]
 .🧩Convention over Configuration
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -227,7 +235,7 @@ Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scr
 [%collapsible]
 .🧩DSL Extensions
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -238,7 +246,7 @@ Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scr
 [%collapsible]
 .🧩Programmatic Control
 ====
-[cols="1", options="header"]
+[cols="1",options="header"]
 |===
 |Description
 
@@ -246,10 +254,10 @@ Gradle uses a Groovy-based DSL (Domain Specific Language) for defining build scr
 |===
 ====
 
-
 === Gradle's Build Lifecycle and Tasks
 
-Gradle organizes the build process into a series of lifecycle phases, similar to Maven. Each phase represents a specific stage in the build process, and developers can define tasks to be executed during each phase.
+Gradle organizes the build process into a series of lifecycle phases, similar to Maven.
+Each phase represents a specific stage in the build process, and developers can define tasks to be executed during each phase.
 
 💣 Phase 1. Initialization
 
@@ -262,14 +270,16 @@ Gradle initializes the project and evaluates the build script.
 
 💣 Phase 2. Configuration
 
-Gradle configures the project by evaluating the build script and resolving dependencies. This phase determines the tasks and properties that will be executed during the build.
+Gradle configures the project by evaluating the build script and resolving dependencies.
+This phase determines the tasks and properties that will be executed during the build.
 
 - Evaluates the build scripts, build.gradle(.kts), of every project participating in the build.
 - Creates a task graph for requested tasks.
 
 💣 Phase 3. Execution
 
-Gradle executes the tasks defined in the build script according to their dependencies and execution order. Tasks can be executed in parallel to maximize performance.
+Gradle executes the tasks defined in the build script according to their dependencies and execution order.
+Tasks can be executed in parallel to maximize performance.
 
 - Schedules and executes the selected tasks.
 - Dependencies between tasks determine execution order.
@@ -293,16 +303,17 @@ This diagram shows two example task graphs, one abstract and the other concrete,
 
 image::images/generic-task-graph-gradle.png[width=80%]
 
-The capability of modelling any build process in graph of tasks makes gradle so flexible and extensible at the same time. Both plugins and build scripts contribute to the task graph via the task dependency mechanism and annotated inputs/outputs.
+The capability of modelling any build process in graph of tasks makes gradle so flexible and extensible at the same time.
+Both plugins and build scripts contribute to the task graph via the task dependency mechanism and annotated inputs/outputs.
 
 '''
 
 == [[feature-comparison-maven-vs-gradle]] 💡Feature comparison: Maven vs. Gradle
 
+Comparing Maven and Gradle involves examining their respective features, advantages, and limitations.
+Here's a feature comparison between Maven and Gradle:
 
-Comparing Maven and Gradle involves examining their respective features, advantages, and limitations. Here's a feature comparison between Maven and Gradle:
-
-[cols="1,1", options="header"]
+[cols="1,1",options="header"]
 |===
 | *#Maven#* | *#Gradle#*
 
@@ -334,7 +345,9 @@ Comparing Maven and Gradle involves examining their respective features, advanta
 | - Gradle's popularity has been steadily growing, especially in more recent years, and it has gained traction beyond the Java ecosystem.
 |===
 
-*In summary*, both Maven and Gradle are powerful build automation tools with their own set of strengths and weaknesses. Maven is more convention-driven and is well-established in the Java ecosystem, while Gradle offers more flexibility and performance enhancements, making it a preferred choice for many modern projects, especially those with complex requirements or large-scale builds. Ultimately, the choice between Maven and Gradle depends on factors such as project requirements, familiarity with the tools, and team preferences.
+*In summary*, both Maven and Gradle are powerful build automation tools with their own set of strengths and weaknesses.
+Maven is more convention-driven and is well-established in the Java ecosystem, while Gradle offers more flexibility and performance enhancements, making it a preferred choice for many modern projects, especially those with complex requirements or large-scale builds.
+Ultimately, the choice between Maven and Gradle depends on factors such as project requirements, familiarity with the tools, and team preferences.
 
 > Real-World Examples of Maven and Gradle Usage
 
@@ -354,17 +367,19 @@ Comparing Maven and Gradle involves examining their respective features, advanta
 
 == [[local-and-remote-repository]]💡 Local and Remote Repository
 
-In the realm of software development, repositories play a pivotal role in managing dependencies, storing artifacts, and facilitating collaboration among developers. Understanding the concepts of local and remote repositories is crucial for ensuring efficient software development processes.
+In the realm of software development, repositories play a pivotal role in managing dependencies, storing artifacts, and facilitating collaboration among developers.
+Understanding the concepts of local and remote repositories is crucial for ensuring efficient software development processes.
 
 === ✅ Local Repository
 
 In Maven and Gradle, the creation of folders in the local repository is automatically handled by the respective tools and is based on the group ID of the artifacts.
 
-Generally, the directory structure in the local repository is inverted to reflect the group name of the dependencies. Thus, dependencies are grouped based on their group name, making it easy to navigate and manage dependencies within the local repository.
+Generally, the directory structure in the local repository is inverted to reflect the group name of the dependencies.
+Thus, dependencies are grouped based on their group name, making it easy to navigate and manage dependencies within the local repository.
 
 Here's an illustration of how directories are created in the local repository, using Maven as an example:
 
-.  If you have a dependency with the group name *org.example* and the artifact my-artifact, Maven will create directories as follows:
+. If you have a dependency with the group name *org.example* and the artifact my-artifact, Maven will create directories as follows:
 
 +
 [source,bash]
@@ -375,7 +390,7 @@ Here's an illustration of how directories are created in the local repository, u
 +
 All artifacts with the group name *org.example* will be placed inside a directory org, then inside a directory example, and finally inside a directory with the artifact name my-artifact.
 
-.  Similarly, for a dependency with the group name *com.example* and the artifact another-artifact, the directories would be:
+. Similarly, for a dependency with the group name *com.example* and the artifact another-artifact, the directories would be:
 
 +
 [source,bash]
@@ -383,16 +398,16 @@ All artifacts with the group name *org.example* will be placed inside a director
 ~/.m2/repository/com/example/another-artifact/
 ----
 
-
-
-
 All artifacts with the group name *com.example* will be placed inside a directory com, then inside a directory example, and finally inside a directory with the artifact name another-artifact.
 
 === ✅ Remote repository
 
 - Links to remote repositories:
 
-To access remote repositories, you need to add the appropriate links in your project's configuration files. For example, in Maven, this is typically done in the *pom.xml* file, and in Gradle, in the *build.gradle* file. In addition to Maven Central, there are other public or private remote repositories where you can access artifacts. To add a remote repository in Maven, you can use the following code in the *pom.xml* file:
+To access remote repositories, you need to add the appropriate links in your project's configuration files.
+For example, in Maven, this is typically done in the *pom.xml* file, and in Gradle, in the *build.gradle* file.
+In addition to Maven Central, there are other public or private remote repositories where you can access artifacts.
+To add a remote repository in Maven, you can use the following code in the *pom.xml* file:
 
 [source,xml]
 ----
@@ -419,10 +434,12 @@ Replace http://example.com/repository with the actual URL of the remote reposito
 
 === ✅ Seamless Build Management with Gradle/Maven in IntelliJ IDEA
 
-In IntelliJ IDEA, *Maven* is implicitly set as one of the build tools, which means the IDE has access to Maven and can automatically execute Maven commands for your project. This makes working with Maven projects easier, as the IDE can automatically handle dependencies, building, and other Maven-related aspects.
+In IntelliJ IDEA, *Maven* is implicitly set as one of the build tools, which means the IDE has access to Maven and can automatically execute Maven commands for your project.
+This makes working with Maven projects easier, as the IDE can automatically handle dependencies, building, and other Maven-related aspects.
 
 [.green]
-*If you install a specific version of Maven on your system and want to use it in IntelliJ IDEA, you need to specify it in your project settings. Here are the steps to do so:*
+*If you install a specific version of Maven on your system and want to use it in IntelliJ IDEA, you need to specify it in your project settings.
+Here are the steps to do so:*
 
 - Open the project in IntelliJ IDEA.
 - Navigate to File -> Project Structure.
@@ -430,28 +447,31 @@ In IntelliJ IDEA, *Maven* is implicitly set as one of the build tools, which mea
 - Click the "+" button in the top right and select "Maven".
 - Choose the directory where the specific version of Maven is installed and click "OK".
 
-By specifying the Maven version in the project settings, IntelliJ IDEA will use that version to build and manage your Maven project. This ensures consistency between the Maven version used in IntelliJ IDEA and the one installed on your system.
+By specifying the Maven version in the project settings, IntelliJ IDEA will use that version to build and manage your Maven project.
+This ensures consistency between the Maven version used in IntelliJ IDEA and the one installed on your system.
 
 [.green]
 *IntelliJ IDEA provides seamless integration with Gradle, offering developers a powerful environment for building, managing, and running Gradle-based projects.*
 
 🔑 IntelliJ IDEA comes with built-in support for Gradle, allowing developers to import, create, and work with Gradle projects effortlessly.
-🔑 IntelliJ IDEA allows developers to configure and execute Gradle tasks directly from the IDE. Developers can create custom build configurations, specify Gradle tasks to run, and define task arguments or options.
+🔑 IntelliJ IDEA allows developers to configure and execute Gradle tasks directly from the IDE.
+Developers can create custom build configurations, specify Gradle tasks to run, and define task arguments or options.
 🔑 If you install a specific version of Gradle on your system and want to use it in IntelliJ IDEA, you need to specify the Gradle version in your project settings.
 🔑 Developers can view, run, and manage Gradle tasks using the Gradle tool window or the Run/Debug configurations.
-
-
 
 '''
 
 == [[maven-and-gradle-command-line-options]]💡Maven and Gradle: Command-Line Options
 
-🚀 In *Maven*, command-line options provide a convenient way to customize the build process, adjust configurations, and control various aspects of the project's lifecycle. Understanding and utilizing these options effectively can streamline development workflows and improve efficiency. Let's explore some common Maven command-line options:
+🚀 In *Maven*, command-line options provide a convenient way to customize the build process, adjust configurations, and control various aspects of the project's lifecycle.
+Understanding and utilizing these options effectively can streamline development workflows and improve efficiency.
+Let's explore some common Maven command-line options:
 
 . -DskipTests
 
 +
-The *-DskipTests* option allows skipping the execution of tests during the build process. By specifying this option, Maven will compile and package the project without running any unit tests.
+The *-DskipTests* option allows skipping the execution of tests during the build process.
+By specifying this option, Maven will compile and package the project without running any unit tests.
 
 +
 [source,bash]
@@ -462,7 +482,8 @@ mvn install -DskipTests
 +
 . -P'yourProfile'
 +
-The *-P'yourProfile'* option is used to activate a specific Maven profile during the build process. Profiles in Maven enable you to define custom configurations or settings for different environments or build scenarios.
+The *-P'yourProfile'* option is used to activate a specific Maven profile during the build process.
+Profiles in Maven enable you to define custom configurations or settings for different environments or build scenarios.
 +
 [source,bash]
 ----
@@ -470,37 +491,44 @@ mvn clean install -Pproduction
 ----
 
 +
-.  -DpropertyName=propertyValue
+. -DpropertyName=propertyValue
 +
-The *-DpropertyName=propertyValue* option is used to set system properties during the build process. Custom properties can be defined and used in Maven configuration or plugins.
+The *-DpropertyName=propertyValue* option is used to set system properties during the build process.
+Custom properties can be defined and used in Maven configuration or plugins.
 +
 [source,bash]
 ----
 mvn clean install -Dmaven.test.skip=true
 ----
 
-.  mvn install -U
+. mvn install -U
 +
--U: This option is used to force Maven to update snapshots from remote repositories, even if they are up-to-date locally. It ensures that the latest snapshot versions are retrieved.
+-U: This option is used to force Maven to update snapshots from remote repositories, even if they are up-to-date locally.
+It ensures that the latest snapshot versions are retrieved.
 +
 . mvn install -X
 +
--X: This option is used to enable debug mode, which displays debugging information during the Maven build process. It provides more detailed output for troubleshooting build issues.
+-X: This option is used to enable debug mode, which displays debugging information during the Maven build process.
+It provides more detailed output for troubleshooting build issues.
 
-🚀 In *Gradle*, command-line options provide a flexible way to customize the build process, adjust configurations, and control various aspects of the project's lifecycle. Leveraging these options effectively can streamline development workflows and improve efficiency. Let's explore some common Gradle command-line options:
+🚀 In *Gradle*, command-line options provide a flexible way to customize the build process, adjust configurations, and control various aspects of the project's lifecycle.
+Leveraging these options effectively can streamline development workflows and improve efficiency.
+Let's explore some common Gradle command-line options:
 
-.  -x test
+. -x test
 +
-The *-x test* option allows skipping the execution of tests during the build process. By specifying this option, Gradle will compile and package the project without running any unit tests.
+The *-x test* option allows skipping the execution of tests during the build process.
+By specifying this option, Gradle will compile and package the project without running any unit tests.
 +
 [source,bash]
 ----
 ./gradlew build -x test
 ----
 
-.  -P'yourProperty'
+. -P'yourProperty'
 +
-The *-P'yourProperty'* option is used to pass project properties to the Gradle build script. These properties can be accessed and utilized within the build script for customization or configuration purposes.
+The *-P'yourProperty'* option is used to pass project properties to the Gradle build script.
+These properties can be accessed and utilized within the build script for customization or configuration purposes.
 +
 [source,bash]
 ----
@@ -509,25 +537,28 @@ The *-P'yourProperty'* option is used to pass project properties to the Gradle b
 +
 . --rerun-tasks
 +
-The *--rerun-tasks* option is used to rerun tasks that have already been executed in previous builds. It forces Gradle to execute all tasks, regardless of whether they are up-to-date or not.
+The *--rerun-tasks* option is used to rerun tasks that have already been executed in previous builds.
+It forces Gradle to execute all tasks, regardless of whether they are up-to-date or not.
 +
 [source,bash]
 ----
 ./gradlew build --rerun-tasks
 ----
 +
-.  -D'systemProperty=value'
+. -D'systemProperty=value'
 +
-The *-D'systemProperty=value'* option is used to set system properties during the Gradle build process. Similar to Maven's -D option, this allows developers to pass parameters to the build script or configure the environment dynamically.
+The *-D'systemProperty=value'* option is used to set system properties during the Gradle build process.
+Similar to Maven's -D option, this allows developers to pass parameters to the build script or configure the environment dynamically.
 +
 [source,bash]
 ----
 ./gradlew build -Denv=production
 ----
 +
-.  --stacktrace
+. --stacktrace
 +
-The *--stacktrace* option is used to display the full stack trace of any exceptions that occur during the Gradle build process. It provides detailed information about the cause of the error, making it easier to diagnose and debug build failures.
+The *--stacktrace* option is used to display the full stack trace of any exceptions that occur during the Gradle build process.
+It provides detailed information about the cause of the error, making it easier to diagnose and debug build failures.
 +
 [source,bash]
 ----
@@ -538,18 +569,21 @@ The *--stacktrace* option is used to display the full stack trace of any excepti
 
 == [[advanced-build-configurations-with-maven-and-gradle]] Advanced build configurations with Maven and Gradle
 
-Both Maven and Gradle offer advanced build configuration options to handle complex scenarios and customize the build process according to project requirements. Below, I'll outline some advanced build configurations that you can achieve with both Maven and Gradle:
+Both Maven and Gradle offer advanced build configuration options to handle complex scenarios and customize the build process according to project requirements.
+Below, I'll outline some advanced build configurations that you can achieve with both Maven and Gradle:
 
 === 💻 Advanced Build Configurations with Maven:
 
 [.green]
 Resource Filtering:
 
-Maven allows resource filtering to replace placeholders in resource files with project-specific values. This is useful for managing configuration files across different environments (e.g., development, testing, production).
+Maven allows resource filtering to replace placeholders in resource files with project-specific values.
+This is useful for managing configuration files across different environments (e.g., development, testing, production).
 
 *Example:*
 
-You can use resource filtering to replace placeholders in resource files with project-specific values. For example, let's say you have a config.properties file with placeholders for environment-specific values:
+You can use resource filtering to replace placeholders in resource files with project-specific values.
+For example, let's say you have a config.properties file with placeholders for environment-specific values:
 
 [source,xml]
 ----
@@ -579,7 +613,8 @@ db.password=@database.password@
 [.green]
 Profile Activation:
 
-You can activate Maven profiles based on various conditions such as JDK version or environment variables. For example, let's say you have a profile that is activated when a specific environment variable is set:
+You can activate Maven profiles based on various conditions such as JDK version or environment variables.
+For example, let's say you have a profile that is activated when a specific environment variable is set:
 
 [source,xml]
 ----
@@ -602,7 +637,8 @@ You can activate Maven profiles based on various conditions such as JDK version 
 [.green]
 Custom Tasks:
 
-You can define custom tasks to perform specific actions as part of the build process. For example, let's say you want to create a task to generate API documentation using Swagger:
+You can define custom tasks to perform specific actions as part of the build process.
+For example, let's say you want to create a task to generate API documentation using Swagger:
 
 [source,groovy]
 ----
@@ -614,7 +650,8 @@ task generateApiDocs(type: Exec) {
 [.green]
 Configuration Rules:
 
-You can define configuration rules to control how project settings are applied. For example, let's say you want to enforce a specific code style for your project:
+You can define configuration rules to control how project settings are applied.
+For example, let's say you want to enforce a specific code style for your project:
 
 [source,groovy]
 ----
@@ -632,11 +669,14 @@ allprojects {
 
 == [[emerging-trends-in-build-automation-tools]] 🚀Emerging trends in build automation tools
 
-> *Containerization:* Increasing adoption of containerization technologies such as Docker and Kubernetes is influencing build automation practices. Build tools are evolving to better integrate with containerized environments and support building and packaging container images.
+> *Containerization:* Increasing adoption of containerization technologies such as Docker and Kubernetes is influencing build automation practices.
+Build tools are evolving to better integrate with containerized environments and support building and packaging container images.
 
-> *Cloud-Native Development:* Cloud-native development practices, including microservices architecture and infrastructure-as-code, are driving demand for more flexible and scalable build automation solutions. Build tools are evolving to support cloud-native development workflows and environments.
+> *Cloud-Native Development:* Cloud-native development practices, including microservices architecture and infrastructure-as-code, are driving demand for more flexible and scalable build automation solutions.
+Build tools are evolving to support cloud-native development workflows and environments.
 
-> *Machine Learning and AI:* The use of machine learning and artificial intelligence techniques in software development is influencing build automation tools. Tools are incorporating AI-driven features to optimize build processes, predict build failures, and suggest performance improvements.
+> *Machine Learning and AI:* The use of machine learning and artificial intelligence techniques in software development is influencing build automation tools.
+Tools are incorporating AI-driven features to optimize build processes, predict build failures, and suggest performance improvements.
 
 === ✅ Key features of Maven:
 
@@ -660,7 +700,11 @@ allprojects {
 '''
 
 == [[performance]] 🚀Performance
-Improving build time is one of the most direct ways to ship faster. Both Gradle and Maven employ some form of parallel project building and parallel dependency resolution. The biggest differences are Gradle's mechanisms for work avoidance and incrementality. The top 3 features that make Gradle much faster than Maven are:
+
+Improving build time is one of the most direct ways to ship faster.
+Both Gradle and Maven employ some form of parallel project building and parallel dependency resolution.
+The biggest differences are Gradle's mechanisms for work avoidance and incrementality.
+The top 3 features that make Gradle much faster than Maven are:
 
 - [.green]*Incrementality* — Gradle avoids work by tracking input and output of tasks and only running what is necessary, and only processing files that changed when possible.
 
@@ -673,7 +717,8 @@ image::images/maven_gradle2.png[width=60%]
 
 These and more performance features make Gradle at least twice as fast for nearly every scenario (100x faster for large builds using the build cache) in this Gradle vs Maven performance comparison.
 
-*Note:* _Both Gradle and Maven users can take advantage of the Build Cache technology available in Develocity. Gradle users typically experience an additional build time reduction of ~50%, while Maven users often experience reductions of ~90%._
+*Note:* _Both Gradle and Maven users can take advantage of the Build Cache technology available in Develocity.
+Gradle users typically experience an additional build time reduction of ~50%, while Maven users often experience reductions of ~90%._
 
 == [[resources]] Resources
 
@@ -694,5 +739,3 @@ These and more performance features make Gradle at least twice as fast for nearl
 4. https://docs.gradle.org/current/userguide/declaring_repositories.html
 5. https://docs.gradle.org/current/userguide/command_line_interface_basics.html
 6. https://gradle.org/maven-vs-gradle/
-
-Copyright © 2024 by Liurca Andreea, Iurii Rusakov

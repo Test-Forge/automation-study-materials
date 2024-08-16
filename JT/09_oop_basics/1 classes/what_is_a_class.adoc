@@ -1,7 +1,12 @@
 [#_class_in_java]
 = Class in Java
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
 *A class* (in the context of Java) is a template to create objects and to define object data types and methods.

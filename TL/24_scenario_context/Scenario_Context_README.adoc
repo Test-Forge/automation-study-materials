@@ -1,10 +1,12 @@
 = Scenario context
+Ilie Grecu
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:revdate: June 2024
 :toc: left
 :sectnums:
-
-'''
+:icons: font
+:highlightjs-languages: java
 
 == What is Scenario Context
 
@@ -135,5 +137,3 @@ The product title value is passed only through different steps.
 image::resources/scenarioContextMem.png[scenarioContextMem.png,align="center"]
 
 Another example of Scenario Context implementation can be found https://toolsqa.com/rest-assured/share-scenario-context/[here].
-
-Copyright © 2024 by Ilie Grecu

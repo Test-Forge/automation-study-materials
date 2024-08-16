@@ -1,16 +1,26 @@
 = Java Input/Output (I/O) Programming
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
+:icons: font
+:highlightjs-languages: java
 
 == Introduction
 
-In this file, we’ll cover Java IO functionalities and how they changed throughout different Java versions. First, we’ll cover the `java.io` package from the initial Java version. Next, we’ll go over `java.nio` package introduced in Java 1.4. In the end, we’ll cover the `java.nio.file` package, commonly known as the NIO.2 package.
+In this file, we’ll cover Java IO functionalities and how they changed throughout different Java versions.
+First, we’ll cover the `java.io` package from the initial Java version.
+Next, we’ll go over `java.nio` package introduced in Java 1.4. In the end, we’ll cover the `java.nio.file` package, commonly known as the NIO.2 package.
 
-* A *file* is a record within the storage device that holds data. Files are organized into hierarchies using directories.
-* A *directory* is a location that can contain files as well as other directories. When working with directories in Java, we often treat them like files. In fact, we use many of the same classes to operate on files and directories.
-* To interact with files, we need to connect to the file system. The *file system* is in charge of reading and writing data within a computer. Different operating systems use different file systems to manage their data.
+* A *file* is a record within the storage device that holds data.
+Files are organized into hierarchies using directories.
+* A *directory* is a location that can contain files as well as other directories.
+When working with directories in Java, we often treat them like files.
+In fact, we use many of the same classes to operate on files and directories.
+* To interact with files, we need to connect to the file system.
+The *file system* is in charge of reading and writing data within a computer.
+Different operating systems use different file systems to manage their data.
 * *Root directory* is the topmost directory in the file system, from which all files and directories inherit.
 In Windows, it is denoted with a drive name such as c:\, while on Linux it is denoted with a single forward slash, /.
 * A *path* is a String representation of a file or directory within a file system.
@@ -20,7 +30,9 @@ Each file system defines its own path separator character that is used between d
 
 == Java NIO Package
 
-The first Java version was released with the `java.io` package, introducing a `File` class to access the file system. The `File` class represents files and directories and provides limited operations on the file system. It was possible to create and delete files, check if they exist, check read/write access, etc.
+The first Java version was released with the `java.io` package, introducing a `File` class to access the file system.
+The `File` class represents files and directories and provides limited operations on the file system.
+It was possible to create and delete files, check if they exist, check read/write access, etc.
 
 It also has some shortcomings:
 
@@ -47,35 +59,47 @@ public void readFromFileUsingFileIO() throws Exception {
     assertThat(content.toString()).isEqualTo("Hello from file!");
 }
 ----
+
 *The java.io abstract stream base classes*
 
-image::resources%2FIOAbstractBaseClasses.png[IOAbstractBaseClasses.png, align="center"]
+image::resources%2FIOAbstractBaseClasses.png[IOAbstractBaseClasses.png,align="center"]
 
 *The java.io concrete stream classes*
 
-image::resources%2FIOConcreteStreamClasses1.png[IOConcreteStreamClasses1.png, align="center"]
-image::resources%2FIOConcreteStreamClasses2.png[IOConcreteStreamClasses2.png, align="center"]
-image::resources%2FIOConcreteStreamClasses3.png[IOConcreteStreamClasses3.png, align="center"]
+image::resources%2FIOConcreteStreamClasses1.png[IOConcreteStreamClasses1.png,align="center"]
+image::resources%2FIOConcreteStreamClasses2.png[IOConcreteStreamClasses2.png,align="center"]
+image::resources%2FIOConcreteStreamClasses3.png[IOConcreteStreamClasses3.png,align="center"]
 
-image::resources%2FDiagramOfIOClasses.png[DiagramOfIOClasses.png.png, align="center"]
+image::resources%2FDiagramOfIOClasses.png[DiagramOfIOClasses.png.png,align="center"]
 
-Next, Java 1.4 introduces non-blocking IO API bundled in `java.nio` package (nio stands for new IO). NIO was introduced to overcome the limitations of the `java.io` package. This package introduced three core classes: Channel, Buffer, and Selector.
+Next, Java 1.4 introduces non-blocking IO API bundled in `java.nio` package (nio stands for new IO).
+NIO was introduced to overcome the limitations of the `java.io` package.
+This package introduced three core classes: Channel, Buffer, and Selector.
 
 === Channel
 
-Java NIO Channel is a class that allows us to read and write to a buffer. Channel class is similar to Streams (here we speak of IO Streams, not Java 1.8 Streams) with a couple of differences. Channel is a two-way street while Streams are usually one-way, and they can read and write asynchronously.
+Java NIO Channel is a class that allows us to read and write to a buffer.
+Channel class is similar to Streams (here we speak of IO Streams, not Java 1.8 Streams) with a couple of differences.
+Channel is a two-way street while Streams are usually one-way, and they can read and write asynchronously.
 
 There are a couple of implementations of the Channel class, including `FileChannel` for file system read/write, `DatagramChannel` for read/write over a network using UDP, and `SocketChannel` for read/write over a network using TCP.
 
 === Buffer
 
-Buffer is a block of memory from which we can read or write data into it. NIO Buffer object wraps a memory block. Buffer class provides a set of functionalities to work with the memory block. To work with Buffer objects, we need to understand three major properties of the Buffer class: capacity, position, and limit.
+Buffer is a block of memory from which we can read or write data into it.
+NIO Buffer object wraps a memory block.
+Buffer class provides a set of functionalities to work with the memory block.
+To work with Buffer objects, we need to understand three major properties of the Buffer class: capacity, position, and limit.
 
-* Capacity defines the size of the memory block. When we write data to the buffer, we can write only a limited length. When the buffer is full, we need to read the data or clear it.
-* The position is the starting point where we write our data. An empty buffer starts from 0 and goes to capacity – 1. Also, when we read the data, we start from the position value.
+* Capacity defines the size of the memory block.
+When we write data to the buffer, we can write only a limited length.
+When the buffer is full, we need to read the data or clear it.
+* The position is the starting point where we write our data.
+An empty buffer starts from 0 and goes to capacity – 1. Also, when we read the data, we start from the position value.
 * Limit means how we can write and read from the buffer.
 
-There are multiple variations of the Buffer class. One for each primitive Java type, excluding the Boolean type plus the `MappedByteBuffer`.
+There are multiple variations of the Buffer class.
+One for each primitive Java type, excluding the Boolean type plus the `MappedByteBuffer`.
 
 To work with a buffer, we need to know a few important methods:
 - `allocate(int value)` – we use this method to create a buffer of a certain size.
@@ -110,15 +134,22 @@ public void readFromFileUsingFileChannel() throws Exception {
 }
 ----
 
-After initializing all required objects, we read from the channel into the buffer. Next, in the while loop, we mark the buffer for reading using the `flip()` method and read one byte at a time, and append it to our result. In the end, we clear the data and read another batch.
+After initializing all required objects, we read from the channel into the buffer.
+Next, in the while loop, we mark the buffer for reading using the `flip()` method and read one byte at a time, and append it to our result.
+In the end, we clear the data and read another batch.
 
 === Selector
 
-Java NIO Selector allows us to manage multiple channels with a single thread. To use a selector object to monitor multiple channels, each channel instance must be in the non-blocking mode, and we must register it. After channel registration, we get a `SelectionKey` object representing the connection between channel and selector. When we have multiple channels connected to a selector, we can use the `select()` method to check how many channels are ready for use. After calling the `select()` method, we can use `selectedKeys()` method to fetch all ready channels.
+Java NIO Selector allows us to manage multiple channels with a single thread.
+To use a selector object to monitor multiple channels, each channel instance must be in the non-blocking mode, and we must register it.
+After channel registration, we get a `SelectionKey` object representing the connection between channel and selector.
+When we have multiple channels connected to a selector, we can use the `select()` method to check how many channels are ready for use.
+After calling the `select()` method, we can use `selectedKeys()` method to fetch all ready channels.
 
 === Shortcomings of NIO Package
 
-The changes `java.nio` package introduced is more related to low-level data IO. While they allowed non-blocking API, other aspects remained problematic:
+The changes `java.nio` package introduced is more related to low-level data IO.
+While they allowed non-blocking API, other aspects remained problematic:
 
 * Limited support for symbolic links.
 * Limited support for file attributes access.
@@ -126,21 +157,31 @@ The changes `java.nio` package introduced is more related to low-level data IO. 
 
 == Java NIO.2 Package
 
-Java 1.7 introduces new `java.nio.file` package, also known as NIO.2 package. This package follows an asynchronous approach to non-blocking IO not supported in `java.nio` package. The most significant changes are related to high-level file manipulation. They are added with `Files`, `Path`, and `Paths` classes. The most notable low-level change is the addition of `AsynchronousFileChannel` and `AsynchronousSocketChannel`.
+Java 1.7 introduces new `java.nio.file` package, also known as NIO.2 package.
+This package follows an asynchronous approach to non-blocking IO not supported in `java.nio` package.
+The most significant changes are related to high-level file manipulation.
+They are added with `Files`, `Path`, and `Paths` classes.
+The most notable low-level change is the addition of `AsynchronousFileChannel` and `AsynchronousSocketChannel`.
 
-`Path` object represents a hierarchical sequence of directories and file names separated by a delimiter. The root component is furthest to the left, while the file is right. This interface provides utility methods such as `getFileName()`, `getParent()`, etc. The `Path` interface also provides `resolve` and `relativize` methods that help construct paths between different files.
+`Path` object represents a hierarchical sequence of directories and file names separated by a delimiter.
+The root component is furthest to the left, while the file is right.
+This interface provides utility methods such as `getFileName()`, `getParent()`, etc.
+The `Path` interface also provides `resolve` and `relativize` methods that help construct paths between different files.
 `Paths` class is a set of static utility methods that receive String or URI to create `Path` instances.
 
 *Path methods*
 
-image::resources%2FPathMethods.png[PathMethods.png, align="center"]
+image::resources%2FPathMethods.png[PathMethods.png,align="center"]
 
-`Files` class provides utility methods that use the previously described `Path` class and operate on files, directories, and symbolic links. It also provides a way to read many file attributes using `readAttributes()` method.
-The `Files` helper class is capable of interacting with real files and directories within the system. Because of this, most of the methods throw an IOException if the path does not exist. The `Files` class also replicates numerous methods found in the `java.io.File`, but often with a different name or list of parameters.
+`Files` class provides utility methods that use the previously described `Path` class and operate on files, directories, and symbolic links.
+It also provides a way to read many file attributes using `readAttributes()` method.
+The `Files` helper class is capable of interacting with real files and directories within the system.
+Because of this, most of the methods throw an IOException if the path does not exist.
+The `Files` class also replicates numerous methods found in the `java.io.File`, but often with a different name or list of parameters.
 
 *Files methods*
 
-image::resources%2FNIO2FilesMethods.png[NIO2FilesMethods.png, align="center"]
+image::resources%2FNIO2FilesMethods.png[NIO2FilesMethods.png,align="center"]
 
 [source,java]
 ----
@@ -162,26 +203,32 @@ public void readFromFileUsingNIO2() throws Exception {
 }
 ----
 
-
-
-
 *NIO2 classes and interfaces relationship*
 
-image::resources%2FNIO2ClassesAndInterfacesRelationship.png[NIO2ClassesAndInterfacesRelationship.png, align="center"]
+image::resources%2FNIO2ClassesAndInterfacesRelationship.png[NIO2ClassesAndInterfacesRelationship.png,align="center"]
 
 == Example of NIO and NIO.2 Usage
 
 === Standard Streams
 
-A program is often run from the command line and interacts with the user in the command line environment. The Java platform supports this kind of interaction in two ways: through the Standard Streams and through the Console.
+A program is often run from the command line and interacts with the user in the command line environment.
+The Java platform supports this kind of interaction in two ways: through the Standard Streams and through the Console.
 
-*Standard Streams* are a feature of many operating systems. By default, they read input from the keyboard and write output to the display. They also support I/O on files and between programs, but that feature is controlled by the command line interpreter, not the program.
+*Standard Streams* are a feature of many operating systems.
+By default, they read input from the keyboard and write output to the display.
+They also support I/O on files and between programs, but that feature is controlled by the command line interpreter, not the program.
 
-The Java platform supports three Standard Streams: `Standard Input`, accessed through `System.in`; `Standard Output`, accessed through `System.out`; and `Standard Error`, accessed through `System.err`. These objects are defined automatically and do not need to be opened. Standard Output and Standard Error are both for output; having error output separately allows the user to divert regular output to a file and still be able to read error messages. For more information, refer to the documentation for your command line interpreter.
+The Java platform supports three Standard Streams: `Standard Input`, accessed through `System.in`; `Standard Output`, accessed through `System.out`; and `Standard Error`, accessed through `System.err`.
+These objects are defined automatically and do not need to be opened.
+Standard Output and Standard Error are both for output; having error output separately allows the user to divert regular output to a file and still be able to read error messages.
+For more information, refer to the documentation for your command line interpreter.
 
-You might expect the Standard Streams to be character streams, but, for historical reasons, they are byte streams. System.out and System.err are defined as PrintStream objects. Although it is technically a byte stream, PrintStream utilizes an internal character stream object to emulate many of the features of character streams.
+You might expect the Standard Streams to be character streams, but, for historical reasons, they are byte streams.
+System.out and System.err are defined as PrintStream objects.
+Although it is technically a byte stream, PrintStream utilizes an internal character stream object to emulate many of the features of character streams.
 
-By contrast, `System.in` is a byte stream with no character stream features. To use Standard Input as a character stream, wrap `System.in in` `InputStreamReader`.
+By contrast, `System.in` is a byte stream with no character stream features.
+To use Standard Input as a character stream, wrap `System.in in` `InputStreamReader`.
 
 [source,bash]
 ----
@@ -190,9 +237,13 @@ InputStreamReader cin = new InputStreamReader(System.in);
 
 === Random Access Files
 
-Random access files permit nonsequential, or random, access to a file's contents. To access a file randomly, you open the file, seek a particular location, and read from or write to that file.
+Random access files permit nonsequential, or random, access to a file's contents.
+To access a file randomly, you open the file, seek a particular location, and read from or write to that file.
 
-This functionality is possible with the SeekableByteChannel interface. The SeekableByteChannel interface extends channel I/O with the notion of a current position. Methods enable you to set or query the position, and you can then read the data from, or write the data to, that location. The API consists of a few, easy to use, methods:
+This functionality is possible with the SeekableByteChannel interface.
+The SeekableByteChannel interface extends channel I/O with the notion of a current position.
+Methods enable you to set or query the position, and you can then read the data from, or write the data to, that location.
+The API consists of a few, easy to use, methods:
 
 * position – Returns the channel's current position
 * position(long) – Sets the channel's position
@@ -200,9 +251,14 @@ This functionality is possible with the SeekableByteChannel interface. The Seeka
 * write(ByteBuffer) – Writes bytes from the buffer to the channel
 * truncate(long) – Truncates the file (or other entity) connected to the channel
 
-Reading and Writing Files With Channel I/O shows that the Path.newByteChannel methods return an instance of a SeekableByteChannel. On the default file system, you can use that channel as is, or you can cast it to a FileChannel giving you access to more advanced features, such as mapping a region of the file directly into memory for faster access, locking a region of the file, or reading and writing bytes from an absolute location without affecting the channel's current position.
+Reading and Writing Files With Channel I/O shows that the Path.newByteChannel methods return an instance of a SeekableByteChannel.
+On the default file system, you can use that channel as is, or you can cast it to a FileChannel giving you access to more advanced features, such as mapping a region of the file directly into memory for faster access, locking a region of the file, or reading and writing bytes from an absolute location without affecting the channel's current position.
 
-The following code snippet opens a file for both reading and writing by using one of the newByteChannel methods. The SeekableByteChannel that is returned is cast to a FileChannel. Then, 12 bytes are read from the beginning of the file, and the string "I was here!" is written at that location. The current position in the file is moved to the end, and the 12 bytes from the beginning are appended. Finally, the string, "I was here!" is appended, and the channel on the file is closed.
+The following code snippet opens a file for both reading and writing by using one of the newByteChannel methods.
+The SeekableByteChannel that is returned is cast to a FileChannel.
+Then, 12 bytes are read from the beginning of the file, and the string "I was here!" is written at that location.
+The current position in the file is moved to the end, and the 12 bytes from the beginning are appended.
+Finally, the string, "I was here!" is appended, and the channel on the file is closed.
 
 [source,java]
 ----
@@ -242,12 +298,14 @@ try (FileChannel fc = (FileChannel.open(file, READ, WRITE))) {
 
 === Creating and Reading Directories
 
-Some of the methods previously discussed, such as delete, work on files, links and directories. But how do you list all the directories at the top of a file system? How do you list the contents of a directory or create a directory?
-
+Some of the methods previously discussed, such as delete, work on files, links and directories.
+But how do you list all the directories at the top of a file system?
+How do you list the contents of a directory or create a directory?
 
 *Listing a File System's Root Directories*
 
-You can list all the root directories for a file system by using the FileSystem.getRootDirectories method. This method returns an Iterable, which enables you to use the enhanced for statement to iterate over all the root directories.
+You can list all the root directories for a file system by using the FileSystem.getRootDirectories method.
+This method returns an Iterable, which enables you to use the enhanced for statement to iterate over all the root directories.
 
 The following code snippet prints the root directories for the default file system:
 
@@ -261,7 +319,9 @@ System.err.println(name);
 
 *Creating a Directory*
 
-You can create a new directory by using the createDirectory(Path, FileAttribute&lt;?&gt;) method. If you don't specify any FileAttributes, the new directory will have default attributes. For example:
+You can create a new directory by using the createDirectory(Path, FileAttribute&lt;?&gt;) method.
+If you don't specify any FileAttributes, the new directory will have default attributes.
+For example:
 
 [source,java]
 ----
@@ -281,57 +341,66 @@ Files.createDirectory(file, attr);
 ----
 
 To create a directory several levels deep when one or more of the parent directories might not yet exist, you can use the convenience method, `createDirectories(Path, FileAttribute<?>)`.
- As with the `createDirectory(Path, FileAttribute<?>)` method, you can specify an optional set of initial file attributes. The following code snippet uses default attributes:
+As with the `createDirectory(Path, FileAttribute<?>)` method, you can specify an optional set of initial file attributes.
+The following code snippet uses default attributes:
 
 [source,java]
 ----
 Files.createDirectories(Paths.get("foo/bar/test"));
 ----
 
-The directories are created, as needed, from the top down. In the `foo/bar/test` example, if the foo directory does not exist, it is created. Next, the bar directory is created, if needed, and, finally, the test directory is created.
+The directories are created, as needed, from the top down.
+In the `foo/bar/test` example, if the foo directory does not exist, it is created.
+Next, the bar directory is created, if needed, and, finally, the test directory is created.
 
 It is possible for this method to fail after creating some, but not all, of the parent directories.
 
 The `createDirectory()` will create a directory and throw an exception if it already exists or the paths leading up to the directory do not exist.
 
 The `createDirectories()` works just like the java.io.File method `mkdirs()`, in that it creates the target directory along with any nonexistent parent directories leading up to the path.
-If all of the directories already exist, `createDirectories()` will simply complete without doing anything. This is useful in situations where you want to ensure a directory exists and create it if it does not.
+If all of the directories already exist, `createDirectories()` will simply complete without doing anything.
+This is useful in situations where you want to ensure a directory exists and create it if it does not.
 
 == Comparison of Java IO, Java NIO, and Java NIO2
 
-Java IO is stream-based and provides a simple API for file and network operations. Java NIO is buffer-based, offering higher performance through channels and buffers, and supports non-blocking I/O and multiplexing. Java NIO2 extends NIO with additional features, including improved file handling and full support for asynchronous I/O.
+Java IO is stream-based and provides a simple API for file and network operations.
+Java NIO is buffer-based, offering higher performance through channels and buffers, and supports non-blocking I/O and multiplexing.
+Java NIO2 extends NIO with additional features, including improved file handling and full support for asynchronous I/O.
 
 === Comparison of Java IO, Java NIO, and Java NIO2
 
 |===
-|Characteristic |Java IO |Java NIO |Java NIO2 
+|Characteristic |Java IO |Java NIO |Java NIO2
 
-|Main Approach |Stream-based |Buffer-based |Extension of NIO with additional features 
-|Key Components |InputStream, OutputStream, Reader, Writer |Channels, Buffers, Selectors |Path, Files, AsynchronousFileChannel 
-|File Handling |File class |FileChannel with ByteBuffer |Improved file handling with Path and Files classes 
-|Asynchronous I/O |Not supported |Partial support through Selectors |Full support through AsynchronousFileChannel 
-|Performance |Lower compared to NIO |Higher due to the use of buffers and channels |Similar to NIO, but with additional features 
-|Ease of Use |Simple and straightforward API |More complex API, requires understanding of buffers and channels |Improved API, makes working with the file system easier 
-|Multiplexing |Not supported |Supported through Selectors |Not directly applicable, but asynchronous operations allow efficient handling of multiple tasks 
-|Usage Examples |Simple file read/write, network connections |Non-blocking I/O, scalable network applications |Asynchronous file read/write, improved file system handling 
-|Release Time &amp; Version |Java 1.0 |Java 1.4 (New I/O) |Java 7 (NIO.2) 
-|Use Cases |Simple file operations, network I/O |High-performance network applications, scalable I/O |Asynchronous file I/O, improved file system handling 
-|Error Handling |Limited error handling, boolean return values |More comprehensive error handling, exceptions |Improved error handling, exceptions, and file attributes 
+|Main Approach |Stream-based |Buffer-based |Extension of NIO with additional features
+|Key Components |InputStream, OutputStream, Reader, Writer |Channels, Buffers, Selectors |Path, Files, AsynchronousFileChannel
+|File Handling |File class |FileChannel with ByteBuffer |Improved file handling with Path and Files classes
+|Asynchronous I/O |Not supported |Partial support through Selectors |Full support through AsynchronousFileChannel
+|Performance |Lower compared to NIO |Higher due to the use of buffers and channels |Similar to NIO, but with additional features
+|Ease of Use |Simple and straightforward API |More complex API, requires understanding of buffers and channels |Improved API, makes working with the file system easier
+|Multiplexing |Not supported |Supported through Selectors |Not directly applicable, but asynchronous operations allow efficient handling of multiple tasks
+|Usage Examples |Simple file read/write, network connections |Non-blocking I/O, scalable network applications |Asynchronous file read/write, improved file system handling
+|Release Time &amp; Version |Java 1.0 |Java 1.4 (New I/O) |Java 7 (NIO.2)
+|Use Cases |Simple file operations, network I/O |High-performance network applications, scalable I/O |Asynchronous file I/O, improved file system handling
+|Error Handling |Limited error handling, boolean return values |More comprehensive error handling, exceptions |Improved error handling, exceptions, and file attributes
 |===
 
 *Comparison of java.io.File and NIO.2 methods*
 
-image::resources%2FIOFileAndNIO2Methods1.png[IOFileAndNIO2Methods1.png, align="center"]
-image::resources%2FIOFileAndNIO2Methods2.png[IOFileAndNIO2Methods2.png, align="center"]
+image::resources%2FIOFileAndNIO2Methods1.png[IOFileAndNIO2Methods1.png,align="center"]
+image::resources%2FIOFileAndNIO2Methods2.png[IOFileAndNIO2Methods2.png,align="center"]
 
 == File Transfer Performance Analysis
 
-This project is designed to investigate the performance of IO and NIO methods for file transfer in Java. It consists of a server (`FileReceiver`) and a client (`FileSender`) that can transfer files using both IO and NIO techniques.
+This project is designed to investigate the performance of IO and NIO methods for file transfer in Java.
+It consists of a server (`FileReceiver`) and a client (`FileSender`) that can transfer files using both IO and NIO techniques.
 
 === How It Works
 
-* The `FileReceiver` server listens on two ports (8080 and 8081 by default) and accepts files sent by the client. One port is dedicated to NIO-based file transfer, and the other is for IO-based transfer.
-* The `FileSender` client sends a large file (1 GB by default) to the server using both IO and NIO methods. The file is sent twice: once to each port.
+* The `FileReceiver` server listens on two ports (8080 and 8081 by default) and accepts files sent by the client.
+One port is dedicated to NIO-based file transfer, and the other is for IO-based transfer.
+* The `FileSender` client sends a large file (1 GB by default) to the server using both IO and NIO methods.
+The file is sent twice: once to each port.
 * After receiving the files, the server calculates the time taken for each transfer method and generates a bar chart comparing the performance of IO and NIO.
 
 === Running the Code
@@ -341,16 +410,19 @@ This project is designed to investigate the performance of IO and NIO methods fo
 . *Import the Project:*
 * Copy this project to your local machine.
 * Open IntelliJ IDEA and select "Open or Import."
-* Navigate to the project directory and select the `pom.xml` file. Click "Open" to import the Maven project.
+* Navigate to the project directory and select the `pom.xml` file.
+Click "Open" to import the Maven project.
 . *Run the SendReceiveRunner:*
 * Right-click on the `SendReceiveRunner` class in the Project Explorer and select "Run 'SendReceiveRunner.main()'." This will start both the server and client locally.
 . *Run the Client and Server Separately (Client-Server Setup):*
 * *Server:* Right-click on the `FileReceiver` class and select "Run 'FileReceiver.main()'." Make sure the server's firewall allows incoming connections on the ports used (8080 and 8081 by default).
-* *Client:* Modify the `server.address` property in the `filesender.properties` file to the IP address of the server machine. Right-click on the `FileSender` class and select "Run 'FileSender.main()'."
+* *Client:* Modify the `server.address` property in the `filesender.properties` file to the IP address of the server machine.
+Right-click on the `FileSender` class and select "Run 'FileSender.main()'."
 
 ==== Customizing the File Size
 
-The size of the file to be transferred can be changed in the `FileSender.java` file. Look for the following line:
+The size of the file to be transferred can be changed in the `FileSender.java` file.
+Look for the following line:
 
 [source,java]
 ----
@@ -365,18 +437,12 @@ long size = 1024 * 1024 * 1024; // 1 GB
 
 ** Open a terminal and navigate to the project directory.
 ** Compile and run the `FileReceiver` class:
-`java
-javac src/main/java/com/example/FileReceiver.java
-java -cp src/main/java com.example.FileReceiver
-`
+`java javac src/main/java/com/example/FileReceiver.java java -cp src/main/java com.example.FileReceiver `
 . *Start the Client:*
 
 ** Open another terminal and navigate to the project directory.
 ** Compile and run the `FileSender` class:
-`java
-javac src/main/java/com/example/FileSender.java
-java -cp src/main/java com.example.FileSender
-`
+`java javac src/main/java/com/example/FileSender.java java -cp src/main/java com.example.FileSender `
 
 ==== Client-Server Setup in a Local Network
 
@@ -391,19 +457,24 @@ java -cp src/main/java com.example.FileSender
 
 === Results
 
-After both transfers are complete, the server will display the time takenThe chart illustrates the time required for IO and NIO file transfers for a 1 GB file. As the data transfer volume increases, the time differences between the NIO and IO methods become more aligned. for each method and save a bar chart comparing the performance. The chart will be saved as `chart_<file_size>.png` in the project directory.
+After both transfers are complete, the server will display the time takenThe chart illustrates the time required for IO and NIO file transfers for a 1 GB file.
+As the data transfer volume increases, the time differences between the NIO and IO methods become more aligned. for each method and save a bar chart comparing the performance.
+The chart will be saved as `chart_<file_size>.png` in the project directory.
 
-image::project%2Fserver-io%2Fchart_1024.png[chart_1024.png, align="center"]
+image::project%2Fserver-io%2Fchart_1024.png[chart_1024.png,align="center"]
 
-The chart shows the time taken for IO and NIO file transfers for a 1 KB file. The NIO method is significantly faster than the IO method, especially for larger files.
+The chart shows the time taken for IO and NIO file transfers for a 1 KB file.
+The NIO method is significantly faster than the IO method, especially for larger files.
 
-image::project%2Fserver-io%2Fchart_1048576.png[chart_1048576.png, align="center"]
+image::project%2Fserver-io%2Fchart_1048576.png[chart_1048576.png,align="center"]
 
-The chart shows the time taken for IO and NIO file transfers for a 1 MB file. The NIO method is significantly faster than the IO method, especially for larger files.
+The chart shows the time taken for IO and NIO file transfers for a 1 MB file.
+The NIO method is significantly faster than the IO method, especially for larger files.
 
-image::project%2Fserver-io%2Fchart_1073741824.png[chart_1073741824.png, align="center"]
+image::project%2Fserver-io%2Fchart_1073741824.png[chart_1073741824.png,align="center"]
 
-The chart illustrates the time required for IO and NIO file transfers for a 1 GB file. As the data transfer volume increases, the time differences between the NIO and IO methods become more aligned.
+The chart illustrates the time required for IO and NIO file transfers for a 1 GB file.
+As the data transfer volume increases, the time differences between the NIO and IO methods become more aligned.
 
 === Project Structure
 
