@@ -1,27 +1,19 @@
 = JUnit 5 Overview and Automation Test Execution
-
-- Author name: Litvinov Natalia
-
+Author name: Litvinov Natalia, Aliona Solonari
+:revnumber: 1.1
+:revdate: 2024-08-22
+:doctype: book
+:toc: left
+:sectnums:
+:highlightjs-languages: asciidoc, java
 
 [.text-center]
 image::images/junitPic.png[,width=40%]
 
-<<Overview,Overview>>
-
-<<Key_Features,Key Features>>
-
-<<Add,Adding JUnit 5 with Maven>>
-
-<<annotations, Basic Annotations>>
-
-<<tag,Running Tagged Tests>>
-
-<<parallel_execution,Parallel Execution>>
-
-[[Overview]]
 == Overview
 
-JUnit 5 is a powerful and flexible testing framework for Java. It provides a rich set of features for writing and executing tests, making it a popular choice for developers and testers alike.
+JUnit 5 is a powerful and flexible testing framework for Java.
+It provides a rich set of features for writing and executing tests, making it a popular choice for developers and testers alike.
 
 JUnit 5 is composed of several different modules from three different sub-projects.
 
@@ -30,29 +22,33 @@ _JUnit 5 = JUnit Platform + JUnit Jupiter + JUnit Vintage_
 [.text-center]
 image::images/junitStructure.png[,width=70%]
 
-* _JUnit Platform:_ serves as a foundation for launching testing frameworks on the JVM. It defines the TestEngine API for developing a testing framework that runs on the platform. Additionally, the platform provides:
+* _JUnit Platform:_ serves as a foundation for launching testing frameworks on the JVM.
+It defines the TestEngine API for developing a testing framework that runs on the platform.
+Additionally, the platform provides:
 
 - Console Launcher: Launches the platform from the command line.
 - JUnit Platform Suite Engine: Runs a custom test suite using one or more test engines on the platform.
 
 * _JUnit Jupiter:_ combines the programming model and extension model for writing tests and extensions in JUnit 5. The Jupiter sub-project provides a TestEngine for running Jupiter-based tests on the platform.
 
-* _JUnit Vintage:_ provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the platform. It requires JUnit 4.12 or later to be present on the classpath or module path.
+* _JUnit Vintage:_ provides a TestEngine for running JUnit 3 and JUnit 4 based tests on the platform.
+It requires JUnit 4.12 or later to be present on the classpath or module path.
 
-[[Key_Features]]
-=== Key Features
+== Key Features
 
-* **Annotations:** JUnit 5 uses annotations to define and organize test methods. Annotations such as `@Test`, `@BeforeAll`, `@BeforeEach`, `@AfterEach`, and `@AfterAll` help in specifying test methods and lifecycle methods.
+* **Annotations:** JUnit 5 uses annotations to define and organize test methods.
+Annotations such as `@Test`, `@BeforeAll`, `@BeforeEach`, `@AfterEach`, and `@AfterAll` help in specifying test methods and lifecycle methods.
 
-* **Extensions:** JUnit 5 introduces the concept of extensions, allowing developers to extend the behavior of the testing framework. Extensions can be used for parameter resolution, test instance post-processing, and more.
+* **Extensions:** JUnit 5 introduces the concept of extensions, allowing developers to extend the behavior of the testing framework.
+Extensions can be used for parameter resolution, test instance post-processing, and more.
 
-* **Assertions:** JUnit 5 provides a variety of assertion methods for validating expected outcomes. Common assertions include `assertEquals`, `assertTrue`, `assertFalse`, and more.
+* **Assertions:** JUnit 5 provides a variety of assertion methods for validating expected outcomes.
+Common assertions include `assertEquals`, `assertTrue`, `assertFalse`, and more.
 
 * **Parameterized Tests:** JUnit 5 supports parameterized tests, enabling the same test logic to be executed with different sets of parameters.
 
 * **Test Interfaces:** In addition to test classes, JUnit 5 allows tests to be defined in interfaces, enabling the composition of test suites from multiple sources.
 
-[[Add]]
 == Adding JUnit 5 with Maven
 
 JUnit5 can be easily integrated into your Maven projects by adding the appropriate dependencies to your project's `pom.xml` file.
@@ -70,7 +66,6 @@ Example:
     </dependency>
 </dependencies>
 ----
-
 
 Ensure that your _Maven Surefire Plugin_ version is compatible with JUnit5. In your `pom.xml`, you might have a configuration like this:
 
@@ -118,14 +113,15 @@ The _Maven Surefire Plugin_ will scan for test classes whose fully qualified nam
 [INFO] ------------------------------------------------------------------------
 ----
 
-[[annotations]]
 == Basic Annotations
 
-JUnit 5 provides various annotations that help in configuring and customizing the test run. These annotations are used to define the behavior of test methods, control the test lifecycle, and more.
+JUnit 5 provides various annotations that help in configuring and customizing the test run.
+These annotations are used to define the behavior of test methods, control the test lifecycle, and more.
 
 === 1. `@Test`
 
-The @Test annotation is used to mark a method as a test method. JUnit will run the methods annotated with @Test during test execution.
+The @Test annotation is used to mark a method as a test method.
+JUnit will run the methods annotated with @Test during test execution.
 
 [source,java]
 ----
@@ -198,7 +194,8 @@ class MyTestClass {
 
 === 5. `@Disabled`
 
-The @Disabled annotation is used to temporarily disable a test class or method. It can be applied to individual test methods or entire test classes.
+The @Disabled annotation is used to temporarily disable a test class or method.
+It can be applied to individual test methods or entire test classes.
 
 [source,java]
 ----
@@ -219,7 +216,9 @@ These annotations, along with others provided by JUnit 5, offer flexibility and 
 === 6. `@RepeatedTest`
 
 This annotation provides the ability to repeat a test a specified number of times.
-Since JUnit Jupiter 5.10, @RepeatedTest can be configured with a failure threshold which signifies the number of failures after which remaining repetitions will be automatically skipped. Set the failureThreshold attribute to a positive number less than the total number of repetitions in order to skip the invocations of remaining repetitions after the specified number of failures has been encountered
+Since JUnit Jupiter 5.10, @RepeatedTest can be configured with a failure threshold which signifies the number of failures after which remaining repetitions will be automatically skipped.
+Set the failureThreshold attribute to a positive number less than the total number of repetitions in order to skip the invocations of remaining repetitions after the specified number of failures has been encountered.
+
 [source,java]
 ----
 @RepeatedTest(value = 8, failureThreshold = 2)
@@ -230,9 +229,24 @@ void repeatedTest(RepetitionInfo repetitionInfo) {
         }
     }
 ----
+
 === 6. `@ParameterizedTest`
 
-Parameterized tests make it possible to run a test multiple times with different arguments. They are declared just like regular @Test methods but use the @ParameterizedTest annotation instead. In addition, you must declare at least one source that will provide the arguments for each invocation and then consume the arguments in the test method.
+Parameterized tests make it possible to run a test multiple times with different arguments.
+They are declared just like regular @Test methods but use the @ParameterizedTest annotation instead.
+In addition, you must declare at least one source that will provide the arguments for each invocation and then consume the arguments in the test method.
+
+In order to use this annotation one more dependency needs to be added in your `pom.xml`
+
+[source,xml]
+----
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-params</artifactId>
+    <version>${jupiter.version}</version>
+    <scope>test</scope>
+</dependency>
+----
 
 [source,java]
 ----
@@ -242,7 +256,9 @@ void parametrized(String candidate) {
         Assertions.assertTrue(candidate.contains("what"));
     }
 ----
+
 Console output in this case will be:
+
 [source,console]
 ----
 parametrized(String) ✘
@@ -251,15 +267,76 @@ parametrized(String) ✘
 └─ ✘ [3] What a day!
 ----
 
+Beside @ValueSource annotation that comes in combination with @ParametrizedTest there are also: `@EnumSource` that accepts enum params, `@MethodSource` annotation that accepts name of the method (used,for example, for object initialization etc.), `@CsvSource` or `@CsvFileSource` and more.
+
+====
+@MethodSource Example
+
+[source,java]
+----
+public static List<Object> initiateParams() {
+        return Arrays.asList("ana", 464, 2.5d, 'c', "so");
+      }
+    @ParameterizedTest
+    @MethodSource(value = "initiateParams")
+    public void testEven(Object object)  {
+        Object initialObject = object;
+        Object modified = null;
+        if (object instanceof String) {
+            modified = ((String) object).substring(0, 1);
+        } else if (object instanceof Integer) {
+       //implementation
+    }
+}
+----
+
+@EnumSource Example
+
+[source,java]
+----
+ @ParameterizedTest
+    @EnumSource(FilesToBeConsumed.class)
+    public void getRightFile(FilesToBeConsumed fileToBeConsumed) {
+        File file = new File("*/file.xml");
+        if (file.isFile()) {
+            Assertions.assertAll(
+                    () -> assertEquals(file.getName(),fileToBeConsumed.getFileName() ),
+                    () -> assertEquals(String.valueOf(file.getTotalSpace()), fileToBeConsumed.getFilePath()),
+                    () -> assertTrue(file.getName().contains(fileToBeConsumed.getFileType()))
+            );
+        }
+    }
+----
+
+@CsvFileSource
+
+[source,java]
+----
+ @ParameterizedTest
+    @CsvFileSource(files = "params.csv", numLinesToSkip = 1)
+    public void testParams(String fieldName, String fieldValue, int quantity) {
+        assertAll(
+                () -> assertNotNull(fieldValue),
+                () -> assertNotNull(fieldName),
+                () -> assertNotNull(quantity)
+        );
+        assertNotEquals(0, quantity);
+    }
+----
+
+====
+
 __More information about these and other annotations you can read from sources like:__ https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
 
-[[tag]]
 == Running Tagged Tests
 
-JUnit 5 `@Tag` annotation is used to tag or label the tests into a test suite. It helps organize and filter the tests based on different criteria or attributes, such as their purpose, the features they test, or their characteristics. This particularly helps in selectively running a subset of tests based on their tags, making test suite management more flexible.
+JUnit 5 `@Tag` annotation is used to tag or label the tests into a test suite.
+It helps organize and filter the tests based on different criteria or attributes, such as their purpose, the features they test, or their characteristics.
+This particularly helps in selectively running a subset of tests based on their tags, making test suite management more flexible.
 
+We can apply the @Tag annotation on a test class, test method, or both.
+We can use any string as a tag value, but it’s common to use descriptive tags like “smoke,” “regression,” “integration,” “security,” and so on.
 
-We can apply the @Tag annotation on a test class, test method, or both. We can use any string as a tag value, but it’s common to use descriptive tags like “smoke,” “regression,” “integration,” “security,” and so on.
 [source,java]
 ----
 @Tag("development")
@@ -271,7 +348,9 @@ public class ClassATest
     }
 }
 ----
+
 We can apply **multiple** tags on a single test case as well so that you can include the test in multiple test suites.
+
 [source,java]
 ----
 public class ClassBTest
@@ -304,24 +383,30 @@ mvn test -DexcludeGroups="production"
 
 * **In IDE (IntelliJ)**
 
-Several IDEs support running the tagged test cases through custom run configuration. For example, in IntelliJ, we can create a custom run configuration and select Tags in type of resources to search.
+Several IDEs support running the tagged test cases through custom run configuration.
+For example, in IntelliJ, we can create a custom run configuration and select Tags in type of resources to search.
 
 [.text-center]
 image::images/tagIde.png[,width=80%]
 
-[[parallel_execution]]
 == Parallel Execution
 
-By default, JUnit Jupiter tests are run sequentially in a single thread. Running tests in parallel — for example, to speed up execution — is available as an opt-in feature since version 5.3
+By default, JUnit Jupiter tests are run sequentially in a single thread.
+Running tests in parallel — for example, to speed up execution — is available as an opt-in feature since version 5.3
 
-To enable parallel execution we need to create a file called `junit-platform.properties` inside the __src/test/resources folder__. Inside the file, you need to add the following line:
+To enable parallel execution we need to create a file called `junit-platform.properties` inside the __src/test/resources folder__.
+Inside the file, you need to add the following line:
+
 [source,shell]
 ----
 junit.jupiter.execution.parallel.enabled=true
 ----
-The line above will enable the basic functionality and allow you to run tests in parallel. However, there a more settings to customize the parallel execution.
+
+The line above will enable the basic functionality and allow you to run tests in parallel.
+However, there a more settings to customize the parallel execution.
 
 If you want **all your tests to run in parallel by default**, you must add the following line:
+
 [source,shell]
 ----
 junit.jupiter.execution.parallel.mode.default=concurrent
@@ -329,7 +414,9 @@ junit.jupiter.execution.parallel.mode.default=concurrent
 
 JUnit includes two strategies that allow you to change how many threads will be used to run tests in parallel.
 
-* **dynamic**: Computes the number of threads it can use. The default is 1. The default will use all the threads available. When you set it to .5, only half the amount of threads will be used.
+* **dynamic**: Computes the number of threads it can use.
+The default is 1. The default will use all the threads available.
+When you set it to .5, only half the amount of threads will be used.
 * **fixed**: the value will equal the number of threads used for running tests in parallel.
 
 For a dynamic strategy, add the following lines:
@@ -351,6 +438,7 @@ junit.jupiter.execution.parallel.config.fixed.parallelism=6
 If you only added __junit.jupiter.execution.parallel.enabled=true__ to the junit-platform properties file and didn't change the default parallel mode, then you need to add the `@Execution(ExecutionMode.CONCURRENT)` annotation to the test class containing the tests you want to run in parallel.
 
 The total runtime of this class should be 3 seconds instead of 6.
+
 [source,java]
 ----
 import org.junit.jupiter.api.parallel.Execution;
@@ -375,11 +463,14 @@ public class parallelTests {
     }
 }
 ----
+
 __For more detailed information about parallel running:__
 
 https://davidvlijmincx.com/posts/run-junit5-tests-in-parallel
 
 https://junit.org/junit5/docs/snapshot/user-guide/#writing-tests-parallel-execution
+
+== Other Documentation
 
 `JUnit 5 documentation:`
 https://junit.org/junit5/docs/snapshot/user-guide/#overview
@@ -391,4 +482,4 @@ https://github.com/junit-team/junit5
 https://github.com/bonigarcia/mastering-junit5
 
 [.text-center]
-image::images/ReadDocumentationMzf.png[,width=50%]
+image::images/readDocs.png[,width=50%]
