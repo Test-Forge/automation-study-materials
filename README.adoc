@@ -49,7 +49,7 @@ Additionally, feel free to contribute directly by submitting a pull request with
 [start=16]
 . link:TL/16_SSH_&_Terminal_commands_and_setup_WSL/0.General_Table_of_Contents.adoc[SSH & Terminal commands. Setup WSL]
 . link:TL/17_basic_automation_framework_structure/Basic_Automation_Framework_Structure_README.adoc[Basic automation framework structure]
-. link:TL/18_configuring_a_project_and_property_files/Configuring_a_project.Property_files_README.md[Configuring a project. Property files]
+. link:TL/18_configuring_a_project_and_property_files/Configuring_a_project.Property_files_README.adoc[Configuring a project. Property files]
 . link:TL/19_junit_running_junit_tests/JUnit5%20overview%20and%20running%20JUnit%20tests.adoc[JUnit. Running JUnit tests]
 . link:TL/20_test_hooks_Before&After/Test_Hooks_Before_&_After_README.adoc[Test hooks - Before & After]
 . link:TL/21_assertions_matchers_custom_assertions/Assertions_Matchers_CustomAssertions_README.adoc[Assertions. Matchers. Custom assertions]
