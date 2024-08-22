@@ -1,7 +1,11 @@
 = BDD (Behavior Driven Development)
-:toc:
-:toc-title: Table of Adventures
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
 :sectnums:
+:icons: font
+:highlightjs-languages: java
 
 == Breaking Down Barriers: Understanding BDD
 
@@ -45,7 +49,8 @@ Here you can see more information about https://andreidobra.com/blog/cucumber-ad
 
 == Cracking the Cucumber BDD Code: Demystifying the Process
 
-image::resources/dark_bdd.png[width=710, align="center"]
+image::resources/dark_bdd.png[width=710,align="center"]
+
 Let's look at an example of how we can describe the behavior of a program.
 
 [example]
@@ -65,9 +70,11 @@ The behavior is understandable, but a couple of questions arise.
 . We have only five steps and the example is easy. +
 What if there are many more steps? +
 Can the steps be made more clear?
-So that you can immediately see where the action is and where the result of this action is? And there is an answer to all these questions - the Gerkin language in Given-When-Then format.
+So that you can immediately see where the action is and where the result of this action is?
+And there is an answer to all these questions - the Gerkin language in Given-When-Then format.
 
 image::resources/given_when_then_2.webp[align="center"]
+
 Let's write our scenario using the Gerkin language.
 
 [example]
@@ -88,7 +95,9 @@ We have a ready-made scenario and to automate it we can use *Cucumber*.
 
 Cucumber is a test automation tool based on Behavior-Driven Development (BDD) principles and associates Gherkin steps with a step definition. +
 A step definition is a method marked with one of the step keywords: ( `Given`, `When`, `Then`, `But` or `And`). +
-It contains either a Regular Expression or a Cucumber Expression that associates a method with Gherkin steps. Let's look at an example. We wrote the steps in a file with the extension `.feature`
+It contains either a Regular Expression or a Cucumber Expression that associates a method with Gherkin steps.
+Let's look at an example.
+We wrote the steps in a file with the extension `.feature`
 
 image::resources/feature.png[width=577]
 
@@ -133,6 +142,7 @@ Also let's make our steps more functional.
 We made one implementation for two steps and passed a String to the method.
 
 image::resources/commonSteps.png[]
+
 [source,java]
 ----
 @When("user enters a {string} in the {string} filed")
@@ -142,6 +152,7 @@ public void enterValueInInputField(String value, String fieldName){
 ----
 
 :icons: font
+
 [NOTE]
 .Cucumber Expressions support basic parameter types such as:
 ====
@@ -169,10 +180,12 @@ public void theFollowingElementsAreDisplayed(List<String> listOfElements){
     //implementation
 }
 ----
+
 Let's look at a couple more cases. +
 For example, we have two steps that differ in state. (false&true, are&are not, and so on)
 
 image::resources/stepsOr.png[]
+
 [source,java]
 ----
 @Then("^the select button is (enabled|disabled)$")
@@ -184,6 +197,7 @@ public void theSelectButtonIsEnabled(String elementState){
 We can also combine multiple descriptions for one method
 
 image::resources/2steps.png[]
+
 [source,java]
 ----
 @When("I search for {string}")
@@ -196,6 +210,7 @@ public void iPerformASimpleSearchOn(String searchTerm){
 We can pass tables to the method
 
 image::resources/table.png[]
+
 [source,java]
 ----
 @Given("the following books")
@@ -227,7 +242,8 @@ Taking into account everything we talked about above, we did the following test.
 image::resources/test1.png[]
 
 The test is written. +
-But for a specific user with a specific login and specific password. What if we want to check the second user?
+But for a specific user with a specific login and specific password.
+What if we want to check the second user?
 Is it really necessary to write another test? +
 No. +
 We will use *scenario outline*. +
@@ -235,7 +251,10 @@ The scenario outline allows us to add examples and run the test a couple of time
 
 image::resources/test2.png[width=692]
 
-== Source of Enlightenment: Useful Resources for BDD and Cucumber
+== Useful Resources for BDD and Cucumber
+
+*Source of Enlightenment:*
+
 * https://mobilelive.medium.com/tdd-vs-bdd-vs-ddd-which-one-should-you-choose-e562e313f955[Everything you want to know about Driven Development]
 * Create, execute and refactor tests following https://support.smartbear.com/cucumberstudio/docs/tests/best-practices.html#scenario-content-reuse-step-definitions,-when-pos[advice]
 * https://cucumber.io/docs/guides/10-minute-tutorial/?lang=java[First Cucumber test in 10 minutes] +

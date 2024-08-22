@@ -1,7 +1,9 @@
-= *How to Create an AWS*
+= How to Create an AWS
+Iurii Rusakov, Igor Gorea
 :doctype: book
 :toc: left
 :sectnums:
+:highlightjs-languages: java
 
 '''
 
@@ -175,6 +177,4 @@ image:resources%2FAWS-07.jpg[AWS-07.jpg]
 
 You should now be connected to your AWS EC2 instance via PuTTY.
 image:resources%2FAWS-08.jpg[AWS-08.jpg]
-
-Copyright © 2024 by Iurii Rusakov, Igor Gorea
 

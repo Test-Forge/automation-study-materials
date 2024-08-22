@@ -1,8 +1,11 @@
 = Utility libraries
+Verginia Stolear, Sabrina Graur
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
+:icons: font
 :source-highlighter: highlightjs
 :highlightjs-languages: java, xml
 
@@ -202,5 +205,3 @@ For more details and detailed explanations for other possibilities you can acces
 - https://www.baeldung.com/awaitility-testing
 - https://www.mastertheboss.com/various-stuff/testing-java/testing-with-awaitility-made-simple/#google_vignette
 - https://www.youtube.com/watch?v=KbmpBZO4EoY
-
-Author (C) 2024 Verginia Stolear, edited by Sabrina Graur.

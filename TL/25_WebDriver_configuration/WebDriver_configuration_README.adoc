@@ -1,40 +1,32 @@
 = Selenium WebDriver
+Igor Chele, Igor Gorea
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:revdate: 2024
 :toc: left
-:toc-title: Table of Contents
 :sectnums:
 :icons: font
+:highlightjs-languages: java
 
 == What is Selenium WebDriver
 
-Selenium WebDriver is a powerful tool for automating web browsers. It provides a programming interface (API) for
-interacting with web browsers and automating
-web application testing. WebDriver allows you to write code in various programming
-languages (such as *Java*, Python, C#, etc.) to control web browsers programmatically
-and perform actions like clicking buttons, filling forms, navigating through pages,
-and verifying web page contents.
+Selenium WebDriver is a powerful tool for automating web browsers.
+It provides a programming interface (API) for interacting with web browsers and automating web application testing.
+WebDriver allows you to write code in various programming languages (such as *Java*, Python, C#, etc.) to control web browsers programmatically and perform actions like clicking buttons, filling forms, navigating through pages, and verifying web page contents.
 
-WebDriver supports multiple web browsers such as Chrome,
-Firefox, Safari, and Edge, allowing you to write tests that run
-seamlessly across different browsers.
+WebDriver supports multiple web browsers such as Chrome, Firefox, Safari, and Edge, allowing you to write tests that run seamlessly across different browsers.
 
-Integration with Testing Frameworks: WebDriver can be integrated with popular testing
-frameworks like *Cucumber*, *JUnit* and TestNG, enabling the creation of structured and maintainable
-test suites.
+Integration with Testing Frameworks: WebDriver can be integrated with popular testing frameworks like *Cucumber*, *JUnit* and TestNG, enabling the creation of structured and maintainable test suites.
 
 :icons: font
+
 [NOTE]
-Support for Parallel Execution: WebDriver supports parallel test execution, allowing you
-to run tests concurrently across multiple browsers or browser instances, thus reducing
-test execution time. This is a more complex solution which is used with WebDriver Factory or WebDriver Manager.
-
-
+Support for Parallel Execution: WebDriver supports parallel test execution, allowing you to run tests concurrently across multiple browsers or browser instances, thus reducing test execution time.
+This is a more complex solution which is used with WebDriver Factory or WebDriver Manager.
 
 == Dependencies
 
-In order to run it , first we need to install Selenium library (add dependency to pom.xml file)
-from https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java[here] , otherwise, see an example below.
+In order to run it , first we need to install Selenium library (add dependency to pom.xml file) from https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java[here] , otherwise, see an example below.
 
 [source,xml]
 ----
@@ -49,21 +41,26 @@ from https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java[he
 ----
 
 == Selenium Manager
+
 Selenium Manager is a command-line tool implemented in Rust that provides automated driver and browser management for Selenium.
 Selenium bindings use this tool by default, so you do not need to download it or add anything to your code or do anything else to use it.
 
 === Why driver managers exists?
+
 Selenium uses the native support implemented by each browser to carry out the automation process.
 For this reason, Selenium users need to place a component called _driver_ (chromedriver, geckodriver, msedgedriver, etc.) between the script using the Selenium API and the browser.
 For many years, managing these drivers was a manual process for Selenium users.
 This way, they had to download the required driver for a browser (chromedriver for Chrome, geckodriver for Firefox, etc.) and place it in the `PATH` or export the driver path as a system property (Java, JavaScript, etc.).
 But this process was cumbersome and led to maintainability issues.
 
-Let’s consider an example. Imagine you manually downloaded the required chromedriver for driving your Chrome with Selenium.
+Let’s consider an example.
+Imagine you manually downloaded the required chromedriver for driving your Chrome with Selenium.
 When you did this process, the stable version of Chrome was 113, so you downloaded chromedriver 113 and put it in your `PATH`.
-At that moment, your Selenium script executed correctly. But the _problem_ is that Chrome is _evergreen_.
+At that moment, your Selenium script executed correctly.
+But the _problem_ is that Chrome is _evergreen_.
 This name refers to Chrome’s ability to upgrade automatically and silently to the next stable version when available.
-This feature is excellent for end-users but potentially dangerous for browser automation. Let’s go back to the example to discover it.
+This feature is excellent for end-users but potentially dangerous for browser automation.
+Let’s go back to the example to discover it.
 Your local Chrome eventually updates to version 115. And that moment, your Selenium script is broken due to the incompatibility between the manually downloaded driver (113) and the Chrome version (115).
 Thus, your Selenium script fails with the following error message: _“session not created: This version of ChromeDriver only supports Chrome version 113”_.
 
@@ -72,13 +69,17 @@ All these projects were an inspiration and a clear sign that the community neede
 Thus, the Selenium project has created Selenium Manager, the official driver manager for Selenium, shipped out of the box with each Selenium release as of version 4.6.
 
 === Usage
+
 _Driver management_ through Selenium Manager _is *opt-in* for the Selenium_ bindings.
 Thus, _users can continue managing their drivers manually_ (putting the driver in the PATH or using system properties) or _rely on a third-party driver manager_ to do it automatically.
 Selenium Manager only operates as a fallback: if no driver is provided, Selenium Manager will come to the rescue.
 
 :icons: font
+
 [NOTE]
-Selenium Manager is a CLI (command line interface) tool implemented in Rust to allow cross-platform execution and compiled for Windows, Linux, and macOS. The Selenium Manager binaries are shipped with each Selenium release. This way, each Selenium binding language invokes Selenium Manager to carry out the automated driver and browser management explained in the following sections.
+Selenium Manager is a CLI (command line interface) tool implemented in Rust to allow cross-platform execution and compiled for Windows, Linux, and macOS.
+The Selenium Manager binaries are shipped with each Selenium release.
+This way, each Selenium binding language invokes Selenium Manager to carry out the automated driver and browser management explained in the following sections.
 
 == For those who wants to set drivers manually: Download driver(s)
 
@@ -127,8 +128,7 @@ public class BasicTest {
 }
 ----
 
-See attached a simple example "BasicConfiguration"(separately in JUnit and Cucumber) of a test with some additional
-commands specific for WebDriver.
+See attached a simple example "BasicConfiguration"(separately in JUnit and Cucumber) of a test with some additional commands specific for WebDriver.
 
 '''
 
@@ -177,7 +177,6 @@ public class OutDatedNavigationTest {
 }
 ----
 
-
 == Conclusions
 
 WebDriver can have a much more complex configuration to cover the needs of ATF tests execution.
@@ -188,7 +187,6 @@ and *to ensure that unused browser sessions to be closed*.
 Also, you may check the attached files with an example of WebDriver configuration via WebDriverFactory with browser selection.(in ComplexConfiguration folder)
 
 :icons: font
+
 [NOTE]
 WebElements interaction is part of other chapter.
-
-_Copyright © 2024 by Igor Chele and Igor Gorea_

@@ -1,6 +1,12 @@
 = API Model and Rest Basics
+Liurca Andreea, Igor Gorea
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
 :toc: left
 :sectnums:
+:icons: font
+:highlightjs-languages: java
 
 image::images/api-anim.gif[960,720,align="center"]
 
@@ -411,5 +417,3 @@ Adhering to these best practices ensures that RESTful APIs are well-designed, in
 . https://www.javatpoint.com/api-development-in-java
 . https://medium.com/javarevisited/building-restful-apis-in-java-a-step-by-step-tutorial-e1b9b2d3e6ab
 . https://happycoding.io/tutorials/java-server/rest-api
-
-Copyright © 2024 by Liurca Andreea and Igor Gorea

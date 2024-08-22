@@ -1,34 +1,40 @@
 = Exercises
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-==== Exercise 1
+== Exercise 1
 
 Create a class called "_Person_" with a name and age attribute.
 
 Create two instances of the "_Person_" class, set their attributes using the constructor, and print their name and age.
 
-==== Exercise 2
+== Exercise 2
 
 Create a class called "_Dog_" with a name and breed attribute.
 
 Create two instances of the "_Dog_" class, set their attributes using the constructor and modify the attributes using the setter methods and print the updated values.
 
-==== Exercise 3
+== Exercise 3
 
 Create a class called "_Rectangle_" with width and height attributes.
 
 Calculate the area and perimeter of the rectangle.
 
-==== Exercise 4
+== Exercise 4
 
 Create a class called "_Employee_" with a name, job title, and salary attributes, and methods to calculate and update salary.
 
-==== Exercise 5
+== Exercise 5
 
 Create a class called "_Shape_" with abstract methods for calculating area and perimeter, and subclasses for "_Rectangle_", "_Circle_", and "_Triangle_".
 
-==== Exercise 6
+== Exercise 6
 
 Write a program to print the area of a rectangle by creating a class named "_Area_" having two methods.
 
@@ -38,7 +44,7 @@ The second method named as "_getArea_" returns the area of the rectangle.
 
 Length and breadth of rectangle are entered through keyboard.
 
-==== Exercise 7
+== Exercise 7
 
 Write a program that would print the information (_name, year of joining, salary, address_) of three employees by creating a class named "_Employee_".
 
@@ -60,7 +66,7 @@ The output should be as follows:
 |26B- WallsStreat
 |===
 
-==== Exercise 8
+== Exercise 8
 
 Write a Java method to check whether a year (_integer_) entered by the user is a leap year or not.
 
@@ -70,7 +76,7 @@ Input a year: 2017
 
 false
 
-==== Exercise 9
+== Exercise 9
 
 Write a Java method where an integer, *N*, print its first *10* multiples.
 
@@ -85,9 +91,8 @@ Each multiple "_N x i_" (where 1 <= i <= 10) should be printed on a new line in 
 2 x 2 = 4
 
 ...
-
 2 x 10 = 20
 
-==== Exercise 10
+== Exercise 10
 
 Write a Java method that check if the entered number is *negative* or *positive* or *zero*.

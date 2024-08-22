@@ -1,13 +1,17 @@
 = Java Data Types
 Liudmila Topal <liudmila.topal@endava.com>
-3.0, July 29, 2022: AsciiDoc article template
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 *Java data types* are used to define the type of data for the different types of _variables_, _constants_,
 _method parameters_, _returns type_, etc.
 
-=== Data Types
+== Data Types
 
 They are of _different sizes and values_ that can be stored in the variable that is made as per convenience and circumstances to cover up all test cases.
 
@@ -18,7 +22,7 @@ Java has two categories in which data types are segregated:
 
 image::../resource/Data-Types.jpg[]
 
-=== Primitive Data Types
+== Primitive Data Types
 
 *Primitive data* are only single values and have no special capabilities.
 There are 8 primitive data types.
@@ -91,7 +95,7 @@ to
 |upto 16 decimal digits
 |===
 
-==== [[boolean]]Boolean Data Type
+=== [[boolean]]Boolean Data Type
 
 A boolean type is declared with the *boolean* keyword and can only take the values *true* or *false*:
 
@@ -104,13 +108,13 @@ boolean b2 = false;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/BooleanExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about boolean type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Boolean.html[here].
 
-==== [[byte]]Byte Data Type
+=== [[byte]]Byte Data Type
 
 The byte data type is an 8-bit signed two’s complement integer.
 
@@ -125,13 +129,13 @@ byte num2 = (byte) -129;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/ByteExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about byte type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Byte.html[here].
 
-==== [[short]]Short Data Type
+=== [[short]]Short Data Type
 
 The short data type is a 16-bit signed two’s complement integer.
 
@@ -146,14 +150,14 @@ short num2 = -10;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/ShortExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about short type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Short.html[here].
 
 [#_integer_data_type]
-==== [[int]]Integer Data Type
+=== [[int]]Integer Data Type
 
 An integer number is a type of primitive data type that represents whole numbers, both positive and negative, as well as zero.
 
@@ -166,13 +170,13 @@ int num2 = -10;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/IntExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about integer type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html[here].
 
-==== [[long]]Long Data Type
+=== [[long]]Long Data Type
 
 In Java, long is a data type used to store large numerical values.
 
@@ -190,13 +194,13 @@ long max = 9223372036854775807L;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/LongExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about long type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Long.html[here].
 
-==== [[float]]Float Data Type
+=== [[float]]Float Data Type
 
 A float data type in Java stores a decimal value with 6-7 total digits of precision.
 
@@ -213,13 +217,13 @@ float num4 = 7.83684987683688f;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/FloatExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about float type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Float.html[here].
 
-==== [[double]]Double Data Type
+=== [[double]]Double Data Type
 
 TIP: It generally represents the decimal numbers.
 
@@ -234,14 +238,14 @@ double num4 = 7.83684987683688;
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/DoubleExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about double type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html[here].
 
 [#_char_data_type]
-==== [[char]]Char Data Type
+=== [[char]]Char Data Type
 
 The char data type is used to store a *single* character.
 
@@ -256,26 +260,26 @@ char char2 = 'A';
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/primitive_data_types/CharExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about char type you can find https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html[here].
 
-==== Var Data Type
+=== Var Data Type
 
 The var type lets the compiler decide what is the real type of the variable you create.
 
 TIP: More info about var type you can find https://dev.java/learn/language-basics/using-var/[here].
 
-=== Non-Primitive Data Type or Reference Data Types
+== Non-Primitive Data Type or Reference Data Types
 
 The *Reference Data Types* will contain a memory address of variable values because the reference types won’t store the variable value directly in memory.
 
 TIP: They are strings, objects, arrays, etc.
 
 [#_strings]
-==== Strings
+=== Strings
 
 In Java, a *string* is a sequence of characters.
 
@@ -289,13 +293,13 @@ String string = "Hello World!";
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/non_primitive_data_type/StringsExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about String type you can find https://www.geeksforgeeks.org/strings-in-java/[here] and some methods examples https://medium.com/edureka/java-string-68e5d0ca331f#:~:text=For%20Example%3A%20String%20s%3D%E2%80%9C,the%20object%20in%20the%20heap.[here].
 
-==== Class
+=== Class
 
 A *class* is a user-defined blueprint or prototype from which objects are created.
 
@@ -304,7 +308,7 @@ In general, class declarations can include these components.
 
 TIP: More info about Class you can find xref:../../09_oop_basics/1 classes/what_is_a_class.adoc#_class_in_java[here].
 
-==== Object
+=== Object
 
 An *Object* is a basic unit of Object-Oriented Programming and represents real-life entities.
 
@@ -312,13 +316,13 @@ A typical Java program creates many objects, which as you know, interact by invo
 
 TIP: More info about Class you can find xref:../../09_oop_basics/4 objects/what_is_an_object.adoc#_object_in_java[here].
 
-==== Interface
+=== Interface
 
 Like a class, an *interface* can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, without body).
 
 TIP: More info about Interface you can find link:https://docs.oracle.com/javase/tutorial/java/concepts/interface.html[here].
 
-==== Array
+=== Array
 
 *Arrays* are used to _store multiple values_ in a single variable, instead of declaring separate variables for each value.
 
@@ -332,8 +336,8 @@ String[] cars = {"Volvo", "BMW", "Mazda", "Ford"};
 ----
 
 [NOTE]
-=====
+====
 link:data_types_examples/non_primitive_data_type/ArrayExample.java[Here] you can find an example.
-=====
+====
 
 TIP: More info about array you can find https://dev.java/learn/language-basics/arrays/[here].

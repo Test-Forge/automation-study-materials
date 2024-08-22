@@ -1,4 +1,10 @@
 = Exploring Build Tool: Gradle
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
+:icons: font
 
 [.text-center]
 image::gradle-project-images/gradle-logo.png[width=20%]

@@ -1,9 +1,11 @@
 = Java Streams and Lambda Expressions
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
-:sectnumlevels: 1
+:icons: font
+:highlightjs-languages: java
 
 == Introduction
 
@@ -12,37 +14,34 @@ This document explores Java's Streams and Lambda Expressions.
 Lambda Expressions and Streams have modernized Java by introducing a style of programming that emphasizes simplicity and effectiveness.
 Lambda Expressions, or lambdas, are a compact way to carry out operations traditionally requiring more verbose code, such as sorting or filtering data.
 Streams complement lambdas by enabling advanced operations on data sets, similar to database queries, but within Java itself.
-These features are particularly beneficial in processing large volumes of data, enhancing both the
-speed of development and the performance of the applications themselves.
+These features are particularly beneficial in processing large volumes of data, enhancing both the speed of development and the performance of the applications themselves.
 
 == Lambda Expressions
 
 === Definition
 
-Lambda expressions in Java are a concise representation of an anonymous function that
-can be used to implement a method defined by a functional interface.
+Lambda expressions in Java are a concise representation of an anonymous function that can be used to implement a method defined by a functional interface.
 You can think of a lambda expression as an unnamed method.
 It has parameters and a body just like full-fledged methods do, but it doesn’t have a name like a real method.
 Lambda expressions are often referred to as *lambdas* for short.
 They provide a clear and compact way to represent a method interface using an expression.
-They enable functional programming by allowing functions to be passed
-as arguments, returned as values, and stored in variables.
+They enable functional programming by allowing functions to be passed as arguments, returned as values, and stored in variables.
 Lambdas work with *interfaces* that have *only one abstract method*.
 
 ==== A lambda expression consists of three parts:
 
 . *Argument List*: Enclosed in parentheses (), the argument list defines the parameters required by the expression.
 . *Arrow Token:* The "*-&gt;*" symbol denotes that the expression before it is the arguments and the expression after it is the body.
-. *Body*: Contains the code that defines the actions of the lambda expression. It can be a single expression or a block of statements enclosed in {}.
+. *Body*: Contains the code that defines the actions of the lambda expression.
+It can be a single expression or a block of statements enclosed in {}.
 
-image::resources%2FLamdaExpression.png[LamdaExpression.png, align="center"]
+image::resources%2FLamdaExpression.png[LamdaExpression.png,align="center"]
 
 === Syntax
 
 * Parameter types are optional.
 * Braces *{}* and the *return* keyword are optional when the body is a single statement.
 * Parentheses *()* are optional when only one parameter is specified and the type is implicit.
-
 
 [source,java]
 ----
@@ -58,11 +57,11 @@ In this example:
 
 *Valid lambdas:*
 
-image::resources%2FValidLambdas.png[ValidLambdas.png, align="center"]
+image::resources%2FValidLambdas.png[ValidLambdas.png,align="center"]
 
 *Invalid lambdas:*
 
-image::resources%2FInvalidLambdas.png[InvalidLambdas.png, align="center"]
+image::resources%2FInvalidLambdas.png[InvalidLambdas.png,align="center"]
 
 === Functional Interfaces
 
@@ -84,9 +83,8 @@ TransactionValidator isLargeTransaction = (Transaction t) -> t.getAmount() > 100
 * It uses a lambda expression *"(Transaction t) -&gt; t.getAmount() &gt; 1000"* to define the behavior of the *isValid* method.
 * In this lambda expression:
 *(Transaction t)* specifies the input parameter to the *isValid* method, which is a Transaction object named t.
-* *t.getAmount() &gt; 1000* is the implementation of the *isValid* method. It checks if the amount of
-the transaction (t.getAmount()) is greater than 1000 and returns *true* if it is, indicating that
-the transaction is considered valid for being "*large*."
+* *t.getAmount() &gt; 1000* is the implementation of the *isValid* method.
+It checks if the amount of the transaction (t.getAmount()) is greater than 1000 and returns *true* if it is, indicating that the transaction is considered valid for being "*large*."
 
 *To sum up:*
 This code defines a functional interface TransactionValidator with a single abstract method isValid.
@@ -130,7 +128,7 @@ The first three interfaces,i.e., Consumer, Predicate, and Function, likewise hav
 
 *Common functional interfaces:*
 
-image::resources%2FCommonFunctionalInterfaces.png[CommonFunctionalInterfaces.png, align="center"]
+image::resources%2FCommonFunctionalInterfaces.png[CommonFunctionalInterfaces.png,align="center"]
 
 === Method References
 
@@ -145,21 +143,21 @@ transactions.forEach(System.out::println);
 In this code:
 
 . *transactions* is assumed to be some collection or iterable (e.g., a list, array, or stream) that contains objects of a type compatible with the System.out.println method.
- forEach:
+forEach:
 
-. *forEach* is a method available on collections and streams in Java. It is used for iterating over the elements in the collection and performing an action on each element.
+. *forEach* is a method available on collections and streams in Java.
+It is used for iterating over the elements in the collection and performing an action on each element.
 
-. *System.out::println*: This is a method reference. It refers to the println method of the System.out object.
+. *System.out::println*: This is a method reference.
+It refers to the println method of the System.out object.
 System.out is the standard output stream in Java, and println is a method used to print a line to the console.
 
 *To sum up:*
-When using the "System.out::println" as a method reference within *forEach*, it means that for each element in the transactions collection,
-the println method will be called, and the details of each transaction will be printed to the console.
+When using the "System.out::println" as a method reference within *forEach*, it means that for each element in the transactions collection, the println method will be called, and the details of each transaction will be printed to the console.
 
-A *constructor reference* is a special type of method reference that uses new instead of a
-method, and it creates a new object.
+A *constructor reference* is a special type of method reference that uses new instead of a method, and it creates a new object.
 
-[source, java]
+[source,java]
 ----
 Supplier<ArrayList> methodRef4 = ArrayList::new;
 ----
@@ -170,8 +168,7 @@ Supplier<ArrayList> methodRef4 = ArrayList::new;
 
 *Streams* in Java represent a sequence of elements sourced from collections, arrays, or I/O channels, and support aggregate operations on them.
 They are designed to express calculations in a functional style, leveraging the capabilities of Lambda Expressions.
-Unlike collections, streams do not store data but rather convey elements from a source, such as a data structure, an array, or an I/O channel,
-through a pipeline of operations.
+Unlike collections, streams do not store data but rather convey elements from a source, such as a data structure, an array, or an I/O channel, through a pipeline of operations.
 
 === Main Characteristics
 
@@ -187,14 +184,15 @@ A stream consists of the following components:
 * *Source:* The data source for the stream, such as a collection or array.
 * *Zero or More Intermediate Operations*: These are operations that transform the stream into another stream, such as `filter`, `map`, and `sorted`.
 Since streams use lazy evaluation, the intermediate operations do not run until the terminal operation runs.
-* *A Terminal Operation*: These operations produce a result or a side-effect and trigger the processing of the stream. Examples include `forEach`, `collect`, `reduce` etc.
+* *A Terminal Operation*: These operations produce a result or a side-effect and trigger the processing of the stream.
+Examples include `forEach`, `collect`, `reduce` etc.
 Since streams can be used only once, the stream is no longer valid after a terminal operation completes.
 
-image::resources%2FStreamPipeline.png[StreamPipeline.png, align="center"]
+image::resources%2FStreamPipeline.png[StreamPipeline.png,align="center"]
 
 *Intermediate vs terminal operations*
 
-image::resources%2FIntermidiateVSTerminalOperations.png[IntermidiateVSTerminalOperations.png, align="center"]
+image::resources%2FIntermidiateVSTerminalOperations.png[IntermidiateVSTerminalOperations.png,align="center"]
 
 *Creating Finite Streams*
 
@@ -204,6 +202,7 @@ Stream<String> empty = Stream.empty();          // count = 0
 Stream<Integer> singleElement = Stream.of(1);   // count = 1
 Stream<Integer> fromArray = Stream.of(1, 2, 3); // count = 3
 ----
+
 Java also provides a convenient way of converting a Collection to a stream.
 
 [source,java]
@@ -260,8 +259,7 @@ Stream<Integer> oddNumbers = Stream.iterate(1, n -> n + 2);
 
 === Parallel Streams
 
-Parallel streams in Java is a feature that allows for concurrent processing of stream elements,
-allowing multiple threads, which can lead to significant performance improvements especially when dealing with large datasets.
+Parallel streams in Java is a feature that allows for concurrent processing of stream elements, allowing multiple threads, which can lead to significant performance improvements especially when dealing with large datasets.
 
 [source,java]
 ----
@@ -272,8 +270,7 @@ transactions.parallelStream()
 ----
 
 In the code above:
-Using "transactions.parallelStream()", a parallel stream is created from a collection ("transactions")
-allowing for concurrent execution of operations across multiple threads, as opposed to the sequential execution in a regular stream.
+Using "transactions.parallelStream()", a parallel stream is created from a collection ("transactions") allowing for concurrent execution of operations across multiple threads, as opposed to the sequential execution in a regular stream.
 
 *NOTE:* Parallel Streams may not guarantee the order of processing and can introduce overhead, potentially reducing efficiency for smaller datasets or simpler tasks.
 
@@ -281,7 +278,8 @@ image:resources%2FStreamsCheatsheet.png[StreamsCheatsheet.png]
 
 == Resources
 
-***
+'''
+
 - https://java-8-tips.readthedocs.io/en/stable/lambdas.html#/[Lambda Expressions]
 - https://java-8-tips.readthedocs.io/en/stable/funcinterfaces.html#/[Functional Interface/Method Reference]
 - https://docs.oracle.com/javase/8/docs/api/java/util/stream/Stream.html[Streams (Official Documentation)]

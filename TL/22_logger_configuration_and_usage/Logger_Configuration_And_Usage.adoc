@@ -1,14 +1,12 @@
+= Logger Configuration & Usage
+Stanislav Scurtu
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:revdate: July 2024
 :toc: left
-:toc-title: Table of Contents
 :sectnums:
 :icons: font
-
-= Logger Configuration & Usage
-
-by mailto:stanislav.scurtu@gmail.com[Stanislav Scurtu] +
-Apr 2024
+:highlightjs-languages: java
 
 == Overview
 

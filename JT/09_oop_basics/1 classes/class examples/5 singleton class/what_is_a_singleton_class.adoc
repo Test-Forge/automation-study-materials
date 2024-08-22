@@ -2,7 +2,7 @@
 
 A *singleton class* in Java is a special class that allows only one instance (or object) of itself to be created (exists).
 
-=== How to create a singleton class
+== How to create a singleton class
 
 To create a singleton class, a class must implement the following properties:
 

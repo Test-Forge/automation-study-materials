@@ -118,7 +118,7 @@ The _Maven Surefire Plugin_ will scan for test classes whose fully qualified nam
 JUnit 5 provides various annotations that help in configuring and customizing the test run.
 These annotations are used to define the behavior of test methods, control the test lifecycle, and more.
 
-=== 1. `@Test`
+=== `@Test`
 
 The @Test annotation is used to mark a method as a test method.
 JUnit will run the methods annotated with @Test during test execution.
@@ -133,7 +133,7 @@ void myTestMethod() {
 }
 ----
 
-=== 2. `@BeforeAll` and `@AfterAll`
+=== `@BeforeAll` and `@AfterAll`
 
 The @BeforeAll and @AfterAll annotations are used to indicate methods that should be run before and after all test methods in a test class, respectively.
 
@@ -153,7 +153,7 @@ static void tearDownClass() {
 }
 ----
 
-=== 3. `@BeforeEach` and `@AfterEach`
+=== `@BeforeEach` and `@AfterEach`
 
 The @BeforeEach and @AfterEach annotations are used to mark methods that should be run before and after each test method in a test class, providing a setup and teardown for each individual test.
 
@@ -173,7 +173,7 @@ void tearDown() {
 }
 ----
 
-=== 4. `@DisplayName`
+=== `@DisplayName`
 
 The @DisplayName annotation allows you to provide a custom name for a test class or method, improving the readability of test reports.
 
@@ -192,7 +192,7 @@ class MyTestClass {
 }
 ----
 
-=== 5. `@Disabled`
+=== `@Disabled`
 
 The @Disabled annotation is used to temporarily disable a test class or method.
 It can be applied to individual test methods or entire test classes.
@@ -213,7 +213,7 @@ class MyDisabledTestClass {
 
 These annotations, along with others provided by JUnit 5, offer flexibility and customization options to tailor the test run according to specific requirements.
 
-=== 6. `@RepeatedTest`
+=== `@RepeatedTest`
 
 This annotation provides the ability to repeat a test a specified number of times.
 Since JUnit Jupiter 5.10, @RepeatedTest can be configured with a failure threshold which signifies the number of failures after which remaining repetitions will be automatically skipped.
@@ -230,7 +230,7 @@ void repeatedTest(RepetitionInfo repetitionInfo) {
     }
 ----
 
-=== 6. `@ParameterizedTest`
+=== `@ParameterizedTest`
 
 Parameterized tests make it possible to run a test multiple times with different arguments.
 They are declared just like regular @Test methods but use the @ParameterizedTest annotation instead.
@@ -289,7 +289,9 @@ public static List<Object> initiateParams() {
     }
 }
 ----
+====
 
+====
 @EnumSource Example
 
 [source,java]
@@ -307,7 +309,9 @@ public static List<Object> initiateParams() {
         }
     }
 ----
+====
 
+====
 @CsvFileSource
 
 [source,java]
@@ -326,6 +330,7 @@ public static List<Object> initiateParams() {
 
 ====
 
+[NOTE]
 __More information about these and other annotations you can read from sources like:__ https://junit.org/junit5/docs/current/user-guide/#writing-tests-annotations
 
 == Running Tagged Tests
@@ -363,7 +368,9 @@ public class ClassBTest
 }
 ----
 
-* **In Maven**
+====
+[.text-center]
+**In Maven**
 
 To run tests with specific tags we can use the -groups and -excludeGroups options when executing tests with a build tool (e.g., Maven or Gradle) or an IDE.
 
@@ -380,14 +387,18 @@ To exclude the tagged tests, we run the following command:
 ----
 mvn test -DexcludeGroups="production"
 ----
+====
 
-* **In IDE (IntelliJ)**
+====
+[.text-center]
+**In IDE (IntelliJ)**
 
 Several IDEs support running the tagged test cases through custom run configuration.
 For example, in IntelliJ, we can create a custom run configuration and select Tags in type of resources to search.
 
 [.text-center]
 image::images/tagIde.png[,width=80%]
+====
 
 == Parallel Execution
 
@@ -464,11 +475,14 @@ public class parallelTests {
 }
 ----
 
+[NOTE]
+====
 __For more detailed information about parallel running:__
 
 https://davidvlijmincx.com/posts/run-junit5-tests-in-parallel
 
 https://junit.org/junit5/docs/snapshot/user-guide/#writing-tests-parallel-execution
+====
 
 == Other Documentation
 

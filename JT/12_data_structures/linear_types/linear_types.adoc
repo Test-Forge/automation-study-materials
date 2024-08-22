@@ -1,4 +1,11 @@
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
+
 == Array
 
 image::../resources/array.png[align="center",width=700]
@@ -15,7 +22,7 @@ Multidimensional Arrays are not bounded to two indices or two dimensions as they
 The number of square brackets indicates the dimension of the array, and each array is initialized within curly braces. +
 
 .*How to Create the Array?*
-[source, java]
+[source,java]
 ----
 // One-Dimensional Array
 dataType[] arrayName;
@@ -29,7 +36,8 @@ int[][] array = new int[][];
 To define the number of elements that an array can hold, we have to allocate memory for the array in Java.
 In Java, we can declare and allocate the memory of an array in one single statement.
 For example,
-[source, java]
+
+[source,java]
 ----
 // One-Dimensional Array
 double[] data = new double[10];
@@ -44,7 +52,8 @@ Here, we have created an array named age and initialized it with the values insi
 
 Note that we have not provided the size of the array.
 In this case, the Java compiler automatically specifies the size by counting the number of elements in the array.
-[source, java]
+
+[source,java]
 ----
 //declare and initialize one-dimensional array
 int[] age = {12, 4, 5, 2, 5};
@@ -61,7 +70,8 @@ int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
 
 .*How to Access Elements of an Array?*
 We can access the element of an array using the index number.
-[source, java]
+
+[source,java]
 ----
 // One-Dimensional Array
 array[index];
@@ -94,7 +104,7 @@ It follows the
 Stacks are particularly useful for managing data when the order of operations is important and when you need to access the most recently added elements first.
 
 .*How to Create the Stack?*
-[source, java]
+[source,java]
 ----
 Stack<type> stk = new Stack<>();
 Stack<Integer> intStack = new Stack<>();
@@ -105,14 +115,16 @@ You can *add (push)* an element to a stack and *remove (pop)* an item from the s
 
 .*How to add Elements into The Stack?*
 The push() method pushes an element, that is passed as the parameter, on the top of the stack.
-[source, java]
+
+[source,java]
 ----
 intStack.push(0);
 ----
 
 .*How to Retrieve Elements from The Stack?*
 The pop() method removes and returns the top element of the stack
-[source, java]
+
+[source,java]
 ----
 intStack.pop();
 ----
@@ -135,7 +147,8 @@ A queue follows the *First In, First Out* (FIFO) rule.
 
 .*How to Create the Queue?*
 You can use any class that implements the Queue interface, like LinkedList or PriorityQueue.
-[source, java]
+
+[source,java]
 ----
 Queue q = new LinkedList<>();
 
@@ -145,7 +158,8 @@ Queue<String> q = new PriorityQueue<>();
 .*How to add Elements into The Queue?*
 Use the *add()* method or *offer()* method to append elements to the end of the Queue.
 Remember, the add() method throws an exception if the element cannot be inserted, while the offer() method simply returns false.
-[source, java]
+
+[source,java]
 ----
 q.add(1);
 
@@ -154,7 +168,8 @@ q.offer(2);
 
 .*How to Remove Elements from The Queue?*
 The *remove()* or *poll()* method can be then employed to delete elements from the queue
-[source, java]
+
+[source,java]
 ----
 q.remove();
 
@@ -163,7 +178,8 @@ q.poll();
 
 .*How to Access Elements of The Queue?*
 The *remove()* or *poll()* method can be then employed to delete elements from the queue
-[source, java]
+
+[source,java]
 ----
 q.peek();
 
@@ -190,7 +206,8 @@ Each node can be placed at any available memory location, with the references be
 
 .*How to Create the Linked List?*
 You can use any class that implements the Queue interface, like LinkedList or PriorityQueue.
-[source, java]
+
+[source,java]
 ----
 LinkedList<Type> list_name = new LinkedList<>();
 LinkedList<String> list = new LinkedList<>();
@@ -198,7 +215,8 @@ LinkedList<String> list = new LinkedList<>();
 
 .*How to add Elements into the Linked List?*
 Use the *add()* method to add an element (node) at the end of the LinkedList.
-[source, java]
+
+[source,java]
 ----
 list.add(str);
 list.addLast("C");
@@ -207,7 +225,8 @@ list.addFirst("D");
 
 .*How to Remove Elements from The Linked List?*
 The *remove()* method of the LinkedList class is used to remove an element from the LinkedList.
-[source, java]
+
+[source,java]
 ----
 list.remove(str);
 list.removeFirst("C");
@@ -217,7 +236,8 @@ list.removeLast("D");
 .*How to Access Elements of The Linked List?*
 The *get()* method of the LinkedList class is used to access an element from the LinkedList.
 In the below example, the get() method is used with parameter 1. Here, the method returns the element at index 1.
-[source, java]
+
+[source,java]
 ----
 list.get(1);
 ----
@@ -225,7 +245,8 @@ list.get(1);
 .*How to Change Elements of The Linked List?*
 The set() method of LinkedList class is used to change elements of the LinkedList.
 Here, the set() method changes the element at index 3 to "str2".
-[source, java]
+
+[source,java]
 ----
 list.set(3, "str2");
 ----
@@ -240,4 +261,5 @@ image::../resources/linked_list_meme.png[width=650,align="center"]
 * Learn more about Linked List https://www.geeksforgeeks.org/linked-list-in-java/[here] and
 https://www.programiz.com/java-programming/linkedlist[here]
 ====
+
 xref:../data_structure.adoc[Go back to Data Structure main page]

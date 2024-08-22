@@ -1,6 +1,10 @@
 = Inheritance
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
 :sectnums:
+:icons: font
 :highlightjs-languages: asciidoc, java
 
 == Basic idea

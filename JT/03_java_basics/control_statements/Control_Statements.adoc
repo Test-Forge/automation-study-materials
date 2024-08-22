@@ -1,7 +1,12 @@
 = Control Statements in Java
 Liudmila Topal <liudmila.topal@endava.com>
-3.0, July 29, 2022: AsciiDoc article template
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 *Control Statements* in programming is similar to decision-making process in real life.
 
@@ -10,7 +15,7 @@ In programming also face some situations where we want a certain block of code t
 A programming language uses control statements to control the flow of execution of a program based on certain conditions.
 These are used to cause the flow of execution to advance and branch based on changes to the state of a program.
 
-=== Selection statements
+== Selection statements
 
 Java’s Selection statements:
 
@@ -21,7 +26,7 @@ Java’s Selection statements:
 * link:#switch[switch-case]
 * link:#jump[jump – break, continue, return]
 
-==== [[if]]if
+=== [[if]]if
 if statement is the simplest decision-making statement.
 
 It is used to decide whether a certain statement or block of statements will be executed or not i.e.
@@ -62,11 +67,11 @@ if (condition) { // assume condition is true
 image::../resource/if_3.png[]
 
 [NOTE]
-=====
+====
 link:statements.examples/If.java[Here] you can find an example.
-=====
+====
 
-==== [[if_else]]if-else
+=== [[if_else]]if-else
 The _if_ statement alone tells us that _if a condition is true_ it will execute a block of statements and _if the condition is false_ it won’t.
 
 But what if we want to do something else if the condition is false? Here comes the *else statement*.
@@ -88,11 +93,11 @@ if (condition) {
 image::../resource/if-else_2.png[]
 
 [NOTE]
-=====
+====
 link:statements.examples/IfElse.java[Here] you can find an example.
-=====
+====
 
-==== [[nested_if]]nested-if
+=== [[nested_if]]nested-if
 A *nested if* is an if statement that is the target of another if or else.
 
 TIP: Nested if statements mean an _if statement inside an if statement_.
@@ -116,11 +121,11 @@ if (condition1) {
 image::../resource/nested-if_2.png[]
 
 [NOTE]
-=====
+====
 link:statements.examples/NestedIf.java[Here] you can find an example.
-=====
+====
 
-==== [[if_else_if]]if-else-if ladder
+=== [[if_else_if]]if-else-if ladder
 Here, a user can decide among multiple options.
 
 The if statements are executed from the top down.
@@ -151,11 +156,11 @@ if (condition) {
 image::../resource/if-else-if_2.png[]
 
 [NOTE]
-=====
+====
 link:statements.examples/IfElseIf.java[Here] you can find an example.
-=====
+====
 
-==== [[switch]]switch-case
+=== [[switch]]switch-case
 The *switch* statement is a multiway branch statement.
 
 TIP: It provides an easy way to dispatch execution to different parts of code based on the value of the expression.
@@ -180,9 +185,9 @@ switch (expression) {
 ----
 
 [NOTE]
-=====
+====
 link:statements.examples/Switch.java[Here] you can find an example.
-=====
+====
 
 * The expression can be of type byte, short, int char, or an enumeration. Beginning with JDK7, the expression can also be of type String.
 * Duplicate case values are not allowed.
@@ -193,7 +198,7 @@ link:statements.examples/Switch.java[Here] you can find an example.
 
 TIP: More info and examples about switch statement you can find https://dev.java/learn/language-basics/switch-statement/[here].
 
-==== [[jump]]jump
+=== [[jump]]jump
 Java supports three *jump* statements: _break_, _continue_ and _return_.
 
 These three statements transfer control to another part of the program.
@@ -213,18 +218,18 @@ The continue statement performs such an action.
 image::../resource/continue-1.png[]
 
 [NOTE]
-=====
+====
 link:statements.examples/Continue.java[Here] you can find an example.
-=====
+====
 
 * *Return:* is used to explicitly return from a method.
 
 That is, it causes program control to transfer back to the caller of the method.
 
 [NOTE]
-=====
+====
 link:statements.examples/Return.java[Here] you can find an example.
-=====
+====
 
 TIP: More info and examples about _return_ statement you can find https://www.javatpoint.com/return-statement-in-java[here].
 

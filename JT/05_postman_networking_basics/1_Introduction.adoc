@@ -1,10 +1,15 @@
 = Postman documentation overview
 Liudmila Topal <liudmila.topal@endava.com>
-:toc:
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 :url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
 
-=== Overview
+== Overview
 This is the place to find information on how to use Postman in your API projects.
 
 If you're learning to carry out a specific task or workflow in Postman, check out the following topics to find resources:
@@ -83,10 +88,10 @@ You can connect Postman to your API workflows with integrations for popular thir
 +
 For more information, see https://learning.postman.com/docs/integrations/intro-integrations/[Integrate Postman with third-party solutions].
 
-=== Resources about APIs and Postman
+== Resources about APIs and Postman
 If you're starting to learn about APIs and Postman, you can use a variety of resources both in and outside Postman.
 
-==== Public workspaces
+=== Public workspaces
 Explore https://www.postman.com/explore[workspaces, collections, and more] that you can try out inside Postman,
 like the following:
 

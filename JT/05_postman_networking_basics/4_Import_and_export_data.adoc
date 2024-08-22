@@ -1,22 +1,30 @@
 = Data import and export in Postman
 Liudmila Topal <liudmila.topal@endava.com>
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
+:icons: font
+:highlightjs-languages: java
 
-==== Postman can:
+== Postman can:
 
 * import and export Postman data, including collections, environments, globals, and data dumps.
 * import non-Postman data, such as API definitions and data from other API clients, to help you unify your API development workflow.
 
-==== You can:
+== You can:
+
 * https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/[Import data into Postman] by dragging and dropping files, or by pasting raw text or a URL.
 +
-Postman automatically recognizes Postman data such as collections, environments, and data dumps. You can also https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/[import API definitions into Postman].
+Postman automatically recognizes Postman data such as collections, environments, and data dumps.
+You can also https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/[import API definitions into Postman].
 * Import data from other API clients, so you can work with it in Postman.
 +
 You can migrate data from
 https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-soapui/[SoapUI],
 https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-hoppscotch/[Hoppscotch],
-https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-insomnia/[Insomnia],
-and https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-thunder-client/[Thunder Client].
+https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-insomnia/[Insomnia], and https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-thunder-client/[Thunder Client].
 * https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-git/[Import data from a Git repository,] so you can work with it in Postman.
 +
 Can import collections, environments, and API definitions from local or remote GitHub, GitLab, Bitbucket, and Azure DevOps repositories.

@@ -10,17 +10,17 @@
 * Additionally, it can access all the members of the outer class, including private data members and methods.
 
 
-=== Syntax
+== Syntax
 
 image::../../../resource/inner_class.png[]
 
-=== Advantage of inner classes
+== Advantage of inner classes
 
 * Nested classes represent a particular type of relationship that is *it can access all the members (data members and methods) of the outer class*, including private.
 * Nested classes are used to *develop more readable and maintainable code* because it logically groups classes and interfaces in one place only.
 * *Code Optimization:* It requires less code to write.
 
-=== Need of inner class
+== Need of inner class
 
 ----
 Sometimes users need to program a class in such a way so that no other class can access it. Therefore, it would be better if you include it within other classes.
@@ -29,12 +29,12 @@ If all the class objects are a part of the outer object then it is easier to nes
 That way all the outer class can access all the objects of the inner class.
 ----
 
-=== Nested class vs. Inner class
+== Nested class vs. Inner class
 
 * An inner class is a part of a nested class.
 * Non-static nested classes are known as inner classes.
 
-=== Types of nested classes
+== Types of nested classes
 
 There are two types of nested classes non-static and static nested classes.
 ----

@@ -1,8 +1,11 @@
 = Exception Handling and Custom Exceptions Guide
+Nichita Gridin, Sabrina Graur
+:revnumber: 1.1
+:revdate: 2024-08-16
 :doctype: book
-:icons: font
 :toc: left
 :sectnums:
+:icons: font
 :source-highlighter: highlightjs
 :highlightjs-languages: java
 
@@ -254,4 +257,3 @@ link:exercise/sample_file.txt[Sample text file]
 
 **Change link:exercise/FileOperationExercise.java[fileName]** to get `IOException`.
 ======
-Author © 2024 Nichita Gridin, edited by Sabrina Graur.

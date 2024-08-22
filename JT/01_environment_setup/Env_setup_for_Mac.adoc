@@ -1,34 +1,40 @@
 = Software Installation for Mac
-:toc:
+Iurii Rusakov, Liudmila Topal
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
-=== Prerequisites
+== Prerequisites
 
 When you're working with macOS, sometimes you may encounter the *'source ~/.bash_profile: command not found'* error in the Terminal app.
 
 [NOTE]
 *bash_profile* is a configuration file for the Bash shell, which is a hidden file in your Mac's user directory.
 
-==== How to create .bash_profile in Mac
+=== How to create .bash_profile in Mac
 
 . Open *Launchpad* -> *Other* -> *Terminal*.
 . Type in the following command to move the home directory and press *"Enter"*:
 +
-[source, xml]
+[source,xml]
 ----
 cd ~/
 ----
 
 . Input the below touch command to create the bash_profile on Mac:
 +
-[source, xml]
+[source,xml]
 ----
 touch .bash_profile
 ----
 
 TIP: Mote info about bash_profile you can find https://iboysoft.com/wiki/bash-profile-mac.html[here].
 
-=== SDK
+== SDK
 
 . https://adoptium.net/[*Download*] and Java SE Development Kit:
 +
@@ -61,7 +67,7 @@ Click "Close" to finish the installation process.
 +
 * Open _.bash_profile_ and add the following entries at the end of it.
 +
-[source, xml]
+[source,xml]
 ----
 JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home"
 PATH="${JAVA_HOME}/bin:${PATH}"
@@ -71,7 +77,7 @@ export PATH
 +
 image::resources/mac/terminal.png[]
 
-=== Maven
+== Maven
 
 . https://maven.apache.org/download.cgi[*Download*] Maven for Mac OS:
 +
@@ -79,21 +85,21 @@ image::resources/mac/maven-binary-tar-archive.png[]
 +
 . After downloading, extract it using the below command:
 +
-[source, xml]
+[source,xml]
 ----
 tar -xvf apache-maven-3.6.3-bin.tar.gz
 ----
 +
-TIP: The binaries will be extracted in the “apache-maven-3.6.3” directory. You can keep them anywhere,
-I have kept it in the Downloads directory for the sake of easy access.
+TIP: The binaries will be extracted in the “apache-maven-3.6.3” directory.
+You can keep them anywhere, I have kept it in the Downloads directory for the sake of easy access.
 +
-.  Setting Maven Environment Variables - M2_HOME and Path:
+. Setting Maven Environment Variables - M2_HOME and Path:
 +
 We have to add the Maven bin directory to the Path variable.
 +
 * Open _.bash_profile_ in your favorite text editor and add below lines to the end of it.
 +
-[source, xml]
+[source,xml]
 ----
 export M2_HOME="/Users/pankaj/Downloads/apache-maven-3.6.3"
 PATH="${M2_HOME}/bin:${PATH}"
@@ -101,7 +107,7 @@ export PATH
 ----
 . Verifying the Maven Installation:
 +
-[source, xml]
+[source,xml]
 ----
 $ mvn -version
 OpenJDK 64-Bit Server VM warning: Ignoring option MaxPermSize; support was removed in 8.0
@@ -114,7 +120,8 @@ OS name: "mac os x", version: "10.15.1", arch: "x86_64", family: "mac"
 
 TIP: Guide with installation you can find https://www.digitalocean.com/community/tutorials/install-maven-mac-os[here].
 
-=== Git
+== Git
+
 There are several ways to install Git on a Mac:
 
 * link:#Xcode[Install Git with Xcode]
@@ -122,34 +129,36 @@ There are several ways to install Git on a Mac:
 * link:#MacPorts[Install Git with MacPorts]
 
 
-==== [[Xcode]]Install Git with Xcode
+=== [[Xcode]]Install Git with Xcode
+
 . App Store -> Install _"Xcode Command Line"_ tool -> it will install _"Git"_
 . Configure your Git username and email using the following commands, replacing default name with your own:
 +
-[source, xml]
+[source,xml]
 ----
 git config --global user.name "your_github_username"
 git config --global user.email "your_github_mail"
 ----
 . Open a terminal and verify the installation was successful by typing command:
 +
-[source, xml]
+[source,xml]
 ----
 git --version
 ----
 
-==== [[Homebrew]]Install Git with Homebrew
+=== [[Homebrew]]Install Git with Homebrew
+
 If you have https://brew.sh/[installed Homebrew] to manage packages on OS X, you can follow these instructions to install Git:
 
 . Open your terminal and install Git using Homebrew:
 +
-[source, xml]
+[source,xml]
 ----
 brew install git
 ----
 . Verify the installation was successful by typing which `git --version`:
 +
-[source, xml]
+[source,xml]
 ----
 $ git --version
 git version 2.9.2
@@ -158,34 +167,33 @@ git version 2.9.2
 +
 These details will be associated with any commits that you create:
 +
-[source, xml]
+[source,xml]
 ----
 git config --global user.name "Emma Paris"
 git config --global user.email "eparis@atlassian.com"
 ----
-.  _(Optional)_ To make Git remember your username and password when working with HTTPS repositories,
-install the https://www.atlassian.com/git/tutorials/install-git#install-the-git-credential-osx[`git-credential-osxkeychain` helper].
+. _(Optional)_ To make Git remember your username and password when working with HTTPS repositories, install the https://www.atlassian.com/git/tutorials/install-git#install-the-git-credential-osx[`git-credential-osxkeychain` helper].
 
-==== [[MacPorts]]Install Git with MacPorts
-If you have https://www.macports.org/install.php[installed MacPorts] to manage packages on OS X, you can follow these
-instructions to install Git:
+=== [[MacPorts]]Install Git with MacPorts
+
+If you have https://www.macports.org/install.php[installed MacPorts] to manage packages on OS X, you can follow these instructions to install Git:
 
 . Open your terminal and update MacPorts:
 +
-[source, xml]
+[source,xml]
 ----
 sudo port selfupdate
 ----
 . Search for the latest available Git ports and variants:
 +
-[source, xml]
+[source,xml]
 ----
 port search git
 port variants gi
 ----
-.  Install Git with bash completion, the OS X keychain helper, and the docs:
+. Install Git with bash completion, the OS X keychain helper, and the docs:
 +
-[source, xml]
+[source,xml]
 ----
 sudo port install git +bash_completion +credential_osxkeychain +doc
 ----
@@ -193,15 +201,14 @@ sudo port install git +bash_completion +credential_osxkeychain +doc
 +
 These details will be associated with any commits that you create:
 +
-[source, xml]
+[source,xml]
 ----
 git config --global user.name "Emma Paris"
 git config --global user.email "eparis@atlassian.com"
 ----
-.  _(Optional)_ To make Git remember your username and password when working with HTTPS repositories,
-install the https://www.atlassian.com/git/tutorials/install-git#install-the-git-credential-osx[`git-credential-osxkeychain` helper].
+. _(Optional)_ To make Git remember your username and password when working with HTTPS repositories, install the https://www.atlassian.com/git/tutorials/install-git#install-the-git-credential-osx[`git-credential-osxkeychain` helper].
 
-=== IntelliJ IDEA
+== IntelliJ IDEA
 
 . https://www.jetbrains.com/idea/download/?section=mac[*Download*] and install IntelliJ IDEA:
 
@@ -226,7 +233,8 @@ image::resources/idea-04.png[]
 +
 Set up the new project in IntelliJ IDEA or create a new one from existing sources
 +
-You should have a link to the project repository. If you don't have it, ask your team lead for it.
+You should have a link to the project repository.
+If you don't have it, ask your team lead for it.
 +
 *OR:*
 
@@ -246,7 +254,7 @@ image::resources/idea-08.png[]
 +
 image::resources/idea-09.png[]
 
-=== Postman
+== Postman
 
 Postman is available for macOS 14.5 (Sonoma) and other.
 
@@ -259,7 +267,7 @@ image::resources/mac/donwload_postman.png[]
 +
 This will ensure that future updates can be installed.
 
-=== Oracle SQL Developer
+== Oracle SQL Developer
 
 . https://www.oracle.com/database/sqldeveloper/technologies/download/[*Download*] SQL Developer:
 +

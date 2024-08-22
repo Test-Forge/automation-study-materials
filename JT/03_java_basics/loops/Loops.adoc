@@ -1,28 +1,36 @@
 = Loops in Java
 Liudmila Topal <liudmila.topal@endava.com>
-3.0, July 29, 2022: AsciiDoc article template
+:revnumber: 1.1
+:revdate: 2024-08-16
+:doctype: book
+:toc: left
+:sectnums:
 :icons: font
+:highlightjs-languages: java
 
 *Looping* in programming languages is a feature which facilitates the execution of a _set of instructions/functions repeatedly_ while some condition evaluates to _true_.
 
-=== Types of loop
+== Types of loop
+
 Java provides _three ways_ for executing the loops.
 
 While all the ways provide similar basic functionality, they differ in their syntax and condition checking time.
 
-Three types of Conditional statements this second  type is loop statement:
+Three types of Conditional statements this second type is loop statement:
 
 * link:#while[while loop]
 * link:#for[for loop]
 * link:#do[do while]
 
-==== [[while]]while loop
+=== [[while]]while loop
+
 A *while loop* is a control flow statement that allows code to be executed repeatedly based on a given _Boolean_ condition.
 
 TIP: The while loop can be thought of as a repeating if statement.
 
 *Syntax:*
-[source, java]
+
+[source,java]
 ----
 while (boolean condition) {
     loop statements...
@@ -41,17 +49,19 @@ Normally the statements contain an update value for the variable being processed
 * When the condition becomes _false_, the loop terminates which marks the end of its life cycle.
 
 [NOTE]
-=====
+====
 link:loops.examples/While.java[Here] you can find an example.
-=====
+====
 
-==== [[for]]for loop
+=== [[for]]for loop
+
 *For loop* provides a concise way of writing the loop structure.
 
 Unlike a while loop, a for statement consumes the _initialization_, _condition and increment/decrement_ in one line thereby providing a shorter, _easy_ to debug structure of looping.
 
 *Syntax:*
-[source, java]
+
+[source,java]
 ----
 for (initialization condition; testing condition; increment/ decrement){
     statement(s)...
@@ -73,15 +83,17 @@ image::../resource/for_2.png[]
 * *Loop termination:* When the condition becomes *false*, the loop terminates _marking the end of its life cycle_.
 
 [NOTE]
-=====
+====
 link:loops.examples/For.java[Here] you can find an example.
-=====
+====
 
-==== [[do]]do while
+=== [[do]]do while
+
 **Do while **loop is similar to while loop with only difference that it checks for condition after executing the statements, and therefore is an example of Exit Control Loop.
 
 *Syntax:*
-[source, java]
+
+[source,java]
 ----
 do {
     statement(s)...
@@ -98,10 +110,9 @@ _There is no checking of any condition for the first time_.
 * After the execution of the statements, and update of the variable value, the condition is checked for _true_ or _false_ value.
 If it is evaluated to _true_, _next iteration of loop starts_.
 * When the condition becomes _false_, the loop terminates which marks the end of its life cycle.
-* It is important to note that the _do-while loop_ will execute its statements at least once before any condition is checked,
-and therefore is an example of exit control loop.
+* It is important to note that the _do-while loop_ will execute its statements at least once before any condition is checked, and therefore is an example of exit control loop.
 
 [NOTE]
-=====
+====
 link:loops.examples/DoWhile.java[Here] you can find an example.
-=====
+====

@@ -3,7 +3,7 @@
  * (You can then check your solutions against the proposed solutions below)
  * <p>
  * Before solving the questions below, it is highly recommended to read/analyze the following:
- * "Streams__And_Lambda_Expressions.adoc" and StreamExamples.java
+ * "Streams_And_Lambda_Expressions.adoc" and StreamExamples.java
  * <p>
  * Question 1: Given a list of transactions, how would you use streams to find the average amount of all transactions?
  * Question 2: How would you use streams to group a list of transactions by their status (e.g., COMPLETED, PENDING)?

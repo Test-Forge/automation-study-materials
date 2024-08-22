@@ -13,7 +13,7 @@ Java's final class is a class that cannot be inherited, so it's possible to decl
 * As a Java class inherits or implements all the methods from an abstract class or an interface, it can also be called a _100% implemented class_ in Java.
 Java methods from classes are inherited or completely implemented from abstract classes or interfaces, which helps achieve 100% abstraction.
 
-=== Java Abstraction vs. Java Classes
+== Java Abstraction vs. Java Classes
 .Differences between Abstract and Java classes
 |===
 |Abstract class in Java |Java class in Java
